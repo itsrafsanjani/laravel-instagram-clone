@@ -64,6 +64,6 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect(route('profile.show', auth()->id()));
+        return redirect(route('profiles.show', auth()->id()));
     }
 }

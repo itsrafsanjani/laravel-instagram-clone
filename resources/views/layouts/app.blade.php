@@ -19,7 +19,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-top navbar-expand-md navbar-light sticky-top bg-secondary border-bottom">
+    <nav class="navbar navbar-top navbar-expand-md navbar-light sticky-top bg-white border-bottom shadow-sm">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div><img src="{{ asset('/svg/laragram.svg') }}" style="height: 20px; border-right: 1px solid #333;"

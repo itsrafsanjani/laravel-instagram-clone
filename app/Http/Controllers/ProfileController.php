@@ -64,10 +64,19 @@ class ProfileController extends Controller
         if (request('image')) {
             $imagePath = request('image')->store('profile', 'public');
 
-            $image = Image::make(public_path("/storage/{$imagePath}"))->fit(1000, 1000);
+            $image = Image::make(public_path("/storage/{$imagePath}"))->fit(1080, 1080, function ($constraint) {
+                $constraint->upsize();
+            });
+
+            $oldProfileImage = public_path($user->profile->image);
+
             $image->save();
 
             $imageArray = ['image' => '/storage/'.$imagePath];
+
+            if (file_exists($oldProfileImage)) {
+                @unlink($oldProfileImage);
+            }
         }
 
         auth()->user()->profile->update(array_merge(
