@@ -37,7 +37,7 @@
                                             <!-- Avatar -->
                                             <a href="#" class="avatar rounded-circle">
                                                 <img alt="Image placeholder"
-                                                     src="{{ !empty($profile->profileImage()) ? $profile->profileImage() : 'https://ui-avatars.com/api/?name=' . $profile->title }}"
+                                                     src="{{ $profile->profileImage() }}"
                                                      style="height: 50px">
                                             </a>
                                         </div>

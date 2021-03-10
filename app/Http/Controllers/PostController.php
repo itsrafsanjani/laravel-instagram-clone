@@ -40,12 +40,13 @@ class PostController extends Controller
         });
         $image->save();
 
-        auth()->user()->posts()->create([
+        $user = auth()->user();
+        $user->posts()->create([
             'caption' => $data['caption'],
-            'image' => $imagePath,
+            'image' => '/storage/'.$imagePath,
         ]);
 
-        return redirect('/profile/' . auth()->user()->id);
+        return redirect()->route('profiles.show', $user);
     }
 
     public function show(Post $post)

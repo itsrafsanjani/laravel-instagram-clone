@@ -15,9 +15,9 @@ class Profile extends Model
 
     public function profileImage()
     {
-        $imagePath = ($this->image) ? $this->image : 'profile/JNiNHZYPax0bk1mZWBDuZbvKfghk7OsZRJjsTrXO.png';
+        $imagePath = ($this->image) ? $this->image : 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email))) . '?s=200';;
 
-        return '/storage/' . $imagePath;
+        return $imagePath;
     }
 
     public function followers()

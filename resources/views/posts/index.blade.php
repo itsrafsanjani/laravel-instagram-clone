@@ -7,7 +7,7 @@
                 <div class="col-md-6 mx-auto">
                     <div class="card">
                         <a href="/p/{{ $post->id }}">
-                            <img class="card-img-top lazy" data-src="/storage/{{ $post->image }}">
+                            <img class="card-img-top lazy" data-src="{{ $post->image }}">
                         </a>
 
                         <div class="card-body">

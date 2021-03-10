@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-3 p-md-5 px-5 py-2">
                 <img
-                    src="{{ !empty($user->profile->profileImage()) ? $user->profile->profileImage() : 'https://ui-avatars.com/api/?name=' . $user->username }}"
+                    src="{{ $user->profile->profileImage() }}"
                     class="rounded-circle w-100">
             </div>
             <div class="col-md-9 pt-5">
@@ -43,7 +43,7 @@
             @forelse($user->posts as $post)
                 <div class="col-md-4 pb-4">
                     <a href="/p/{{ $post->id }}">
-                        <img class="lazy w-100" data-src="/storage/{{ $post->image }}">
+                        <img class="lazy w-100 rounded" data-src="{{ $post->image }}">
                     </a>
                 </div>
             @empty
