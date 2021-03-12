@@ -1,9 +1,11 @@
 ### LaraGram - Laravel Instagram Clone
 
+> git clone this_repository_url
+
 > Run this commands:
 
 ```sh
-cp env.example to .env
+cp .env.example .env
 ```
 
 > Configure `.env` file
