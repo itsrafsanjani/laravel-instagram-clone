@@ -8,18 +8,6 @@ $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip()
     })
 
-    let likeBtn = e => {
-        // like button
-        $('.likeBtn')
-            .css('cursor', 'pointer')
-            .click(function () {
-                $(this).toggleClass('far');
-                $(this).toggleClass('fas');
-            });
-    }
-
-    likeBtn();
-
     let lazyLoading = e => {
         $('.lazy').Lazy();
     }
@@ -37,8 +25,6 @@ $(document).ready(function() {
             contentSelector: 'div.infinite-scroll',
             callback: function () {
                 $('ul.pagination').remove();
-
-                likeBtn();
 
                 lazyLoading();
             }

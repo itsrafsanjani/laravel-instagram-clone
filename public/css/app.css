@@ -27657,3 +27657,7 @@ pre > code.highlight {
   -webkit-text-fill-color: transparent;
 }
 
+.likeBtn {
+  cursor: pointer;
+}
+

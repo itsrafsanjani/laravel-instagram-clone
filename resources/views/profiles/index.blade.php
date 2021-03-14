@@ -35,7 +35,8 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
-                                            <a href="#" class="avatar rounded-circle">
+                                            <a href="{{ route('profiles.show', $profile->user) }}"
+                                               class="avatar rounded-circle">
                                                 <img alt="Image placeholder"
                                                      src="{{ $profile->profileImage() }}"
                                                      style="height: 50px">
@@ -49,7 +50,8 @@
                                             <small>Online</small>
                                         </div>
                                         <div class="col-auto">
-                                            <button type="button" class="btn btn-sm btn-primary">Follow</button>
+                                            <a href="{{ route('profiles.show', $profile->user) }}"
+                                               class="btn btn-sm btn-primary">View Profile</a>
                                         </div>
                                     </div>
                                 </li>

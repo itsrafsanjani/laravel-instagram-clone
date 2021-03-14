@@ -21,15 +21,20 @@ Route::get('/email', function () {
     return new NewUserWelcomeMail();
 });
 
-Route::post('follows/{user}', 'FollowController@store');
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('follows/{user}', 'FollowController@store');
+    Route::post('likes/{post}', 'PostController@storeLike');
 
-Route::get('/', 'PostController@index');
-Route::get('/p/create', 'PostController@create')->name('posts.create');
-Route::post('/p', 'PostController@store');
-Route::get('/p/{post}', 'PostController@show');
-Route::delete('/p/{post}', 'PostController@destroy')->name('posts.destroy');
+    Route::get('/', 'PostController@index');
+    Route::get('/p/create', 'PostController@create')->name('posts.create');
+    Route::post('/p', 'PostController@store');
+    Route::get('/p/{post}', 'PostController@show');
+    Route::delete('/p/{post}', 'PostController@destroy')->name('posts.destroy');
 
-Route::get('/profiles', 'ProfileController@index')->name('profiles.index');
-Route::get('/profiles/{user}', 'ProfileController@show')->name('profiles.show');
-Route::get('/profiles/{user}/edit', 'ProfileController@edit')->name('profiles.edit');
-Route::patch('/profiles/{user}', 'ProfileController@update')->name('profiles.update');
+    Route::get('/profiles', 'ProfileController@index')->name('profiles.index');
+    Route::get('/profiles/{user}', 'ProfileController@show')->name('profiles.show');
+    Route::get('/profiles/{user}/edit', 'ProfileController@edit')->name('profiles.edit');
+    Route::patch('/profiles/{user}', 'ProfileController@update')->name('profiles.update');
+});
+
+

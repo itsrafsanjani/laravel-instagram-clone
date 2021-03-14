@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Like;
 use App\Post;
+use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         $users = auth()->user()->following()->pluck('profiles.user_id');
 
-        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(100);
+        $posts = Post::with('user', 'user.profile', 'likes', 'user.likes')->whereIn('user_id', $users)->latest()->paginate(20);
 
         return view('posts.index', compact('posts'));
     }
@@ -43,7 +40,7 @@ class PostController extends Controller
         $user = auth()->user();
         $user->posts()->create([
             'caption' => $data['caption'],
-            'image' => '/storage/'.$imagePath,
+            'image' => '/storage/' . $imagePath,
         ]);
 
         return redirect()->route('profiles.show', $user);
@@ -64,6 +61,22 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect(route('profiles.show', auth()->id()));
+        return redirect(route('profiles.show', auth()->user()));
+    }
+
+    public function storeLike(Request $request, Post $post)
+    {
+        $likeCheck = Like::where(['user_id' => auth()->id(), 'post_id' => $post->id])->first();
+
+        if ($likeCheck) {
+            Like::where(['user_id' => auth()->id(), 'post_id' => $post->id])->delete();
+            return response('deleted', 200);
+        } else {
+            $like = Like::create([
+                'user_id' => auth()->id(),
+                'post_id' => $post->id
+            ]);
+            return response($like, 200);
+        }
     }
 }

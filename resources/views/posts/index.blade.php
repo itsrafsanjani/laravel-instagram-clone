@@ -23,7 +23,9 @@
                                     </div>
                                    '
                                 >{{ $post->user->username }}</a>
-                                <i class="far fa-heart text-danger likeBtn" data-toggle="tooltip" title="Like"></i>
+                                <like-button :post-id="{{ $post->id }}" :user="{{ auth()->user() }}"
+                                             :likes="{{ $post->likes->count() }}"
+                                             like-status="{{ $post->isLikedBy(auth()->user()) }}"></like-button>
                             </div>
                             <h5 class="h2 card-title mb-0">{{ $post->caption }}</h5>
                             <small class="text-muted" data-toggle="tooltip" data-placement="top"
