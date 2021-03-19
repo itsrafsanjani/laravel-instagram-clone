@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Like;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
@@ -39,6 +40,7 @@ class PostController extends Controller
 
         $user = auth()->user();
         $user->posts()->create([
+            'slug' => Str::random(12),
             'caption' => $data['caption'],
             'image' => '/storage/' . $imagePath,
         ]);

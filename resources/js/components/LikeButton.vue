@@ -8,7 +8,7 @@
 <script>
 export default {
     props: [
-        'postId',
+        'postSlug',
         'user',
         'likes',
         'likeStatus'
@@ -34,7 +34,7 @@ export default {
     methods: {
         likeIt() {
             if (this.user) {
-                axios.post("/likes/" + this.postId)
+                axios.post("/likes/" + this.postSlug)
                     .then((response) => {
                         if (response.data === 'deleted') {
                             this.likeCount -= 1;
@@ -53,8 +53,8 @@ export default {
                 window.location = 'login'
             }
 
-            console.log(this.postId);
-            console.log("like-button clicked");
+            // console.log(this.postSlug);
+            // console.log("like-button clicked");
         },
     },
 

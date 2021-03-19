@@ -15,20 +15,20 @@ use App\Mail\NewUserWelcomeMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/email', function () {
+Route::get('/welcome-email', function () {
     return new NewUserWelcomeMail();
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('follows/{user}', 'FollowController@store');
     Route::post('likes/{post}', 'PostController@storeLike');
 
-    Route::get('/', 'PostController@index');
+    Route::get('/', 'PostController@index')->name('posts.index');
     Route::get('/p/create', 'PostController@create')->name('posts.create');
-    Route::post('/p', 'PostController@store');
-    Route::get('/p/{post}', 'PostController@show');
+    Route::post('/p', 'PostController@store')->name('posts.store');
+    Route::get('/p/{post}', 'PostController@show')->name('posts.show');
     Route::delete('/p/{post}', 'PostController@destroy')->name('posts.destroy');
 
     Route::get('/profiles', 'ProfileController@index')->name('profiles.index');

@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         @can('update', $post->user->profile)
-                            <form action="{{ route('posts.destroy', $post->id) }}" method="post" class="ml-3"
+                            <form action="{{ route('posts.destroy', $post) }}" method="post" class="ml-3"
                                   onsubmit="return confirm('Are you sure to delete the post?')">
                                 @csrf
                                 @method('DELETE')

@@ -44,7 +44,7 @@
         <div class="row pt-5 mx-auto">
             @forelse($user->posts as $post)
                 <div class="col-md-4 pb-4">
-                    <a href="/p/{{ $post->id }}">
+                    <a href="{{ route('posts.show', $post) }}">
                         <img class="lazy w-100 rounded" data-src="{{ $post->image }}">
                     </a>
                 </div>

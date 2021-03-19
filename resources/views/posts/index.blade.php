@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-6 mx-auto">
                     <div class="card" style="box-shadow: 0 1px 2px #00000033;">
-                        <a href="/p/{{ $post->id }}">
+                        <a href="{{ route('posts.show', $post) }}">
                             <img class="card-img-top lazy" data-src="{{ $post->image }}">
                         </a>
 
@@ -23,7 +23,7 @@
                                     </div>
                                    '
                                 >{{ $post->user->username }}</a>
-                                <like-button :post-id="{{ $post->id }}" :user="{{ auth()->user() }}"
+                                <like-button post-slug="{{ $post->slug }}" :user="{{ auth()->user() }}"
                                              :likes="{{ $post->likes->count() }}"
                                              like-status="{{ $post->isLikedBy(auth()->user()) }}"></like-button>
                             </div>

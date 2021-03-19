@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form action="/p" enctype="multipart/form-data" method="post">
+        <form action="{{ route('posts.store') }}" enctype="multipart/form-data" method="post">
             @csrf
 
             <div class="row">
