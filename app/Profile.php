@@ -8,6 +8,8 @@ class Profile extends Model
 {
     protected $guarded = [];
 
+    protected $with = ['user'];
+
     public function getRouteKeyName()
     {
         return 'username';
