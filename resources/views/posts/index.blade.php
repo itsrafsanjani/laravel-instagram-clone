@@ -7,7 +7,7 @@
                 <div class="col-md-6 mx-auto">
                     <div class="card" style="box-shadow: 0 1px 2px #00000033;">
                         <a href="{{ route('posts.show', $post) }}">
-                            <img class="card-img-top lazy" data-src="{{ $post->image }}">
+                            <img class="card-img-top lazy" data-src="{{ $post->image() }}">
                         </a>
 
                         <div class="card-body">

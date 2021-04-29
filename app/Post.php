@@ -29,4 +29,9 @@ class Post extends Model
             ->where('post_id', $this->id)
             ->all();
     }
+
+    public function image()
+    {
+        return str_replace('/upload/', '/upload/w_400,h_400,c_fill,g_faces/', $this->image);
+    }
 }

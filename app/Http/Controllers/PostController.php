@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Like;
 use App\Post;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -24,25 +25,27 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $data = request()->validate([
             'caption' => 'required|max:255',
             'image' => ['required', 'image'],
         ]);
 
-        $imagePath = request('image')->store('uploads', 'public');
+//        $imagePath = request('image')->store('uploads', 'public');
+//
+//        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1080, 1080, function ($constraint) {
+//            $constraint->upsize();
+//        });
+//        $image->save();
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1080, 1080, function ($constraint) {
-            $constraint->upsize();
-        });
-        $image->save();
+        $imagePath = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
 
         $user = auth()->user();
         $user->posts()->create([
             'slug' => Str::random(12),
             'caption' => $data['caption'],
-            'image' => '/storage/' . $imagePath,
+            'image' => $imagePath,
         ]);
 
         return redirect()->route('profiles.show', $user);
@@ -66,19 +69,19 @@ class PostController extends Controller
         return redirect(route('profiles.show', auth()->user()));
     }
 
-    public function storeLike(Request $request, Post $post)
+    public function storeLike(Post $post)
     {
         $likeCheck = Like::where(['user_id' => auth()->id(), 'post_id' => $post->id])->first();
 
         if ($likeCheck) {
             Like::where(['user_id' => auth()->id(), 'post_id' => $post->id])->delete();
-            return response('deleted', 200);
+            return response('deleted');
         } else {
             $like = Like::create([
                 'user_id' => auth()->id(),
                 'post_id' => $post->id
             ]);
-            return response($like, 200);
+            return response($like);
         }
     }
 }
