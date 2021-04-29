@@ -17,7 +17,7 @@ class Profile extends Model
 
     public function profileImage()
     {
-        $imagePath = ($this->image) ? $this->image : 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email))) . '?s=200';;
+        $imagePath = $this->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email))) . '?s=200';;
 
         return $imagePath;
     }
