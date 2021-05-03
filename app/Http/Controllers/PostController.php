@@ -39,7 +39,9 @@ class PostController extends Controller
 //        });
 //        $image->save();
 
-        $imagePath = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
+            'folder' => 'laragram/images',
+        ])->getSecurePath();
 
         $user = auth()->user();
         $user->posts()->create([

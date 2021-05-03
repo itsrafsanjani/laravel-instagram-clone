@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use App\User;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
@@ -34,7 +36,7 @@ class ProfileController extends Controller
         return view('profiles.edit', compact('user'));
     }
 
-    public function update(User $user)
+    public function update(User $user, Request $request)
     {
         $this->authorize('update', $user->profile);
 
@@ -46,21 +48,31 @@ class ProfileController extends Controller
         ]);
 
         if (request('image')) {
-            $imagePath = request('image')->store('profile', 'public');
+//            $imagePath = request('image')->store('profile', 'public');
+//
+//            $image = Image::make(public_path("/storage/{$imagePath}"))->fit(1080, 1080, function ($constraint) {
+//                $constraint->upsize();
+//            });
 
-            $image = Image::make(public_path("/storage/{$imagePath}"))->fit(1080, 1080, function ($constraint) {
-                $constraint->upsize();
-            });
+            $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
+                'folder' => 'laragram/avatar',
+                'transformation' => [
+                    'gravity' => 'face',
+                    'width' => 400,
+                    'height' => 400,
+                    'crop' => 'crop'
+                ]
+            ])->getSecurePath();
 
-            $oldProfileImage = public_path($user->profile->image);
+//            $oldProfileImage = public_path($user->profile->image);
 
-            $image->save();
+//            $image->save();
 
-            $imageArray = ['image' => '/storage/' . $imagePath];
+            $imageArray = ['image' => $imagePath];
 
-            if (file_exists($oldProfileImage)) {
-                @unlink($oldProfileImage);
-            }
+//            if (file_exists($oldProfileImage)) {
+//                @unlink($oldProfileImage);
+//            }
         }
 
         auth()->user()->profile->update(array_merge(
