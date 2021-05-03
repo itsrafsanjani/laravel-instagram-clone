@@ -60,7 +60,7 @@ class ProfileController extends Controller
                     'gravity' => 'face',
                     'width' => 400,
                     'height' => 400,
-                    'crop' => 'crop'
+                    'crop' => 'fill'
                 ]
             ])->getSecurePath();
 
