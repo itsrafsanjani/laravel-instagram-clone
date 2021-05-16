@@ -12,7 +12,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $profiles = Profile::with('user', 'followers')->paginate(10);
+        $profiles = Profile::with('user', 'followers')->paginate(20);
         return view('profiles.index', compact('profiles'));
     }
 
