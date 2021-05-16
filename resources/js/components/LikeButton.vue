@@ -15,8 +15,8 @@ export default {
     ],
 
     mounted() {
-        console.log("FollowButton Component mounted.");
-        console.log("like status" + this.likeStatus)
+        // console.log("FollowButton Component mounted.");
+        // console.log("like status" + this.likeStatus)
     },
 
     data: function () {

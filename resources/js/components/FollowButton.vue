@@ -13,7 +13,7 @@ export default {
     props: ["username", "follows"],
 
     mounted() {
-        console.log("FollowButton Component mounted.");
+        // console.log("FollowButton Component mounted.");
     },
 
     data: function () {
