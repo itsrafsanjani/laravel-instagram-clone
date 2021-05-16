@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mb-3">
-                <img src="{{ $post->image }}" class="w-100 rounded">
+                <img src="{{ $post->image }}" class="w-100 rounded" alt="{{ $post->caption }}">
             </div>
             <div class="col-md-4">
                 <div>
@@ -12,7 +12,7 @@
                         <div class="pr-3">
                             <a href="{{ route('profiles.show', $post->user) }}">
                                 <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle w-100"
-                                     style="max-width: 40px;">
+                                     style="max-width: 40px;" alt="{{ $post->user->username }}">
                             </a>
                         </div>
                         <div>

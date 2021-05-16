@@ -6,7 +6,7 @@
             <div class="col-md-3 p-md-5 px-5 py-2">
                 <img
                     src="{{ $user->profile->profileImage() }}"
-                    class="rounded-circle w-100">
+                    class="rounded-circle w-100" alt="{{ $user->username }}">
             </div>
             <div class="col-md-9 pt-5">
                 <div class="d-flex justify-content-between align-items-baseline mb-2">
@@ -45,7 +45,8 @@
             @forelse($user->posts as $post)
                 <div class="col-md-4 pb-4">
                     <a href="{{ route('posts.show', $post) }}">
-                        <img class="lazy w-100 rounded" data-src="{{ $post->image() }}" alt="{{ $post->title }}">
+                        <img class="lazy w-100 rounded" data-src="{{ $post->image() }}" alt="{{ $post->title }}"
+                             src="{{ $post->caption }}">
                     </a>
                 </div>
             @empty

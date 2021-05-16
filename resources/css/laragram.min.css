@@ -6370,6 +6370,8 @@ a.close.disabled {
     }
 }
 
+/* purgecss start ignore */
+
 .tooltip {
     font-family: Open Sans, sans-serif;
     font-size: .875rem;
@@ -6643,6 +6645,8 @@ a.close.disabled {
     padding: .5rem .95rem;
     color: #525f7f
 }
+
+/* purgecss end ignore */
 
 .carousel {
     position: relative

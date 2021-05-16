@@ -1,6 +1,8 @@
 <template>
     <div>
-        {{ likeCount }} <i @click.prevent="likeIt"  :class="status == 1 ? 'fas fa-heart text-danger likeBtn' : 'far fa-heart text-danger likeBtn'" data-toggle="tooltip"
+        {{ likeCount }} <i @click.prevent="likeIt"
+                           :class="status == 1 ? 'fas fa-heart text-danger likeBtn' : 'far fa-heart text-danger likeBtn'"
+                           data-toggle="tooltip"
                            title="Like"></i>
     </div>
 </template>
