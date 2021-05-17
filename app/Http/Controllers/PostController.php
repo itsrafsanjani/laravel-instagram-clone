@@ -39,15 +39,43 @@ class PostController extends Controller
 //        });
 //        $image->save();
 
-        $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
-            'folder' => 'laragram/images',
-        ])->getSecurePath();
+        /**
+         * Cloudinary
+         */
+//        $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
+//            'folder' => 'laragram/images',
+//            'transformation' => [
+//                'gravity' => 'face',
+//                'width' => 1080,
+//                'height' => 1350,
+//                'crop' => 'fill'
+//            ]
+//        ])->getSecurePath();
+
+        $width = 1080;
+        $height = 1080;
+
+        $image = $request->file('image');
+        $extension = $image->getClientOriginalExtension();
+        $imageName = Str::uuid() . '.' . $extension;
+        $imagePath = $image->storeAs('uploads', $imageName, 'public');
+        $img = Image::make(public_path("storage/{$imagePath}"));
+
+        // Resized image
+        $img->resize($width, $height, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
+        // Canvas image
+        $canvas = Image::canvas($width, $height, '#ffffff');
+        $canvas->insert($img, 'center');
+        $canvas->save(public_path("storage/{$imagePath}"));
 
         $user = auth()->user();
         $user->posts()->create([
             'slug' => Str::random(12),
             'caption' => $data['caption'],
-            'image' => $imagePath,
+            'image' => '/storage/uploads/'.$imageName,
         ]);
 
         return redirect()->route('profiles.show', $user);
