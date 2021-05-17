@@ -64,7 +64,6 @@ class PostController extends Controller
         // Resized image
         $img->resize($width, $height, function ($constraint) {
             $constraint->aspectRatio();
-            $constraint->upsize();
         });
         // Canvas image
         $canvas = Image::canvas($width, $height, '#ffffff');
