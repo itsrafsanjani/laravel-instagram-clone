@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d57e7937ca863124798bca6e3aa599d0",
+    "content-hash": "25de97f2695ab344c96cb3231bcb5a71",
     "packages": [
         {
             "name": "cloudinary-labs/cloudinary-laravel",
@@ -8191,7 +8191,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4|^8.0"
+        "php": "^7.4|^8.0",
+        "ext-gd": "^7.4"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
