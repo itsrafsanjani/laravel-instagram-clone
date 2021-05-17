@@ -45,8 +45,7 @@
             @forelse($user->posts as $post)
                 <div class="col-md-4 pb-4">
                     <a href="{{ route('posts.show', $post) }}">
-                        <img class="lazy w-100 rounded" data-src="{{ $post->image() }}" alt="{{ $post->title }}"
-                             src="{{ $post->caption }}">
+                        <img class="lazy w-100 rounded" data-src="{{ $post->image() }}" alt="{{ $post->title }}">
                     </a>
                 </div>
             @empty
