@@ -42,39 +42,40 @@ class PostController extends Controller
         /**
          * Cloudinary
          */
-//        $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
-//            'folder' => 'laragram/images',
-//            'transformation' => [
-//                'gravity' => 'face',
-//                'width' => 1080,
-//                'height' => 1350,
-//                'crop' => 'fill'
-//            ]
-//        ])->getSecurePath();
+        $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
+            'folder' => 'laragram/images',
+            'transformation' => [
+                'background' => 'white',
+                'height' => 1080,
+                'width' => 1080,
+                'crop' => 'pad'
+            ]
+        ])->getSecurePath();
 
-        $width = 1080;
-        $height = 1080;
-
-        $image = $request->file('image');
-        $extension = $image->getClientOriginalExtension();
-        $imageName = Str::uuid() . '.' . $extension;
-        $imagePath = $image->storeAs('posts', $imageName, 'uploads');
-        $img = Image::make(public_path("uploads/{$imagePath}"));
-
-        // Resized image
-        $img->resize($width, $height, function ($constraint) {
-            $constraint->aspectRatio();
-        });
-        // Canvas image
-        $canvas = Image::canvas($width, $height, '#ffffff');
-        $canvas->insert($img, 'center');
-        $canvas->save(public_path("uploads/{$imagePath}"));
+//        $width = 1080;
+//        $height = 1080;
+//
+//        $image = $request->file('image');
+//        $extension = $image->getClientOriginalExtension();
+//        $imageName = Str::uuid() . '.' . $extension;
+//        $imagePath = $image->storeAs('images', $imageName, 'uploads');
+//        $img = Image::make(public_path("uploads/{$imagePath}"));
+//
+//        // Resized image
+//        $img->resize($width, $height, function ($constraint) {
+//            $constraint->aspectRatio();
+//        });
+//        // Canvas image
+//        $canvas = Image::canvas($width, $height, '#ffffff');
+//        $canvas->insert($img, 'center');
+//        $canvas->save(public_path("uploads/{$imagePath}"));
+//        $imagePath = '/uploads/images/' . $imageName;
 
         $user = auth()->user();
         $user->posts()->create([
             'slug' => Str::random(12),
             'caption' => $data['caption'],
-            'image' => '/uploads/posts/' . $imageName,
+            'image' => $imagePath,
         ]);
 
         return redirect()->route('profiles.show', $user);

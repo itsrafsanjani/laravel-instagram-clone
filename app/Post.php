@@ -32,6 +32,6 @@ class Post extends Model
 
     public function image()
     {
-        return str_replace('/upload/', '/upload/w_400,h_400,c_fill,g_faces/', $this->image);
+        return $this->image;
     }
 }

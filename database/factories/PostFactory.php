@@ -9,9 +9,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
-        'user_id' => random_int(1,10),
+        'user_id' => User::all()->random()->id,
         'slug' => Str::random(12),
         'caption' => 'My first upload..',
-        'image' => '/storage/uploads/QdpAZYcRxRFe06OvlEQKsSVD4DfL1hvf7AAzFxjA.jpg'
+        'image' => '/storage/uploads/image.jpg'
     ];
 });

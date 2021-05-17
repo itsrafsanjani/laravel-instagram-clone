@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,9 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//         $this->call(UserSeeder::class);
-//         $this->call(PostSeeder::class);
-        factory(\App\User::class, 10)->create();
-        factory(\App\Post::class, 10)->create();
+        $this->call(UserSeeder::class);
+        $this->call(PostSeeder::class);
+        factory(User::class, 10)->create();
+        factory(Post::class, 10)->create();
     }
 }
