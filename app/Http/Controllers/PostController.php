@@ -58,8 +58,8 @@ class PostController extends Controller
         $image = $request->file('image');
         $extension = $image->getClientOriginalExtension();
         $imageName = Str::uuid() . '.' . $extension;
-        $imagePath = $image->storeAs('uploads', $imageName, 'public');
-        $img = Image::make(public_path("storage/{$imagePath}"));
+        $imagePath = $image->storeAs('posts', $imageName, 'uploads');
+        $img = Image::make(public_path("uploads/{$imagePath}"));
 
         // Resized image
         $img->resize($width, $height, function ($constraint) {
@@ -69,13 +69,13 @@ class PostController extends Controller
         // Canvas image
         $canvas = Image::canvas($width, $height, '#ffffff');
         $canvas->insert($img, 'center');
-        $canvas->save(public_path("storage/{$imagePath}"));
+        $canvas->save(public_path("uploads/{$imagePath}"));
 
         $user = auth()->user();
         $user->posts()->create([
             'slug' => Str::random(12),
             'caption' => $data['caption'],
-            'image' => '/storage/uploads/'.$imageName,
+            'image' => '/uploads/posts/' . $imageName,
         ]);
 
         return redirect()->route('profiles.show', $user);
