@@ -48,7 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
         static::created(function ($user) {
             $user->profile()->create([
-                'title' => $user->username,
+                'username' => $user->username,
             ]);
 
 //            Mail::to($user->email)->send(new NewUserWelcomeMail());
@@ -72,6 +72,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function likes()
     {
-        return $this->hasMany(Like::class);
+        return $this->hasMany(Like::class)->where('status', 1);
     }
 }

@@ -20,7 +20,7 @@ class Post extends Model
 
     public function likes()
     {
-        return $this->hasMany(Like::class);
+        return $this->hasMany(Like::class)->where('status', 1);
     }
 
     public function isLikedBy(User $user): bool

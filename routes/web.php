@@ -23,7 +23,7 @@ Route::get('/welcome-email', function () {
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('follows/{user}', 'FollowController@store');
-    Route::post('likes/{post}', 'PostController@storeLike');
+    Route::post('likes/{post}', 'PostController@like');
 
     Route::get('/', 'PostController@index')->name('posts.index');
     Route::get('/p/create', 'PostController@create')->name('posts.create');

@@ -15,19 +15,6 @@ class Profile extends Model
         return 'username';
     }
 
-    public function profileImage()
-    {
-        $imageSize = 200;
-
-        if (request()->is('profiles/*')) {
-            $imageSize = 400;
-        }
-
-        $imagePath = $this->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email))) . '?s=' . $imageSize;
-
-        return $imagePath;
-    }
-
     public function followers()
     {
         return $this->belongsToMany(User::class);
@@ -36,5 +23,16 @@ class Profile extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function profileImage()
+    {
+        $imageSize = 200;
+
+        if (request()->is('profiles/*')) {
+            $imageSize = 400;
+        }
+
+        return $this->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email))) . '?s=' . $imageSize;
     }
 }

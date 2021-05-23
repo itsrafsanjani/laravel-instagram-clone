@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Like;
 use App\Post;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Exception;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
@@ -25,7 +27,7 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $data = request()->validate([
             'caption' => 'required|max:255',
@@ -86,6 +88,9 @@ class PostController extends Controller
         return view('posts.show', compact('post'));
     }
 
+    /**
+     * @throws Exception
+     */
     public function destroy(Post $post)
     {
         $postImage = public_path('/storage/' . $post->image);
@@ -99,19 +104,27 @@ class PostController extends Controller
         return redirect(route('profiles.show', auth()->user()));
     }
 
-    public function storeLike(Post $post)
+    public function like(Post $post): JsonResponse
     {
         $likeCheck = Like::where(['user_id' => auth()->id(), 'post_id' => $post->id])->first();
 
         if ($likeCheck) {
-            Like::where(['user_id' => auth()->id(), 'post_id' => $post->id])->delete();
-            return response('deleted');
+            if ($likeCheck->status == true) {
+                $likeCheck->update(['status' => 0]);
+
+                return response()->json('deleted');
+            } else {
+                $likeCheck->update(['status' => 1]);
+                return response()->json('liked');
+            }
+
         } else {
-            $like = Like::create([
+            Like::create([
                 'user_id' => auth()->id(),
-                'post_id' => $post->id
+                'post_id' => $post->id,
+                'status' => 1
             ]);
-            return response($like);
+            return response()->json('liked');
         }
     }
 }

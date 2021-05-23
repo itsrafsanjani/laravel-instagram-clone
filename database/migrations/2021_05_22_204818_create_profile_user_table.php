@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreatesProfileUserPivotTable extends Migration
+class CreateProfileUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,6 +18,9 @@ class CreatesProfileUserPivotTable extends Migration
             $table->unsignedBigInteger('profile_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('profile_id')->references('id')->on('profiles');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

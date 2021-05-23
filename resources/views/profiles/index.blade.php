@@ -45,7 +45,7 @@
                                             </div>
                                             <div class="col ml--2">
                                                 <h4 class="mb-0">
-                                                    <a href="{{ route('profiles.show', $profile->user) }}">{{ $profile->title }}</a>
+                                                    <a href="{{ route('profiles.show', $profile->user) }}">{{ $profile->username }}</a>
                                                 </h4>
                                                 <span class="text-success">●</span>
                                                 <small>Online</small>
