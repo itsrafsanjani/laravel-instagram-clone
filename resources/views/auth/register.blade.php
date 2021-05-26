@@ -43,7 +43,13 @@
                             <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" autocomplete="username">
+                                <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" autocomplete="username">
+
+                                <div class="text-muted">
+                                    <small>
+                                        Choose a nice username, you won't be able to change it later! <strong><a href="{{ route('notice.username') }}">Rules!</a></strong>
+                                    </small>
+                                </div>
 
                                 @if ($errors->has('username'))
                                     <span class="invalid-feedback" role="alert">
