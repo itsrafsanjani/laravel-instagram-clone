@@ -9,11 +9,20 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $profiles = Profile::with('user', 'followers')
-            ->paginate(Profile::PAGINATE_COUNT);
-        return view('profiles.index', compact('profiles'));
+        $query = Profile::whereHas('user');
+
+        if ($request->has('q')) {
+            $query->where('username', 'like', '%' . $request->q . '%');
+        }
+
+        $query->with('user', 'followers');
+
+        return view('profiles.index', [
+            'profiles' => $query->paginate(Profile::PAGINATE_COUNT),
+            'query' => $request->q
+        ]);
     }
 
     public function show(User $user)
