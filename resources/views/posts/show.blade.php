@@ -20,7 +20,7 @@
                                 <a href="{{ route('profiles.show', $post->user) }}">
                                     <span class="text-dark">{{ $post->user->username }}</span>
                                 </a>
-                                <a href="#" class="pl-3">Follow</a>
+                                <a href="{{ route('profiles.show', $post->user) }}" class="pl-3">Follow</a>
                             </div>
                             <div class="text-muted">
                                 <span title="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</span>

@@ -17,13 +17,21 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
+Route::get('/notices/username', function () {
+    return view('notice.username');
+})->name('notice.username');
+
+Route::get('/notices/image', function () {
+    return view('notice.image');
+})->name('notice.image');
+
 Route::get('/welcome-email', function () {
     return new NewUserWelcomeMail();
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::post('follows/{user}', 'FollowController@store');
-    Route::post('likes/{post}', 'PostController@like');
+    Route::post('/follows/{user}', 'FollowController@store');
+    Route::post('/likes/{post}', 'PostController@like');
 
     Route::get('/', 'PostController@index')->name('posts.index');
     Route::get('/p/create', 'PostController@create')->name('posts.create');

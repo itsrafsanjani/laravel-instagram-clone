@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
+    const PAGINATE_COUNT = 20;
+
     protected $guarded = [];
 
     protected $with = ['user'];

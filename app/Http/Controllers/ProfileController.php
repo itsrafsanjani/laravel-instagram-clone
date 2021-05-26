@@ -6,13 +6,13 @@ use App\Profile;
 use App\User;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
     public function index()
     {
-        $profiles = Profile::with('user', 'followers')->paginate(20);
+        $profiles = Profile::with('user', 'followers')
+            ->paginate(Profile::PAGINATE_COUNT);
         return view('profiles.index', compact('profiles'));
     }
 
@@ -41,7 +41,6 @@ class ProfileController extends Controller
         $this->authorize('update', $user->profile);
 
         $data = request()->validate([
-            'title' => 'required',
             'description' => 'required',
             'url' => 'url',
             'image' => '',
@@ -57,10 +56,10 @@ class ProfileController extends Controller
             $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
                 'folder' => 'laragram/avatar',
                 'transformation' => [
-                    'gravity' => 'face',
+                    'background' => 'white',
                     'width' => 400,
                     'height' => 400,
-                    'crop' => 'fill'
+                    'crop' => 'pad'
                 ]
             ])->getSecurePath();
 

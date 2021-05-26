@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    const PAGINATE_COUNT = 20;
+
     protected $guarded = [];
 
     public function getRouteKeyName()

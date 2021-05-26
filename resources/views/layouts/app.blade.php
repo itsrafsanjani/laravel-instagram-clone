@@ -54,12 +54,17 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <img src="{{ auth()->user()->profile->profileImage() }}" alt="{{ auth()->user()->name }}" style="border-radius: 100%; height: 2em; width: 2em;">
                                 {{ Auth::user()->username }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('profiles.show', auth()->user()) }}">
                                     {{ __('My Profile') }}
+                                </a>
+
+                                <a class="dropdown-item" href="{{ route('posts.create') }}">
+                                    {{ __('Add New Post') }}
                                 </a>
 
                                 <a class="dropdown-item" href="{{ route('profiles.index') }}">
