@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mb-3">
-                <img src="{{ $post->image }}" class="w-100 rounded" alt="{{ $post->caption }}">
+                <img src="{{ asset('images/placeholder.jpg') }}" data-src="{{ $post->image }}" class="w-100 rounded lazy" alt="{{ $post->caption }}">
             </div>
             <div class="col-md-4">
                 <div>
