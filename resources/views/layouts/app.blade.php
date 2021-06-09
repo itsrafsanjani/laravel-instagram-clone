@@ -108,5 +108,28 @@
 </div>
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyAxPpkCArq0cVN89_FwaXkd5gACoCBGAts",
+        authDomain: "laragram2.firebaseapp.com",
+        projectId: "laragram2",
+        storageBucket: "laragram2.appspot.com",
+        messagingSenderId: "49536770108",
+        appId: "1:49536770108:web:6ab2e2dd4593018182e339",
+        measurementId: "G-705L5J2HZN"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
 </body>
 </html>
