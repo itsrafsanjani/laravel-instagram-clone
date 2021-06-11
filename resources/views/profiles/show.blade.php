@@ -32,8 +32,24 @@
 
                 <div class="d-flex">
                     <div class="pr-5 text-center"><strong>{{ $postCount }}</strong> posts</div>
-                    <div class="pr-5 text-center"><strong>{{ $followersCount }}</strong> followers</div>
-                    <div class="pr-5 text-center"><strong>{{ $followingCount }}</strong> following</div>
+                    <div class="pr-5 text-center">
+                        @if($followersCount > 0)
+                            <a href="{{ route('profiles.followers', $user->username) }}">
+                                <strong>{{ $followersCount }}</strong> followers
+                            </a>
+                        @else
+                            <strong>{{ $followersCount }}</strong> followers
+                        @endif
+                    </div>
+                    <div class="pr-5 text-center">
+                        @if($followingCount > 0)
+                            <a href="{{ route('profiles.followings', $user->username) }}">
+                                <strong>{{ $followingCount }}</strong> following
+                            </a>
+                        @else
+                            <strong>{{ $followingCount }}</strong> following
+                        @endif
+                    </div>
                 </div>
                 <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
                 <div>{{ $user->profile->description }}</div>
@@ -45,7 +61,8 @@
             @forelse($user->posts as $post)
                 <div class="col-md-4 pb-4">
                     <a href="{{ route('posts.show', $post) }}">
-                        <img class="lazy w-100 rounded"  src="{{ asset('images/placeholder.jpg') }}" data-src="{{ $post->image() }}" alt="{{ $post->title }}">
+                        <img class="lazy w-100 rounded" src="{{ asset('images/placeholder.jpg') }}"
+                             data-src="{{ $post->image() }}" alt="{{ $post->title }}">
                     </a>
                 </div>
             @empty

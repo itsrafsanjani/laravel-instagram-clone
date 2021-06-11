@@ -13,32 +13,7 @@
                                     <!-- Title -->
                                     <h5 class="h3 mb-0">Profiles</h5>
                                 </div>
-                                <div class="col-4 text-right">
-                                    <a href="{{ route('profiles.index') }}" class="btn btn-sm btn-neutral">Reset</a>
-                                </div>
                             </div>
-                        </div>
-                        <!-- Card search -->
-                        <div class="card-header py-0">
-                            <!-- Search form -->
-                            <form action="{{ route('profiles.index') }}" method="get">
-                                <div class="form-group mb-0">
-                                    <div class="input-group input-group-lg input-group-flush">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <span class="fas fa-search"></span>
-                                            </div>
-                                        </div>
-                                        <input
-                                            type="search"
-                                            name="q"
-                                            class="form-control"
-                                            placeholder="Search"
-                                            value="{{ $query }}"
-                                        >
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                         <!-- Card body -->
                         <div class="card-body">

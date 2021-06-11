@@ -43,6 +43,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/profiles/{user}', 'ProfileController@show')->name('profiles.show');
     Route::get('/profiles/{user}/edit', 'ProfileController@edit')->name('profiles.edit');
     Route::patch('/profiles/{user}', 'ProfileController@update')->name('profiles.update');
+    Route::get('/profiles/{username}/followings', 'ProfileController@followings')->name('profiles.followings');
+    Route::get('/profiles/{username}/followers', 'ProfileController@followers')->name('profiles.followers');
 });
 
 

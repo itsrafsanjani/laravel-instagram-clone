@@ -90,4 +90,26 @@ class ProfileController extends Controller
 
         return redirect()->route('profiles.show', $user);
     }
+
+    public function followings($username)
+    {
+        $profiles = User::where('username', $username)
+            ->first()
+            ->following()
+            ->paginate(Profile::PAGINATE_COUNT);
+
+        return view('profiles.followings', compact('profiles'));
+    }
+
+    public function followers($username)
+    {
+        $users = User::where('username', $username)
+            ->first()
+            ->profile
+            ->followers()
+            ->with('profile')
+            ->paginate(User::PAGINATE_COUNT);
+
+        return view('profiles.followers', compact('users'));
+    }
 }

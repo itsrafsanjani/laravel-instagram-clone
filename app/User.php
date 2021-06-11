@@ -10,6 +10,8 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
+    const PAGINATE_COUNT = 20;
+
     public function getRouteKeyName()
     {
         return 'username';
