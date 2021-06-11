@@ -22,8 +22,8 @@
         "barryvdh/laravel-ide-helper": "^2.8",
         "beyondcode/laravel-dump-server": "^1.0",
         "beyondcode/laravel-query-detector": "^1.5",
+        "facade/ignition": "^2.10",
         "fakerphp/faker": "^1.14",
-        "filp/whoops": "^2.0",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.0"
