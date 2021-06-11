@@ -35,6 +35,6 @@ class Profile extends Model
             $imageSize = 400;
         }
 
-        return $this->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email))) . '?s=' . $imageSize;
+        return $this->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email ?? ''))) . '?s=' . $imageSize;
     }
 }
