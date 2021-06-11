@@ -25,7 +25,7 @@
                                                name="caption"
                                                value="{{ old('caption') }}"
                                                placeholder="My beautiful caption..."
-                                               autocomplete="caption" autofocus>
+                                               autocomplete="caption" autofocus required>
 
                                         @if ($errors->has('caption'))
                                             <span class="invalid-feedback" role="alert">
@@ -34,12 +34,15 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="image">Post Image</label>
+                                    <div class="custom-file">
+                                        <label class="custom-file-label" for="image"></label>
+                                        <input type="file"
+                                               class="custom-file-input"
+                                               id="image"
+                                               name="image"
+                                               oninput="document.getElementById('pic').src=window.URL.createObjectURL(this.files[0])"
+                                               required>
 
-                                        <input type="file" class="form-control-file" id="image" name="image" oninput="document.getElementById('pic').src=window.URL.createObjectURL(this.files[0])">
-
-                                        <img id="pic" class="img-thumbnail my-3" alt=""/>
                                         @if ($errors->has('image'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('image') }}</strong>
@@ -47,10 +50,13 @@
                                         @endif
                                     </div>
 
+                                    <div>
+                                        <img id="pic" class="img-thumbnail my-3" alt=""/>
+                                    </div>
+
                                     <div class="form-group text-center">
                                         <button class="btn btn-primary">Add New Post</button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

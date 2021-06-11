@@ -32,11 +32,11 @@ class PostController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+
         $data = request()->validate([
             'caption' => 'required|max:255',
-            'image' => ['required', 'image'],
+            'image' => 'required|image',
         ]);
-
 //        $imagePath = request('image')->store('uploads', 'public');
 //
 //        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1080, 1080, function ($constraint) {
