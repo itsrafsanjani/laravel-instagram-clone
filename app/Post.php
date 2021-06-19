@@ -2,10 +2,13 @@
 
 namespace App;
 
+use BeyondCode\Comments\Traits\HasComments;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    use HasComments;
+
     const PAGINATE_COUNT = 20;
 
     protected $guarded = [];
