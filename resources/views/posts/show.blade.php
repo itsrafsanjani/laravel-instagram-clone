@@ -48,6 +48,10 @@
                     </span> {{ $post->caption }}
                     </p>
                 </div>
+
+                <!-- Comments -->
+            @include('posts.comments.index')
+            <!-- Comments End -->
             </div>
         </div>
     </div>

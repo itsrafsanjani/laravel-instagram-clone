@@ -19,7 +19,7 @@ class PostController extends Controller
 
         $posts = Post::with([
             'user', 'user.profile', 'likes', 'user.likes', 'comments' => function ($query) {
-                $query->take(2);
+                $query->with('commentator')->orderBy('id', 'desc')->get();
             }
         ])
             ->withCount('comments')
@@ -93,6 +93,12 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        $comments = $post->load([
+            'comments' => function ($query) {
+                $query->with('commentator')->orderBy('id', 'desc')->get();
+            }
+        ])->loadCount('comments');
+
         return view('posts.show', compact('post'));
     }
 

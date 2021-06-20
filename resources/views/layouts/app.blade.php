@@ -108,6 +108,7 @@
 </div>
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
 
@@ -131,5 +132,7 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 </script>
+
+@stack('scripts')
 </body>
 </html>

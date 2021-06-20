@@ -35,7 +35,7 @@
                         </div>
 
                         <!-- Comments -->
-                    @include('posts.comments.index')
+                    @include('posts.comments.index', $post)
                     <!-- Comments End -->
 
                         <!-- New Comment Box -->
