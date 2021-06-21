@@ -6,7 +6,7 @@ return [
      * The comment class that should be used to store and retrieve
      * the comments.
      */
-    'comment_class' => \BeyondCode\Comments\Comment::class,
+    'comment_class' => \App\Comment::class,
 
     /*
      * The user model that should be used when associating comments with
