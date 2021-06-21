@@ -15292,8 +15292,6 @@ a.text-darker:hover {
 
 .alert-notify {
   display: flex !important;
-  width: calc(100% - 30px);
-  max-width: 600px;
   padding-right: 80px;
   color: rgba(255, 255, 255, 0.85);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);

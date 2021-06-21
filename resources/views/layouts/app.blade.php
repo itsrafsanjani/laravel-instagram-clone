@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Search Engine -->
     <meta name="description" content="Laragram is an open source social media platform created with Laravel and VueJS.">
-    <meta name="image" content="https://i.ibb.co/R71RdXF/laragram.jpg">
+    <meta name="image" content="//i.ibb.co/R71RdXF/laragram.jpg">
     <!-- Schema.org for Google -->
     <meta itemprop="name" content="Laragram | Social Media">
     <meta itemprop="description" content="Laragram is an open source social media platform created with Laravel and VueJS.">
-    <meta itemprop="image" content="https://i.ibb.co/R71RdXF/laragram.jpg">
+    <meta itemprop="image" content="//i.ibb.co/R71RdXF/laragram.jpg">
     <!-- Open Graph general (Facebook, Pinterest & Google+) -->
     <meta name="og:title" content="Laragram | Social Media">
     <meta name="og:description" content="Laragram is an open source social media platform created with Laravel and VueJS.">
-    <meta name="og:image" content="https://i.ibb.co/R71RdXF/laragram.jpg">
+    <meta name="og:image" content="//i.ibb.co/R71RdXF/laragram.jpg">
     <meta name="og:locale" content="en_US, bn_BD">
     <meta name="og:type" content="website">
 
@@ -24,11 +24,12 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="//demos.creative-tim.com/argon-dashboard-pro/assets/vendor/animate.css/animate.min.css">
 </head>
 <body>
 <div id="app">
@@ -108,13 +109,14 @@
 </div>
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="//demos.creative-tim.com/argon-dashboard-pro/assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+<script src="//www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+<script src="//www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
 
 <script>
     // Your web app's Firebase configuration

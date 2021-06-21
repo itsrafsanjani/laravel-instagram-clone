@@ -20,9 +20,10 @@ class CommentController extends Controller
         $comment = $post->commentAsUser(auth()->user(), $request->comment);
 
         return response()->json([
-            'data' => $comment
+            'data' => $comment,
+            'message' => 'Comment added successfully!',
+            'type' => 'success'
         ]);
-//        return back()->with(['message']);
     }
 
     /**
