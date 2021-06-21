@@ -19,7 +19,7 @@ class PostController extends Controller
 
         $posts = Post::with([
             'user', 'user.profile', 'likes', 'user.likes', 'comments' => function ($query) {
-                $query->with('commentator')->latest()->limit(2);
+                $query->with('commentator', 'commentator.profile')->latest()->limit(2);
             }
         ])
             ->withCount('comments')
@@ -95,7 +95,7 @@ class PostController extends Controller
     {
         $post->load([
             'comments' => function ($query) {
-                $query->with('commentator')->latest();
+                $query->with('commentator', 'commentator.profile')->latest();
             }
         ])->loadCount('comments');
 
