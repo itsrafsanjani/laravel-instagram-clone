@@ -28,7 +28,6 @@ class PostController extends Controller
             ->paginate(Post::PAGINATE_COUNT);
 
         return view('posts.index', compact('posts'));
-//        return $posts;
     }
 
     public function create()
@@ -94,9 +93,9 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        $comments = $post->load([
+        $post->load([
             'comments' => function ($query) {
-                $query->with('commentator')->orderBy('id', 'desc')->get();
+                $query->with('commentator')->latest();
             }
         ])->loadCount('comments');
 

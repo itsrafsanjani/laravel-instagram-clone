@@ -1,4 +1,4 @@
-<div class="card-body pt-0">
+<div class="card-body {{ request()->routeIs('posts.index') ? ' pt-0' : 'bg-white rounded-top' }}">
     <form>
         <div class="form-group mb-3">
             <input type="hidden" name="post_slug" value="{{ $post->slug }}">
@@ -35,7 +35,7 @@
                 },
                 success: function (data) {
                     comment = data
-                    $('#commentList-{{ $post->slug }}').append(`
+                    $('#commentList-{{ $post->slug }}').{{ request()->routeIs('posts.index') ? 'append' : 'prepend' }}(`
                             <li class="list-group-item list-group-item-action flex-column align-items-start px-4 py-4">
                             <div class="d-flex w-100 justify-content-between">
                                 <div>

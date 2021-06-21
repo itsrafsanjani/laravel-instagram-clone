@@ -49,6 +49,10 @@
                     </p>
                 </div>
 
+                <!-- New Comment Box -->
+            @include('posts.comments.create')
+            <!-- New Comment Box End -->
+
                 <!-- Comments -->
             @include('posts.comments.index')
             <!-- Comments End -->
