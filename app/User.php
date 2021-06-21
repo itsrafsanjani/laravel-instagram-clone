@@ -6,10 +6,11 @@ use BeyondCode\Comments\Contracts\Commentator;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class User extends Authenticatable implements MustVerifyEmail, Commentator
 {
-    use Notifiable;
+    use Notifiable, HasEagerLimit;
 
     const PAGINATE_COUNT = 20;
 
@@ -86,5 +87,10 @@ class User extends Authenticatable implements MustVerifyEmail, Commentator
     public function likes()
     {
         return $this->hasMany(Like::class)->where('status', 1);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
