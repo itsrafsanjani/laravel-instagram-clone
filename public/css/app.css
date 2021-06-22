@@ -27392,6 +27392,12 @@ pre > code.highlight {
   margin-left: 1rem;
 }
 
+.bg-glass {
+  -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
+          backdrop-filter: saturate(180%) blur(20px) !important;
+  background-color: rgba(255, 255, 255, 0.72) !important;
+}
+
 .laragram-logo {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   -webkit-background-clip: text;

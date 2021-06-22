@@ -33,7 +33,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-top navbar-expand-md navbar-light sticky-top bg-white border-bottom shadow-sm">
+    <nav class="navbar navbar-top navbar-expand-md navbar-light bg-glass sticky-top bg-transparent border-bottom shadow-sm">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div><img src="{{ asset('/svg/laragram.svg') }}" style="height: 20px; border-right: 1px solid #333;"
@@ -106,41 +106,24 @@
     <main class="py-4" style="background: #F0F2F5;">
         @yield('content')
     </main>
+
+    <footer class="footer bg-glass mt-auto py-2">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                    <span class="text-muted">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a>
+                        by <a href="//github.com/itsrafsanjani" target="_blank">Md Rafsan Jani Rafin</a>.</span>
+                <span class="text-muted">Source code <a href="//github.com/itsrafsanjani/laravel-instagram-clone" target="_blank">
+                            <i class="fab fa-github"></i> Github</a>.</span>
+            </div>
+        </div>
+    </footer>
 </div>
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/nice-toast-js/dist/js/nice-toast-js.min.js" type="text/javascript"></script>
-<script>
-    $.niceToast.setup({
-        position: "top-right",
-        timeout: 5000,
-    });
-</script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="//www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="//www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
-
-<script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-        apiKey: "AIzaSyAxPpkCArq0cVN89_FwaXkd5gACoCBGAts",
-        authDomain: "laragram2.firebaseapp.com",
-        projectId: "laragram2",
-        storageBucket: "laragram2.appspot.com",
-        messagingSenderId: "49536770108",
-        appId: "1:49536770108:web:6ab2e2dd4593018182e339",
-        measurementId: "G-705L5J2HZN"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-</script>
-
 @stack('scripts')
 </body>
 </html>
