@@ -55,28 +55,10 @@
 
                     $('#comment-{{ $post->slug }}').val('');
 
-                    $.notify({
-                        // options
-                        icon: 'fa fa-bell',
-                        title: comment.type,
-                        message: comment.message
-                    }, {
-                        // settings
-                        type: comment.type,
-                        template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-dismissible alert-{0} alert-notify" ' +
-                            'role="alert"><span class="alert-icon" data-notify="icon"></span> ' +
-                            '<div class="alert-text"</div> ' +
-                            '<span class="alert-title" data-notify="title">{1}</span> ' +
-                            '<span data-notify="message">{2}</span></div>' +
-                            '<button type="button" class="close" data-notify="dismiss" aria-label="Close">' +
-                            '<span aria-hidden="true">&times;</span></button></div>'
-                    });
-
+                    $.niceToast.success(comment.message);
                 },
                 error: function (response) {
-                    $('#comment-{{ $post->slug }}').append(`<div class="alert alert-danger">
-                    ${response}</div>
-                    `);
+                    $.niceToast.error(response.responseJSON.message);
                 }
             });
         })

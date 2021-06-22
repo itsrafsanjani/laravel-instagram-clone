@@ -15,6 +15,10 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'comment' => 'required'
+        ]);
+
         $post = Post::where('slug', $request->post_slug)->firstOrFail();
 
         $comment = $post->commentAsUser(auth()->user(), $request->comment);

@@ -29,7 +29,7 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <link rel="stylesheet" href="//demos.creative-tim.com/argon-dashboard-pro/assets/vendor/animate.css/animate.min.css">
+    <link href="//cdn.jsdelivr.net/npm/nice-toast-js/dist/css/nice-toast-js.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="app">
@@ -110,7 +110,13 @@
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="//demos.creative-tim.com/argon-dashboard-pro/assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/nice-toast-js/dist/js/nice-toast-js.min.js" type="text/javascript"></script>
+<script>
+    $.niceToast.setup({
+        position: "top-right",
+        timeout: 5000,
+    });
+</script>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="//www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
 
