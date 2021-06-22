@@ -27398,6 +27398,16 @@ pre > code.highlight {
   background-color: rgba(255, 255, 255, 0.72) !important;
 }
 
+::-moz-selection {
+  color: #fff;
+  background: #5e72e4 !important;
+}
+
+::selection {
+  color: #fff;
+  background: #5e72e4 !important;
+}
+
 .laragram-logo {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   -webkit-background-clip: text;

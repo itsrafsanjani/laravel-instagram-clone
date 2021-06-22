@@ -87,4 +87,20 @@ $(document).ready(function() {
             }));
         })
     })
+
+    // <main /> height is now 100vh - <nav /> + <footer /> height in px
+    $(window).on('resize', function(){
+        let navHeight = $('nav').innerHeight();
+        let footerHeight = $('footer').innerHeight();
+        let height  = (navHeight + footerHeight) + 'px'
+        let style = 'calc(100vh - ' + height + ')'
+        $('main').css('min-height', style);
+    });
+    $(window).on('load', function(){
+        let navHeight = $('nav').innerHeight();
+        let footerHeight = $('footer').innerHeight();
+        let height  = (navHeight + footerHeight) + 'px'
+        let style = 'calc(100vh - ' + height + ')'
+        $('main').css('min-height', style);
+    });
 });
