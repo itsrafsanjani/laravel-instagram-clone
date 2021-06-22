@@ -24830,3 +24830,8 @@ pre > code.highlight {
 .ct-footer-links li + li {
     margin-left: 1rem
 }
+
+.bg-glass {
+    backdrop-filter: saturate(180%) blur(20px) !important;
+    background-color: rgba(255,255,255,.72) !important;
+}
