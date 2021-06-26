@@ -24,4 +24,7 @@ npm run dev
 php artisan storage:link
 ```
 
+### Screenshot
+![screenshot 01](public/images/screenshot-01.jpg)
+
 > Thank You!
