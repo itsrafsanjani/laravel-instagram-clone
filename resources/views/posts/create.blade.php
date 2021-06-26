@@ -40,6 +40,7 @@
                                                class="custom-file-input"
                                                id="image"
                                                name="image"
+                                               accept="image/*"
                                                oninput="document.getElementById('pic').src=window.URL.createObjectURL(this.files[0])"
                                                required>
 
