@@ -14,7 +14,11 @@
                         <div class="h4">{{ $user->username }}</div>
 
                         @if(auth()->user()->username != $user->username)
-                            <follow-button username="{{ $user->username }}" follows="{{ $follows }}"></follow-button>
+                            {{-- <follow-button username="{{ $user->username }}" follows="{{ $follows }}"></follow-button> --}}
+                            <button class="btn btn-sm btn-primary ml-4" id="followUnfollowButton"
+                                    data-username="{{ $user->username }}">
+                                {{ $follows ? 'Unfollow' : 'Follow' }}
+                            </button>
                         @endif
                     </div>
 
@@ -73,3 +77,35 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $('#followUnfollowButton').on('click', function (e) {
+            e.preventDefault();
+
+            var username = $(this).data('username');
+            // var followStatus = $(this).data('followStatus');
+            let _url = '{{ route('follows.store') }}';
+            let _token = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                url: _url,
+                type: "POST",
+                data: {
+                    username: username,
+                    // followStatus: followStatus,
+                    _token: _token
+                },
+                success: function (data) {
+                    var follows = data
+                    $('#followUnfollowButton').text(follows.data.buttonText)
+
+                    $.niceToast.success(follows.message);
+                },
+                error: function (response) {
+                    $.niceToast.error(response.responseJSON.message);
+                }
+            });
+        })
+    </script>
+@endpush

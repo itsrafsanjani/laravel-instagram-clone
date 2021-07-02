@@ -20,12 +20,12 @@
                                 <a href="{{ route('profiles.show', $post->user) }}">
                                     <span class="text-dark">{{ $post->user->username }}</span>
                                 </a>
-                                <a href="{{ route('profiles.show', $post->user) }}" class="pl-3">Follow</a>
                             </div>
                             <div class="text-muted">
                                 <span title="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</span>
                             </div>
                         </div>
+                        <a href="{{ route('profiles.show', $post->user) }}" class="btn btn-primary btn-sm ml-3">View Profile</a>
                         @can('update', $post->user->profile)
                             <form action="{{ route('posts.destroy', $post) }}" method="post" class="ml-3"
                                   onsubmit="return confirm('Are you sure to delete the post?')">
