@@ -39,19 +39,19 @@
                     <div class="pr-5 text-center">
                         @if($followersCount > 0)
                             <a href="{{ route('profiles.followers', $user->username) }}">
-                                <strong>{{ $followersCount }}</strong> followers
+                                <strong id="followersCount">{{ $followersCount }}</strong> followers
                             </a>
                         @else
-                            <strong>{{ $followersCount }}</strong> followers
+                            <strong id="followersCount">{{ $followersCount }}</strong> followers
                         @endif
                     </div>
                     <div class="pr-5 text-center">
                         @if($followingCount > 0)
                             <a href="{{ route('profiles.followings', $user->username) }}">
-                                <strong>{{ $followingCount }}</strong> following
+                                <strong id="followingCount">{{ $followingCount }}</strong> following
                             </a>
                         @else
-                            <strong>{{ $followingCount }}</strong> following
+                            <strong id="followingCount">{{ $followingCount }}</strong> following
                         @endif
                     </div>
                 </div>
@@ -77,35 +77,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script>
-        $('#followUnfollowButton').on('click', function (e) {
-            e.preventDefault();
-
-            var username = $(this).data('username');
-            // var followStatus = $(this).data('followStatus');
-            let _url = '{{ route('follows.store') }}';
-            let _token = $('meta[name="csrf-token"]').attr('content');
-
-            $.ajax({
-                url: _url,
-                type: "POST",
-                data: {
-                    username: username,
-                    // followStatus: followStatus,
-                    _token: _token
-                },
-                success: function (data) {
-                    var follows = data
-                    $('#followUnfollowButton').text(follows.data.buttonText)
-
-                    $.niceToast.success(follows.message);
-                },
-                error: function (response) {
-                    $.niceToast.error(response.responseJSON.message);
-                }
-            });
-        })
-    </script>
-@endpush

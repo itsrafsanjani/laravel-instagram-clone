@@ -1,4 +1,4 @@
-<div id="likeButton" data-post-slug="{{ $post->slug }}">
+<div class="likeButton" data-post-slug="{{ $post->slug }}">
     <span id="likeCount-{{ $post->slug }}">
         {{ $post->likes->count() }}
     </span>

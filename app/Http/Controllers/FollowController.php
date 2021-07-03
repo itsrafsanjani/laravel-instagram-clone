@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class FollowController extends Controller
 {
-    public function store(Request $request): JsonResponse
+    public function toggle($username): JsonResponse
     {
-        $user = User::where('username', $request->username)->first();
+        $user = User::where('username', $username)
+            ->with(['profile' => function ($query) {
+                $query->withCount('followers');
+            }])
+            ->withCount('following')->withCount('following')->first();
 
         $response = auth()->user()->following()->toggle($user);
 
@@ -22,6 +25,8 @@ class FollowController extends Controller
 
         return response()->json([
             'data' => $response,
+            'following_count' => $user->following_count,
+            'followers_count' => $user->profile->followers_count,
             'message' => 'Success!'
         ]);
     }

@@ -120,7 +120,7 @@ class PostController extends Controller
 
     public function like(Post $post): JsonResponse
     {
-        $likeCheck = Like::where(['user_id' => auth()->id(), 'post_id' => $post->id])->first();
+        $likeCheck = Like::where(['user_id' => auth()->id(), 'post_id' => $post->id])->firstOrFail();
 
         if ($likeCheck) {
             if ($likeCheck->status == true) {

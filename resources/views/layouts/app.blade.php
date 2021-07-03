@@ -124,6 +124,116 @@
 <script src="//cdn.jsdelivr.net/npm/nice-toast-js/dist/js/nice-toast-js.min.js" type="text/javascript"></script>
 <script src="//www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
 <script src="//www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+<script>
+    // like
+    $('.likeButton').on('click', function (e) {
+        e.preventDefault();
+
+        var postSlug = $(this).data('postSlug');
+        var likeCount = $('#likeCount-' + postSlug)
+        var likeIcon = $('#likeIcon-' + postSlug)
+        let _url = '/likes/' + postSlug;
+        let _token = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: _url,
+            type: "POST",
+            data: {
+                _token: _token
+            },
+            success: function (data) {
+                let likes = data
+                if (likes.data.status === 'liked') {
+                    likeIcon.addClass('fas').removeClass('far')
+
+                } else {
+                    likeIcon.addClass('far').removeClass('fas')
+                }
+                likeCount.text(likes.data.like_count)
+
+                $.niceToast.success(likes.message);
+            },
+            error: function (response) {
+                $.niceToast.error(response.responseJSON.message);
+            }
+        });
+    })
+
+    // comment
+    $('.commentButton').on('click', function (e) {
+        e.preventDefault();
+
+        var postSlug = $(this).data('postSlug');
+        var comment = $('#comment-' + postSlug).val();
+        let _url = '/comments';
+        let _token = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: _url,
+            type: "POST",
+            data: {
+                post_slug: postSlug,
+                comment: comment,
+                _token: _token
+            },
+            success: function (data) {
+                comment = data
+                $('#commentList-' + postSlug).{{ request()->routeIs('posts.index') ? 'append' : 'prepend' }}(`
+                            <li class="list-group-item list-group-item-action flex-column align-items-start px-4 py-4">
+                            <div class="d-flex w-100 justify-content-between">
+                                <div>
+                                    <div class="d-flex w-100 align-items-center">
+                                        <img src="{{ auth()->user()->profile->profileImage() }}"
+                                             alt="Image placeholder" class="avatar avatar-xs mr-2">
+                                        <h5 class="mb-1">{{ auth()->user()->name }}</h5>
+                                    </div>
+                                </div>
+                                <small>${moment(comment.data.created_at).fromNow()}</small>
+                            </div>
+                            <p class="text-sm mb-0 mt-2">
+                            ${comment.data.comment}
+                                </p>
+                            </li>
+                        `);
+
+                $('#comment-' + postSlug).val('');
+
+                $.niceToast.success(comment.message);
+            },
+            error: function (response) {
+                $.niceToast.error(response.responseJSON.message);
+            }
+        });
+    })
+
+    // follow
+    $('#followUnfollowButton').on('click', function (e) {
+        e.preventDefault();
+
+        var username = $(this).data('username');
+        let _url = '/follows/' + username;
+        let _token = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: _url,
+            type: "POST",
+            data: {
+                _token: _token
+            },
+            success: function (data) {
+                var follows = data
+                $('#followUnfollowButton').text(follows.data.buttonText)
+                $('#followersCount').text(follows.followers_count)
+                $('#followingCount').text(follows.following_count)
+
+                $.niceToast.success(follows.message);
+            },
+            error: function (response) {
+                $.niceToast.error(response.responseJSON.message);
+            }
+        });
+    })
+</script>
 @stack('scripts')
 </body>
 </html>
