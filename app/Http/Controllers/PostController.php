@@ -126,10 +126,22 @@ class PostController extends Controller
             if ($likeCheck->status == true) {
                 $likeCheck->update(['status' => 0]);
 
-                return response()->json('deleted');
+                return response()->json([
+                    'data' => [
+                        'status' => 'deleted',
+                        'like_count' => $post->likes()->count()
+                    ],
+                    'message' => 'Success!'
+                ]);
             } else {
                 $likeCheck->update(['status' => 1]);
-                return response()->json('liked');
+                return response()->json([
+                    'data' => [
+                        'status' => 'liked',
+                        'like_count' => $post->likes()->count()
+                    ],
+                    'message' => 'Success!'
+                ]);
             }
 
         } else {
@@ -138,7 +150,13 @@ class PostController extends Controller
                 'post_id' => $post->id,
                 'status' => 1
             ]);
-            return response()->json('liked');
+            return response()->json([
+                'data' => [
+                    'status' => 'liked',
+                    'like_count' => $post->likes()->count()
+                ],
+                'message' => 'Success!'
+            ]);
         }
     }
 }

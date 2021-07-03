@@ -23,9 +23,10 @@
                                             <h5 class="card-title">{{ $post->user->name }}</h5>
                                         </div>
                                     </div>'>{{ $post->user->username }}</a>
-                                <like-button post-slug="{{ $post->slug }}" :user="{{ auth()->user() }}"
-                                             :likes="{{ $post->likes->count() }}"
-                                             like-status="{{ $post->isLikedBy(auth()->user()) }}"></like-button>
+                                {{--                                <like-button post-slug="{{ $post->slug }}" :user="{{ auth()->user() }}"--}}
+                                {{--                                             :likes="{{ $post->likes->count() }}"--}}
+                                {{--                                             like-status="{{ $post->isLikedBy(auth()->user()) }}"></like-button>--}}
+                                @include('posts.likes.store')
                             </div>
                             <div class="d-flex justify-content-between align-items-baseline">
                                 <h5 class="h2 card-title mb-0">{{ $post->caption }}</h5>
