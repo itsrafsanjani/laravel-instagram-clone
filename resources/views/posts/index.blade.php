@@ -64,3 +64,41 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $('#likeButton').on('click', function (e) {
+            e.preventDefault();
+
+            var postSlug = $(this).data('postSlug');
+            var likeCount = $('#likeCount-'+ postSlug)
+            var likeIcon = $('#likeIcon-'+ postSlug)
+            console.log(postSlug)
+            let _url = '{{ url('likes') }}' + '/' + postSlug;
+            let _token = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                url: _url,
+                type: "POST",
+                data: {
+                    _token: _token
+                },
+                success: function (data) {
+                    let likes = data
+                    if (likes.data.status === 'liked') {
+                        likeIcon.addClass('fas').removeClass('far')
+
+                    } else {
+                        likeIcon.addClass('far').removeClass('fas')
+                    }
+                    likeCount.text(likes.data.like_count)
+
+                    $.niceToast.success(likes.message);
+                },
+                error: function (response) {
+                    $.niceToast.error(response.responseJSON.message);
+                }
+            });
+        })
+    </script>
+@endpush
