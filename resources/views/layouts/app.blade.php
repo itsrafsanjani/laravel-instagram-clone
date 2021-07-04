@@ -121,9 +121,10 @@
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/nice-toast-js/dist/js/nice-toast-js.min.js" type="text/javascript"></script>
+<script src="//cdn.jsdelivr.net/npm/nice-toast-js/dist/js/nice-toast-js.min.js"></script>
 <script src="//www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
 <script src="//www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+@auth
 <script>
     // like
     $('.likeButton').on('click', function (e) {
@@ -183,7 +184,7 @@
                             <div class="d-flex w-100 justify-content-between">
                                 <div>
                                     <div class="d-flex w-100 align-items-center">
-                                        <img src="{{ auth()->user()->profile->profileImage() }}"
+                                        <img class="lazy" src="{{ asset('images/placeholder.jpg') }}" data-src="{{ auth()->user()->profile->profileImage() }}"
                                              alt="Image placeholder" class="avatar avatar-xs mr-2">
                                         <h5 class="mb-1">{{ auth()->user()->name }}</h5>
                                     </div>
@@ -234,6 +235,7 @@
         });
     })
 </script>
+@endauth
 @stack('scripts')
 </body>
 </html>
