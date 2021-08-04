@@ -17,9 +17,21 @@
                             <h5 class="mb-1">{{ $comment->commentator->name }}</h5>
                         </a>
                     </div>
-                    <small data-toggle="tooltip" data-placement="top" title="{{ $post->created_at }}">
-                        {{ $comment->created_at->diffForHumans() }}
-                    </small>
+                    <div class="d-flex justify-content-between">
+                        <small data-toggle="tooltip" data-placement="top" title="{{ $post->created_at }}">
+                            {{ $comment->created_at->diffForHumans() }}
+                        </small>
+                        @if($comment->user_id == auth()->id())
+                            <div class="custom-control custom-checkbox custom-checkbox-success">
+                                <form>
+                                    <button type="submit" class="commentDeleteButton btn btn-danger btn-sm"
+                                            data-comment-id="{{ $comment->id }}" data-toggle="tooltip"
+                                            data-placement="top" title="Delete"><i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        @endif
+                    </div>
                 </div>
                 <p class="text-sm mb-0 mt-2">
                     {{ Str::limit($comment->comment, 140, ' ...') }}
