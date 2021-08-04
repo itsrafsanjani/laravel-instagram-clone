@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <p class="text-sm mb-0 mt-2">
-                    {{ Str::limit($comment->comment, 140, ' ...') }}
+                    {{ request()->routeIs('posts.index') ? Str::limit($comment->comment, 140, ' ...') : $comment->comment }}
                 </p>
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
             </li>
