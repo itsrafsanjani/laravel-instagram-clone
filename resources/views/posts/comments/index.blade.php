@@ -22,13 +22,11 @@
                             {{ $comment->created_at->diffForHumans() }}
                         </small>
                         @if($comment->user_id == auth()->id())
-                            <div class="custom-control custom-checkbox custom-checkbox-success">
-                                <form>
-                                    <button type="submit" class="commentDeleteButton btn btn-danger btn-sm"
-                                            data-comment-id="{{ $comment->id }}" data-toggle="tooltip"
-                                            data-placement="top" title="Delete"><i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
+                            <div class="custom-control custom-checkbox custom-checkbox-success d-none d-md-block">
+                                <button class="commentDeleteButton btn btn-danger btn-sm"
+                                        data-comment-id="{{ $comment->id }}" data-toggle="tooltip"
+                                        data-placement="top" title="Delete"><i class="fas fa-trash"></i>
+                                </button>
                             </div>
                         @endif
                     </div>
@@ -36,6 +34,17 @@
                 <p class="text-sm mb-0 mt-2">
                     {{ request()->routeIs('posts.index') ? Str::limit($comment->comment, 140, ' ...') : $comment->comment }}
                 </p>
+                <div class="d-flex d-md-none pt-2">
+                    <small data-toggle="tooltip" data-placement="top" title="{{ $post->created_at }}">
+                        {{ $comment->created_at->diffForHumans() }}
+                    </small>
+                    @if($comment->user_id == auth()->id())
+                        <small class="commentDeleteButton pl-3"
+                                data-comment-id="{{ $comment->id }}" data-toggle="tooltip"
+                                data-placement="top" title="Delete"><b>Delete</b>
+                        </small>
+                    @endif
+                </div>
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
             </li>
         @empty
