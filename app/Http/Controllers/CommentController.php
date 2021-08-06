@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Post;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -10,12 +12,12 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
-        $this->validate($request, [
+        $request->validate([
             'comment' => 'required'
         ]);
 
@@ -31,25 +33,18 @@ class CommentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Comment $comment
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy(Comment $comment): JsonResponse
     {
-        //
+        $comment->delete();
+
+        return response()->json([
+            'message' => 'Comment deleted successfully!',
+            'type' => 'success'
+        ]);
     }
 }
