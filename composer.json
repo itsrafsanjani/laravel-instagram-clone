@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "ext-gd": "^7.3",
+        "ext-json": "*",
         "beyondcode/laravel-comments": "^1.2",
         "cloudinary-labs/cloudinary-laravel": "^1.0",
         "fideloper/proxy": "^4.0",

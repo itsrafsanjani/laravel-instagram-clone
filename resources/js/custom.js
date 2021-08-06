@@ -5,7 +5,7 @@
 $(document).ready(function() {
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
+    let firebaseConfig = {
         apiKey: "AIzaSyAxPpkCArq0cVN89_FwaXkd5gACoCBGAts",
         authDomain: "laragram2.firebaseapp.com",
         projectId: "laragram2",
@@ -103,4 +103,97 @@ $(document).ready(function() {
         let style = 'calc(100vh - ' + height + ')'
         $('main').css('min-height', style);
     });
+
+    if (window.User.isLoggedIn === true) {
+        // like
+        $('.likeButton').on('click', function (e) {
+            e.preventDefault();
+
+            let postSlug = $(this).data('postSlug');
+            let likeCount = $('#likeCount-' + postSlug)
+            let likeIcon = $('#likeIcon-' + postSlug)
+            let _url = '/likes/' + postSlug;
+            let _token = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                url: _url,
+                type: "POST",
+                data: {
+                    _token: _token
+                },
+                success: function (data) {
+                    let likes = data
+                    if (likes.data.status === 'liked') {
+                        likeIcon.addClass('fas').removeClass('far')
+
+                    } else {
+                        likeIcon.addClass('far').removeClass('fas')
+                    }
+                    likeCount.text(likes.data.like_count)
+
+                    $.niceToast.success(likes.message);
+                },
+                error: function (response) {
+                    $.niceToast.error(response.responseJSON.message);
+                }
+            });
+        })
+
+        // comment delete
+        $('.commentDeleteButton').on('click', function (e) {
+            if (!confirm("Are you sure you want to delete?")){
+                return false;
+            }
+
+            e.preventDefault();
+
+            let commentId = $(this).data('commentId');
+            let _url = '/comments/' + commentId;
+            let _token = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                url: _url,
+                type: "DELETE",
+                data: {
+                    _token: _token
+                },
+                success: function (data) {
+                    let comment = data
+                    $('#comment-' + commentId).remove();
+                    $.niceToast.success(comment.message);
+                },
+                error: function (response) {
+                    $.niceToast.error(response.responseJSON.message);
+                }
+            });
+        })
+
+        // follow
+        $('#followUnfollowButton').on('click', function (e) {
+            e.preventDefault();
+
+            let username = $(this).data('username');
+            let _url = '/follows/' + username;
+            let _token = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                url: _url,
+                type: "POST",
+                data: {
+                    _token: _token
+                },
+                success: function (data) {
+                    let follows = data
+                    $('#followUnfollowButton').text(follows.data.buttonText)
+                    $('#followersCount').text(follows.followers_count)
+                    $('#followingCount').text(follows.following_count)
+
+                    $.niceToast.success(follows.message);
+                },
+                error: function (response) {
+                    $.niceToast.error(response.responseJSON.message);
+                }
+            });
+        })
+    }
 });
