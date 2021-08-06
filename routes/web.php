@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/profiles/{username}/followings', 'ProfileController@followings')->name('profiles.followings');
     Route::get('/profiles/{username}/followers', 'ProfileController@followers')->name('profiles.followers');
 
-    Route::resource('/comments', 'CommentController')->except(['index', 'create']);
+    Route::resource('/comments', 'CommentController')->only(['store', 'destroy']);
 });
 
 
