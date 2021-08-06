@@ -7,7 +7,7 @@
 <div class="card-body p-0">
     <ul class="list-group list-group-flush" id="commentList-{{ $post->slug }}">
         @forelse($post->comments as $comment)
-            <li class="list-group-item list-group-item-action flex-column align-items-start px-4 py-4
+            <li id="comment-{{ $comment->id }}" class="list-group-item list-group-item-action flex-column align-items-start px-4 py-4
                 {{ request()->routeIs('posts.index') ? '' : 'rounded-bottom' }}">
                 <div class="d-flex w-100 justify-content-between">
                     <div>

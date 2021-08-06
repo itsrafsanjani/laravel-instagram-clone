@@ -130,9 +130,9 @@
     $('.likeButton').on('click', function (e) {
         e.preventDefault();
 
-        var postSlug = $(this).data('postSlug');
-        var likeCount = $('#likeCount-' + postSlug)
-        var likeIcon = $('#likeIcon-' + postSlug)
+        let postSlug = $(this).data('postSlug');
+        let likeCount = $('#likeCount-' + postSlug)
+        let likeIcon = $('#likeIcon-' + postSlug)
         let _url = '/likes/' + postSlug;
         let _token = $('meta[name="csrf-token"]').attr('content');
 
@@ -160,12 +160,12 @@
         });
     })
 
-    // comment
+    // comment store
     $('.commentButton').on('click', function (e) {
         e.preventDefault();
 
-        var postSlug = $(this).data('postSlug');
-        var comment = $('#comment-' + postSlug).val();
+        let postSlug = $(this).data('postSlug');
+        let comment = $('#comment-' + postSlug).val();
         let _url = '/comments';
         let _token = $('meta[name="csrf-token"]').attr('content');
 
@@ -178,22 +178,20 @@
                 _token: _token
             },
             success: function (data) {
-                comment = data
+                let comment = data
                 $('#commentList-' + postSlug).{{ request()->routeIs('posts.index') ? 'append' : 'prepend' }}(`
                             <li class="list-group-item list-group-item-action flex-column align-items-start px-4 py-4">
-                            <div class="d-flex w-100 justify-content-between">
-                                <div>
-                                    <div class="d-flex w-100 align-items-center">
-                                        <img src="{{ auth()->user()->profile->profileImage() }}"
-                                             alt="Image placeholder" class="avatar avatar-xs mr-2">
-                                        <h5 class="mb-1">{{ auth()->user()->name }}</h5>
+                                <div class="d-flex w-100 justify-content-between">
+                                    <div>
+                                        <div class="d-flex w-100 align-items-center">
+                                            <img src="{{ auth()->user()->profile->profileImage() }}"
+                                                 alt="Image placeholder" class="avatar avatar-xs mr-2">
+                                            <h5 class="mb-1">{{ auth()->user()->name }}</h5>
+                                        </div>
                                     </div>
+                                    <small>${moment(comment.data.created_at).fromNow()}</small>
                                 </div>
-                                <small>${moment(comment.data.created_at).fromNow()}</small>
-                            </div>
-                            <p class="text-sm mb-0 mt-2">
-                            ${comment.data.comment}
-                                </p>
+                                <p class="text-sm mb-0 mt-2">${comment.data.comment}</p>
                             </li>
                         `);
 
@@ -207,11 +205,40 @@
         });
     })
 
+    // comment delete
+    $('.commentDeleteButton').on('click', function (e) {
+        if (!confirm("Are you sure you want to delete?")){
+            return false;
+        }
+
+        e.preventDefault();
+
+        let commentId = $(this).data('commentId');
+        let _url = '/comments/' + commentId;
+        let _token = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: _url,
+            type: "DELETE",
+            data: {
+                _token: _token
+            },
+            success: function (data) {
+                let comment = data
+                $('#comment-' + commentId).remove();
+                $.niceToast.success(comment.message);
+            },
+            error: function (response) {
+                $.niceToast.error(response.responseJSON.message);
+            }
+        });
+    })
+
     // follow
     $('#followUnfollowButton').on('click', function (e) {
         e.preventDefault();
 
-        var username = $(this).data('username');
+        let username = $(this).data('username');
         let _url = '/follows/' + username;
         let _token = $('meta[name="csrf-token"]').attr('content');
 
@@ -222,7 +249,7 @@
                 _token: _token
             },
             success: function (data) {
-                var follows = data
+                let follows = data
                 $('#followUnfollowButton').text(follows.data.buttonText)
                 $('#followersCount').text(follows.followers_count)
                 $('#followingCount').text(follows.following_count)
