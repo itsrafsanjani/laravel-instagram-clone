@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FollowController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
+use App\Mail\NewUserWelcomeMail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,10 +18,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-use App\Mail\NewUserWelcomeMail;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
@@ -30,23 +34,20 @@ Route::get('/welcome-email', function () {
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::post('/follows/{username}', 'FollowController@toggle')->name('follows.toggle');
-    Route::post('/likes/{post}', 'PostController@like')->name('likes.store');
+    Route::post('/follows/{username}', [FollowController::class, 'toggle'])->name('follows.toggle');
+    Route::post('/likes/{post}', [PostController::class, 'like'])->name('likes.store');
 
-    Route::get('/', 'PostController@index')->name('posts.index');
-    Route::get('/p/create', 'PostController@create')->name('posts.create');
-    Route::post('/p', 'PostController@store')->name('posts.store');
-    Route::get('/p/{post}', 'PostController@show')->name('posts.show');
-    Route::delete('/p/{post}', 'PostController@destroy')->name('posts.destroy');
+    Route::get('/', [PostController::class, 'index'])->name('posts.index');
+    Route::resource('/posts', PostController::class)->except(['index']);
 
-    Route::get('/profiles', 'ProfileController@index')->name('profiles.index');
-    Route::get('/profiles/{user}', 'ProfileController@show')->name('profiles.show');
-    Route::get('/profiles/{user}/edit', 'ProfileController@edit')->name('profiles.edit');
-    Route::patch('/profiles/{user}', 'ProfileController@update')->name('profiles.update');
-    Route::get('/profiles/{username}/followings', 'ProfileController@followings')->name('profiles.followings');
-    Route::get('/profiles/{username}/followers', 'ProfileController@followers')->name('profiles.followers');
+    Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');
+    Route::get('/profiles/{user}', [ProfileController::class, 'show'])->name('profiles.show');
+    Route::get('/profiles/{user}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
+    Route::patch('/profiles/{user}', [ProfileController::class, 'update'])->name('profiles.update');
+    Route::get('/profiles/{username}/followings', [ProfileController::class, 'followings'])->name('profiles.followings');
+    Route::get('/profiles/{username}/followers', [ProfileController::class, 'followers'])->name('profiles.followers');
 
-    Route::resource('/comments', 'CommentController')->only(['store', 'destroy']);
+    Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
 });
 
 
