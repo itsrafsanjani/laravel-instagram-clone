@@ -4,14 +4,15 @@
     </a>
 @endif
 
-<div class="card-body p-0">
+<div class="card-body p-0 {{ request()->routeIs('posts.index') ? '' : 'overflow-hidden rounded-bottom' }}">
     <ul class="list-group list-group-flush" id="commentList-{{ $post->slug }}">
         @forelse($post->comments as $comment)
-            <li id="comment-{{ $comment->id }}" class="list-group-item list-group-item-action flex-column align-items-start px-4 py-4
-                {{ request()->routeIs('posts.index') ? '' : 'rounded-bottom' }}">
+            <li id="comment-{{ $comment->id }}"
+                class="list-group-item list-group-item-action flex-column align-items-start px-4 py-4">
                 <div class="d-flex w-100 justify-content-between">
                     <div>
-                        <a href="{{ route('profiles.show', $comment->commentator) }}" class="d-flex w-100 align-items-center">
+                        <a href="{{ route('profiles.show', $comment->commentator) }}"
+                           class="d-flex w-100 align-items-center">
                             <img src="{{ $comment->commentator->profile->profileImage() }}"
                                  alt="Image placeholder" class="avatar avatar-xs mr-2">
                             <h5 class="mb-1">{{ $comment->commentator->name }}</h5>
@@ -24,8 +25,8 @@
                         @if($comment->user_id == auth()->id())
                             <div class="custom-control custom-checkbox custom-checkbox-success d-none d-md-block">
                                 <button class="commentDeleteButton btn btn-danger btn-sm"
-                                        data-comment-id="{{ $comment->id }}" data-toggle="tooltip"
-                                        data-placement="top" title="Delete"><i class="fas fa-trash"></i>
+                                        data-comment-id="{{ $comment->id }}" title="Delete">
+                                    <i class="fas fa-trash"></i>
                                 </button>
                             </div>
                         @endif
@@ -39,9 +40,8 @@
                         {{ $comment->created_at->diffForHumans() }}
                     </small>
                     @if($comment->user_id == auth()->id())
-                        <small class="commentDeleteButton pl-3"
-                                data-comment-id="{{ $comment->id }}" data-toggle="tooltip"
-                                data-placement="top" title="Delete"><b>Delete</b>
+                        <small class="commentDeleteButton pl-3" data-comment-id="{{ $comment->id }}" title="Delete">
+                            <b>Delete</b>
                         </small>
                     @endif
                 </div>
