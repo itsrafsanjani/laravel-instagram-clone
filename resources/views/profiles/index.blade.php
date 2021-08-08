@@ -52,8 +52,7 @@
                                                 <a href="{{ route('profiles.show', $profile->user) }}"
                                                    class="avatar rounded-circle">
                                                     <img alt="Image placeholder"
-                                                         src="{{ $profile->profileImage() }}"
-                                                         style="height: 50px">
+                                                         src="{{ $profile->profileImage() }}">
                                                 </a>
                                             </div>
                                             <div class="col ml--2">

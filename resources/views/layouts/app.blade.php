@@ -36,8 +36,8 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-light bg-glass sticky-top bg-transparent border-bottom shadow-sm">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <div><img src="{{ asset('/svg/laragram.svg') }}" style="height: 20px; border-right: 1px solid #333;"
-                          class="pr-3" alt="{{ config('app.name') }}"></div>
+                <div><img src="{{ asset('/svg/laragram.svg') }}"
+                          class="pr-3 laragram-logo-svg" alt="{{ config('app.name') }}"></div>
                 <div class="laragram-logo pl-3">{{ config('app.name') }}</div>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -68,7 +68,8 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <img src="{{ auth()->user()->profile->profileImage() }}" alt="{{ auth()->user()->name }}" style="border-radius: 100%; height: 2em; width: 2em;">
+                            <img src="{{ auth()->user()->profile->profileImage() }}" alt="{{ auth()->user()->name }}"
+                                 class="nav-avatar">
                                 {{ Auth::user()->username }} <span class="caret"></span>
                             </a>
 
@@ -91,8 +92,7 @@
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </div>
@@ -103,7 +103,7 @@
         </div>
     </nav>
 
-    <main class="py-4" style="background: #F0F2F5;">
+    <main class="py-4 bg-gray-100">
         @yield('content')
     </main>
 

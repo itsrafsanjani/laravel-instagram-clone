@@ -11,8 +11,8 @@
                     <div class="d-flex align-items-center">
                         <div class="pr-3">
                             <a href="{{ route('profiles.show', $post->user) }}">
-                                <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle w-100"
-                                     style="max-width: 40px;" alt="{{ $post->user->username }}">
+                                <img src="{{ $post->user->profile->profileImage() }}" class="avatar rounded-circle"
+                                     alt="{{ $post->user->username }}">
                             </a>
                         </div>
                         <div>
