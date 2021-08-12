@@ -32,7 +32,7 @@
     <link href="//cdn.jsdelivr.net/npm/nice-toast-js/dist/css/nice-toast-js.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="app">
+<div id="app" class="min-vh-100 d-flex flex-column">
     <nav class="navbar navbar-top navbar-expand-md navbar-light bg-glass sticky-top bg-transparent border-bottom shadow-sm">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
@@ -103,7 +103,7 @@
         </div>
     </nav>
 
-    <main class="py-4 bg-gray-100">
+    <main class="py-4 bg-gray-100 flex-fill">
         @yield('content')
     </main>
 
