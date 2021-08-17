@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24a5f9d752289736a109401cd64efdd2",
+    "content-hash": "163e9756b79c45035b05e4ba37f1b046",
     "packages": [
         {
             "name": "beyondcode/laravel-comments",
@@ -1977,16 +1977,16 @@
         },
         {
             "name": "nette/utils",
-            "version": "v3.2.2",
+            "version": "v3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "967cfc4f9a1acd5f1058d76715a424c53343c20c"
+                "reference": "5c36cc1ba9bb6abb8a9e425cf054e0c3fd5b9822"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/967cfc4f9a1acd5f1058d76715a424c53343c20c",
-                "reference": "967cfc4f9a1acd5f1058d76715a424c53343c20c",
+                "url": "https://api.github.com/repos/nette/utils/zipball/5c36cc1ba9bb6abb8a9e425cf054e0c3fd5b9822",
+                "reference": "5c36cc1ba9bb6abb8a9e425cf054e0c3fd5b9822",
                 "shasum": ""
             },
             "require": {
@@ -2056,9 +2056,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v3.2.2"
+                "source": "https://github.com/nette/utils/tree/v3.2.3"
             },
-            "time": "2021-03-03T22:53:25+00:00"
+            "time": "2021-08-16T21:05:00+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2960,6 +2960,46 @@
                 "source": "https://github.com/shrikeh/teapot/tree/master"
             },
             "time": "2017-09-01T13:56:48+00:00"
+        },
+        {
+            "name": "sightengine/client-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itsrafsanjani/sightengine-client-php.git",
+                "reference": "294f663c42e3b431d060791d42f80e7b4d8a2f38"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itsrafsanjani/sightengine-client-php/zipball/294f663c42e3b431d060791d42f80e7b4d8a2f38",
+                "reference": "294f663c42e3b431d060791d42f80e7b4d8a2f38",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0|~7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sightengine\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Sightengine Team",
+                    "homepage": "https://sightengine.com"
+                }
+            ],
+            "description": "Sightengine PHP client",
+            "homepage": "https://sightengine.com",
+            "support": {
+                "source": "https://github.com/itsrafsanjani/sightengine-client-php/tree/master"
+            },
+            "time": "2021-02-24T19:32:03+00:00"
         },
         {
             "name": "staudenmeir/eloquent-eager-limit",
@@ -9761,7 +9801,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "sightengine/client-php": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
