@@ -49,5 +49,3 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
 });
-
-

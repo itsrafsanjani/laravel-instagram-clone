@@ -10,6 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Sightengine\SightengineClient;
 
 class PostController extends Controller
 {
@@ -37,7 +38,6 @@ class PostController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-
         $data = request()->validate([
             'caption' => 'required|max:255',
             'image' => 'required|image',
@@ -62,33 +62,27 @@ class PostController extends Controller
             ]
         ])->getSecurePath();
 
-//        $width = 1080;
-//        $height = 1080;
-//
-//        $image = $request->file('image');
-//        $extension = $image->getClientOriginalExtension();
-//        $imageName = Str::uuid() . '.' . $extension;
-//        $imagePath = $image->storeAs('images', $imageName, 'uploads');
-//        $img = Image::make(public_path("uploads/{$imagePath}"));
-//
-//        // Resized image
-//        $img->resize($width, $height, function ($constraint) {
-//            $constraint->aspectRatio();
-//        });
-//        // Canvas image
-//        $canvas = Image::canvas($width, $height, '#ffffff');
-//        $canvas->insert($img, 'center');
-//        $canvas->save(public_path("uploads/{$imagePath}"));
-//        $imagePath = '/uploads/images/' . $imageName;
+        $client = new SightengineClient(config('services.sightengine.user'), config('services.sightengine.secret'));
+        $output = $client->check(['nudity'])->set_url($imagePath);
 
         $user = auth()->user();
-        $user->posts()->create([
-            'slug' => Str::random(12),
-            'caption' => $data['caption'],
-            'image' => $imagePath,
-        ]);
+        if ($output->nudity->safe > 0.5 && $output->nudity->raw < 0.1) {
+            $user->posts()->create([
+                'slug' => Str::random(12),
+                'caption' => $data['caption'],
+                'image' => $imagePath,
+            ]);
 
-        return redirect()->route('profiles.show', $user);
+            return redirect()->route('profiles.show', $user)->with([
+                'status' => 'success',
+                'message' => 'Post uploaded successfully!'
+            ]);
+        }
+
+        return redirect()->route('profiles.show', $user)->with([
+            'status' => 'error',
+            'message' => 'Your image contains inappropriate content!'
+        ]);
     }
 
     public function show(Post $post)

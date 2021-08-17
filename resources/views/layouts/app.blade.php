@@ -176,6 +176,15 @@
     window.User = {
         isLoggedIn: {{ json_encode(auth()->check()) }}
     }
+
+    @if (session('message')) {
+        $.niceToast.setup({
+            position: "top-right",
+            timeout: 5000,
+        });
+        $.niceToast.{{ session('status') }}('{{ session('message') }}');
+    }
+    @endif
 </script>
 </body>
 </html>
