@@ -6,6 +6,7 @@ use App\Profile;
 use App\User;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
+use Sightengine\SightengineClient;
 
 class ProfileController extends Controller
 {
@@ -56,11 +57,11 @@ class ProfileController extends Controller
         ]);
 
         if (request('image')) {
-//            $imagePath = request('image')->store('profile', 'public');
-//
-//            $image = Image::make(public_path("/storage/{$imagePath}"))->fit(1080, 1080, function ($constraint) {
-//                $constraint->upsize();
-//            });
+            //            $imagePath = request('image')->store('profile', 'public');
+            //
+            //            $image = Image::make(public_path("/storage/{$imagePath}"))->fit(1080, 1080, function ($constraint) {
+            //                $constraint->upsize();
+            //            });
 
             $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
                 'folder' => 'laragram/avatar',
@@ -72,23 +73,33 @@ class ProfileController extends Controller
                 ]
             ])->getSecurePath();
 
-//            $oldProfileImage = public_path($user->profile->image);
+            $client = new SightengineClient(config('services.sightengine.user'), config('services.sightengine.secret'));
+            $output = $client->check(['nudity'])->set_url($imagePath);
 
-//            $image->save();
+            if ($output->nudity->safe > 0.5 && $output->nudity->raw < 0.1) {
 
-            $imageArray = ['image' => $imagePath];
+                $imageArray = ['image' => $imagePath];
+                auth()->user()->profile->update(array_merge(
+                    $data,
+                    $imageArray ?? []
+                ));
 
-//            if (file_exists($oldProfileImage)) {
-//                @unlink($oldProfileImage);
-//            }
+                return redirect()->route('profiles.show', $user)->with([
+                    'status' => 'success',
+                    'message' => 'Profile uploaded successfully!'
+                ]);
+            }
+
+            return redirect()->route('profiles.show', $user)->with([
+                'status' => 'error',
+                'message' => 'Your image contains inappropriate content!'
+            ]);
         }
 
-        auth()->user()->profile->update(array_merge(
-            $data,
-            $imageArray ?? []
-        ));
-
-        return redirect()->route('profiles.show', $user);
+        return redirect()->route('profiles.show', $user)->with([
+            'status' => 'success',
+            'message' => 'Profile uploaded successfully!'
+        ]);
     }
 
     public function followings($username)
