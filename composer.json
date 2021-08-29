@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "sightengine/client-php": "dev-master",
-        "staudenmeir/eloquent-eager-limit": "^1.6"
+        "staudenmeir/eloquent-eager-limit": "^1.6",
+        "tcg/voyager": "^1.4.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
