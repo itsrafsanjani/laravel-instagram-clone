@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Post;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;

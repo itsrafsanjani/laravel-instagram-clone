@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Like;
 use App\Post;
 use App\Profile;

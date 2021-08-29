@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
-class User extends Authenticatable implements MustVerifyEmail, Commentator
+class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commentator
 {
     use Notifiable, HasEagerLimit;
 
