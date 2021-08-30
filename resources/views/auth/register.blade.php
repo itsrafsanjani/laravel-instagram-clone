@@ -36,6 +36,11 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
+                                <div class="text-muted">
+                                    <small>
+                                        Email verification is turned on, so please use your original email to get the verification link.
+                                    </small>
+                                </div>
                             </div>
                         </div>
 
