@@ -33,6 +33,18 @@ Route::get('/notices/image', function () {
     return view('notice.image');
 })->name('notice.image');
 
+Route::get('/privacy-policy', function () {
+    return view('static-pages.privacy-policy');
+})->name('static-pages.privacy-policy');
+
+Route::get('/terms-of-service', function () {
+    return view('static-pages.terms-of-service');
+})->name('static-pages.terms-of-service');
+
+Route::get('/cookies', function () {
+    return view('static-pages.cookies');
+})->name('static-pages.cookies');
+
 Route::get('/welcome-email', function () {
     return new NewUserWelcomeMail();
 });
