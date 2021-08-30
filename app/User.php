@@ -4,13 +4,14 @@ namespace App;
 
 use BeyondCode\Comments\Contracts\Commentator;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commentator
 {
-    use Notifiable, HasEagerLimit;
+    use HasFactory, Notifiable, HasEagerLimit;
 
     const PAGINATE_COUNT = 20;
 

@@ -3,12 +3,13 @@
 namespace App;
 
 use BeyondCode\Comments\Traits\HasComments;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Post extends Model
 {
-    use HasComments, HasEagerLimit;
+    use HasFactory, HasComments, HasEagerLimit;
 
     const PAGINATE_COUNT = 20;
 
