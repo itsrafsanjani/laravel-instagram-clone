@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {

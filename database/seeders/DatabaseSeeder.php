@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(PostSeeder::class);
         $this->call(ProfileUserSeeder::class);
-        factory(User::class, 10)->create();
-        factory(Post::class, 10)->create();
+        User::factory()->count(10)->create();
+        Post::factory()->count(10)->create();
 
         echo "ProfileUser Pivot Data Seeding.. \n";
 
