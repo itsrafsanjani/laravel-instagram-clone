@@ -78,6 +78,12 @@
                                     {{ __('My Profile') }}
                                 </a>
 
+                                @can('browse_admin')
+                                <a class="dropdown-item" href="{{ url('/admin') }}">
+                                    {{ __('Admin Panel') }}
+                                </a>
+                                @endcan
+
                                 <a class="dropdown-item" href="{{ route('posts.create') }}">
                                     {{ __('Add New Post') }}
                                 </a>
