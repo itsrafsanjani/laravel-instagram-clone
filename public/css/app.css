@@ -27443,3 +27443,9 @@ pre > code.highlight {
   padding: 0.6rem 0.6rem;
 }
 
+.laragram-sidebar {
+  top: 5.2rem;
+  height: 90vh;
+  z-index: 1;
+}
+

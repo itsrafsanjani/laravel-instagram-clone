@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container infinite-scroll">
-        @forelse($posts as $post)
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                @forelse($posts as $post)
             <div class="row">
-                <div class="col-md-6 mx-auto">
+                <div class="col-md-10 mx-auto">
                     <div class="card single-post">
                         <a href="{{ route('posts.show', $post) }}">
                             <img class="card-img-top lazy" src="{{ asset('images/placeholder.jpg') }}"
@@ -17,11 +20,11 @@
                             <div class="d-flex justify-content-between align-items-baseline">
                                 <a href="{{ route('profiles.show', $post->user) }}" class="btn btn-link px-0"
                                     data-toggle="tooltip" data-html="true" title='<div class="card">
-                                            <img class="card-img-top" src="{{ $post->user->profile->profileImage() }}"  alt="{{ $post->user->name }}">
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{ $post->user->name }}</h5>
-                                            </div>
-                                        </div>'>{{ $post->user->username }}</a>
+                                                    <img class="card-img-top" src="{{ $post->user->profile->profileImage() }}"  alt="{{ $post->user->name }}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ $post->user->name }}</h5>
+                                                    </div>
+                                                </div>'>{{ $post->user->username }}</a>
                                 {{-- <like-button post-slug="{{ $post->slug }}" :user="{{ auth()->user() }}" --}}
                                 {{-- :likes="{{ $post->likes->count() }}" --}}
                                 {{-- like-status="{{ $post->isLikedBy(auth()->user()) }}"></like-button> --}}
@@ -65,5 +68,41 @@
                 {{ $posts->links() }}
             </div>
         </div>
+            </div>
+
+            <div class="col-md-4 order-2">
+                <div class="card sticky-top laragram-sidebar">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="mr-2">
+                                    <a href="{{ route('profiles.show', auth()->user()) }}">
+                                        <img src="{{ auth()->user()->profile->profileImage() }}"
+                                            class="avatar rounded-circle" alt="{{ auth()->user()->username }}">
+                                    </a>
+                                </div>
+                                <div>
+                                    <div class="font-weight-bold">
+                                        <a href="{{ route('profiles.show', auth()->user()) }}">
+                                            <span class="text-dark">{{ auth()->user()->username }}</span>
+                                        </a>
+                                    </div>
+                                    <div class="text-muted">
+                                        <span
+                                            title="{{ auth()->user()->created_at }}">{{ auth()->user()->created_at->diffForHumans() }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    {{-- <div class="container infinite-scroll"> --}}
+
+    {{-- </div> --}}
 @endsection
