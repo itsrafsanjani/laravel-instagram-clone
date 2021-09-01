@@ -70,7 +70,7 @@
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <img src="{{ auth()->user()->profile->profileImage() }}" alt="{{ auth()->user()->name }}"
                                  class="nav-avatar">
-                                {{ Auth::user()->username }} <span class="caret"></span>
+                                <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
