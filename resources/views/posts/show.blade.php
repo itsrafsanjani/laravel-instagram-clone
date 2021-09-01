@@ -8,8 +8,9 @@
             </div>
             <div class="col-md-4">
                 <div>
-                    <div class="d-flex align-items-center">
-                        <div class="pr-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="mr-2">
                             <a href="{{ route('profiles.show', $post->user) }}">
                                 <img src="{{ $post->user->profile->profileImage() }}" class="avatar rounded-circle"
                                      alt="{{ $post->user->username }}">
@@ -25,7 +26,10 @@
                                 <span title="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</span>
                             </div>
                         </div>
-                        <a href="{{ route('profiles.show', $post->user) }}" class="btn btn-primary btn-sm ml-3">View Profile</a>
+                        </div>
+                        <div>
+                            <a href="{{ route('profiles.show', $post->user) }}" class="btn btn-primary btn-sm ml-3">View Profile</a>
+                        </div>
                         @can('update', $post->user->profile)
                             <form action="{{ route('posts.destroy', $post) }}" method="post" class="ml-3"
                                   onsubmit="return confirm('Are you sure to delete the post?')">
