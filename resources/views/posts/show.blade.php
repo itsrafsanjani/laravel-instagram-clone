@@ -40,13 +40,16 @@
 
                     <hr>
 
-                    <p>
-                    <span class="font-weight-bold">
-                        <a href="{{ route('profiles.show', $post->user) }}">
-                            <span class="text-dark">{{ $post->user->username }}</span>
-                        </a>
-                    </span> {{ $post->caption }}
-                    </p>
+                    <div class="d-flex justify-content-between pb-3 px-1">
+                            <div>
+                                <span class="font-weight-bold">
+                                <a href="{{ route('profiles.show', $post->user) }}">
+                                    <span class="text-dark">{{ $post->user->username }}</span>
+                                </a>
+                            </span> {{ $post->caption }}
+                            </div>
+                        @include('posts.likes.create')
+                    </div>
                 </div>
 
                 <!-- New Comment Box -->
