@@ -96,6 +96,8 @@ class ProfileController extends Controller
             ]);
         }
 
+        auth()->user()->profile->update($data);
+
         return redirect()->route('profiles.show', $user)->with([
             'status' => 'success',
             'message' => 'Profile uploaded successfully!'
