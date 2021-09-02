@@ -66,16 +66,16 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link"><i class="far fa-home fa-2x"></i></a>
+                            <a href="#" class="nav-link"><i class="fal fa-home text-xl"></i></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link"><i class="far fa-comment fa-2x"></i></a>
+                            <a href="#" class="nav-link"><i class="fal fa-comment text-xl"></i></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link"><i class="far fa-compass fa-2x"></i></a>
+                            <a href="#" class="nav-link"><i class="fal fa-compass text-xl"></i></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link"><i class="far fa-heart fa-2x"></i></a>
+                            <a href="#" class="nav-link"><i class="fal fa-heart text-xl"></i></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
