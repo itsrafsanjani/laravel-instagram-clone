@@ -28,8 +28,8 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <link href="//cdn.jsdelivr.net/npm/nice-toast-js/dist/css/nice-toast-js.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet"/>
+    <link href="//cdn.jsdelivr.net/npm/nice-toast-js/dist/css/nice-toast-js.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div id="app" class="min-vh-100 d-flex flex-column">
@@ -53,7 +53,7 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto align-items-center">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
@@ -65,6 +65,18 @@
                             </li>
                         @endif
                     @else
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link"><i class="far fa-home fa-2x"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link"><i class="far fa-comment fa-2x"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link"><i class="far fa-compass fa-2x"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link"><i class="far fa-heart fa-2x"></i></a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
