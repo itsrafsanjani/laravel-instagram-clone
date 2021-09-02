@@ -53,7 +53,7 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto align-items-center">
+                <ul class="navbar-nav ml-auto align-items-md-center">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
@@ -66,16 +66,16 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="fal fa-home text-xl"></i></a>
+                            <a href="#" class="nav-link d-flex align-items-center"><i class="fal fa-home text-xl mr-md-0 mr-2"></i> <span class="d-md-none"> Home </span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="fal fa-comment text-xl"></i></a>
+                            <a href="#" class="nav-link d-flex align-items-center"><i class="fal fa-comment text-xl mr-md-0 mr-2"></i> <span class="d-md-none"> Messages </span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="fal fa-compass text-xl"></i></a>
+                            <a href="#" class="nav-link d-flex align-items-center"><i class="fal fa-compass text-xl mr-md-0 mr-2"></i> <span class="d-md-none"> Explore </span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="fal fa-heart text-xl"></i></a>
+                            <a href="#" class="nav-link d-flex align-items-center"><i class="fal fa-heart text-xl mr-md-0 mr-2"></i> <span class="d-md-none"> Activity </span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
