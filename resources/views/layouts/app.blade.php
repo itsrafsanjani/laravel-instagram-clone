@@ -65,16 +65,16 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
+                        <li class="nav-item">
                             <a href="#" class="nav-link"><i class="fal fa-home text-xl"></i></a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item">
                             <a href="#" class="nav-link"><i class="fal fa-comment text-xl"></i></a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item">
                             <a href="#" class="nav-link"><i class="fal fa-compass text-xl"></i></a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item">
                             <a href="#" class="nav-link"><i class="fal fa-heart text-xl"></i></a>
                         </li>
                         <li class="nav-item dropdown">
