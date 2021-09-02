@@ -81,7 +81,7 @@
 
                     {{-- Modal --}}
                     <div class="modal fade" id="post{{ $post->id }}" tabindex="-1" aria-labelledby="post{{ $post->id }}Label" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="post{{ $post->id }}Label">{{ $post->caption }}</h5>
