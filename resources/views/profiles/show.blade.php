@@ -95,9 +95,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onclick="window.open('{{ route('posts.show', $post) }}')">
-                                    Details
-                                </button>
+                                <a href="{{ route('posts.show', $post) }}" class="btn btn-primary">Details</a>
                             </div>
                             </div>
                         </div>
