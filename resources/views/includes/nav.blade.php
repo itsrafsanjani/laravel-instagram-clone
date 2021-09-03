@@ -30,7 +30,7 @@
                     @endif
                 @else
                     <li class="nav-item @if(request()->routeIs('posts.index')) active @endif">
-                        <a href="#" class="nav-link d-flex align-items-center"><i
+                        <a href="{{ route('posts.index') }}" class="nav-link d-flex align-items-center"><i
                                 class="@if(request()->routeIs('posts.index')) fas @else fal @endif fa-home text-xl mr-md-0 mr-2"></i> <span class="d-md-none"> Home </span></a>
                     </li>
                     <li class="nav-item">
