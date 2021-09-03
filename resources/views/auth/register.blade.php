@@ -52,7 +52,7 @@
 
                                 <div class="text-muted">
                                     <small>
-                                        Choose a nice username, you won't be able to change it later! <strong><a href="{{ route('notice.username') }}">Rules!</a></strong>
+                                        Choose a nice username, you won't be able to change it later! <strong><a href="{{ route('notices.username') }}">Rules!</a></strong>
                                     </small>
                                 </div>
 

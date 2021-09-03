@@ -57,7 +57,7 @@
 
                                         <div class="text-muted">
                                             <small>
-                                                Choose a square image for best experience! <strong><a href="{{ route('notice.image') }}">Rules!</a></strong>
+                                                Choose a square image for best experience! <strong><a href="{{ route('notices.image') }}">Rules!</a></strong>
                                             </small>
                                         </div>
 

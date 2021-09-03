@@ -26,12 +26,12 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/notices/username', function () {
-    return view('notice.username');
-})->name('notice.username');
+    return view('notices.username');
+})->name('notices.username');
 
 Route::get('/notices/image', function () {
-    return view('notice.image');
-})->name('notice.image');
+    return view('notices.image');
+})->name('notices.image');
 
 Route::get('/privacy-policy', function () {
     return view('static-pages.privacy-policy');
