@@ -28,7 +28,7 @@
                                             {{-- <like-button post-slug="{{ $post->slug }}" :user="{{ auth()->user() }}" --}}
                                             {{-- :likes="{{ $post->likes->count() }}" --}}
                                             {{-- like-status="{{ $post->isLikedBy(auth()->user()) }}"></like-button> --}}
-                                            @include('posts.likes.create')
+                                            @include('likes.create')
                                         </div>
                                         <div class="d-flex justify-content-between align-items-baseline">
                                             <h5 class="h2 card-title mb-0">{{ $post->caption }}</h5>
@@ -38,11 +38,11 @@
                                     </div>
 
                                     <!-- Comments -->
-                                    @include('posts.comments.index', $post)
+                                    @include('comments.index', $post)
                                     <!-- Comments End -->
 
                                     <!-- New Comment Box -->
-                                    @include('posts.comments.create')
+                                    @include('comments.create')
                                     <!-- New Comment Box End -->
                                 </div>
                             </div>

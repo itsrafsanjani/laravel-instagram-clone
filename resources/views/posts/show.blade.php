@@ -52,16 +52,16 @@
                                 </a>
                             </span> {{ $post->caption }}
                             </div>
-                        @include('posts.likes.create')
+                        @include('likes.create')
                     </div>
                 </div>
 
                 <!-- New Comment Box -->
-            @include('posts.comments.create')
+            @include('comments.create')
             <!-- New Comment Box End -->
 
                 <!-- Comments -->
-            @include('posts.comments.index')
+            @include('comments.index')
             <!-- Comments End -->
             </div>
         </div>
