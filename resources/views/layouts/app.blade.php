@@ -33,13 +33,13 @@
 </head>
 <body>
 <div id="app" class="min-vh-100 d-flex flex-column">
-    @include('includes._nav')
+    @include('includes.nav')
 
     <main class="py-4 bg-gray-100 flex-fill">
         @yield('content')
     </main>
 
-    @include('includes._footer')
+    @include('includes.footer')
 </div>
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
