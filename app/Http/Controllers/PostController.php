@@ -155,4 +155,11 @@ class PostController extends Controller
             ]);
         }
     }
+
+    public function explore()
+    {
+        $posts = Post::popularLast(3)->paginate(Post::PAGINATE_COUNT);
+
+        return view('posts.explore', compact('posts'));
+    }
 }
