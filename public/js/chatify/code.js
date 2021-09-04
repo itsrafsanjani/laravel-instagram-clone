@@ -426,7 +426,7 @@ function sendMessage() {
         messageInput.focus();
       },
       success: (data) => {
-        console.log(data.tempID);
+        // console.log(data.tempID);
         if (data.error > 0) {
           // message card error status
           errorMessageCard(tempID);
@@ -644,7 +644,7 @@ function makeSeen(status) {
     data: { _token: access_token, id: messenger.split("_")[1] },
     dataType: "JSON",
     success: (data) => {
-      console.log("[seen] Messages seen - " + messenger.split("_")[1]);
+      // console.log("[seen] Messages seen - " + messenger.split("_")[1]);
     },
   });
   return channel.trigger("client-seen", {
@@ -774,7 +774,7 @@ function updateContatctItem(user_id) {
  */
 
 function star(user_id) {
-  console.log(messenger);
+  // console.log(messenger);
   if (messenger.split("_")[1] != auth_id) {
     $.ajax({
       url: url + "/star",
@@ -1257,7 +1257,7 @@ $(document).ready(function() {
   // Settings button action to show settings modal
   $("body").on("click", ".settings-btn", function(e) {
     e.preventDefault();
-    console.log("test");
+    // console.log("test");
     app_modal({
       show: true,
       name: "settings",
