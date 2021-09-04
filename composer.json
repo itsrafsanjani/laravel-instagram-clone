@@ -15,6 +15,7 @@
         "cloudinary-labs/cloudinary-laravel": "^1.0",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.4",
+        "jordanmiguel/laravel-popular": "^1.0",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
