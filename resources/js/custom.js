@@ -35,22 +35,22 @@ $(document).ready(function() {
 
     lazyLoading();
 
-    // infinite scroll
-    $('ul.pagination').hide();
-    $(function () {
-        $('.infinite-scroll').jscroll({
-            autoTrigger: true,
-            loadingHtml: '<div class="d-flex justify-content-center mb-5"><img src="/images/loading.gif" alt="Loading..." /></div>',
-            padding: 0,
-            nextSelector: '.pagination li.active + li a',
-            contentSelector: 'div.infinite-scroll',
-            callback: function () {
-                $('ul.pagination').remove();
-
-                lazyLoading();
-            }
-        });
-    });
+    // // infinite scroll
+    // $('ul.pagination').hide();
+    // $(function () {
+    //     $('.infinite-scroll').jscroll({
+    //         autoTrigger: true,
+    //         loadingHtml: '<div class="d-flex justify-content-center mb-5"><img src="/images/loading.gif" alt="Loading..." /></div>',
+    //         padding: 0,
+    //         nextSelector: '.pagination li.active + li a',
+    //         contentSelector: 'div.infinite-scroll',
+    //         callback: function () {
+    //             $('ul.pagination').remove();
+    //
+    //             lazyLoading();
+    //         }
+    //     });
+    // });
 
     $(window).on('load', function () {
         let footerHtml = `<footer class="footer fixed-bottom bg-glass mt-auto py-2" id="footer">
