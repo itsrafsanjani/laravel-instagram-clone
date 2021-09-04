@@ -12,7 +12,7 @@ class Post extends Model
 {
     use HasFactory, HasComments, HasEagerLimit, Visitable;
 
-    const PAGINATE_COUNT = 20;
+    const PAGINATE_COUNT = 18;
 
     protected $guarded = [];
 
