@@ -8,17 +8,17 @@
 
 {{-- scripts --}}
 <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{ asset('js/chatify/font.awesome.min.js') }}"></script>
 <script src="{{ asset('js/chatify/autosize.js') }}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
-<script src='https://unpkg.com/nprogress@0.2.0/nprogress.js'></script>
+{{--<script src="{{ asset('js/app.js') }}"></script>--}}
+<script src='//unpkg.com/nprogress@0.2.0/nprogress.js'></script>
 
 {{-- styles --}}
-<link rel='stylesheet' href='https://unpkg.com/nprogress@0.2.0/nprogress.css'/>
+<link rel='stylesheet' href='//unpkg.com/nprogress@0.2.0/nprogress.css'/>
 <link href="{{ asset('css/chatify/style.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/chatify/'.$dark_mode.'.mode.css') }}" rel="stylesheet" />
-<link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+<link href="//unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
 {{-- Messenger Color Style--}}
 @include('Chatify::layouts.messengerColor')
