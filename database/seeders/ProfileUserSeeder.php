@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\ProfileUser;
+use App\Models\ProfileUser;
 use Illuminate\Database\Seeder;
 
 class ProfileUserSeeder extends Seeder
