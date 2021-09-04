@@ -102,8 +102,25 @@
             </div>
         </div>
     </div>
-
-    {{-- <div class="container infinite-scroll"> --}}
-
-    {{-- </div> --}}
 @endsection
+
+@push('scripts')
+    <script>
+        // infinite scroll
+        $('ul.pagination').hide();
+        $(function () {
+            $('.infinite-scroll').jscroll({
+                autoTrigger: true,
+                loadingHtml: '<div class="d-flex justify-content-center mb-5"><img src="/images/loading.gif" alt="Loading..." /></div>',
+                padding: 0,
+                nextSelector: '.pagination li.active + li a',
+                contentSelector: 'div.infinite-scroll',
+                callback: function () {
+                    $('ul.pagination').remove();
+
+                    lazyLoading();
+                }
+            });
+        });
+    </script>
+@endpush
