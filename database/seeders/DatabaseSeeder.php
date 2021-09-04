@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Like;
-use App\Post;
+use App\Models\Post;
 use App\Models\Profile;
 use App\Models\ProfileUser;
 use App\Models\User;

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Like;
-use App\Post;
+use App\Models\Post;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Exception;
 use Illuminate\Http\JsonResponse;
