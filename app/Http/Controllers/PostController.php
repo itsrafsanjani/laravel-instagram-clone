@@ -93,6 +93,8 @@ class PostController extends Controller
             }
         ])->loadCount('comments');
 
+        $post->visit();
+
         return view('posts.show', compact('post'));
     }
 
