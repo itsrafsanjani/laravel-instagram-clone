@@ -64,4 +64,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/profiles/{username}/followers', [ProfileController::class, 'followers'])->name('profiles.followers');
 
     Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
+
+    Route::get('/explore', [PostController::class, 'explore'])->name('posts.explore');
 });
