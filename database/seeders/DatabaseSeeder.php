@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Like;
+use App\Models\Like;
 use App\Models\Post;
 use App\Models\Profile;
 use App\Models\ProfileUser;

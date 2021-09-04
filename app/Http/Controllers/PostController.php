@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Like;
+use App\Models\Like;
 use App\Models\Post;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Exception;
