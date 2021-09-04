@@ -13,6 +13,7 @@ class Post extends Model
     use HasFactory, HasComments, HasEagerLimit, Visitable;
 
     const PAGINATE_COUNT = 18;
+    const POPULAR_BY_DAY = 3;
 
     protected $guarded = [];
 
