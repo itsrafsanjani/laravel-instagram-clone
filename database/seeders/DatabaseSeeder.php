@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Like;
 use App\Post;
-use App\Profile;
+use App\Models\Profile;
 use App\ProfileUser;
 use App\Models\User;
 use Illuminate\Database\Seeder;

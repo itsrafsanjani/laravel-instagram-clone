@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Post;
-use App\Profile;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -15,7 +15,7 @@ class ProfilePolicy
      * Determine whether the user can view the profile.
      *
      * @param \App\Models\User $user
-     * @param \App\Profile $profile
+     * @param \App\Models\Profile $profile
      * @return mixed
      */
     public function view(User $user, Profile $profile)
@@ -38,7 +38,7 @@ class ProfilePolicy
      * Determine whether the user can update the profile.
      *
      * @param \App\Models\User $user
-     * @param \App\Profile $profile
+     * @param \App\Models\Profile $profile
      * @return mixed
      */
     public function update(User $user, Profile $profile)
@@ -50,7 +50,7 @@ class ProfilePolicy
      * Determine whether the user can delete the profile.
      *
      * @param \App\Models\User $user
-     * @param \App\Profile $profile
+     * @param \App\Models\Profile $profile
      * @return mixed
      */
     public function delete(User $user, Post $post)
@@ -62,7 +62,7 @@ class ProfilePolicy
      * Determine whether the user can restore the profile.
      *
      * @param \App\Models\User $user
-     * @param \App\Profile $profile
+     * @param \App\Models\Profile $profile
      * @return mixed
      */
     public function restore(User $user, Profile $profile)
@@ -74,7 +74,7 @@ class ProfilePolicy
      * Determine whether the user can permanently delete the profile.
      *
      * @param \App\Models\User $user
-     * @param \App\Profile $profile
+     * @param \App\Models\Profile $profile
      * @return mixed
      */
     public function forceDelete(User $user, Profile $profile)
