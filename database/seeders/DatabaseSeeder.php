@@ -6,7 +6,7 @@ use App\Like;
 use App\Post;
 use App\Profile;
 use App\ProfileUser;
-use App\User;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

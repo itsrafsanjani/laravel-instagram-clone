@@ -13,6 +13,6 @@ return [
      * commentators. If null, the default user provider from your
      * Laravel authentication configuration will be used.
      */
-    'user_model' => \App\User::class,
+    'user_model' => \App\Models\User::class,
 
 ];

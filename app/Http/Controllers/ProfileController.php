@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Profile;
-use App\User;
+use App\Models\User;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
 use Sightengine\SightengineClient;
