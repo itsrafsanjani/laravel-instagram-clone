@@ -31,7 +31,8 @@
                 @else
                     <li class="nav-item @if(request()->routeIs('posts.index')) active @endif">
                         <a href="{{ route('posts.index') }}" class="nav-link d-flex align-items-center"><i
-                                class="@if(request()->routeIs('posts.index')) fas @else fal @endif fa-home text-xl mr-md-0 mr-2"></i> <span class="d-md-none"> Home </span></a>
+                                class="@if(request()->routeIs('posts.index')) fas @else fal @endif fa-home text-xl mr-md-0 mr-2"></i>
+                            <span class="d-md-none"> Home </span></a>
                     </li>
                     <li class="nav-item">
                         <a href="/messages" class="nav-link d-flex align-items-center"><i
@@ -39,8 +40,10 @@
                             </span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('posts.explore') }}" class="nav-link d-flex align-items-center"><i
-                                class="fal fa-compass text-xl mr-md-0 mr-2"></i> <span class="d-md-none"> Explore
+                        <a href="{{ route('posts.explore') }}"
+                           class="nav-link d-flex align-items-center @if(request()->routeIs('posts.explore')) active @endif"><i
+                                class="@if(request()->routeIs('posts.explore')) fas @else fal @endif fa-compass text-xl mr-md-0 mr-2"></i>
+                            <span class="d-md-none"> Explore
                             </span></a>
                     </li>
                     <li class="nav-item">
