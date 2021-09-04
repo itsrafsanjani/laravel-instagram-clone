@@ -39,7 +39,7 @@
                             </span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link d-flex align-items-center"><i
+                        <a href="{{ route('posts.explore') }}" class="nav-link d-flex align-items-center"><i
                                 class="fal fa-compass text-xl mr-md-0 mr-2"></i> <span class="d-md-none"> Explore
                             </span></a>
                     </li>
