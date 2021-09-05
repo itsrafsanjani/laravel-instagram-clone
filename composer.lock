@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "68e6d6b5f2bce392a3adfff8690f4279",
+    "content-hash": "868cad103b68b1d464388a659242dc1e",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -1873,6 +1873,58 @@
                 "source": "https://github.com/guzzle/psr7/tree/2.0.0"
             },
             "time": "2021-06-30T20:03:07+00:00"
+        },
+        {
+            "name": "haruncpi/laravel-user-activity",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/haruncpi/laravel-user-activity.git",
+                "reference": "bc2c31b43b99c494d182650e739732f4d720ff7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/haruncpi/laravel-user-activity/zipball/bc2c31b43b99c494d182650e739732f4d720ff7d",
+                "reference": "bc2c31b43b99c494d182650e739732f4d720ff7d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Haruncpi\\LaravelUserActivity\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Haruncpi\\LaravelUserActivity\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "cc-by-4.0"
+            ],
+            "authors": [
+                {
+                    "name": "MD.HARUN-UR-RASHID",
+                    "email": "harun.cox@gmail.com"
+                }
+            ],
+            "description": "Monitor user activity easily!",
+            "keywords": [
+                "activity",
+                "laravel",
+                "user"
+            ],
+            "support": {
+                "issues": "https://github.com/haruncpi/laravel-user-activity/issues",
+                "source": "https://github.com/haruncpi/laravel-user-activity/tree/v1.0.4"
+            },
+            "time": "2021-03-03T05:23:49+00:00"
         },
         {
             "name": "intervention/image",
