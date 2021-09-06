@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Mail\NewUserWelcomeMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -66,4 +67,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
 
     Route::get('/explore', [PostController::class, 'explore'])->name('posts.explore');
+
+    Route::get('/notifications', [UserController::class, 'notifications'])->name('users.notifications');
 });
