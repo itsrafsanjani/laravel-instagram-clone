@@ -4,7 +4,7 @@
     <div class="messenger-listView">
         {{-- Header and search bar --}}
         <div class="m-header">
-            <nav>
+            <nav class="d-flex justify-between items-center">
                 <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">MESSAGES</span> </a>
                 {{-- header buttons --}}
                 <nav class="m-header-right">
