@@ -8,6 +8,6 @@ class UserController extends Controller
 {
     public function notifications()
     {
-        return 'users.notifications';
+        return view('users.notifications');
     }
 }
