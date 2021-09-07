@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('otp_created_at')->nullable();
             $table->string('website')->nullable();
             $table->string('bio', 150)->nullable();
+            $table->enum('gender', ['male', 'female', 'other'])->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
