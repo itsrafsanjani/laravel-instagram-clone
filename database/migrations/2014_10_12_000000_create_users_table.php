@@ -20,13 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('phone_number', 15)->unique();
+            $table->string('phone_number', 20)->unique();
             $table->timestamp('phone_number_verified_at')->nullable();
             $table->string('otp')->nullable();
             $table->timestamp('otp_created_at')->nullable();
             $table->string('website')->nullable();
             $table->string('bio', 150)->nullable();
-            $table->enum('gender', ['male', 'female', 'other'])->nullable();
+            $table->enum('gender', ['male', 'female', 'others'])->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
