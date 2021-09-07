@@ -7,11 +7,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Overtrue\LaravelFollow\Followable;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commentator
 {
-    use HasFactory, Notifiable, HasEagerLimit;
+    use HasFactory, Notifiable, HasEagerLimit, Followable;
 
     const PAGINATE_COUNT = 20;
 
