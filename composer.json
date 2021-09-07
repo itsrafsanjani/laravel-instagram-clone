@@ -21,6 +21,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "munafio/chatify": "^1.2",
+        "overtrue/laravel-follow": "^3.0",
         "sightengine/client-php": "dev-master",
         "staudenmeir/eloquent-eager-limit": "^1.6",
         "tcg/voyager": "^1.4.3"
