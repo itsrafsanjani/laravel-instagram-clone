@@ -43,19 +43,19 @@
                     <div class="pl-5 text-center">
                         @if($user->followers_count > 0)
                             <a href="{{ route('users.followers', $user->username) }}">
-                                <strong id="followers_count">{{ $user->followers_count }}</strong> followers
+                                <strong id="followersCount">{{ $user->followers_count }}</strong> followers
                             </a>
                         @else
-                            <strong id="followers_count">{{ $user->followers_count }}</strong> followers
+                            <strong id="followersCount">{{ $user->followers_count }}</strong> followers
                         @endif
                     </div>
                     <div class="pl-5 text-center">
                         @if($user->followings_count > 0)
                             <a href="{{ route('users.followings', $user->username) }}">
-                                <strong id="following_count">{{ $user->followings_count }}</strong> following
+                                <strong id="followingsCount">{{ $user->followings_count }}</strong> following
                             </a>
                         @else
-                            <strong id="following_count">{{ $user->followings_count }}</strong> following
+                            <strong id="followingsCount">{{ $user->followings_count }}</strong> following
                         @endif
                     </div>
                 </div>

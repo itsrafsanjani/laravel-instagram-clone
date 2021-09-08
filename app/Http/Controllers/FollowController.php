@@ -14,7 +14,6 @@ class FollowController extends Controller
         return response()->json([
             'message' => 'Success!',
             'data' => [
-                'followings_count' => $user->followings()->count(),
                 'followers_count' => $user->followers()->count(),
             ]
         ]);

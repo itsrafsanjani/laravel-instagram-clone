@@ -176,9 +176,8 @@ $(document).ready(function() {
                     _token: _token
                 },
                 success: function (data) {
-                    let follows = data
+                    let follows = data.data
                     $('#followersCount').text(follows.followers_count)
-                    $('#followingCount').text(follows.following_count)
 
                     $.niceToast.success(follows.message);
                 },
