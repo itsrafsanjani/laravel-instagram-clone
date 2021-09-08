@@ -51,7 +51,7 @@ Route::get('/welcome-email', function () {
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::post('/follows/{username}', [FollowController::class, 'toggle'])->name('follows.toggle');
+    Route::post('/follows/{user}', [FollowController::class, 'toggle'])->name('follows.toggle');
     Route::post('/likes/{post}', [PostController::class, 'like'])->name('likes.store');
 
     Route::get('/', [PostController::class, 'index'])->name('posts.index');
