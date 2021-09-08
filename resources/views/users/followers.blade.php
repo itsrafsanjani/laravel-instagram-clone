@@ -25,7 +25,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <a href="{{ route('users.show', $user->profile->user) }}"
+                                                <a href="{{ route('users.show', $user) }}"
                                                    class="avatar rounded-circle">
                                                     <img alt="Image placeholder"
                                                          src="{{ $user->avatar }}">
@@ -33,13 +33,13 @@
                                             </div>
                                             <div class="col ml--2">
                                                 <h4 class="mb-0">
-                                                    <a href="{{ route('users.show', $user->profile->user) }}">{{ $user->profile->username }}</a>
+                                                    <a href="{{ route('users.show', $user) }}">{{ $user->profile->username }}</a>
                                                 </h4>
                                                 <span class="text-success">●</span>
                                                 <small>Online</small>
                                             </div>
                                             <div class="col-auto">
-                                                <a href="{{ route('users.show', $user->profile->user) }}"
+                                                <a href="{{ route('users.show', $user) }}"
                                                    class="btn btn-sm btn-primary">View Profile</a>
                                             </div>
                                         </div>

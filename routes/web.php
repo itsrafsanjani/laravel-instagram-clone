@@ -61,8 +61,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
-    Route::get('/users/{username}/followings', [UserController::class, 'followings'])->name('users.followings');
-    Route::get('/users/{username}/followers', [UserController::class, 'followers'])->name('users.followers');
+    Route::get('/users/{user}/followings', [UserController::class, 'followings'])->name('users.followings');
+    Route::get('/users/{user}/followers', [UserController::class, 'followers'])->name('users.followers');
 
     Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
 

@@ -98,24 +98,16 @@ class UserController extends Controller
         ]);
     }
 
-    public function followings($username)
+    public function followings(User $user)
     {
-        $profiles = User::where('username', $username)
-            ->first()
-            ->following()
-            ->paginate(Profile::PAGINATE_COUNT);
+        $users = $user->followings()->paginate(User::PAGINATE_COUNT);
 
-        return view('users.followings', compact('profiles'));
+        return view('users.followings', compact('users'));
     }
 
-    public function followers($username)
+    public function followers(User $user)
     {
-        $users = User::where('username', $username)
-            ->first()
-            ->profile
-            ->followers()
-            ->with('profile')
-            ->paginate(User::PAGINATE_COUNT);
+        $users = $user->followers()->paginate(User::PAGINATE_COUNT);
 
         return view('users.followers', compact('users'));
     }
