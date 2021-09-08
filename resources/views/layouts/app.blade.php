@@ -73,7 +73,7 @@
                                 <div class="d-flex w-100 justify-content-between">
                                     <div>
                                         <div class="d-flex w-100 align-items-center">
-                                            <img src="{{ auth()->user()->profile->profileImage() }}"
+                                            <img src="{{ auth()->user()->avatar }}"
                                                  alt="Image placeholder" class="avatar avatar-xs mr-2">
                                             <h5 class="mb-1">{{ auth()->user()->name }}</h5>
                                         </div>

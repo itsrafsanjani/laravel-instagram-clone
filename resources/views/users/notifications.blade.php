@@ -16,7 +16,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <!-- Avatar -->
-                                        <img alt="Image placeholder" src="{{ auth()->user()->profile->profileImage() }}"
+                                        <img alt="Image placeholder" src="{{ auth()->user()->avatar }}"
                                              class="avatar rounded-circle">
                                     </div>
                                     <div class="col ml--2">

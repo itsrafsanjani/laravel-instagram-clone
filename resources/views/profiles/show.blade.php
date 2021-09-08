@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-3 p-md-5 px-5 py-2">
                 <img
-                    src="{{ $user->profile->profileImage() }}"
+                    src="{{ $user->avatar }}"
                     class="rounded-circle w-100" alt="{{ $user->username }}">
             </div>
             <div class="col-md-9 pt-5">

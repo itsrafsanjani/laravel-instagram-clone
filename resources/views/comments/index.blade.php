@@ -13,7 +13,7 @@
                     <div>
                         <a href="{{ route('profiles.show', $comment->commentator) }}"
                            class="d-flex w-100 align-items-center">
-                            <img src="{{ $comment->commentator->profile->profileImage() }}"
+                            <img src="{{ $comment->commentator->avatar }}"
                                  alt="Image placeholder" class="avatar avatar-xs mr-2">
                             <h5 class="mb-1">{{ $comment->commentator->name }}</h5>
                         </a>

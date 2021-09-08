@@ -53,7 +53,7 @@
 
                                         <input type="file" class="form-control-file" id="image" name="image" oninput="document.getElementById('pic').src=window.URL.createObjectURL(this.files[0])">
 
-                                        <img src="{{ auth()->user()->profile->profileImage() }}" id="pic" class="img-thumbnail my-3" alt=""/>
+                                        <img src="{{ auth()->user()->avatar }}" id="pic" class="img-thumbnail my-3" alt=""/>
 
                                         <div class="text-muted">
                                             <small>

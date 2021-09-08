@@ -105,4 +105,15 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commenta
     {
         return $this->hasMany(config('comments.comment_class'));
     }
+
+    public function getAvatarAttribute($value)
+    {
+        $imageSize = 200;
+
+        if (request()->is('profiles/*')) {
+            $imageSize = 400;
+        }
+
+        return $this->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email ?? ''))) . '?s=' . $imageSize;
+    }
 }

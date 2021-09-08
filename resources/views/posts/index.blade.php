@@ -20,7 +20,7 @@
                                         <div class="d-flex justify-content-between align-items-baseline">
                                             <a href="{{ route('profiles.show', $post->user) }}" class="btn btn-link px-0"
                                                 data-toggle="tooltip" data-html="true" title='<div class="card">
-                                                                            <img class="card-img-top" src="{{ $post->user->profile->profileImage() }}"  alt="{{ $post->user->name }}">
+                                                                            <img class="card-img-top" src="{{ $post->user->avatar }}"  alt="{{ $post->user->name }}">
                                                                             <div class="card-body">
                                                                                 <h5 class="card-title">{{ $post->user->name }}</h5>
                                                                             </div>
@@ -78,7 +78,7 @@
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="mr-2">
                                     <a href="{{ route('profiles.show', auth()->user()) }}">
-                                        <img src="{{ auth()->user()->profile->profileImage() }}"
+                                        <img src="{{ auth()->user()->avatar }}"
                                             class="avatar rounded-circle" alt="{{ auth()->user()->username }}">
                                     </a>
                                 </div>

@@ -12,7 +12,7 @@
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="mr-2">
                             <a href="{{ route('profiles.show', $post->user) }}">
-                                <img src="{{ $post->user->profile->profileImage() }}" class="avatar rounded-circle"
+                                <img src="{{ $post->user->avatar }}" class="avatar rounded-circle"
                                      alt="{{ $post->user->username }}">
                             </a>
                         </div>
