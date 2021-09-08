@@ -18,7 +18,7 @@
 
                                     <div class="card-body @if ($post->comments_count > 1) pb-0 @endif">
                                         <div class="d-flex justify-content-between align-items-baseline">
-                                            <a href="{{ route('profiles.show', $post->user) }}" class="btn btn-link px-0"
+                                            <a href="{{ route('users.show', $post->user) }}" class="btn btn-link px-0"
                                                 data-toggle="tooltip" data-html="true" title='<div class="card">
                                                                             <img class="card-img-top" src="{{ $post->user->avatar }}"  alt="{{ $post->user->name }}">
                                                                             <div class="card-body">
@@ -54,7 +54,7 @@
                                     <div class="card-body">
                                         <h3 class="text-center text-muted">
                                             No posts yet! Follow
-                                            <a href="{{ route('profiles.index') }}" class="text-primary"> someone </a>
+                                            <a href="{{ route('users.index') }}" class="text-primary"> someone </a>
                                             to see their photos!
                                         </h3>
                                     </div>
@@ -77,14 +77,14 @@
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="mr-2">
-                                    <a href="{{ route('profiles.show', auth()->user()) }}">
+                                    <a href="{{ route('users.show', auth()->user()) }}">
                                         <img src="{{ auth()->user()->avatar }}"
                                             class="avatar rounded-circle" alt="{{ auth()->user()->username }}">
                                     </a>
                                 </div>
                                 <div>
                                     <div class="font-weight-bold">
-                                        <a href="{{ route('profiles.show', auth()->user()) }}">
+                                        <a href="{{ route('users.show', auth()->user()) }}">
                                             <span class="text-dark">{{ auth()->user()->username }}</span>
                                         </a>
                                     </div>

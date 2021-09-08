@@ -25,7 +25,7 @@
 
                         @can('update', $user->profile)
                             <div class="ml-4">
-                                <a href="{{ route('profiles.edit', $user) }}" class="btn btn-sm btn-secondary">Edit Profile</a>
+                                <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary">Edit Profile</a>
                             </div>
                         @endcan
                     </div>
@@ -42,7 +42,7 @@
                     <div class="text-center"><strong>{{ $postCount }}</strong> posts</div>
                     <div class="pl-5 text-center">
                         @if($followersCount > 0)
-                            <a href="{{ route('profiles.followers', $user->username) }}">
+                            <a href="{{ route('users.followers', $user->username) }}">
                                 <strong id="followersCount">{{ $followersCount }}</strong> followers
                             </a>
                         @else
@@ -51,7 +51,7 @@
                     </div>
                     <div class="pl-5 text-center">
                         @if($followingCount > 0)
-                            <a href="{{ route('profiles.followings', $user->username) }}">
+                            <a href="{{ route('users.followings', $user->username) }}">
                                 <strong id="followingCount">{{ $followingCount }}</strong> following
                             </a>
                         @else

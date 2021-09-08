@@ -57,12 +57,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/', [PostController::class, 'index'])->name('posts.index');
     Route::resource('/posts', PostController::class)->except(['index']);
 
-    Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');
-    Route::get('/profiles/{user}', [ProfileController::class, 'show'])->name('profiles.show');
-    Route::get('/profiles/{user}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
-    Route::patch('/profiles/{user}', [ProfileController::class, 'update'])->name('profiles.update');
-    Route::get('/profiles/{username}/followings', [ProfileController::class, 'followings'])->name('profiles.followings');
-    Route::get('/profiles/{username}/followers', [ProfileController::class, 'followers'])->name('profiles.followers');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::get('/users/{username}/followings', [UserController::class, 'followings'])->name('users.followings');
+    Route::get('/users/{username}/followers', [UserController::class, 'followers'])->name('users.followers');
 
     Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
 

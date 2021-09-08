@@ -11,14 +11,14 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="mr-2">
-                            <a href="{{ route('profiles.show', $post->user) }}">
+                            <a href="{{ route('users.show', $post->user) }}">
                                 <img src="{{ $post->user->avatar }}" class="avatar rounded-circle"
                                      alt="{{ $post->user->username }}">
                             </a>
                         </div>
                         <div>
                             <div class="font-weight-bold">
-                                <a href="{{ route('profiles.show', $post->user) }}">
+                                <a href="{{ route('users.show', $post->user) }}">
                                     <span class="text-dark">{{ $post->user->username }}</span>
                                 </a>
                             </div>
@@ -28,7 +28,7 @@
                         </div>
                         </div>
                         <div>
-                            <a href="{{ route('profiles.show', $post->user) }}" class="btn btn-primary btn-sm ml-3">View Profile</a>
+                            <a href="{{ route('users.show', $post->user) }}" class="btn btn-primary btn-sm ml-3">View Profile</a>
                         </div>
                         @can('update', $post->user->profile)
                             <form action="{{ route('posts.destroy', $post) }}" method="post" class="ml-3"
@@ -47,7 +47,7 @@
                     <div class="d-flex justify-content-between pb-3 px-1">
                             <div>
                                 <span class="font-weight-bold">
-                                <a href="{{ route('profiles.show', $post->user) }}">
+                                <a href="{{ route('users.show', $post->user) }}">
                                     <span class="text-dark">{{ $post->user->username }}</span>
                                 </a>
                             </span> {{ $post->caption }}

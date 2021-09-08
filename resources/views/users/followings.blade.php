@@ -15,31 +15,30 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Card body -->
                         <div class="card-body">
                             <!-- List group -->
                             <ul class="list-group list-group-flush list my--3">
-                                @forelse($users as $user)
+                                @forelse($profiles as $profile)
                                     <li class="list-group-item px-0">
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <a href="{{ route('profiles.show', $user->profile->user) }}"
+                                                <a href="{{ route('users.show', $profile->user) }}"
                                                    class="avatar rounded-circle">
                                                     <img alt="Image placeholder"
-                                                         src="{{ $user->avatar }}">
+                                                         src="{{ $avatar }}">
                                                 </a>
                                             </div>
                                             <div class="col ml--2">
                                                 <h4 class="mb-0">
-                                                    <a href="{{ route('profiles.show', $user->profile->user) }}">{{ $user->profile->username }}</a>
+                                                    <a href="{{ route('users.show', $profile->user) }}">{{ $profile->username }}</a>
                                                 </h4>
                                                 <span class="text-success">●</span>
                                                 <small>Online</small>
                                             </div>
                                             <div class="col-auto">
-                                                <a href="{{ route('profiles.show', $user->profile->user) }}"
+                                                <a href="{{ route('users.show', $profile->user) }}"
                                                    class="btn btn-sm btn-primary">View Profile</a>
                                             </div>
                                         </div>
@@ -55,7 +54,7 @@
 
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center mt-3">
-                            {{ $users->links() }}
+                            {{ $profiles->links() }}
                         </div>
                     </div>
                 </div>
@@ -64,4 +63,3 @@
     </div>
 
 @endsection
-

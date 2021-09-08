@@ -11,7 +11,7 @@
                 class="list-group-item list-group-item-action flex-column align-items-start px-4 py-4">
                 <div class="d-flex w-100 justify-content-between">
                     <div>
-                        <a href="{{ route('profiles.show', $comment->commentator) }}"
+                        <a href="{{ route('users.show', $comment->commentator) }}"
                            class="d-flex w-100 align-items-center">
                             <img src="{{ $comment->commentator->avatar }}"
                                  alt="Image placeholder" class="avatar avatar-xs mr-2">

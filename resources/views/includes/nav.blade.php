@@ -62,7 +62,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('profiles.show', auth()->user()) }}">
+                            <a class="dropdown-item" href="{{ route('users.show', auth()->user()) }}">
                                 {{ __('My Profile') }}
                             </a>
 
@@ -76,7 +76,7 @@
                                 {{ __('Add New Post') }}
                             </a>
 
-                            <a class="dropdown-item" href="{{ route('profiles.index') }}">
+                            <a class="dropdown-item" href="{{ route('users.index') }}">
                                 {{ __('Others Profile') }}
                             </a>
 
