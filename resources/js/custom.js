@@ -159,6 +159,7 @@ $(document).ready(function() {
             let username = $(this).data('username');
             let _url = '/follows/' + username;
             let _token = $('meta[name="csrf-token"]').attr('content');
+            let followUnfollowButtonTxt = $('#followUnfollowButton').text()
 
             $.ajax({
                 url: _url,
@@ -168,7 +169,11 @@ $(document).ready(function() {
                 },
                 success: function (data) {
                     let follows = data
-                    $('#followUnfollowButton').text(follows.data.buttonText)
+                    if (followUnfollowButtonTxt === 'Follow') {
+                        $('#followUnfollowButton').text('Unfollow')
+                    } else {
+                        $('#followUnfollowButton').text('Follow')
+                    }
                     $('#followersCount').text(follows.followers_count)
                     $('#followingCount').text(follows.following_count)
 
