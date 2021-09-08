@@ -26,15 +26,11 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+        auth()->user()->attachFollowStatus($user);
 
-        $postCount = $user->posts->count();
+        $user->loadCount(['posts', 'followers', 'followings']);
 
-        $followersCount = $user->profile->followers->count();
-
-        $followingCount = $user->following->count();
-
-        return view('users.show', compact('user', 'follows', 'postCount', 'followersCount', 'followingCount'));
+        return view('users.show', compact('user'));
     }
 
     public function edit(User $user)

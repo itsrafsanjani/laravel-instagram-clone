@@ -16,10 +16,10 @@
                         </div>
 
                         @if(auth()->user()->username != $user->username)
-                            {{-- <follow-button username="{{ $user->username }}" follows="{{ $follows }}"></follow-button> --}}
+                            {{-- <follow-button username="{{ $user->username }}" follows="{{ $user->has_followed }}"></follow-button> --}}
                             <button class="btn btn-sm btn-primary ml-4" id="followUnfollowButton"
                                     data-username="{{ $user->username }}">
-                                {{ $follows ? 'Unfollow' : 'Follow' }}
+                                {{ $user->has_followed ? 'Unfollow' : 'Follow' }}
                             </button>
                         @endif
 
@@ -39,23 +39,23 @@
                 </div>
 
                 <div class="d-flex mb-3">
-                    <div class="text-center"><strong>{{ $postCount }}</strong> posts</div>
+                    <div class="text-center"><strong>{{ $user->posts_count }}</strong> posts</div>
                     <div class="pl-5 text-center">
-                        @if($followersCount > 0)
+                        @if($user->followers_count > 0)
                             <a href="{{ route('users.followers', $user->username) }}">
-                                <strong id="followersCount">{{ $followersCount }}</strong> followers
+                                <strong id="followers_count">{{ $user->followers_count }}</strong> followers
                             </a>
                         @else
-                            <strong id="followersCount">{{ $followersCount }}</strong> followers
+                            <strong id="followers_count">{{ $user->followers_count }}</strong> followers
                         @endif
                     </div>
                     <div class="pl-5 text-center">
-                        @if($followingCount > 0)
+                        @if($user->followings_count > 0)
                             <a href="{{ route('users.followings', $user->username) }}">
-                                <strong id="followingCount">{{ $followingCount }}</strong> following
+                                <strong id="following_count">{{ $user->followings_count }}</strong> following
                             </a>
                         @else
-                            <strong id="followingCount">{{ $followingCount }}</strong> following
+                            <strong id="following_count">{{ $user->followings_count }}</strong> following
                         @endif
                     </div>
                 </div>
