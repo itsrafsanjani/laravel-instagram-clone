@@ -156,10 +156,18 @@ $(document).ready(function() {
         $('#followUnfollowButton').on('click', function (e) {
             e.preventDefault();
 
+            // follow/unfollow text
+            let followUnfollowButton = $('#followUnfollowButton');
+
+            if (followUnfollowButton.text() === 'Follow') {
+                followUnfollowButton.text('Unfollow');
+            } else {
+                followUnfollowButton.text('Follow');
+            }
+
             let username = $(this).data('username');
             let _url = '/follows/' + username;
             let _token = $('meta[name="csrf-token"]').attr('content');
-            let followUnfollowButtonTxt = $('#followUnfollowButton').text()
 
             $.ajax({
                 url: _url,
@@ -169,11 +177,6 @@ $(document).ready(function() {
                 },
                 success: function (data) {
                     let follows = data
-                    if (followUnfollowButtonTxt === 'Follow') {
-                        $('#followUnfollowButton').text('Unfollow')
-                    } else {
-                        $('#followUnfollowButton').text('Follow')
-                    }
                     $('#followersCount').text(follows.followers_count)
                     $('#followingCount').text(follows.following_count)
 
