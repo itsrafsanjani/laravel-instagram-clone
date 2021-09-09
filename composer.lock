@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5e731327c0fce39a09d7beac9cf0d23",
+    "content-hash": "f0907f1f4fffbfef90b03861aec0de13",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -3522,6 +3522,68 @@
                 "source": "https://github.com/overtrue/laravel-follow/tree/3.0.1"
             },
             "time": "2021-06-08T05:14:33+00:00"
+        },
+        {
+            "name": "overtrue/laravel-like",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/laravel-like.git",
+                "reference": "08d87b630cfd82d5f29b9af037f5be5a4d83fa46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/overtrue/laravel-like/zipball/08d87b630cfd82d5f29b9af037f5be5a4d83fa46",
+                "reference": "08d87b630cfd82d5f29b9af037f5be5a4d83fa46",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "brainmaestro/composer-git-hooks": "^2.7",
+                "friendsofphp/php-cs-fixer": "^2.17.2",
+                "laravel/framework": "^8.0",
+                "mockery/mockery": "^1.2",
+                "orchestra/testbench": "^6.7.0",
+                "phpunit/phpunit": "^9.3.8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Overtrue\\LaravelLike\\LikeServiceProvider"
+                    ]
+                },
+                "hooks": {
+                    "pre-commit": [
+                        "composer fix-style",
+                        "composer test"
+                    ],
+                    "post-merge": "composer install"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\LaravelLike\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "overtrue",
+                    "email": "anzhengchao@gmail.com"
+                }
+            ],
+            "description": "👍 User-like features for Laravel Application.",
+            "support": {
+                "issues": "https://github.com/overtrue/laravel-like/issues",
+                "source": "https://github.com/overtrue/laravel-like/tree/4.0.0"
+            },
+            "time": "2020-12-23T01:09:01+00:00"
         },
         {
             "name": "paragonie/random_compat",
