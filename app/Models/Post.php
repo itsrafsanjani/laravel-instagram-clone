@@ -6,11 +6,12 @@ use BeyondCode\Comments\Traits\HasComments;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use JordanMiguel\LaravelPopular\Traits\Visitable;
+use Overtrue\LaravelLike\Traits\Likeable;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Post extends Model
 {
-    use HasFactory, HasComments, HasEagerLimit, Visitable;
+    use HasFactory, HasComments, HasEagerLimit, Visitable, Likeable;
 
     const PAGINATE_COUNT = 18;
     const POPULAR_BY_DAY = 3;
