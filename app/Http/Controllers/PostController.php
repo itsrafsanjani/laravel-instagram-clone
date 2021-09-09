@@ -16,11 +16,11 @@ class PostController extends Controller
 {
     public function index()
     {
-        $users = auth()->user()->following()->pluck('profiles.user_id');
+        $users = auth()->user()->followings;
 
         $posts = Post::with([
-            'user', 'user.profile', 'likes', 'user.likes', 'comments' => function ($query) {
-                $query->with('commentator', 'commentator.profile')->latest()->limit(2);
+            'user', 'likes', 'user.likes', 'comments' => function ($query) {
+                $query->with('commentator')->latest()->limit(2);
             }
         ])
             ->withCount('comments')
@@ -73,13 +73,13 @@ class PostController extends Controller
                 'image' => $imagePath,
             ]);
 
-            return redirect()->route('profiles.show', $user)->with([
+            return redirect()->route('users.show', $user)->with([
                 'status' => 'success',
                 'message' => 'Post uploaded successfully!'
             ]);
         }
 
-        return redirect()->route('profiles.show', $user)->with([
+        return redirect()->route('users.show', $user)->with([
             'status' => 'error',
             'message' => 'Your image contains inappropriate content!'
         ]);
@@ -111,7 +111,7 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect(route('profiles.show', auth()->user()));
+        return redirect(route('users.show', auth()->user()));
     }
 
     public function like(Post $post): JsonResponse
