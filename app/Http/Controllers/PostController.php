@@ -16,7 +16,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $users = auth()->user()->followings;
+        $users = auth()->user()->followings()->pluck('users.id');
 
         $posts = Post::with([
             'user', 'likes', 'user.likes', 'comments' => function ($query) {
