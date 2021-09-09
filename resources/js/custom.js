@@ -174,11 +174,10 @@ $(document).ready(function () {
                 data: {
                     _token: _token
                 },
-                success: function (data) {
-                    let follows = data.data
-                    $('#followersCount').text(follows.followers_count)
+                success: function (response) {
+                    $('#followersCount').text(response.data.followers_count)
 
-                    $.niceToast.success(follows.message);
+                    $.niceToast.success(response.message);
                 },
                 error: function (response) {
                     $.niceToast.error(response.responseJSON.message);
