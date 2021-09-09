@@ -2,7 +2,7 @@
  * My Custom JS
  * Run after page load
  */
-$(document).ready(function() {
+$(document).ready(function () {
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     let firebaseConfig = {
@@ -67,7 +67,7 @@ $(document).ready(function() {
                 </div>
             </footer>`
         let footerCloseButton = localStorage.getItem('footerCloseButton');
-        if (footerCloseButton != null ) {
+        if (footerCloseButton != null) {
             let data = JSON.parse(footerCloseButton)
             let expectedDate = data.timestamp + (30 * 24 * 60 * 60 * 1000)
             let currentDate = Date.now()
@@ -94,8 +94,8 @@ $(document).ready(function() {
             e.preventDefault();
 
             let postSlug = $(this).data('postSlug');
-            let likeCount = $('#likeCount-' + postSlug)
-            let likeIcon = $('#likeIcon-' + postSlug)
+            let likeCount = $('#likeCount-' + postSlug);
+            let likeIcon = $('#likeIcon-' + postSlug);
             let _url = '/likes/' + postSlug;
             let _token = $('meta[name="csrf-token"]').attr('content');
 
@@ -109,7 +109,6 @@ $(document).ready(function() {
                     let likes = data
                     if (likes.data.status === 'liked') {
                         likeIcon.addClass('fas').removeClass('far')
-
                     } else {
                         likeIcon.addClass('far').removeClass('fas')
                     }
@@ -125,7 +124,7 @@ $(document).ready(function() {
 
         // comment delete
         $('.commentDeleteButton').on('click', function (e) {
-            if (!confirm("Are you sure you want to delete?")){
+            if (!confirm("Are you sure you want to delete?")) {
                 return false;
             }
 
