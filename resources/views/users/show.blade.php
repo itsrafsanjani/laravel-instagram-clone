@@ -63,11 +63,11 @@
                     @if ($user->name)
                         <div class="font-weight-bold">{{ $user->name }}</div>
                     @endif
-                    @if ($user->profile->description)
-                        <div>{{ $user->profile->description }}</div>
+                    @if ($user->bio)
+                        <div>{{ $user->bio }}</div>
                     @endif
-                    @if ($user->profile->url)
-                        <div><a href="{{ $user->profile->url }}" target="_blank">{{ $user->profile->url }}</a></div>
+                    @if ($user->website)
+                        <div><a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a></div>
                     @endif
                 </div>
             </div>
