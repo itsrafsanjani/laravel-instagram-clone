@@ -35,14 +35,14 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        $this->authorize('update', $user->profile);
+        $this->authorize('update', $user);
 
         return view('users.edit', compact('user'));
     }
 
     public function update(User $user, Request $request)
     {
-        $this->authorize('update', $user->profile);
+        $this->authorize('update', $user);
 
         $data = request()->validate([
             'description' => 'required',

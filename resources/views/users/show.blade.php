@@ -23,14 +23,14 @@
                             </button>
                         @endif
 
-                        @can('update', $user->profile)
+                        @can('update', $user)
                             <div class="ml-4">
                                 <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary">Edit Profile</a>
                             </div>
                         @endcan
                     </div>
 
-                    @can('update', $user->profile)
+                    @can('update', $user)
                         <div>
                             <a href="{{ route('posts.create') }}" class="btn btn-sm btn-secondary">Add New Post</a>
                         </div>
