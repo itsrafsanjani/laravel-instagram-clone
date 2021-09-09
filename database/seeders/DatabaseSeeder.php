@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Like;
 use App\Models\Post;
-use App\Models\Profile;
-use App\Models\ProfileUser;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -25,24 +23,9 @@ class DatabaseSeeder extends Seeder
         User::factory()->count(10)->create();
         Post::factory()->count(10)->create();
 
-        echo "ProfileUser Pivot Data Seeding.. \n";
-
-        $users = User::count();
-        $profiles = Profile::count();
-
-        for ($i = 1; $i <= $profiles; $i++) {
-            for ($j = 1; $j <= $users; $j++) {
-                if ($i != $j) {
-                    ProfileUser::updateOrCreate([
-                        'profile_id' => $i,
-                        'user_id' => $j
-                    ]);
-                }
-            }
-        }
-
         echo "Like Data Seeding.. \n";
 
+        $users = User::count();
         $posts = Post::count();
 
         for ($i = 1; $i <= $posts; $i++) {

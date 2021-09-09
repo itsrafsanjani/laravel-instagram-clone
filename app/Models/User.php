@@ -53,19 +53,6 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commenta
         'otp_created_at' => 'datetime'
     ];
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::created(function ($user) {
-            $user->profile()->create([
-                'username' => $user->username,
-            ]);
-
-//            Mail::to($user->email)->send(new NewUserWelcomeMail());
-        });
-    }
-
     /**
      * Check if a comment for a specific model needs to be approved.
      * @param mixed $model
@@ -86,11 +73,6 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commenta
         return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
     }
 
-    public function profile()
-    {
-        return $this->hasOne(Profile::class);
-    }
-
     public function likes()
     {
         return $this->hasMany(Like::class)->where('status', 1);
@@ -105,7 +87,7 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commenta
     {
         $imageSize = 200;
 
-        if (request()->is('profiles/*')) {
+        if (request()->is('users/*')) {
             $imageSize = 400;
         }
 

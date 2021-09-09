@@ -89,7 +89,7 @@ class PostController extends Controller
     {
         $post->load([
             'comments' => function ($query) {
-                $query->with('commentator', 'commentator.profile')->latest();
+                $query->with('commentator', 'commentator')->latest();
             }
         ])->loadCount('comments');
 
