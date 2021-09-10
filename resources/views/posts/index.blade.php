@@ -11,39 +11,47 @@
                                 <div class="card single-post">
                                     <a href="{{ route('posts.show', $post) }}">
                                         <img class="card-img-top lazy" src="{{ asset('images/placeholder.jpg') }}"
-                                            data-src="{{ $post->image() }}" alt="{{ $post->caption }}">
+                                             data-src="{{ $post->image() }}" alt="{{ $post->caption }}">
                                     </a>
 
                                     <div class="d-none">{{ $post->id }}</div>
 
                                     <div class="card-body @if ($post->comments_count > 1) pb-0 @endif">
                                         <div class="d-flex justify-content-between align-items-baseline">
-                                            <a href="{{ route('users.show', $post->user) }}" class="btn btn-link px-0"
-                                                data-toggle="tooltip" data-html="true" title='<div class="card">
-                                                                            <img class="card-img-top" src="{{ $post->user->avatar }}"  alt="{{ $post->user->name }}">
-                                                                            <div class="card-body">
-                                                                                <h5 class="card-title">{{ $post->user->name }}</h5>
-                                                                            </div>
-                                                                        </div>'>{{ $post->user->username }}</a>
+                                            <a href="{{ route('users.show', $post->user) }}"
+                                               class="btn btn-link px-0"
+                                               data-toggle="tooltip"
+                                               data-html="true"
+                                               title='
+                                               <div class="card">
+                                                    <img class="card-img-top" src="{{ $post->user->avatar }}"
+                                                     alt="{{ $post->user->name }}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ $post->user->name }}</h5>
+                                                    </div>
+                                                </div>'
+                                            >{{ $post->user->username }}</a>
                                             {{-- <like-button post-slug="{{ $post->slug }}" :user="{{ auth()->user() }}" --}}
-                                            {{-- :likes="{{ $post->likes->count() }}" --}}
+                                            {{-- :likes="{{ $post->likers_count }}" --}}
                                             {{-- like-status="{{ $post->isLikedBy(auth()->user()) }}"></like-button> --}}
                                             @include('likes.create')
                                         </div>
                                         <div class="d-flex justify-content-between align-items-baseline">
                                             <h5 class="h2 card-title mb-0">{{ $post->caption }}</h5>
-                                            <small class="text-muted" data-toggle="tooltip" data-placement="top"
-                                                title="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</small>
+                                            <small class="text-muted"
+                                                   data-toggle="tooltip"
+                                                   data-placement="top"
+                                                   title="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</small>
                                         </div>
                                     </div>
 
                                     <!-- Comments -->
-                                    @include('comments.index', $post)
-                                    <!-- Comments End -->
+                                @include('comments.index', $post)
+                                <!-- Comments End -->
 
                                     <!-- New Comment Box -->
-                                    @include('comments.create')
-                                    <!-- New Comment Box End -->
+                                @include('comments.create')
+                                <!-- New Comment Box End -->
                                 </div>
                             </div>
                         </div>
@@ -79,7 +87,7 @@
                                 <div class="mr-2">
                                     <a href="{{ route('users.show', auth()->user()) }}">
                                         <img src="{{ auth()->user()->avatar }}"
-                                            class="avatar rounded-circle" alt="{{ auth()->user()->username }}">
+                                             class="avatar rounded-circle" alt="{{ auth()->user()->username }}">
                                     </a>
                                 </div>
                                 <div>
@@ -95,8 +103,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-body">
                     </div>
                 </div>
             </div>
