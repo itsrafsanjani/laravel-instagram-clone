@@ -91,7 +91,7 @@ class PostController extends Controller
             'comments' => function ($query) {
                 $query->with('commentator', 'commentator')->latest();
             }
-        ])->loadCount('comments');
+        ])->loadCount('comments', 'likers');
 
         $post->visit();
 
