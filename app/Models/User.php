@@ -74,11 +74,6 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commenta
         return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
     }
 
-    public function likes()
-    {
-        return $this->hasMany(Like::class)->where('status', 1);
-    }
-
     public function comments()
     {
         return $this->hasMany(config('comments.comment_class'));
