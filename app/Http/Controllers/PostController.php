@@ -116,44 +116,14 @@ class PostController extends Controller
 
     public function like(Post $post): JsonResponse
     {
-        $likeCheck = Like::where(['user_id' => auth()->id(), 'post_id' => $post->id])->first();
+        auth()->user()->toggleLike($post);
 
-        if ($likeCheck) {
-            if ($likeCheck->status == true) {
-                $likeCheck->update(['status' => 0]);
-
-                return response()->json([
-                    'data' => [
-                        'status' => 'deleted',
-                        'like_count' => $post->likes()->count()
-                    ],
-                    'message' => 'Success!'
-                ]);
-            } else {
-                $likeCheck->update(['status' => 1]);
-                return response()->json([
-                    'data' => [
-                        'status' => 'liked',
-                        'like_count' => $post->likes()->count()
-                    ],
-                    'message' => 'Success!'
-                ]);
-            }
-
-        } else {
-            Like::create([
-                'user_id' => auth()->id(),
-                'post_id' => $post->id,
-                'status' => 1
-            ]);
-            return response()->json([
-                'data' => [
-                    'status' => 'liked',
-                    'like_count' => $post->likes()->count()
-                ],
-                'message' => 'Success!'
-            ]);
-        }
+        return response()->json([
+            'data' => [
+                'likers_count' => $post->likers()->count()
+            ],
+            'message' => 'Success!'
+        ]);
     }
 
     public function explore()

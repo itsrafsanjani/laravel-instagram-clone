@@ -95,9 +95,11 @@ $(document).ready(function () {
 
             let postSlug = $(this).data('postSlug');
             let likeCount = $('#likeCount-' + postSlug);
-            let likeIcon = $('#likeIcon-' + postSlug);
             let _url = '/likes/' + postSlug;
             let _token = $('meta[name="csrf-token"]').attr('content');
+
+            // change icon style
+            $('#likeIcon-' + postSlug).toggleClass('far fas');
 
             $.ajax({
                 url: _url,
@@ -107,13 +109,7 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     let likes = data
-                    if (likes.data.status === 'liked') {
-                        likeIcon.addClass('fas').removeClass('far')
-                    } else {
-                        likeIcon.addClass('far').removeClass('fas')
-                    }
-                    likeCount.text(likes.data.like_count)
-
+                    likeCount.text(likes.data.likers_count)
                     $.niceToast.success(likes.message);
                 },
                 error: function (response) {
