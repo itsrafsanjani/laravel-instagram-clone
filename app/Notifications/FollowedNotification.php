@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class UserFollowedNotification extends Notification
+class FollowedNotification extends Notification
 {
     use Queueable;
 
@@ -67,7 +67,8 @@ class UserFollowedNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'following_id' => $this->followingUser->id,
+            'follower_id' => $this->followerUser->id,
         ];
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Listeners;
 
 use App\Models\User;
-use App\Notifications\UserFollowedNotification;
+use App\Notifications\FollowedNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Overtrue\LaravelFollow\Events\Followed;
@@ -30,6 +30,6 @@ class FollowedListener
     {
         $user = User::findOrFail($event->followingId);
 
-        $user->notify(new UserFollowedNotification($event->followingId, $event->followerId));
+        $user->notify(new FollowedNotification($event->followingId, $event->followerId));
     }
 }
