@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -68,5 +69,5 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/explore', [PostController::class, 'explore'])->name('posts.explore');
 
-    Route::get('/notifications', [UserController::class, 'notifications'])->name('users.notifications');
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
 });

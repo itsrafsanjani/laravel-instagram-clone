@@ -11,18 +11,18 @@
 
                     <div class="card-body">
                         <div class="list-group list-group-flush">
-                            @for($i = 1; $i <= 5; $i++)
+                            @forelse($notifications as $notification)
                                 <a href="#" class="list-group-item list-group-item-action">
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <!-- Avatar -->
-                                        <img alt="Image placeholder" src="{{ auth()->user()->avatar }}"
+                                        <img alt="Image placeholder" src="{{ \App\Models\User::findOrFail($notification->data['following_id'])->avatar }}"
                                              class="avatar rounded-circle">
                                     </div>
                                     <div class="col ml--2">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
-                                                <h4 class="mb-0 text-sm">{{ auth()->user()->name }}</h4>
+                                                <h4 class="mb-0 text-sm">{{ \App\Models\User::findOrFail($notification->data['following_id'])->name }}</h4>
                                             </div>
                                             <div class="text-right text-muted">
                                                 <small>2 hrs ago</small>
@@ -32,7 +32,11 @@
                                     </div>
                                 </div>
                             </a>
-                            @endfor
+                            @empty
+                                <div href="#" class="list-group-item list-group-item-action text-center">
+                                    No notifications!
+                                </div>
+                            @endforelse
                         </div>
                     </div>
 

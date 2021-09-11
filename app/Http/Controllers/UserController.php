@@ -71,9 +71,4 @@ class UserController extends Controller
 
         return view('users.followers', compact('users'));
     }
-
-    public function notifications()
-    {
-        return view('users.notifications');
-    }
 }
