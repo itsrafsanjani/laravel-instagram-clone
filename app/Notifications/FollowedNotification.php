@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class FollowedNotification extends Notification
+class FollowedNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -40,7 +40,7 @@ class FollowedNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
