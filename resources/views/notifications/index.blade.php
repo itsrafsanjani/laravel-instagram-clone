@@ -40,7 +40,11 @@
                         </div>
                     </div>
 
-                    <a href="#" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            {{ $notifications->links() }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
