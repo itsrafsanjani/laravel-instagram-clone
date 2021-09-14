@@ -154,9 +154,11 @@ $(document).ready(function () {
             // follow/unfollow text
             let followUnfollowButton = $('#followUnfollowButton');
 
-            if (followUnfollowButton.text() === 'Follow') {
+            console.log(followUnfollowButton.text().trim())
+
+            if (followUnfollowButton.text().trim() === 'Follow') {
                 followUnfollowButton.text('Unfollow');
-            } else {
+            } else if (followUnfollowButton.text().trim() === 'Unfollow') {
                 followUnfollowButton.text('Follow');
             }
 
