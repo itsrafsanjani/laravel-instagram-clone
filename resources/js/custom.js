@@ -79,7 +79,7 @@ $(document).ready(function () {
         }
 
         $('#footerCloseButton').on('click', function () {
-            console.log('fixed footer closed')
+
             $('#footer').hide()
             localStorage.setItem('footerCloseButton', JSON.stringify({
                 closed: true,
@@ -153,8 +153,6 @@ $(document).ready(function () {
 
             // follow/unfollow text
             let followUnfollowButton = $('#followUnfollowButton');
-
-            console.log(followUnfollowButton.text().trim())
 
             if (followUnfollowButton.text().trim() === 'Follow') {
                 followUnfollowButton.text('Unfollow');

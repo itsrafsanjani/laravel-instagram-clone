@@ -17,8 +17,8 @@ export default {
     ],
 
     mounted() {
-        // console.log("FollowButton Component mounted.");
-        // console.log("like status" + this.likeStatus)
+        //
+        //
     },
 
     data: function () {
@@ -55,8 +55,8 @@ export default {
                 window.location = 'login'
             }
 
-            // console.log(this.postSlug);
-            // console.log("like-button clicked");
+            //
+            //
         },
     },
 
