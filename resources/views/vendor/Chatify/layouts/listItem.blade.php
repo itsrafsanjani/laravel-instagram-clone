@@ -26,26 +26,26 @@
             @if($user->active_status)
                 <span class="activeStatus"></span>
             @endif
-        <div class="avatar av-m" 
-        style="background-image: url('{{ asset('/storage/'.config('chatify.user_avatar.folder').'/'.$user->avatar) }}');">
+        <div class="avatar av-m"
+        style="background-image: url('{{ $user->avatar }}');">
         </div>
         </td>
         {{-- center side --}}
         <td>
         <p data-id="{{ $type.'_'.$user->id }}">
-            {{ strlen($user->name) > 12 ? trim(substr($user->name,0,12)).'..' : $user->name }} 
+            {{ strlen($user->name) > 30 ? trim(substr($user->name,0,30)).'..' : $user->name }}
             <span>{{ $lastMessage->created_at->diffForHumans() }}</span></p>
         <span>
             {{-- Last Message user indicator --}}
             {!!
-                $lastMessage->from_id == Auth::user()->id 
+                $lastMessage->from_id == Auth::user()->id
                 ? '<span class="lastMessageIndicator">You :</span>'
                 : ''
             !!}
             {{-- Last message body --}}
             @if($lastMessage->attachment == null)
             {{
-                strlen($lastMessage->body) > 30 
+                strlen($lastMessage->body) > 30
                 ? trim(substr($lastMessage->body, 0, 30)).'..'
                 : $lastMessage->body
             }}
@@ -56,7 +56,7 @@
         {{-- New messages counter --}}
             {!! $unseenCounter > 0 ? "<b>".$unseenCounter."</b>" : '' !!}
         </td>
-        
+
     </tr>
 </table>
 @endif
@@ -68,15 +68,15 @@
         {{-- Avatar side --}}
         <td>
         <div class="avatar av-m"
-        style="background-image: url('{{ asset('/storage/'.config('chatify.user_avatar.folder').'/'.$user->avatar) }}');">
+        style="background-image: url('{{ $user->avatar }}');">
         </div>
         </td>
         {{-- center side --}}
         <td>
         <p data-id="{{ $type.'_'.$user->id }}">
-            {{ strlen($user->name) > 12 ? trim(substr($user->name,0,12)).'..' : $user->name }} 
+            {{ strlen($user->name) > 30 ? trim(substr($user->name,0,30)).'..' : $user->name }}
         </td>
-        
+
     </tr>
 </table>
 @endif

@@ -46,7 +46,8 @@
            {{-- ---------------- [ Group Tab ] ---------------- --}}
            <div class="@if($route == 'group') show @endif messenger-tab app-scroll" data-view="groups">
                 {{-- items --}}
-                <p style="text-align: center;color:grey;">Soon will be available</p>
+                <p class="py-5"
+                    style="text-align: center;color:grey;">Soon will be available!</p>
              </div>
 
              {{-- ---------------- [ Search Tab ] ---------------- --}}
