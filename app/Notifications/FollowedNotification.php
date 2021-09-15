@@ -67,8 +67,7 @@ class FollowedNotification extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'following_id' => $this->followingUser->id,
-            'follower_id' => $this->followerUser->id,
+            'follower' => $this->followingUser,
         ];
     }
 }

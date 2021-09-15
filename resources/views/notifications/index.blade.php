@@ -12,26 +12,33 @@
                     <div class="card-body">
                         <div class="list-group list-group-flush">
                             @forelse($notifications as $notification)
-                                <a href="#" class="list-group-item list-group-item-action">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <!-- Avatar -->
-                                        <img alt="Image placeholder" src="{{ \App\Models\User::findOrFail($notification->data['following_id'])->avatar }}"
-                                             class="avatar rounded-circle">
-                                    </div>
-                                    <div class="col ml--2">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <h4 class="mb-0 text-sm">{{ \App\Models\User::findOrFail($notification->data['following_id'])->name }}</h4>
-                                            </div>
-                                            <div class="text-right text-muted">
-                                                <small>2 hrs ago</small>
-                                            </div>
+                                <a href="{{ url('/users/' . $notification->data['follower']['username']) }}"
+                                   class="list-group-item list-group-item-action">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <img alt="Image placeholder"
+                                                 src="{{ $notification->data['follower']['avatar'] ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($notification->data['follower']['email'] ?? ''))) }}"
+                                                 class="avatar rounded-circle">
                                         </div>
-                                        <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                                        <div class="col ml--2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h4 class="mb-0 text-sm">
+                                                        {{ $notification->data['follower']['name'] }}
+                                                    </h4>
+                                                </div>
+                                                <div class="text-right text-muted"
+                                                     data-toggle="tooltip"
+                                                     data-placement="top"
+                                                     title="{{ $notification->created_at }}">
+                                                    <small>{{ $notification->created_at->diffForHumans() }}</small>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm mb-0">Started following you.</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
                             @empty
                                 <div href="#" class="list-group-item list-group-item-action text-center">
                                     No notifications!
