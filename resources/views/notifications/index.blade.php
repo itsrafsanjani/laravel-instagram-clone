@@ -28,14 +28,14 @@
                                                         {{ $notification->data['follower']['name'] }}
                                                     </h4>
                                                 </div>
-                                                <div class="text-right text-muted"
-                                                     data-toggle="tooltip"
-                                                     data-placement="top"
-                                                     title="{{ $notification->created_at }}">
-                                                    <small>{{ $notification->created_at->diffForHumans() }}</small>
-                                                </div>
                                             </div>
                                             <p class="text-sm mb-0">Started following you.</p>
+                                        </div>
+                                        <div class="col-auto text-muted"
+                                             data-toggle="tooltip"
+                                             data-placement="top"
+                                             title="{{ $notification->created_at }}">
+                                            <small>{{ $notification->created_at->diffForHumans() }}</small>
                                         </div>
                                     </div>
                                 </a>
