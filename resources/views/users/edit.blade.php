@@ -8,21 +8,6 @@
             <div class="row">
                 <div class="col-md-8 mx-auto">
                     <div class="card">
-                        <!-- Card body -->
-                        <div class="card-body">
-                            <img src="{{ $user->avatar }}"
-                                 class="rounded-circle img-center img-fluid shadow shadow-lg--hover"
-                                 alt="{{ $user->name }}">
-                            <div class="pt-4 text-center">
-                                <h5 class="h3 title">
-                                    <span class="d-block mb-1">{{ $user->name }}</span>
-                                    <small class="h4 font-weight-light text-muted">{{ $user->bio }}</small>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h3 class="mb-0">Edit Profile</h3>
                         </div>
@@ -155,7 +140,11 @@
                                     <div class="form-group">
                                         <label for="avatar">Avatar</label>
 
-                                        <input type="file" class="form-control-file" id="avatar" name="avatar"
+                                        <input type="file"
+                                               class="form-control-file"
+                                               id="avatar"
+                                               name="avatar"
+                                               accept="image/*"
                                                oninput="document.getElementById('avatar-img').src=window.URL.createObjectURL(this.files[0])">
 
                                         <img src="{{ $user->avatar }}" id="avatar-img" class="img-thumbnail my-3"
