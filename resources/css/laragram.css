@@ -1,4 +1,4 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 /*!
 
 =========================================================
@@ -5054,6 +5054,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     color: #8898aa
 }
 
+/* purgecss start ignore */
+
 .pagination {
     display: flex;
     padding-left: 0;
@@ -5143,6 +5145,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-top-right-radius: .25rem;
     border-bottom-right-radius: .25rem
 }
+
+/* purgecss end ignore */
 
 .badge {
     font-size: 66%;
@@ -17963,6 +17967,8 @@ textarea[resize=horizontal] {
     font-size: 1rem
 }
 
+/* purgecss start ignore */
+
 .page-item.active .page-link {
     box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08)
 }
@@ -17990,6 +17996,8 @@ textarea[resize=horizontal] {
     width: 30px;
     height: 30px
 }
+
+/* purgecss end ignore */
 
 .popover {
     border: 0
