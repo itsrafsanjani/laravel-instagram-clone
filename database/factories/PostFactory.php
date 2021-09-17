@@ -27,7 +27,6 @@ class PostFactory extends Factory
             'user_id' => User::all()->random()->id,
             'slug' => Str::random(12),
             'caption' => 'My first upload..',
-            'image' => '/storage/uploads/image.jpg'
         ];
     }
 }
