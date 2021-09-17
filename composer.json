@@ -25,6 +25,7 @@
         "overtrue/laravel-follow": "^3.0",
         "overtrue/laravel-like": "^4.0",
         "sightengine/client-php": "dev-master",
+        "spatie/laravel-medialibrary": "^9.0.0",
         "staudenmeir/eloquent-eager-limit": "^1.6",
         "tcg/voyager": "^1.4.3"
     },
