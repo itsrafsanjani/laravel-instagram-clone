@@ -35,14 +35,15 @@
                                     </div>
 
                                     <div class="custom-file">
-                                        <label class="custom-file-label" for="image"></label>
-                                        <input type="file"
-                                               class="custom-file-input"
-                                               id="image"
-                                               name="image"
+                                        <label class="control-label" for="image"></label>
+                                        <input class="custom-file-input"
+                                                id="image"
+                                               name="image[]"
                                                accept="image/*"
+                                               type="file"
                                                oninput="document.getElementById('pic').src=window.URL.createObjectURL(this.files[0])"
-                                               required>
+                                               required
+                                               multiple>
 
                                         @if ($errors->has('image'))
                                             <span class="invalid-feedback" role="alert">

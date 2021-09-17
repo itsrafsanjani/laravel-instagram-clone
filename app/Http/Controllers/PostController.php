@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Like;
+use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Exception;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Sightengine\SightengineClient;
 
 class PostController extends Controller
 {
@@ -36,12 +33,31 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(StorePostRequest $request)
     {
-        $data = request()->validate([
-            'caption' => 'required|max:255',
-            'image' => 'required|image',
+        $post = Post::create([
+            'caption' => $request->caption,
+            'user_id' => auth()->id(),
+            'slug' => Str::random(12),
         ]);
+
+        foreach ($request->file('image') as $image) {
+            $post->addMedia($image)
+                ->toMediaCollection('posts');
+        }
+
+        return back()->with([
+            'status' => 'success',
+            'message' => 'Post uploaded successfully!'
+        ]);
+
+//        $data = request()->validate([
+//            'caption' => 'required|max:255',
+//            'image' => 'required|image',
+//        ]);
+        /**
+         * Intervention Image
+         */
 //        $imagePath = request('image')->store('uploads', 'public');
 //
 //        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1080, 1080, function ($constraint) {
@@ -49,40 +65,40 @@ class PostController extends Controller
 //        });
 //        $image->save();
 
-        /**
-         * Cloudinary
-         */
-        $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
-            'folder' => 'laragram/images',
-            'transformation' => [
-                'background' => 'white',
-                'height' => 1080,
-                'width' => 1080,
-                'crop' => 'pad'
-            ]
-        ])->getSecurePath();
-
-        $client = new SightengineClient(config('services.sightengine.user'), config('services.sightengine.secret'));
-        $output = $client->check(['nudity'])->set_url($imagePath);
-
-        $user = auth()->user();
-        if ($output->nudity->safe > 0.5 && $output->nudity->raw < 0.1) {
-            $user->posts()->create([
-                'slug' => Str::random(12),
-                'caption' => $data['caption'],
-                'image' => $imagePath,
-            ]);
-
-            return redirect()->route('users.show', $user)->with([
-                'status' => 'success',
-                'message' => 'Post uploaded successfully!'
-            ]);
-        }
-
-        return redirect()->route('users.show', $user)->with([
-            'status' => 'error',
-            'message' => 'Your image contains inappropriate content!'
-        ]);
+//        /**
+//         * Cloudinary
+//         */
+//        $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
+//            'folder' => 'laragram/images',
+//            'transformation' => [
+//                'background' => 'white',
+//                'height' => 1080,
+//                'width' => 1080,
+//                'crop' => 'pad'
+//            ]
+//        ])->getSecurePath();
+//
+//        $client = new SightengineClient(config('services.sightengine.user'), config('services.sightengine.secret'));
+//        $output = $client->check(['nudity'])->set_url($imagePath);
+//
+//        $user = auth()->user();
+//        if ($output->nudity->safe > 0.5 && $output->nudity->raw < 0.1) {
+//            $user->posts()->create([
+//                'slug' => Str::random(12),
+//                'caption' => $data['caption'],
+//                'image' => $imagePath,
+//            ]);
+//
+//            return redirect()->route('users.show', $user)->with([
+//                'status' => 'success',
+//                'message' => 'Post uploaded successfully!'
+//            ]);
+//        }
+//
+//        return redirect()->route('users.show', $user)->with([
+//            'status' => 'error',
+//            'message' => 'Your image contains inappropriate content!'
+//        ]);
     }
 
     public function show(Post $post)
