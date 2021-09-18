@@ -51,7 +51,7 @@
                                         @endif
                                     </div>
 
-                                    <div id="frames"></div>
+                                    <div class="row" id="preview"></div>
 
                                     <div class="form-group text-center">
                                         <button class="btn btn-primary">Add New Post</button>
@@ -69,10 +69,14 @@
 @push('scripts')
     <script>
         $(document).ready(function(){
+            let preview = $("#preview");
             $('#image').change(function(){
-                $("#frames").html('');
-                for (var i = 0; i < $(this)[0].files.length; i++) {
-                    $("#frames").append('<img src="'+window.URL.createObjectURL(this.files[i])+'" class="img-thumbnail"/>');
+                preview.html('');
+                for (let i = 0; i < $(this)[0].files.length; i++) {
+                    console.log('file'+ this.files[i])
+                    preview.append(`<div class="col-md-6">
+                            <img src="${window.URL.createObjectURL(this.files[i])}" class="img-thumbnail my-3" alt="image"/>
+                        </div>`);
                 }
             });
         });
