@@ -29,9 +29,4 @@ class Post extends Model implements HasMedia
     {
         return $this->belongsTo(User::class);
     }
-
-    public function image()
-    {
-        return $this->image;
-    }
 }

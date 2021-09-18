@@ -77,7 +77,7 @@
             @forelse($user->posts as $post)
                 <div class="col-md-4 pb-4">
                         <img type="button" class="lazy w-100 rounded" src="{{ asset('images/placeholder.jpg') }}"
-                             data-src="{{ $post->image() }}" alt="{{ $post->title }}" data-toggle="modal" data-target="#post{{ $post->id }}">
+                             data-src="" alt="{{ $post->title }}" data-toggle="modal" data-target="#post{{ $post->id }}">
 
                     {{-- Modal --}}
                     <div class="modal fade" id="post{{ $post->id }}" tabindex="-1" aria-labelledby="post{{ $post->id }}Label" aria-hidden="true">
@@ -91,7 +91,7 @@
                             </div>
                             <div class="modal-body">
                                 <img class="lazy w-100 rounded" src="{{ asset('images/placeholder.jpg') }}"
-                             data-src="{{ $post->image() }}" alt="{{ $post->title }}">
+                             data-src="" alt="{{ $post->title }}">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

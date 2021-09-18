@@ -41,7 +41,6 @@
                                                name="image[]"
                                                accept="image/*"
                                                type="file"
-                                               oninput="document.getElementById('pic').src=window.URL.createObjectURL(this.files[0])"
                                                required
                                                multiple>
 
@@ -52,9 +51,7 @@
                                         @endif
                                     </div>
 
-                                    <div>
-                                        <img id="pic" class="img-thumbnail my-3" alt=""/>
-                                    </div>
+                                    <div id="frames"></div>
 
                                     <div class="form-group text-center">
                                         <button class="btn btn-primary">Add New Post</button>
@@ -68,3 +65,16 @@
         </form>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            $('#image').change(function(){
+                $("#frames").html('');
+                for (var i = 0; i < $(this)[0].files.length; i++) {
+                    $("#frames").append('<img src="'+window.URL.createObjectURL(this.files[i])+'" class="img-thumbnail"/>');
+                }
+            });
+        });
+    </script>
+@endpush
