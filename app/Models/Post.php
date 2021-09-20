@@ -39,6 +39,7 @@ class Post extends Model implements HasMedia
             ->sharpen(10);
 
         $this->addMediaConversion('square')
-            ->fit(Manipulations::FIT_MAX, 1080, 1080);
+            ->fit(Manipulations::FIT_FILL, 1080, 1080)
+            ->background('ffffff');
     }
 }
