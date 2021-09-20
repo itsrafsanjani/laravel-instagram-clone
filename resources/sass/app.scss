@@ -43,3 +43,60 @@
     height: 85vh;
     z-index: 1;
 }
+// owl carousel
+.owl-nav button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    outline: none;
+}
+
+.owl-prev {
+    right: 92%;
+}
+
+.owl-next {
+    left: 92%;
+}
+
+.owl-nav button span {
+    display: inline-block;
+    color: #222222;
+    font-size: 20px;
+    width: 35px;
+    height: 35px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .owl-prev {
+        right: 85%;
+    }
+
+    .owl-next {
+        left: 85%;
+    }
+
+    .owl-nav button span {
+        display: inline-block;
+        color: #222222;
+        font-size: 18px;
+        width: 30px;
+        height: 30px;
+        background: #ffffff;
+        border-radius: 50%;
+        position: relative;
+    }
+}
+
+.owl-nav button.disabled {
+    display: none;
+    transition: ease-in-out 0.8s;
+}
+
+.owl-nav button.disabled {
+    display: none;
+    transition: ease-in-out 0.8s;
+}
