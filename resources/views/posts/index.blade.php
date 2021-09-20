@@ -9,10 +9,17 @@
                         <div class="row">
                             <div class="col-md-10 mx-auto">
                                 <div class="card single-post">
-                                    <a href="{{ route('posts.show', $post) }}">
-                                        <img class="card-img-top lazy" src="{{ asset('images/placeholder.jpg') }}"
-                                             data-src="{{ $post->image() }}" alt="{{ $post->caption }}">
-                                    </a>
+                                    <div>
+                                        <div href="{{ route('posts.show', $post) }}" class="owl-carousel">
+                                        @php $images = $post->getMedia('posts') @endphp
+                                        @forelse($images as $image)
+                                                <img class="card-img-top owl-lazy" src="{{ asset('images/placeholder.jpg') }}"
+                                                     data-src="{{ $image->getUrl('square') }}" alt="{{ $post->caption }}">
+                                                @empty
+
+                                                @endforelse
+                                        </div>
+                                    </div>
 
                                     <div class="d-none">{{ $post->id }}</div>
 
