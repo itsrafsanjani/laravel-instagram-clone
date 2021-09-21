@@ -30,6 +30,8 @@ class UserController extends Controller
 
         $user->loadCount(['posts', 'followers', 'followings']);
 
+        $user->load('posts.media');
+
         return view('users.show', compact('user'));
     }
 
