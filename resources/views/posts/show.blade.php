@@ -4,7 +4,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mb-3">
-                <img src="{{ asset('images/placeholder.jpg') }}" data-src="{{ $post->image }}" class="w-100 rounded lazy" alt="{{ $post->caption }}">
+                <div class="owl-carousel">
+                    @php $images = $post->getMedia('posts') @endphp
+                    @forelse($images as $image)
+                        <img class="card-img-top owl-lazy" src="{{ asset('images/placeholder.jpg') }}"
+                             data-src="{{ $image->getUrl('square') }}" alt="{{ $post->caption }}">
+                    @empty
+
+                    @endforelse
+                </div>
             </div>
             <div class="col-md-4">
                 <div>
