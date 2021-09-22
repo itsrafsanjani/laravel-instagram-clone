@@ -144,7 +144,7 @@ class PostController extends Controller
 
     public function explore()
     {
-        $posts = Post::popularLast(Post::POPULAR_BY_DAY)->paginate(Post::PAGINATE_COUNT);
+        $posts = Post::with('media')->popularLast(Post::POPULAR_BY_DAY)->paginate(Post::PAGINATE_COUNT);
 
         return view('posts.explore', compact('posts'));
     }
