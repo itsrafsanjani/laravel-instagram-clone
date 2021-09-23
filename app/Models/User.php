@@ -8,11 +8,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Overtrue\LaravelFollow\Followable;
 use Overtrue\LaravelLike\Traits\Liker;
+use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
-class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commentator
+class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commentator, HasMedia
 {
-    use HasFactory, Notifiable, HasEagerLimit, Followable, Liker;
+    use HasFactory, Notifiable, HasEagerLimit, Followable, Liker, InteractsWithMedia;
 
     const PAGINATE_COUNT = 20;
     /**
@@ -87,6 +91,13 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commenta
             $imageSize = 400;
         }
 
-        return $this->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email ?? ''))) . '?s=' . $imageSize;
+        return $this->getMedia('avatars')->last()->getUrl('thumb') ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email ?? ''))) . '?s=' . $imageSize;
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->fit(Manipulations::FIT_CROP, 400, 400)
+            ->sharpen(10);
     }
 }
