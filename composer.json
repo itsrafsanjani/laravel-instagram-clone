@@ -26,7 +26,8 @@
         "sightengine/client-php": "dev-master",
         "spatie/laravel-medialibrary": "^9.0.0",
         "staudenmeir/eloquent-eager-limit": "^1.6",
-        "tcg/voyager": "^1.4.3"
+        "tcg/voyager": "^1.4.3",
+        "yoelpc4/laravel-cloudinary": "^2.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
