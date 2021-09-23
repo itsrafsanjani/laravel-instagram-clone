@@ -54,6 +54,10 @@ class UserController extends Controller
                 $request->password
             ]);
 
+        if (! empty($request->avatar)) {
+            $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');
+        }
+
         return redirect()->route('users.show', $user)->with([
             'status' => 'success',
             'message' => 'Profile updated successfully!'
