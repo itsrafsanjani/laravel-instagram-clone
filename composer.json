@@ -23,6 +23,7 @@
         "munafio/chatify": "^1.2",
         "overtrue/laravel-follow": "^3.0",
         "overtrue/laravel-like": "^4.0",
+        "rachidlaasri/laravel-installer": "^4.1",
         "sightengine/client-php": "dev-master",
         "spatie/laravel-medialibrary": "^9.0.0",
         "staudenmeir/eloquent-eager-limit": "^1.6",
