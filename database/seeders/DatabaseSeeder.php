@@ -19,5 +19,12 @@ class DatabaseSeeder extends Seeder
         $this->call(VoyagerDatabaseSeeder::class);
         User::factory()->count(10)->create();
         Post::factory()->count(10)->create();
+
+        $posts = Post::select('id')->get();
+
+        foreach ($posts as $post) {
+            $post->addMediaFromUrl('https://via.placeholder.com/1080x1080')
+                ->toMediaCollection('posts');
+        }
     }
 }
