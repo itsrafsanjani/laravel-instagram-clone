@@ -88,7 +88,13 @@ $(document).ready(function () {
         })
     })
 
-    if (window.User.isLoggedIn === true) {
+    /**
+     * check if user is logged in
+     * if logged in then like, follow, comment
+     * etc will be available
+     */
+    
+    if (window.user.isLoggedIn === true) {
         // like
         $('.likeButton').on('click', function (e) {
             e.preventDefault();
@@ -116,36 +122,7 @@ $(document).ready(function () {
                     $.niceToast.error(response.responseJSON.message);
                 }
             });
-        })
-
-        // comment delete
-        $('.commentDeleteButton').on('click', function (e) {
-            if (!confirm("Are you sure you want to delete?")) {
-                return false;
-            }
-
-            e.preventDefault();
-
-            let commentId = $(this).data('commentId');
-            let _url = '/comments/' + commentId;
-            let _token = $('meta[name="csrf-token"]').attr('content');
-
-            $.ajax({
-                url: _url,
-                type: "DELETE",
-                data: {
-                    _token: _token
-                },
-                success: function (data) {
-                    let comment = data
-                    $('#comment-' + commentId).remove();
-                    $.niceToast.success(comment.message);
-                },
-                error: function (response) {
-                    $.niceToast.error(response.responseJSON.message);
-                }
-            });
-        })
+        });
 
         // follow
         $('#followUnfollowButton').on('click', function (e) {
@@ -179,7 +156,71 @@ $(document).ready(function () {
                     $.niceToast.error(response.responseJSON.message);
                 }
             });
-        })
+        });
+
+        // comment store
+        $('.commentButton').on('click', function (e) {
+            e.preventDefault();
+
+            let postSlug = $(this).data('postSlug');
+            let comment = $('#comment-' + postSlug).val();
+            let _url = '/comments';
+            let _token = $('meta[name="csrf-token"]').attr('content');
+            let commentAppend = window.user.commentAppend;
+
+            $.ajax({
+                url: _url,
+                type: "POST",
+                data: {
+                    post_slug: postSlug,
+                    comment: comment,
+                    _token: _token
+                },
+                success: function (data) {
+                    if(commentAppend) {
+                        $('#commentList-' + postSlug).append(data);
+                    } else {
+                        $('#commentList-' + postSlug).prepend(data);
+                    }
+
+                    $('#comment-' + postSlug).val('');
+
+                    $.niceToast.success('Comment added successfully!');
+                },
+                error: function (response) {
+                    $.niceToast.error(response.responseJSON.message);
+                }
+            });
+        });
+
+        // comment delete
+        $(document).on('click', '.commentDeleteButton', function (e) {
+            if (!confirm("Are you sure you want to delete?")) {
+                return false;
+            }
+
+            e.preventDefault();
+
+            let commentId = $(this).data('commentId');
+            let _url = '/comments/' + commentId;
+            let _token = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                url: _url,
+                type: "DELETE",
+                data: {
+                    _token: _token
+                },
+                success: function (data) {
+                    let comment = data
+                    $('#comment-' + commentId).remove();
+                    $.niceToast.success(comment.message);
+                },
+                error: function (response) {
+                    $.niceToast.error(response.responseJSON.message);
+                }
+            });
+        });
     }
 
     // owlcarousel2

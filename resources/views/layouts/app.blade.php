@@ -47,42 +47,10 @@
 <script src="//cdn.jsdelivr.net/npm/nice-toast-js/dist/js/nice-toast-js.min.js"></script>
 <script src="//www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
 <script src="//www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
-@auth
 <script>
-    // comment store
-    $('.commentButton').on('click', function (e) {
-        e.preventDefault();
-
-        let postSlug = $(this).data('postSlug');
-        let comment = $('#comment-' + postSlug).val();
-        let _url = '/comments';
-        let _token = $('meta[name="csrf-token"]').attr('content');
-
-        $.ajax({
-            url: _url,
-            type: "POST",
-            data: {
-                post_slug: postSlug,
-                comment: comment,
-                _token: _token
-            },
-            success: function (data) {
-                $('#commentList-' + postSlug).{{ request()->routeIs('posts.index') ? 'append' : 'prepend' }}(data);
-
-                $('#comment-' + postSlug).val('');
-
-                $.niceToast.success('Comment added successfully!');
-            },
-            error: function (response) {
-                $.niceToast.error(response.responseJSON.message);
-            }
-        });
-    })
-</script>
-@endauth
-<script>
-    window.User = {
-        isLoggedIn: {{ json_encode(auth()->check()) }}
+    window.user = {
+        isLoggedIn: {{ json_encode(auth()->check()) }},
+        commentAppend: {{ json_encode(request()->routeIs('posts.index')) }}
     }
 
     @if (session('message')) {
