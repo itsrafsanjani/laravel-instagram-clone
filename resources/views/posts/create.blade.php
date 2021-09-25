@@ -21,22 +21,22 @@
 
                                         <input id="caption"
                                                type="text"
-                                               class="form-control {{ $errors->has('caption') ? ' is-invalid' : '' }}"
+                                               class="form-control @error('caption') is-invalid @enderror"
                                                name="caption"
                                                value="{{ old('caption') }}"
                                                placeholder="My beautiful caption..."
                                                autocomplete="caption" autofocus required>
 
-                                        @if ($errors->has('caption'))
+                                        @error('caption')
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('caption') }}</strong>
+                                                <strong>{{ $message }}</strong>
                                             </span>
-                                        @endif
+                                        @enderror
                                     </div>
 
                                     <div class="custom-file">
                                         <label class="control-label" for="image"></label>
-                                        <input class="custom-file-input"
+                                        <input class="custom-file-input @error('image') is-invalid @enderror"
                                                 id="image"
                                                name="image[]"
                                                accept="image/*"
@@ -44,11 +44,11 @@
                                                required
                                                multiple>
 
-                                        @if ($errors->has('image'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('image') }}</strong>
+                                        @error('image')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
                                             </span>
-                                        @endif
+                                        @enderror
                                     </div>
 
                                     <div class="row" id="preview"></div>

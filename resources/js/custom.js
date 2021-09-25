@@ -93,7 +93,7 @@ $(document).ready(function () {
      * if logged in then like, follow, comment
      * etc will be available
      */
-    
+
     if (window.user.isLoggedIn === true) {
         // like
         $('.likeButton').on('click', function (e) {
@@ -177,7 +177,7 @@ $(document).ready(function () {
                     _token: _token
                 },
                 success: function (data) {
-                    if(commentAppend) {
+                    if (commentAppend) {
                         $('#commentList-' + postSlug).append(data);
                     } else {
                         $('#commentList-' + postSlug).prepend(data);
