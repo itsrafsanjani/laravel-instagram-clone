@@ -13,9 +13,9 @@ class CommentController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return JsonResponse
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|JsonResponse
      */
-    public function store(Request $request): JsonResponse
+    public function store(Request $request)
     {
         $request->validate([
             'comment' => 'required'
@@ -25,11 +25,7 @@ class CommentController extends Controller
 
         $comment = $post->commentAsUser(auth()->user(), $request->comment);
 
-        return response()->json([
-            'data' => $comment,
-            'message' => 'Comment added successfully!',
-            'type' => 'success'
-        ]);
+        return view('comments._single-comment', compact('comment', 'post'));
     }
 
     /**

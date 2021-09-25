@@ -67,26 +67,11 @@
                 _token: _token
             },
             success: function (data) {
-                let comment = data
-                $('#commentList-' + postSlug).{{ request()->routeIs('posts.index') ? 'append' : 'prepend' }}(`
-                            <li class="list-group-item list-group-item-action flex-column align-items-start px-4 py-4">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <div>
-                                        <div class="d-flex w-100 align-items-center">
-                                            <img src="{{ auth()->user()->avatar }}"
-                                                 alt="Image placeholder" class="avatar avatar-xs mr-2">
-                                            <h5 class="mb-1">{{ auth()->user()->name }}</h5>
-                                        </div>
-                                    </div>
-                                    <small>${moment(comment.data.created_at).fromNow()}</small>
-                                </div>
-                                <p class="text-sm mb-0 mt-2">${comment.data.comment}</p>
-                            </li>
-                        `);
+                $('#commentList-' + postSlug).{{ request()->routeIs('posts.index') ? 'append' : 'prepend' }}(data);
 
                 $('#comment-' + postSlug).val('');
 
-                $.niceToast.success(comment.message);
+                $.niceToast.success('Comment added successfully!');
             },
             error: function (response) {
                 $.niceToast.error(response.responseJSON.message);
