@@ -9,11 +9,14 @@
                         <div class="row">
                             <div class="col-md-10 mx-auto">
                                 <div class="card single-post">
+                                    <div class="card-header d-flex justify-content-end">
+                                        <a href="#" class="text-gray"><i class="fas fa-ellipsis-h"></i></a>
+                                    </div>
                                     <div>
                                         <div href="{{ route('posts.show', $post) }}" class="owl-carousel">
                                         @php $images = $post->getMedia('posts') @endphp
                                         @forelse($images as $image)
-                                                <img class="card-img-top owl-lazy" src="{{ asset('images/placeholder.jpg') }}"
+                                                <img class="card-img rounded-0 owl-lazy" src="{{ asset('images/placeholder.jpg') }}"
                                                      data-src="{{ $image->getUrl('square') }}" alt="{{ $post->caption }}">
                                                 @empty
 
