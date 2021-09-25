@@ -9,18 +9,61 @@
                         <div class="row">
                             <div class="col-md-10 mx-auto">
                                 <div class="card single-post">
-                                    <div class="card-header d-flex justify-content-end">
-                                        <a href="#" class="text-gray"><i class="fas fa-ellipsis-h"></i></a>
+                                    <div class="card-header px-3 py-2 py-md-3 d-flex justify-content-end">
+
+                                        <!-- ellipsis trigger modal -->
+                                        <button type="button"
+                                                class="btn btn-outline-neutral btn-icon-only rounded-circle text-gray"
+                                                data-toggle="modal" data-target="#exampleModal">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+
+                                        <!-- ellipsis modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="list-group text-center">
+                                                        <a href="#"
+                                                           class="list-group-item list-group-item-action text-danger">
+                                                            Report
+                                                        </a>
+                                                        <a href="#"
+                                                           class="list-group-item list-group-item-action text-danger">
+                                                            Unfollow
+                                                        </a>
+                                                        <a href="#" class="list-group-item list-group-item-action">
+                                                            Go to post
+                                                        </a>
+                                                        <a href="#" class="list-group-item list-group-item-action">
+                                                            Share to...
+                                                        </a>
+                                                        <a href="#" class="list-group-item list-group-item-action">
+                                                            Copy Link
+                                                        </a>
+                                                        <a href="#" class="list-group-item list-group-item-action">
+                                                            Embed
+                                                        </a>
+                                                        <a href="#" class="list-group-item list-group-item-action"
+                                                           data-dismiss="modal">
+                                                            Cancel
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div>
                                         <div href="{{ route('posts.show', $post) }}" class="owl-carousel">
-                                        @php $images = $post->getMedia('posts') @endphp
-                                        @forelse($images as $image)
-                                                <img class="card-img rounded-0 owl-lazy" src="{{ asset('images/placeholder.jpg') }}"
-                                                     data-src="{{ $image->getUrl('square') }}" alt="{{ $post->caption }}">
-                                                @empty
+                                            @php $images = $post->getMedia('posts') @endphp
+                                            @forelse($images as $image)
+                                                <img class="card-img rounded-0 owl-lazy"
+                                                     src="{{ asset('images/placeholder.jpg') }}"
+                                                     data-src="{{ $image->getUrl('square') }}"
+                                                     alt="{{ $post->caption }}">
+                                            @empty
 
-                                                @endforelse
+                                            @endforelse
                                         </div>
                                     </div>
 
