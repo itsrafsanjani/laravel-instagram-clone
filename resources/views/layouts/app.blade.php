@@ -47,6 +47,20 @@
 <script src="//cdn.jsdelivr.net/npm/nice-toast-js/dist/js/nice-toast-js.min.js"></script>
 <script src="//www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
 <script src="//www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+<script>
+    $(document).ready(function () {
+        let modalId = "";
+        $(document).on('click', '.modal', function (e) {
+            modalId = this.id
+            console.log(modalId)
+        });
+
+        new ClipboardJS('.clipboard', {
+            container: document.getElementById(modalId)
+        });
+    });
+</script>
 <script>
     window.user = {
         isLoggedIn: {{ json_encode(auth()->check()) }},

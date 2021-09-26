@@ -38,9 +38,10 @@
                                                         <a href="#" class="list-group-item list-group-item-action">
                                                             Share to...
                                                         </a>
-                                                        <a href="#" class="list-group-item list-group-item-action">
+                                                        <div class="clipboard list-group-item list-group-item-action"
+                                                             data-clipboard-text="{{ url('posts', $post) }}">
                                                             Copy Link
-                                                        </a>
+                                                        </div>
                                                         <a href="#" class="list-group-item list-group-item-action">
                                                             Embed
                                                         </a>
