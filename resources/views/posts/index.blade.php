@@ -11,16 +11,16 @@
                                 <div class="card single-post">
                                     <div class="card-header px-3 py-2 py-md-3 d-flex justify-content-end">
 
-                                        <!-- ellipsis trigger modal -->
+                                        {{-- ellipsis trigger modal --}}
                                         <button type="button"
                                                 class="btn btn-outline-neutral btn-icon-only rounded-circle text-gray"
-                                                data-toggle="modal" data-target="#exampleModal">
+                                                data-toggle="modal" data-target="#ellipsis{{ $post->id }}">
                                             <i class="fas fa-ellipsis-h"></i>
                                         </button>
 
-                                        <!-- ellipsis modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1"
-                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                         {{-- ellipsis modal --}}
+                                        <div class="modal fade" id="ellipsis{{ $post->id }}" tabindex="-1"
+                                             aria-labelledby="ellipsis{{ $post->id }}Label" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="list-group text-center">
@@ -32,7 +32,7 @@
                                                            class="list-group-item list-group-item-action text-danger">
                                                             Unfollow
                                                         </a>
-                                                        <a href="#" class="list-group-item list-group-item-action">
+                                                        <a href="{{ route('posts.show', $post) }}" class="list-group-item list-group-item-action">
                                                             Go to post
                                                         </a>
                                                         <a href="#" class="list-group-item list-group-item-action">
