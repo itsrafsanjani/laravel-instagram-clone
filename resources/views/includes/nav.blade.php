@@ -1,9 +1,9 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-light bg-glass sticky-top bg-transparent border-bottom shadow-sm">
-    <div class="container">
+    <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-            <div><img src="{{ asset('/svg/laragram.svg') }}" class="pr-3 laragram-logo-svg"
+            <div><img src="{{ asset('/svg/laragram.svg') }}" class="laragram-logo-svg"
                     alt="{{ config('app.name') }}"></div>
-            <div class="laragram-logo pl-3">{{ config('app.name') }}</div>
+            {{--<div class="laragram-logo pl-3">{{ config('app.name') }}</div>--}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -13,7 +13,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-
+                {{-- Search bar --}}
+                <form class="form-inline my-2 my-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                </form>
             </ul>
 
             <!-- Right Side Of Navbar -->
