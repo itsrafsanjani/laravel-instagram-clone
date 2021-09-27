@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        $query = User::query();
+        $query = User::with('media');
 
         if ($request->has('q')) {
             $query->where('username', 'like', '%' . $request->q . '%');

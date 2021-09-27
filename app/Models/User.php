@@ -91,7 +91,7 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commenta
             $imageSize = 400;
         }
 
-        return $this->getMedia('avatars')->last()->getUrl('thumb') ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email ?? ''))) . '?s=' . $imageSize;
+        return optional($this->getMedia('avatars')->last())->getUrl('thumb') ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email ?? ''))) . '?s=' . $imageSize;
     }
 
     public function registerMediaConversions(Media $media = null): void
