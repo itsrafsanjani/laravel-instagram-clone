@@ -178,7 +178,13 @@
                 callback: function () {
                     $('ul.pagination').remove();
 
-                    lazyLoading();
+                    // owlcarousel2
+                    $('.owl-carousel').owlCarousel({
+                        items: 1,
+                        lazyLoad: true,
+                        nav: true,
+                        dots: false
+                    });
                 }
             });
         });
