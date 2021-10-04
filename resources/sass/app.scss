@@ -43,6 +43,9 @@
     height: 85vh;
     z-index: 1;
 }
+
+/* purgecss start ignore */
+
 // owl carousel
 .owl-nav button {
     position: absolute;
@@ -100,3 +103,5 @@
     display: none;
     transition: ease-in-out 0.8s;
 }
+
+/* purgecss end ignore */

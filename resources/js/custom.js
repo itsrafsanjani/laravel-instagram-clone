@@ -29,11 +29,12 @@ $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
 
-    let lazyLoading = e => {
-        $('.lazy').Lazy();
-    }
-
-    lazyLoading();
+    // jquery.eisbehr.de/lazy
+    // let lazyLoading = e => {
+    //     $('.lazy').Lazy();
+    // }
+    //
+    // lazyLoading();
 
     // // infinite scroll
     // $('ul.pagination').hide();
