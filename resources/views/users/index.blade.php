@@ -29,13 +29,11 @@
                                                 <span class="fas fa-search"></span>
                                             </div>
                                         </div>
-                                        <input
-                                            type="search"
+                                        <input type="text"
                                             name="q"
                                             class="form-control"
                                             placeholder="Search"
-                                            value="{{ $query }}"
-                                        >
+                                            value="{{ $query ?? '' }}">
                                     </div>
                                 </div>
                             </form>

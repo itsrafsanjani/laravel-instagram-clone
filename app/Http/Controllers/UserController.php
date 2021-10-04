@@ -15,7 +15,8 @@ class UserController extends Controller
         $query = User::with('media');
 
         if ($request->has('q')) {
-            $query->where('username', 'like', '%' . $request->q . '%');
+            $query->where('username', 'like', '%' . $request->q . '%')
+                ->orWhere('name', 'like', '%' . $request->q . '%');
         }
 
         return view('users.index', [

@@ -15,8 +15,12 @@
             <ul class="navbar-nav mr-auto">
                 @auth
                     {{-- Search bar --}}
-                    <form class="form-inline my-2 my-md-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <form class="form-inline my-2 my-md-0" action="{{ route('users.index') }}" method="get">
+                        <input class="form-control mr-sm-2"
+                               type="text"
+                               name="q"
+                               placeholder="Search"
+                               value="{{ $query ?? '' }}">
                     </form>
                 @endauth
             </ul>
