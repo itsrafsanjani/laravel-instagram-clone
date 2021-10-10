@@ -64,7 +64,8 @@
 <script>
     window.user = {
         isLoggedIn: {{ json_encode(auth()->check()) }},
-        commentAppend: {{ json_encode(request()->routeIs('posts.index')) }}
+        commentAppend: {{ json_encode(request()->routeIs('posts.index')) }},
+        currentPageRouteName: "{{ request()->route()->getName()  }}"
     }
 
     @if (session('message')) {

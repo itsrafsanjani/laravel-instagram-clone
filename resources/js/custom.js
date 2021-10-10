@@ -2,7 +2,32 @@
  * My Custom JS
  * Run after page load
  */
+
+// initialize all plugins
+function laragramInit() {
+    // nice-toast-js setup
+    $.niceToast.setup({
+        position: "top-right",
+        timeout: 5000,
+    });
+
+    // tooltips popover
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    // owlcarousel2
+    $('.owl-carousel').owlCarousel({
+        items: 1,
+        lazyLoad: true,
+        nav: true,
+        dots: false
+    });
+}
+
 $(document).ready(function () {
+    laragramInit();
+
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     let firebaseConfig = {
@@ -18,77 +43,6 @@ $(document).ready(function () {
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
-    // nice-toast-js setup
-    $.niceToast.setup({
-        position: "top-right",
-        timeout: 5000,
-    });
-
-    // tooltips popover
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-
-    // jquery.eisbehr.de/lazy
-    // let lazyLoading = e => {
-    //     $('.lazy').Lazy();
-    // }
-    //
-    // lazyLoading();
-
-    // // infinite scroll
-    // $('ul.pagination').hide();
-    // $(function () {
-    //     $('.infinite-scroll').jscroll({
-    //         autoTrigger: true,
-    //         loadingHtml: '<div class="d-flex justify-content-center mb-5"><img src="/images/loading.gif" alt="Loading..." /></div>',
-    //         padding: 0,
-    //         nextSelector: '.pagination li.active + li a',
-    //         contentSelector: 'div.infinite-scroll',
-    //         callback: function () {
-    //             $('ul.pagination').remove();
-    //
-    //             lazyLoading();
-    //         }
-    //     });
-    // });
-
-    $(window).on('load', function () {
-        let footerHtml = `<footer class="footer fixed-bottom bg-glass mt-auto py-2" id="footer">
-                <div class="container-fluid d-flex justify-content-between">
-                <div class="container">
-                    <div class="d-flex justify-content-between">
-                        <span class="text-muted">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a>
-                            by <a href="//github.com/itsrafsanjani" target="_blank">Md Rafsan Jani Rafin</a>.</span>
-                        <span class="text-muted">Source code <a href="//github.com/itsrafsanjani/laravel-instagram-clone" target="_blank">
-                                <i class="fab fa-github"></i> Github</a>.</span>
-                    </div>
-                </div>
-                <span id="footerCloseButton" type="button"><i class="far fa-times-circle"></i></span>
-                </div>
-            </footer>`
-        let footerCloseButton = localStorage.getItem('footerCloseButton');
-        if (footerCloseButton != null) {
-            let data = JSON.parse(footerCloseButton)
-            let expectedDate = data.timestamp + (30 * 24 * 60 * 60 * 1000)
-            let currentDate = Date.now()
-            if (currentDate >= expectedDate) {
-                $('#app').append(footerHtml)
-            }
-        } else {
-            $('#app').append(footerHtml)
-        }
-
-        $('#footerCloseButton').on('click', function () {
-
-            $('#footer').hide()
-            localStorage.setItem('footerCloseButton', JSON.stringify({
-                closed: true,
-                timestamp: Date.now()
-            }));
-        })
-    })
-
     /**
      * check if user is logged in
      * if logged in then like, follow, comment
@@ -97,7 +51,7 @@ $(document).ready(function () {
 
     if (window.user.isLoggedIn === true) {
         // like
-        $('.likeButton').on('click', function (e) {
+        $(document).on('click', '.likeButton', function (e) {
             e.preventDefault();
 
             let postSlug = $(this).data('postSlug');
@@ -126,7 +80,7 @@ $(document).ready(function () {
         });
 
         // follow
-        $('#followUnfollowButton').on('click', function (e) {
+        $(document).on('click', '#followUnfollowButton', function (e) {
             e.preventDefault();
 
             // follow/unfollow text
@@ -160,7 +114,7 @@ $(document).ready(function () {
         });
 
         // comment store
-        $('.commentButton').on('click', function (e) {
+        $(document).on('click', '.commentButton', function (e) {
             e.preventDefault();
 
             let postSlug = $(this).data('postSlug');
@@ -224,11 +178,58 @@ $(document).ready(function () {
         });
     }
 
-    // owlcarousel2
-    $('.owl-carousel').owlCarousel({
-        items: 1,
-        lazyLoad: true,
-        nav: true,
-        dots: false
-    });
+    // footer copyright
+    $(window).on('load', function () {
+        let footerHtml = `<footer class="footer fixed-bottom bg-glass mt-auto py-2" id="footer">
+                <div class="container-fluid d-flex justify-content-between">
+                <div class="container">
+                    <div class="d-flex justify-content-between">
+                        <span class="text-muted">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a>
+                            by <a href="//github.com/itsrafsanjani" target="_blank">Md Rafsan Jani Rafin</a>.</span>
+                        <span class="text-muted">Source code <a href="//github.com/itsrafsanjani/laravel-instagram-clone" target="_blank">
+                                <i class="fab fa-github"></i> Github</a>.</span>
+                    </div>
+                </div>
+                <span id="footerCloseButton" type="button"><i class="far fa-times-circle"></i></span>
+                </div>
+            </footer>`
+        let footerCloseButton = localStorage.getItem('footerCloseButton');
+        if (footerCloseButton != null) {
+            let data = JSON.parse(footerCloseButton)
+            let expectedDate = data.timestamp + (30 * 24 * 60 * 60 * 1000)
+            let currentDate = Date.now()
+            if (currentDate >= expectedDate) {
+                $('#app').append(footerHtml)
+            }
+        } else {
+            $('#app').append(footerHtml)
+        }
+
+        $('#footerCloseButton').on('click', function () {
+
+            $('#footer').hide()
+            localStorage.setItem('footerCloseButton', JSON.stringify({
+                closed: true,
+                timestamp: Date.now()
+            }));
+        })
+    })
+
+    // infinite scroll only in posts.index page
+    if (window.user.currentPageRouteName === 'posts.index') {
+        $('ul.pagination').hide();
+        $(function () {
+            $('.infinite-scroll').jscroll({
+                autoTrigger: true,
+                loadingHtml: '<div class="d-flex justify-content-center mb-5"><img src="/images/loading.gif" alt="Loading..." /></div>',
+                padding: 0,
+                nextSelector: '.pagination li.active + li a',
+                contentSelector: 'div.infinite-scroll',
+                callback: function () {
+                    $('ul.pagination').remove();
+                    laragramInit();
+                }
+            });
+        });
+    }
 });
