@@ -85,10 +85,6 @@
                                 {{ __('Add New Post') }}
                             </a>
 
-                            <a class="dropdown-item" href="{{ route('users.index') }}">
-                                {{ __('Others Profile') }}
-                            </a>
-
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
