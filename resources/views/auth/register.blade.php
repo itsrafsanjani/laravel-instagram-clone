@@ -43,15 +43,16 @@
                                     @endif
                                     <div class="text-muted">
                                         <small>
-                                            Email verification is turned on, so please use your original email to get
-                                            the verification link.
+                                            {{ __('Email verification is turned on, so please use your original email to get the verification link.') }}
                                         </small>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
+                                <label for="username" class="col-md-4 col-form-label text-md-right">
+                                    {{ __('Username') }}
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="username" type="text"
@@ -60,8 +61,12 @@
 
                                     <div class="text-muted">
                                         <small>
-                                            Choose a nice username, you won't be able to change it later! <strong><a
-                                                    href="{{ route('notices.username') }}">Rules!</a></strong>
+                                            {{ __('Choose a nice username, you won\'t be able to change it later!') }}
+                                            <strong>
+                                                <a href="{{ route('notices.username') }}">
+                                                    {{ __('Rules!') }}
+                                                </a>
+                                            </strong>
                                         </small>
                                     </div>
 
@@ -75,7 +80,7 @@
 
                             <div class="form-group row">
                                 <label for="phone_number" class="col-md-4 col-form-label text-md-right">
-                                    Phone Number
+                                    {{ __('Phone Number') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -96,24 +101,24 @@
 
                             <div class="form-group row d-flex align-items-center">
                                 <label for="gender" class="col-md-4 col-form-label text-md-right">
-                                    Gender
+                                    {{ __('Gender') }}
                                 </label>
 
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
                                         <input name="gender" class="form-check-input" id="male" type="radio"
                                                value="male" {{ old('gender') == 'male' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="male">Male</label>
+                                        <label class="form-check-label" for="male">{{ __('Male') }}</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input name="gender" class="form-check-input" id="female" type="radio"
                                                value="female" {{ old('gender') == 'female' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="female">Female</label>
+                                        <label class="form-check-label" for="female">{{ __('Female') }}</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input name="gender" class="form-check-input" id="others" type="radio"
                                                value="others" {{ old('gender') == 'others' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="others">Others</label>
+                                        <label class="form-check-label" for="others">{{ __('Others') }}</label>
                                     </div>
 
                                     @error('gender')
