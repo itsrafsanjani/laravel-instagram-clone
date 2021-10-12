@@ -27,7 +27,37 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto align-items-md-center">
-                <!-- Authentication Links -->
+                {{-- Language Switcher --}}
+                <li class="nav-item dropdown">
+                    <button class="btn btn-outline-primary btn-block dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false">
+                        @switch(session('language') ?? 'en')
+                            @case('bn')
+                            Bengali
+                            @break
+
+                            @case('hi')
+                            Hindi
+                            @break
+
+                            @default
+                            English
+                        @endswitch
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item"
+                           href="{{ route('change_language', ['language' => 'en']) }}">English</a>
+                        <a class="dropdown-item"
+                           href="{{ route('change_language', ['language' => 'bn']) }}">Bengali</a>
+                        <a class="dropdown-item"
+                           href="{{ route('change_language', ['language' => 'hi']) }}">Hindi</a>
+                    </div>
+                </li>
+                {{-- Authentication Links --}}
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
