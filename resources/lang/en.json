@@ -32,7 +32,6 @@
     "No notifications!": "No notifications!",
     "Started following you.": "Started following you.",
     "Report": "Report",
-    "Unfollow": "Unfollow",
     "Go to post": "Go to post",
     "Share to...": "Share to...",
     "Copy Link": "Copy Link",
@@ -41,5 +40,9 @@
     "My Profile": "My Profile",
     "Admin Panel": "Admin Panel",
     "Add New Post": "Add New Post",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "Unfollow": "Unfollow",
+    "Edit Profile": "Edit Profile",
+    "posts": "posts",
+    "No posts yet!": "No posts yet!"
 }

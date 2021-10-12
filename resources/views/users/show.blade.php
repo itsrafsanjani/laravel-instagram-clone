@@ -19,43 +19,43 @@
                             {{-- <follow-button username="{{ $user->username }}" follows="{{ $user->has_followed }}"></follow-button> --}}
                             <button class="btn btn-sm btn-primary ml-4" id="followUnfollowButton"
                                     data-username="{{ $user->username }}">
-                                {{ $user->has_followed ? 'Unfollow' : 'Follow' }}
+                                {{ $user->has_followed ? __('Unfollow') : __('Follow') }}
                             </button>
                         @endif
 
                         @can('update', $user)
                             <div class="ml-4">
-                                <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary">Edit Profile</a>
+                                <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary">{{ __('Edit Profile') }}</a>
                             </div>
                         @endcan
                     </div>
 
                     @can('update', $user)
                         <div>
-                            <a href="{{ route('posts.create') }}" class="btn btn-sm btn-secondary">Add New Post</a>
+                            <a href="{{ route('posts.create') }}" class="btn btn-sm btn-secondary">{{ __('Add New Post') }}</a>
                         </div>
                     @endcan
 
                 </div>
 
                 <div class="d-flex mb-3">
-                    <div class="text-center"><strong>{{ $user->posts_count }}</strong> posts</div>
+                    <div class="text-center"><strong>{{ $user->posts_count }}</strong> {{ __('posts') }}</div>
                     <div class="pl-5 text-center">
                         @if($user->followers_count > 0)
                             <a href="{{ route('users.followers', $user->username) }}">
-                                <strong id="followersCount">{{ $user->followers_count }}</strong> followers
+                                <strong id="followersCount">{{ $user->followers_count }}</strong> {{ __('followers') }}
                             </a>
                         @else
-                            <strong id="followersCount">{{ $user->followers_count }}</strong> followers
+                            <strong id="followersCount">{{ $user->followers_count }}</strong> {{ __('followers') }}
                         @endif
                     </div>
                     <div class="pl-5 text-center">
                         @if($user->followings_count > 0)
                             <a href="{{ route('users.followings', $user->username) }}">
-                                <strong id="followingsCount">{{ $user->followings_count }}</strong> following
+                                <strong id="followingsCount">{{ $user->followings_count }}</strong> {{ __('following') }}
                             </a>
                         @else
-                            <strong id="followingsCount">{{ $user->followings_count }}</strong> following
+                            <strong id="followingsCount">{{ $user->followings_count }}</strong> {{ __('following') }}
                         @endif
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                 <div class="col-md-6 mx-auto">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="text-center text-muted">No posts yet!</h3>
+                            <h3 class="text-center text-muted">{{ __('No posts yet!') }}</h3>
                         </div>
                     </div>
                 </div>
