@@ -16,7 +16,7 @@ class PostController extends Controller
         $users = auth()->user()->followings()->pluck('users.id');
 
         $posts = Post::with([
-            'user', 'likers', 'media', 'comments' => function ($query) {
+            'media', 'user.media', 'likers.media', 'comments' => function ($query) {
                 $query->with('commentator')->latest()->limit(2);
             }
         ])
