@@ -55,7 +55,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div href="{{ route('posts.show', $post) }}" class="owl-carousel">
+                                        <div class="owl-carousel">
                                             @php $images = $post->getMedia('posts') @endphp
                                             @forelse($images as $image)
                                                 <img class="card-img rounded-0 owl-lazy"
