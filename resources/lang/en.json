@@ -30,5 +30,16 @@
     "Details": "Details",
     "Notifications": "Notifications",
     "No notifications!": "No notifications!",
-    "Started following you.": "Started following you."
+    "Started following you.": "Started following you.",
+    "Report": "Report",
+    "Unfollow": "Unfollow",
+    "Go to post": "Go to post",
+    "Share to...": "Share to...",
+    "Copy Link": "Copy Link",
+    "Embed": "Embed",
+    "Cancel": "Cancel",
+    "My Profile": "My Profile",
+    "Admin Panel": "Admin Panel",
+    "Add New Post": "Add New Post",
+    "Logout": "Logout"
 }

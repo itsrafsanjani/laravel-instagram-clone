@@ -26,28 +26,28 @@
                                                     <div class="list-group text-center">
                                                         <a href="#"
                                                            class="list-group-item list-group-item-action text-danger">
-                                                            Report
+                                                            {{ __('Report') }}
                                                         </a>
                                                         <a href="#"
                                                            class="list-group-item list-group-item-action text-danger">
-                                                            Unfollow
+                                                            {{ __('Unfollow') }}
                                                         </a>
                                                         <a href="{{ route('posts.show', $post) }}" class="list-group-item list-group-item-action">
-                                                            Go to post
+                                                            {{ __('Go to post') }}
                                                         </a>
                                                         <a href="#" class="list-group-item list-group-item-action">
-                                                            Share to...
+                                                            {{ __('Share to...') }}
                                                         </a>
                                                         <div class="clipboard list-group-item list-group-item-action"
                                                              data-clipboard-text="{{ url('posts', $post) }}">
-                                                            Copy Link
+                                                            {{ __('Copy Link') }}
                                                         </div>
                                                         <a href="#" class="list-group-item list-group-item-action">
-                                                            Embed
+                                                            {{ __('Embed') }}
                                                         </a>
                                                         <a href="#" class="list-group-item list-group-item-action"
                                                            data-dismiss="modal">
-                                                            Cancel
+                                                            {{ __('Cancel') }}
                                                         </a>
                                                     </div>
                                                 </div>
