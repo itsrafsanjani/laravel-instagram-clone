@@ -9,13 +9,13 @@
                 <div class="col-md-8 mx-auto">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h3 class="mb-0">Edit Profile</h3>
+                            <h3 class="mb-0">{{ __('Edit Profile') }}</h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="name">Name</label>
+                                        <label for="name">{{ __('Name') }}</label>
 
                                         <input id="name"
                                                type="text"
@@ -32,7 +32,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="username">Username</label>
+                                        <label for="username">{{ __('Username') }}</label>
 
                                         <input id="username"
                                                type="text"
@@ -49,7 +49,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="email">Email</label>
+                                        <label for="email">{{ __('Email') }}</label>
 
                                         <input id="email"
                                                type="email"
@@ -66,7 +66,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="phone_number">Phone Number</label>
+                                        <label for="phone_number">{{ __('Phone Number') }}</label>
 
                                         <input id="phone_number"
                                                type="tel"
@@ -83,7 +83,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="website">Website</label>
+                                        <label for="website">{{ __('Website') }}</label>
 
                                         <input id="website"
                                                type="url"
@@ -100,7 +100,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="bio">Bio</label>
+                                        <label for="bio">{{ __('Bio') }}</label>
 
                                         <textarea id="bio"
                                                   type="text"
@@ -116,7 +116,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="gender">Gender</label>
+                                        <label for="gender">{{ __('Gender') }}</label>
 
                                         <select id="gender"
                                                 class="form-control @error('gender') is-invalid @enderror"
@@ -125,9 +125,9 @@
                                             <option value="{{ old('gender') ?? $user->gender }}">
                                                 {{ Str::ucfirst($user->gender) }}
                                             </option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="others">Others</option>
+                                            <option value="male">{{ __('Male') }}</option>
+                                            <option value="female">{{ __('Female') }}</option>
+                                            <option value="others">{{ __('Others') }}</option>
                                         </select>
 
                                         @error('gender')
@@ -138,7 +138,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="avatar">Avatar</label>
+                                        <label for="avatar">{{ __('Avatar') }}</label>
 
                                         <input type="file"
                                                class="form-control-file"
@@ -152,8 +152,8 @@
 
                                         <div class="text-muted">
                                             <small>
-                                                Choose a square image for best experience! <strong><a
-                                                        href="{{ route('notices.image') }}">Rules!</a></strong>
+                                                {{ __('Choose a square image for best experience!') }} <strong><a
+                                                        href="{{ route('notices.image') }}">{{ __('Rules!') }}</a></strong>
                                             </small>
                                         </div>
 
@@ -165,7 +165,7 @@
                                     </div>
 
                                     <div class="form-group pt-4">
-                                        <button class="btn btn-primary">Save Profile</button>
+                                        <button class="btn btn-primary">{{ __('Save Profile') }}</button>
                                     </div>
                                 </div>
                             </div>
