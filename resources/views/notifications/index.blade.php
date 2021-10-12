@@ -6,7 +6,7 @@
             <div class="col-md-8 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="mb-0">Notifications</h3>
+                        <h3 class="mb-0">{{ __('Notifications') }}</h3>
                     </div>
 
                     <div class="card-body">
@@ -29,7 +29,7 @@
                                                     </h4>
                                                 </div>
                                             </div>
-                                            <p class="text-sm mb-0">Started following you.</p>
+                                            <p class="text-sm mb-0">{{ __('Started following you.') }}</p>
                                         </div>
                                         <div class="col-auto text-muted"
                                              data-toggle="tooltip"
@@ -41,7 +41,7 @@
                                 </a>
                             @empty
                                 <div href="#" class="list-group-item list-group-item-action text-center">
-                                    No notifications!
+                                    {{ __('No notifications!') }}
                                 </div>
                             @endforelse
                         </div>

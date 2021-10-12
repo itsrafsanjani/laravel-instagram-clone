@@ -41,8 +41,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="{{ route('posts.show', $post) }}" class="btn btn-primary">Details</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
+                    <a href="{{ route('posts.show', $post) }}" class="btn btn-primary">{{ __('Details') }}</a>
                 </div>
             </div>
         </div>

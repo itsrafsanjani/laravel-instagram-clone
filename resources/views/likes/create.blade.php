@@ -5,6 +5,6 @@
     </span>
     <i class="{{ $post->isLikedBy(auth()->user()) ? 'fas fa-heart text-danger likeBtn' : 'far fa-heart text-danger likeBtn'}}"
        data-toggle="tooltip"
-       title="Like"
+       title="{{ __('Like') }}"
        id="likeIcon-{{ $post->slug }}"></i>
 </div>

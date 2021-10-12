@@ -2,7 +2,7 @@
     <form>
         <div class="form-group mb-3">
             <label class="form-control-label" for="comment-{{ $post->slug }}">
-                Comment
+                {{ __('Comments') }}
             </label>
             <textarea class="form-control"
                       id="comment-{{ $post->slug }}"
@@ -13,6 +13,6 @@
         </div>
         <button class="btn btn-primary btn-sm commentButton"
                 data-post-slug="{{ $post->slug }}"
-                data-request-is="{{ request()->routeIs('posts.index') }}">Comment</button>
+                data-request-is="{{ request()->routeIs('posts.index') }}">{{ __('Comment') }}</button>
     </form>
 </div>

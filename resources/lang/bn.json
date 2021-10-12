@@ -22,5 +22,13 @@
     "Male": "পুরুষ",
     "Female": "মহিলা",
     "Others": "অন্যান্য",
-    "Confirm Password": "পাসওয়ার্ড নিশ্চিত করুন"
+    "Confirm Password": "পাসওয়ার্ড নিশ্চিত করুন",
+    "Comment": "মন্তব্য করুন",
+    "Comments": "মন্তব্য",
+    "Like": "পছন্দ",
+    "Close": "বন্ধ",
+    "Details": "বিস্তারিত",
+    "Notifications": "বিজ্ঞপ্তি",
+    "No notifications!": "বিজ্ঞপ্তি নেই!",
+    "Started following you.": "আপনাকে অনুসরণ করা শুরু করেছে."
 }
