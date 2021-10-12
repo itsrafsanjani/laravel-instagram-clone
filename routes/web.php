@@ -4,7 +4,6 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Mail\NewUserWelcomeMail;
 use Illuminate\Support\Facades\Auth;
@@ -50,6 +49,12 @@ Route::get('/cookies', function () {
 Route::get('/welcome-email', function () {
     return new NewUserWelcomeMail();
 });
+
+Route::get('/language', function (\Illuminate\Http\Request $request) {
+    $request->session()->put('language', $request->language);
+
+    return back();
+})->name('change_language');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/follows/{user}', [FollowController::class, 'toggle'])->name('follows.toggle');
