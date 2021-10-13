@@ -11,10 +11,10 @@
                             <div class="row align-items-center">
                                 <div class="col-8">
                                     <!-- Title -->
-                                    <h5 class="h3 mb-0">Profiles</h5>
+                                    <h5 class="h3 mb-0">{{ __('Profiles') }}</h5>
                                 </div>
                                 <div class="col-4 text-right">
-                                    <a href="{{ route('users.index') }}" class="btn btn-sm btn-neutral">Reset</a>
+                                    <a href="{{ route('users.index') }}" class="btn btn-sm btn-neutral">{{ __('Reset') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                         <input type="text"
                                             name="q"
                                             class="form-control"
-                                            placeholder="Search"
+                                            placeholder="{{ __('Search') }}"
                                             value="{{ $query ?? '' }}">
                                     </div>
                                 </div>
@@ -60,21 +60,21 @@
 
                                                 @if($user->active_status == true)
                                                     <span class="text-success">●</span>
-                                                    <small>Online</small>
+                                                    <small>{{ __('Online') }}</small>
                                                 @else
                                                     <span class="text-gray">●</span>
-                                                    <small>Offline</small>
+                                                    <small>{{ __('Offline') }}</small>
                                                 @endif
                                             </div>
                                             <div class="col-auto">
                                                 <a href="{{ route('users.show', $user) }}"
-                                                   class="btn btn-sm btn-primary">View Profile</a>
+                                                   class="btn btn-sm btn-primary">{{ __('View Profile') }}</a>
                                             </div>
                                         </div>
                                     </li>
                                 @empty
                                     <div class="col">
-                                        <h3 class="text-center text-muted">No users to show!</h3>
+                                        <h3 class="text-center text-muted">{{ __('No users to show!') }}</h3>
                                     </div>
                                 @endforelse
                             </ul>
