@@ -20,6 +20,8 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commenta
 
     const PAGINATE_COUNT = 20;
 
+    protected $with = ['media'];
+
     /**
      * The attributes that are mass assignable.
      *
