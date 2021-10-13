@@ -115,9 +115,10 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h3 class="text-center text-muted">
-                                            No posts yet! Follow
-                                            <a href="{{ route('users.index') }}" class="text-primary"> someone </a>
-                                            to see their photos!
+                                            {{ __('No posts yet!') }}
+                                            <a href="{{ route('users.index') }}" class="text-primary">
+                                                {{ __('Follow someone to see their photos!') }}
+                                            </a>
                                         </h3>
                                     </div>
                                 </div>
