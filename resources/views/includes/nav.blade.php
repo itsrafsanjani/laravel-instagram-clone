@@ -19,7 +19,7 @@
                         <input class="form-control mr-sm-2"
                                type="text"
                                name="q"
-                               placeholder="Search"
+                               placeholder="{{ __('Search') }}"
                                value="{{ $query ?? '' }}">
                     </form>
                 @endauth
