@@ -9,7 +9,7 @@
                 <div class="col-md-6 mx-auto">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="text-center text-muted">No posts yet!</h3>
+                            <h3 class="text-center text-muted">{{ __('No posts yet!') }}</h3>
                         </div>
                     </div>
                 </div>
