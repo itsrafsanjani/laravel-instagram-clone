@@ -54,7 +54,6 @@
     "Post Caption": "Post Caption",
     "My beautiful caption...": "My beautiful caption...",
     "Images": "Images",
-
     "Search": "Search",
     "Follow someone to see their photos!": "Follow someone to see their photos!",
     "Profiles": "Profiles",
@@ -62,5 +61,7 @@
     "View Profile": "View Profile",
     "No users to show!": "No users to show!",
     "Online": "Online",
-    "Offline": "Offline"
+    "Offline": "Offline",
+    "followers": "followers",
+    "following": "following"
 }

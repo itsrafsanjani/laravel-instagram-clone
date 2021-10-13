@@ -63,5 +63,13 @@
     "posts": "पदों",
     "followers": "अनुयायियों",
     "following": "निम्नलिखित",
-    "No posts yet!": "अब तक कोई पोस्ट नहीं!"
+    "No posts yet!": "अब तक कोई पोस्ट नहीं!",
+    "Search": "खोज",
+    "Follow someone to see their photos!": "िसी की फ़ोटो देखने के लिए उसका अनुसरण करें!",
+    "Profiles": "प्रोफाइल",
+    "Reset": "रीसेट",
+    "View Profile": "प्रोफ़ाइल देखें",
+    "No users to show!": "दिखाने के लिए कोई उपयोगकर्ता नहीं!",
+    "Online": "ऑनलाइन",
+    "Offline": "ऑफ़लाइन"
 }
