@@ -57,8 +57,14 @@
                                                 <h4 class="mb-0">
                                                     <a href="{{ route('users.show', $user) }}">{{ $user->username }}</a>
                                                 </h4>
-                                                <span class="text-success">●</span>
-                                                <small>Online</small>
+
+                                                @if($user->active_status == true)
+                                                    <span class="text-success">●</span>
+                                                    <small>Online</small>
+                                                @else
+                                                    <span class="text-gray">●</span>
+                                                    <small>Offline</small>
+                                                @endif
                                             </div>
                                             <div class="col-auto">
                                                 <a href="{{ route('users.show', $user) }}"
