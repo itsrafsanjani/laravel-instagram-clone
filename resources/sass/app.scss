@@ -105,3 +105,8 @@
 }
 
 /* purgecss end ignore */
+
+.form-control.remove-focus:focus {
+    border: none !important;
+    box-shadow: none !important;
+}

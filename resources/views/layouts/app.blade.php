@@ -50,15 +50,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
 <script>
     $(document).ready(function () {
-        let modalId = "";
-        $(document).on('click', '.modal', function (e) {
-            modalId = this.id
-            console.log(modalId)
-        });
-
-        new ClipboardJS('.clipboard', {
-            container: document.getElementById(modalId)
-        });
+        new ClipboardJS('.clipboard');
     });
 </script>
 <script>

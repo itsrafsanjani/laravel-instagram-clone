@@ -38,10 +38,13 @@
                                                         <a href="#" class="list-group-item list-group-item-action">
                                                             {{ __('Share to...') }}
                                                         </a>
-                                                        <div class="clipboard list-group-item list-group-item-action"
-                                                             data-clipboard-text="{{ url('posts', $post) }}">
+                                                        <input class="form-control remove-focus list-group-item list-group-item-action"
+                                                               id="postLink{{ $post->id }}"
+                                                               value="{{ url('posts', $post) }}">
+                                                        <a href="#" class="clipboard list-group-item list-group-item-action"
+                                                             data-clipboard-target="#postLink{{ $post->id }}">
                                                             {{ __('Copy Link') }}
-                                                        </div>
+                                                        </a>
                                                         <a href="#" class="list-group-item list-group-item-action">
                                                             {{ __('Embed') }}
                                                         </a>
