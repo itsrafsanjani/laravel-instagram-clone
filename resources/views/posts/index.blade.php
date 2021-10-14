@@ -9,7 +9,17 @@
                         <div class="row">
                             <div class="col-md-10 mx-auto">
                                 <div class="card single-post">
-                                    <div class="card-header px-3 py-2 py-md-3 d-flex justify-content-end">
+                                    <div class="card-header px-3 py-2 py-md-3 d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            {{-- Avatar --}}
+                                            <a href="{{ route('users.show', $post->user) }}"
+                                               class="avatar avatar-sm rounded-circle">
+                                                <img alt="{{ $post->user->name }}" src="{{ $post->user->avatar }}">
+                                            </a>
+                                            <a href="{{ route('users.show', $post->user) }}" class="mx-2">
+                                                <h4 class="mb-0">{{ $post->user->username }}</h4>
+                                            </a>
+                                        </div>
 
                                         {{-- ellipsis trigger modal --}}
                                         <button type="button"
@@ -18,7 +28,7 @@
                                             <i class="fas fa-ellipsis-h"></i>
                                         </button>
 
-                                         {{-- ellipsis modal --}}
+                                        {{-- ellipsis modal --}}
                                         <div class="modal fade" id="ellipsis{{ $post->id }}" tabindex="-1"
                                              aria-labelledby="ellipsis{{ $post->id }}Label" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
@@ -32,17 +42,20 @@
                                                            class="list-group-item list-group-item-action text-danger">
                                                             {{ __('Unfollow') }}
                                                         </a>
-                                                        <a href="{{ route('posts.show', $post) }}" class="list-group-item list-group-item-action">
+                                                        <a href="{{ route('posts.show', $post) }}"
+                                                           class="list-group-item list-group-item-action">
                                                             {{ __('Go to post') }}
                                                         </a>
                                                         <a href="#" class="list-group-item list-group-item-action">
                                                             {{ __('Share to...') }}
                                                         </a>
-                                                        <input class="form-control remove-focus list-group-item list-group-item-action"
-                                                               id="postLink{{ $post->id }}"
-                                                               value="{{ url('posts', $post) }}">
-                                                        <a href="#" class="clipboard list-group-item list-group-item-action"
-                                                             data-clipboard-target="#postLink{{ $post->id }}">
+                                                        <input
+                                                            class="form-control remove-focus list-group-item list-group-item-action"
+                                                            id="postLink{{ $post->id }}"
+                                                            value="{{ url('posts', $post) }}">
+                                                        <a href="#"
+                                                           class="clipboard list-group-item list-group-item-action"
+                                                           data-clipboard-target="#postLink{{ $post->id }}">
                                                             {{ __('Copy Link') }}
                                                         </a>
                                                         <a href="#" class="list-group-item list-group-item-action">
