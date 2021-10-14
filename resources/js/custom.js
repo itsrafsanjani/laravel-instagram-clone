@@ -2,6 +2,7 @@
  * My Custom JS
  * Run after page load
  */
+const ClipboardJS = require("clipboard");
 
 // initialize all plugins
 function laragramInit() {
@@ -23,6 +24,8 @@ function laragramInit() {
         nav: true,
         dots: false
     });
+
+    new ClipboardJS('.clipboard');
 }
 
 $(document).ready(function () {

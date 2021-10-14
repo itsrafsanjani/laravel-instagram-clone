@@ -11,6 +11,8 @@ require('./plugins/jquery.jscroll.min')
 require('owl.carousel')
 require('owl.carousel/dist/assets/owl.carousel.css')
 require('owl.carousel/dist/assets/owl.theme.default.min.css')
+require('moment')
+require('./plugins/nice-toast-js.min')
 require('./custom')
 
 // window.Vue = require('vue');
