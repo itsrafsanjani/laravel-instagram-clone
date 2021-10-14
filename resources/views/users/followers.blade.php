@@ -11,7 +11,7 @@
                             <div class="row align-items-center">
                                 <div class="col-8">
                                     <!-- Title -->
-                                    <h5 class="h3 mb-0">Profiles</h5>
+                                    <h5 class="h3 mb-0">{{ __('Profiles') }}</h5>
                                 </div>
                             </div>
                         </div>
@@ -27,26 +27,26 @@
                                                 <!-- Avatar -->
                                                 <a href="{{ route('users.show', $user) }}"
                                                    class="avatar rounded-circle">
-                                                    <img alt="Image placeholder"
+                                                    <img alt="{{ $user->name }}"
                                                          src="{{ $user->avatar }}">
                                                 </a>
                                             </div>
                                             <div class="col ml--2">
                                                 <h4 class="mb-0">
-                                                    <a href="{{ route('users.show', $user) }}">{{ $user->profile->username }}</a>
+                                                    <a href="{{ route('users.show', $user) }}">{{ $user->username }}</a>
                                                 </h4>
-                                                <span class="text-success">●</span>
-                                                <small>Online</small>
+
+                                                @include('users._user-online-offline')
                                             </div>
                                             <div class="col-auto">
                                                 <a href="{{ route('users.show', $user) }}"
-                                                   class="btn btn-sm btn-primary">View Profile</a>
+                                                   class="btn btn-sm btn-primary">{{ __('View Profile') }}</a>
                                             </div>
                                         </div>
                                     </li>
                                 @empty
                                     <div class="col">
-                                        <h3 class="text-center text-muted">No users to show!</h3>
+                                        <h3 class="text-center text-muted">{{ __('No users to show!') }}}</h3>
                                     </div>
                                 @endforelse
                             </ul>
@@ -62,6 +62,4 @@
             </div>
         </div>
     </div>
-
 @endsection
-

@@ -17,7 +17,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
-                                            <img alt="Image placeholder"
+                                            <img alt="{{ $notification->data['follower']['name'] }}"
                                                  src="{{ $notification->data['follower']['avatar'] ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($notification->data['follower']['email'] ?? ''))) }}"
                                                  class="avatar rounded-circle">
                                         </div>

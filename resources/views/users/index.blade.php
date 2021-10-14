@@ -49,22 +49,18 @@
                                                 <!-- Avatar -->
                                                 <a href="{{ route('users.show', $user) }}"
                                                    class="avatar rounded-circle">
-                                                    <img alt="Image placeholder"
+                                                    <img alt="{{ $user->name }}"
                                                          src="{{ $user->avatar }}">
                                                 </a>
                                             </div>
                                             <div class="col ml--2">
                                                 <h4 class="mb-0">
-                                                    <a href="{{ route('users.show', $user) }}">{{ $user->username }}</a>
+                                                    <a href="{{ route('users.show', $user) }}">
+                                                        {{ $user->username }}
+                                                    </a>
                                                 </h4>
 
-                                                @if($user->active_status == true)
-                                                    <span class="text-success">●</span>
-                                                    <small>{{ __('Online') }}</small>
-                                                @else
-                                                    <span class="text-gray">●</span>
-                                                    <small>{{ __('Offline') }}</small>
-                                                @endif
+                                                @include('users._user-online-offline')
                                             </div>
                                             <div class="col-auto">
                                                 <a href="{{ route('users.show', $user) }}"
