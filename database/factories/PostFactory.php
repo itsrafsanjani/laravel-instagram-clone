@@ -26,7 +26,7 @@ class PostFactory extends Factory
         return [
             'user_id' => User::all()->random()->id,
             'slug' => Str::random(12),
-            'caption' => 'My first upload..',
+            'caption' => $this->faker->realText(255),
         ];
     }
 }
