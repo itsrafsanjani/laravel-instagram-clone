@@ -25,14 +25,18 @@
 
                         @can('update', $user)
                             <div class="ml-4">
-                                <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary">{{ __('Edit Profile') }}</a>
+                                <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary">
+                                    {{ __('Edit Profile') }}
+                                </a>
                             </div>
                         @endcan
                     </div>
 
                     @can('update', $user)
                         <div>
-                            <a href="{{ route('posts.create') }}" class="btn btn-sm btn-secondary">{{ __('Add New Post') }}</a>
+                            <a href="{{ route('posts.create') }}" class="btn btn-sm btn-secondary">
+                                {{ __('Add New Post') }}
+                            </a>
                         </div>
                     @endcan
 
