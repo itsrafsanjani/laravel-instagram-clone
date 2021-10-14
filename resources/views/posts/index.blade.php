@@ -9,7 +9,8 @@
                         <div class="row">
                             <div class="col-md-10 mx-auto">
                                 <div class="card single-post">
-                                    <div class="card-header px-3 py-2 py-md-3 d-flex justify-content-between align-items-center">
+                                    <div
+                                        class="card-header px-3 py-2 py-md-3 d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center">
                                             {{-- Avatar --}}
                                             <a href="{{ route('users.show', $post->user) }}"
@@ -87,12 +88,13 @@
                                     <div class="d-none">{{ $post->id }}</div>
 
                                     <div class="card-body @if ($post->comments_count > 1) pb-0 @endif">
-                                        <div class="d-flex justify-content-between align-items-baseline">
-                                            <a href="{{ route('users.show', $post->user) }}"
-                                               class="btn btn-link px-0"
-                                               data-toggle="tooltip"
-                                               data-html="true"
-                                               title='
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <div class="d-flex">
+                                                <a href="{{ route('users.show', $post->user) }}"
+                                                   class="btn btn-link px-0 py-0"
+                                                   data-toggle="tooltip"
+                                                   data-html="true"
+                                                   title='
                                                <div class="card">
                                                     <img class="card-img-top" src="{{ $post->user->avatar }}"
                                                      alt="{{ $post->user->name }}">
@@ -100,22 +102,23 @@
                                                         <h5 class="card-title">{{ $post->user->name }}</h5>
                                                     </div>
                                                 </div>'
-                                            >
-                                                {{ $post->user->username }}
-                                            </a>
+                                                >
+                                                    {{ $post->user->username }}
+                                                </a>
+                                                <a class="text-sm text-muted text-center ml-2 mb-0"
+                                                   data-toggle="tooltip"
+                                                   data-placement="top"
+                                                   title="{{ $post->created_at }}">
+                                                    {{ $post->created_at->diffForHumans() }}
+                                                </a>
+                                            </div>
                                             {{-- <like-button post-slug="{{ $post->slug }}" :user="{{ auth()->user() }}" --}}
                                             {{-- :likes="{{ $post->likers_count }}" --}}
                                             {{-- like-status="{{ $post->isLikedBy(auth()->user()) }}"></like-button> --}}
                                             @include('likes.create')
                                         </div>
                                         <div class="d-flex justify-content-between align-items-baseline">
-                                            <h4 class="card-title mb-0 text-justify">{{ $post->caption }}</h4>
-                                            <h4 class="text-muted text-center ml-2 mb-0"
-                                                   data-toggle="tooltip"
-                                                   data-placement="top"
-                                                   title="{{ $post->created_at }}">
-                                                {{ $post->created_at->diffForHumans() }}
-                                            </h4>
+                                            <p class="card-title mb-0 text-justify text-sm">{{ $post->caption }}</p>
                                         </div>
                                     </div>
 
