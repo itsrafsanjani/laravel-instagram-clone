@@ -100,18 +100,22 @@
                                                         <h5 class="card-title">{{ $post->user->name }}</h5>
                                                     </div>
                                                 </div>'
-                                            >{{ $post->user->username }}</a>
+                                            >
+                                                {{ $post->user->username }}
+                                            </a>
                                             {{-- <like-button post-slug="{{ $post->slug }}" :user="{{ auth()->user() }}" --}}
                                             {{-- :likes="{{ $post->likers_count }}" --}}
                                             {{-- like-status="{{ $post->isLikedBy(auth()->user()) }}"></like-button> --}}
                                             @include('likes.create')
                                         </div>
                                         <div class="d-flex justify-content-between align-items-baseline">
-                                            <h5 class="h2 card-title mb-0">{{ $post->caption }}</h5>
-                                            <small class="text-muted"
+                                            <h4 class="card-title mb-0 text-justify">{{ $post->caption }}</h4>
+                                            <h4 class="text-muted text-center ml-2 mb-0"
                                                    data-toggle="tooltip"
                                                    data-placement="top"
-                                                   title="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</small>
+                                                   title="{{ $post->created_at }}">
+                                                {{ $post->created_at->diffForHumans() }}
+                                            </h4>
                                         </div>
                                     </div>
 
