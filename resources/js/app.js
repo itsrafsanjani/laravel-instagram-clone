@@ -13,6 +13,35 @@ require('owl.carousel/dist/assets/owl.carousel.css')
 require('owl.carousel/dist/assets/owl.theme.default.min.css')
 require('moment')
 require('./plugins/nice-toast-js.min')
+
+import ClipboardJS from 'clipboard';
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from "firebase/analytics";
+
+// initialize clipboardjs
+new ClipboardJS('.clipboard');
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyAxPpkCArq0cVN89_FwaXkd5gACoCBGAts",
+    authDomain: "laragram2.firebaseapp.com",
+    projectId: "laragram2",
+    storageBucket: "laragram2.appspot.com",
+    messagingSenderId: "49536770108",
+    appId: "1:49536770108:web:6ab2e2dd4593018182e339",
+    measurementId: "G-705L5J2HZN"
+};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+getAnalytics(app);
+
+// nice-toast-js setup
+$.niceToast.setup({
+    position: "top-right",
+    timeout: 5000,
+});
+
 require('./custom')
 
 // window.Vue = require('vue');

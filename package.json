@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "clipboard": "^2.0.8",
+        "firebase": "^9.1.2",
         "moment": "^2.29.1",
         "owl.carousel": "^2.3.4"
     }

@@ -42,8 +42,6 @@
 </div>
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
-<script src="//www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
-<script src="//www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
 <script>
     window.user = {
         isLoggedIn: {{ json_encode(auth()->check()) }},

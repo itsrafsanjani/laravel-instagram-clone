@@ -2,49 +2,25 @@
  * My Custom JS
  * Run after page load
  */
-const ClipboardJS = require("clipboard");
 
-// initialize all plugins
+// initialize all plugins which needs to reinitialized after ajax
 function laragramInit() {
-    // nice-toast-js setup
-    $.niceToast.setup({
-        position: "top-right",
-        timeout: 5000,
-    });
-
     // tooltips popover
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
 
-    // owlcarousel2
+// owlcarousel2
     $('.owl-carousel').owlCarousel({
         items: 1,
         lazyLoad: true,
         nav: true,
         dots: false
     });
-
-    new ClipboardJS('.clipboard');
 }
 
 $(document).ready(function () {
     laragramInit();
-
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    let firebaseConfig = {
-        apiKey: "AIzaSyAxPpkCArq0cVN89_FwaXkd5gACoCBGAts",
-        authDomain: "laragram2.firebaseapp.com",
-        projectId: "laragram2",
-        storageBucket: "laragram2.appspot.com",
-        messagingSenderId: "49536770108",
-        appId: "1:49536770108:web:6ab2e2dd4593018182e339",
-        measurementId: "G-705L5J2HZN"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
 
     /**
      * check if user is logged in
