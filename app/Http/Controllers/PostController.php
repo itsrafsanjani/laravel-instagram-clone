@@ -46,7 +46,7 @@ class PostController extends Controller
                 ->toMediaCollection('posts');
         }
 
-        return back()->with([
+        return redirect()->route('users.show', auth()->user())->with([
             'status' => 'success',
             'message' => 'Post uploaded successfully!'
         ]);

@@ -19,13 +19,13 @@
                                     <div class="form-group ">
                                         <label for="caption">{{ __('Post Caption') }}</label>
 
-                                        <input id="caption"
+                                        <textarea id="caption"
                                                type="text"
                                                class="form-control @error('caption') is-invalid @enderror"
                                                name="caption"
-                                               value="{{ old('caption') }}"
                                                placeholder="{{ __('My beautiful caption...') }}"
-                                               autocomplete="caption" autofocus required>
+                                               autocomplete="caption" autofocus required
+                                        >{{ old('caption') }}</textarea>
 
                                         @error('caption')
                                             <span class="invalid-feedback" role="alert">
