@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Search Engine -->
-    <meta name="description" content="Laragram is an open source social media platform created with Laravel and VueJS.">
+    <meta name="description" content="Laragram is a social media platform created with Laravel and VueJS.">
     <meta name="image" content="{{ asset('images/laragram.jpg') }}">
     <!-- Schema.org for Google -->
     <meta itemprop="name" content="Laragram | Social Media">
-    <meta itemprop="description" content="Laragram is an open source social media platform created with Laravel and VueJS.">
+    <meta itemprop="description" content="Laragram is a social media platform created with Laravel and VueJS.">
     <meta itemprop="image" content="{{ asset('images/laragram.jpg') }}">
     <!-- Open Graph general (Facebook, Pinterest & Google+) -->
     <meta name="og:title" content="Laragram | Social Media">
-    <meta name="og:description" content="Laragram is an open source social media platform created with Laravel and VueJS.">
+    <meta name="og:description" content="Laragram is a social media platform created with Laravel and VueJS.">
     <meta name="og:image" content="{{ asset('images/laragram.jpg') }}">
     <meta name="og:locale" content="en_US, bn_BD">
     <meta name="og:type" content="website">
