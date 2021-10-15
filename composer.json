@@ -16,7 +16,7 @@
         "fideloper/proxy": "^4.0",
         "haruncpi/laravel-user-activity": "^1.0",
         "intervention/image": "^2.4",
-        "jordanmiguel/laravel-popular": "^1.0",
+        "jordanmiguel/laravel-popular": "dev-master",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
@@ -67,6 +67,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:itsrafsanjani/sightengine-client-php.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:itsrafsanjani/laravel-popular.git"
         }
     ],
     "minimum-stability": "dev",

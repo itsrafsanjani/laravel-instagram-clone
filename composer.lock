@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "601265f41a3c0bdc42d41723b18f226f",
+    "content-hash": "aa174550460e5ac625ffc455c0717307",
     "packages": [
         {
             "name": "beyondcode/laravel-comments",
@@ -1518,16 +1518,16 @@
         },
         {
             "name": "jordanmiguel/laravel-popular",
-            "version": "1.0.8",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jordanmiguel/laravel-popular.git",
-                "reference": "b353206eff5c218d71b72768ece0328f4366e38c"
+                "url": "https://github.com/itsrafsanjani/laravel-popular.git",
+                "reference": "17d28acccbdcf64cfda3643276546cb7d87a3b06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jordanmiguel/laravel-popular/zipball/b353206eff5c218d71b72768ece0328f4366e38c",
-                "reference": "b353206eff5c218d71b72768ece0328f4366e38c",
+                "url": "https://api.github.com/repos/itsrafsanjani/laravel-popular/zipball/17d28acccbdcf64cfda3643276546cb7d87a3b06",
+                "reference": "17d28acccbdcf64cfda3643276546cb7d87a3b06",
                 "shasum": ""
             },
             "require": {
@@ -1538,6 +1538,7 @@
                 "phpunit/phpunit": ">=5.4.3",
                 "squizlabs/php_codesniffer": "^2.3"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1551,7 +1552,22 @@
                     "JordanMiguel\\LaravelPopular\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "JordanMiguel\\LaravelPopular\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "check-style": [
+                    "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+                ],
+                "fix-style": [
+                    "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -1566,16 +1582,15 @@
             "homepage": "https://github.com/jordanmiguel/laravel-popular",
             "keywords": [
                 "JordanMiguel",
+                "Laravel",
                 "Laravel Popular",
-                "laravel",
-                "laravel-popular",
-                "popular"
+                "Popular",
+                "laravel-popular"
             ],
             "support": {
-                "issues": "https://github.com/jordanmiguel/laravel-popular/issues",
-                "source": "https://github.com/jordanmiguel/laravel-popular/tree/1.0.8"
+                "source": "https://github.com/itsrafsanjani/laravel-popular/tree/master"
             },
-            "time": "2021-07-21T11:15:33+00:00"
+            "time": "2021-08-22T16:57:18+00:00"
         },
         {
             "name": "laravel/framework",
@@ -11377,6 +11392,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "jordanmiguel/laravel-popular": 20,
         "sightengine/client-php": 20
     },
     "prefer-stable": true,
