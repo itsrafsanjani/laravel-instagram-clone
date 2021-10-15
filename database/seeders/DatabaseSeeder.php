@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(VoyagerDatabaseSeeder::class);
         User::factory()->count(10)->create();
         Post::factory()->count(10)->create();
 
