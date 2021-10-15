@@ -28,7 +28,6 @@
         "spatie/laravel-medialibrary": "^9.0.0",
         "staudenmeir/eloquent-eager-limit": "^1.6",
         "tanmuhittin/laravel-google-translate": "^2.0",
-        "tcg/voyager": "^1.4.3",
         "yoelpc4/laravel-cloudinary": "^2.1"
     },
     "require-dev": {
