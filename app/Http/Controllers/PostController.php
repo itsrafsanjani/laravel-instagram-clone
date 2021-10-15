@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -25,7 +26,13 @@ class PostController extends Controller
             ->latest()
             ->paginate(Post::PAGINATE_COUNT);
 
-        return view('posts.index', compact('posts'));
+        $suggestedUsers = User::whereNotIn('id', $users)
+            ->where('id', '<>', auth()->id())
+            ->inRandomOrder()
+            ->take(10)
+            ->get();
+
+        return view('posts.index', compact('posts', 'suggestedUsers'));
     }
 
     public function create()
