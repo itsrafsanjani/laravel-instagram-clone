@@ -5,6 +5,7 @@ namespace App\Models;
 use BeyondCode\Comments\Contracts\Commentator;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Overtrue\LaravelFollow\Followable;
 use Overtrue\LaravelLike\Traits\Liker;
@@ -14,7 +15,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
-class User extends \TCG\Voyager\Models\User implements MustVerifyEmail, Commentator, HasMedia
+class User extends Authenticatable implements MustVerifyEmail, Commentator, HasMedia
 {
     use HasFactory, Notifiable, HasEagerLimit, Followable, Liker, InteractsWithMedia;
 
