@@ -53,7 +53,6 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'username' => ['required', 'string', 'min:4', 'max:32', 'unique:users', 'regex:/(^(?:[a-zA-Z\d]+(?:(?:\.|-|_)[a-zA-Z\d])*)+$)/'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone_number' => ['required', 'min:10', 'max:15', 'unique:users', 'regex:/^([0-9\s\-\+\(\)]*)$/'],
             'gender' => ['required', 'in:male,female,others'],
         ]);
     }
