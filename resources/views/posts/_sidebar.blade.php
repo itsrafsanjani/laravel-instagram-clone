@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-between px-3 pt-2">
+        <div class="d-flex justify-content-between px-4 pt-2">
             <div class="text-muted text-sm">
                 Suggestions For You
             </div>
