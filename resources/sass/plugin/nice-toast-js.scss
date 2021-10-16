@@ -163,16 +163,15 @@ $colors : (
   opacity: 0.3;
   background: transparent;
   outline: none;
-  border-width: initial;
   border-style: none;
-  border-color: initial;
-  border-image: initial;
   padding: 0 0 0 10px;
   transition: visibility 0s ease 0s, opacity 0.2s linear 0s;
   &:hover{
-
     opacity: 1;
   }
+    &:focus{
+        outline: none;
+    }
 }
 
 
