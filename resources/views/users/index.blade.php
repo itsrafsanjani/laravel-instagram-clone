@@ -64,10 +64,6 @@
                                                     {{ Str::limit($user->name, 30) }}
                                                 </p>
                                             </div>
-                                            <div class="col-auto">
-                                                <a href="{{ route('users.show', $user) }}"
-                                                   class="btn btn-sm btn-primary">{{ __('View Profile') }}</a>
-                                            </div>
                                         </div>
                                     </li>
                                 @empty
