@@ -24,7 +24,7 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['sometimes'],
+            'name' => ['sometimes', 'max:50'],
             'username' => ['sometimes'],
             'password' => ['sometimes'],
             'email' => ['sometimes', 'email'],
