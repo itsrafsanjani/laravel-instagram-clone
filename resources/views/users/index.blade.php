@@ -60,7 +60,9 @@
                                                     </a>
                                                 </h4>
 
-                                                @include('users._user-online-offline')
+                                                <p class="text-sm mb-0">
+                                                    {{ Str::limit($user->name, 30) }}
+                                                </p>
                                             </div>
                                             <div class="col-auto">
                                                 <a href="{{ route('users.show', $user) }}"
