@@ -61,7 +61,7 @@
 
                                     <div class="text-muted">
                                         <small>
-                                            {{ __('Choose a nice username, you won\'t be able to change it later!') }}
+                                            {{ __('Choose a nice username!') }}
                                             <strong>
                                                 <a href="{{ route('notices.username') }}">
                                                     {{ __('Rules!') }}
