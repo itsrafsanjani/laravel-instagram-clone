@@ -32,7 +32,7 @@ class UpdateUserRequest extends FormRequest
             'phone_number_verified_at' => ['sometimes'],
             'otp' => ['sometimes'],
             'otp_created_at' => ['sometimes'],
-            'website' => ['sometimes', 'url'],
+            'website' => ['sometimes', 'url', 'nullable'],
             'bio' => ['sometimes', 'max:150'],
             'gender' => ['sometimes'],
             'avatar' => ['sometimes'],
