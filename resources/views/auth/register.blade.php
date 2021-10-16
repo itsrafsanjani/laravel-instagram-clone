@@ -19,11 +19,11 @@
                                            class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                                            name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
 
-                                    @if ($errors->has('name'))
+                                    @error('name'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $message }}</strong>
                                     </span>
-                                    @endif
+                                    @enderror
                                 </div>
                             </div>
 
@@ -36,11 +36,11 @@
                                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                            name="email" value="{{ old('email') }}" autocomplete="email">
 
-                                    @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                    @error('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
                                     </span>
-                                    @endif
+                                    @enderror
                                     <div class="text-muted">
                                         <small>
                                             {{ __('Email verification is turned on, so please use your original email to get the verification link.') }}
@@ -70,11 +70,11 @@
                                         </small>
                                     </div>
 
-                                    @if ($errors->has('username'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('username') }}</strong>
+                                    @error('username'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
                                     </span>
-                                    @endif
+                                    @enderror
                                 </div>
                             </div>
 
@@ -117,11 +117,11 @@
                                            class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                            name="password" autocomplete="new-password">
 
-                                    @if ($errors->has('password'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                    @error('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
                                     </span>
-                                    @endif
+                                    @enderror
                                 </div>
                             </div>
 
