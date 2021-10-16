@@ -40,9 +40,9 @@
             <!-- List group -->
             <ul class="list-group list-group-flush list my--3">
                 @forelse($suggestedUsers as $user)
-                    <li class="list-group-item px-0 py-1">
+                    <li class="list-group-item px-0 py-2">
                         <div class="row align-items-center">
-                            <div class="col-auto">
+                            <div class="col-auto d-flex align-items-center">
                                 <!-- Avatar -->
                                 <a href="{{ route('users.show', $user) }}"
                                    class="avatar avatar-sm rounded-circle">
@@ -57,7 +57,7 @@
                                     </a>
                                 </h4>
 
-                                <p class="text-sm">
+                                <p class="text-sm mb-0">
                                     {{ Str::limit($user->name, 30) }}
                                 </p>
                             </div>
