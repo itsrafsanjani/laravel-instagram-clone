@@ -16,10 +16,10 @@
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                           class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                           class="form-control @error('name') is-invalid @enderror"
                                            name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
 
-                                    @error('name'))
+                                    @error('name')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -33,10 +33,10 @@
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
-                                           class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                           class="form-control @error('email') is-invalid @enderror"
                                            name="email" value="{{ old('email') }}" autocomplete="email">
 
-                                    @error('email'))
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -56,7 +56,7 @@
 
                                 <div class="col-md-6">
                                     <input id="username" type="text"
-                                           class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
+                                           class="form-control @error('username') is-invalid @enderror"
                                            name="username" value="{{ old('username') }}" autocomplete="username">
 
                                     <div class="text-muted">
@@ -70,7 +70,7 @@
                                         </small>
                                     </div>
 
-                                    @error('username'))
+                                    @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -84,27 +84,27 @@
                                 </label>
 
                                 <div class="col-md-6">
-                                    <div class="form-check form-check-inline">
-                                        <input name="gender" class="form-check-input" id="male" type="radio"
+                                    <div class="form-check">
+                                        <input name="gender" class="form-check-input @error('gender') is-invalid @enderror" id="male" type="radio"
                                                value="male" {{ old('gender') == 'male' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="male">{{ __('Male') }}</label>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input name="gender" class="form-check-input" id="female" type="radio"
+                                    <div class="form-check">
+                                        <input name="gender" class="form-check-input @error('gender') is-invalid @enderror" id="female" type="radio"
                                                value="female" {{ old('gender') == 'female' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="female">{{ __('Female') }}</label>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input name="gender" class="form-check-input" id="others" type="radio"
+                                    <div class="form-check">
+                                        <input name="gender" class="form-check-input @error('gender') is-invalid @enderror" id="others" type="radio"
                                                value="others" {{ old('gender') == 'others' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="others">{{ __('Others') }}</label>
-                                    </div>
 
-                                    @error('gender')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                        @error('gender')
+                                        <span class="invalid-feedback ml--3" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
 
@@ -114,10 +114,10 @@
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                           class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                           class="form-control @error('password') is-invalid @enderror"
                                            name="password" autocomplete="new-password">
 
-                                    @error('password'))
+                                    @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
