@@ -3,19 +3,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Search Engine -->
+    <meta name="keywords" content="laravel, laravel instagram clone, laragram, instagram, php, mysql, postgresql">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Md Rafsan Jani Rafin">
+
+    <!-- Primary Meta Tags -->
+    <title>Laragram | Social Media</title>
+    <meta name="title" content="Laragram | Social Media">
     <meta name="description" content="Laragram is a social media platform created with Laravel and VueJS.">
-    <meta name="image" content="{{ asset('images/laragram.jpg') }}">
-    <!-- Schema.org for Google -->
-    <meta itemprop="name" content="Laragram | Social Media">
-    <meta itemprop="description" content="Laragram is a social media platform created with Laravel and VueJS.">
-    <meta itemprop="image" content="{{ asset('images/laragram.jpg') }}">
-    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
-    <meta name="og:title" content="Laragram | Social Media">
-    <meta name="og:description" content="Laragram is a social media platform created with Laravel and VueJS.">
-    <meta name="og:image" content="{{ asset('images/laragram.jpg') }}">
-    <meta name="og:locale" content="en_US, bn_BD">
-    <meta name="og:type" content="website">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ route('posts.index') }}">
+    <meta property="og:title" content="Laragram | Social Media">
+    <meta property="og:description" content="Laragram is a social media platform created with Laravel and VueJS.">
+    <meta property="og:image" content="{{ asset('images/laragram.jpg') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ route('posts.index') }}">
+    <meta property="twitter:title" content="Laragram | Social Media">
+    <meta property="twitter:description" content="Laragram is a social media platform created with Laravel and VueJS.">
+    <meta property="twitter:image" content="{{ asset('images/laragram.jpg') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
