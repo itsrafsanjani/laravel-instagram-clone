@@ -37,11 +37,15 @@
                                 </div>
                             </div>
                         </div>
+
+                        @if(auth()->user() != $post->user)
                         <div>
                             <a href="{{ route('users.show', $post->user) }}" class="btn btn-primary btn-sm ml-3">
-                                View Profile
+                                {{ __('View Profile') }}
                             </a>
                         </div>
+                        @endif
+
                         @can('update', $post->user)
                             <form action="{{ route('posts.destroy', $post) }}" method="post" class="ml-3"
                                   onsubmit="return confirm('Are you sure to delete the post?')">
