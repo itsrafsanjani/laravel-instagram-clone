@@ -30,8 +30,15 @@
                                                 </div>
                                             </div>
                                             <p class="text-sm mb-0">{{ __('Started following you.') }}</p>
+
+                                            <div class="text-muted d-block d-md-none"
+                                                 data-toggle="tooltip"
+                                                 data-placement="top"
+                                                 title="{{ $notification->created_at }}">
+                                                <small>{{ $notification->created_at->diffForHumans() }}</small>
+                                            </div>
                                         </div>
-                                        <div class="col-auto text-muted"
+                                        <div class="col-auto d-none d-md-block text-muted"
                                              data-toggle="tooltip"
                                              data-placement="top"
                                              title="{{ $notification->created_at }}">
