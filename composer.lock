@@ -2467,12 +2467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsrafsanjani/chatify.git",
-                "reference": "a3d508ae9a8c0c3a14337e4171f32612f9ec8d50"
+                "reference": "a4c068126fdcca78720f6762fcabd034ce94797f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsrafsanjani/chatify/zipball/a3d508ae9a8c0c3a14337e4171f32612f9ec8d50",
-                "reference": "a3d508ae9a8c0c3a14337e4171f32612f9ec8d50",
+                "url": "https://api.github.com/repos/itsrafsanjani/chatify/zipball/a4c068126fdcca78720f6762fcabd034ce94797f",
+                "reference": "a4c068126fdcca78720f6762fcabd034ce94797f",
                 "shasum": ""
             },
             "require": {
@@ -2520,7 +2520,7 @@
             "support": {
                 "source": "https://github.com/itsrafsanjani/chatify/tree/dev"
             },
-            "time": "2021-10-16T18:35:18+00:00"
+            "time": "2021-10-17T08:02:04+00:00"
         },
         {
             "name": "myclabs/php-enum",
