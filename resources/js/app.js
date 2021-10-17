@@ -43,7 +43,7 @@ getAnalytics(app);
 // nice-toast-js setup
 $.niceToast.setup({
     position: "top-right",
-    timeout: 50000,
+    timeout: 5000,
 });
 
 require('./custom')
