@@ -18,8 +18,12 @@ import ClipboardJS from 'clipboard';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from "firebase/analytics";
 
-// initialize clipboardjs
-new ClipboardJS('.clipboard');
+// check if the clipboard class is available in DOM
+let clipboard = document.getElementsByClassName('clipboard');
+if (clipboard.length > 0) {
+    // initialize clipboardjs
+    new ClipboardJS('.clipboard');
+}
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
