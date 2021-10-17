@@ -7,7 +7,7 @@
                 <div class="owl-carousel">
                     @php $images = $post->getMedia('posts') @endphp
                     @forelse($images as $image)
-                        <img class="card-img-top owl-lazy" src="{{ asset('images/placeholder.jpg') }}"
+                        <img class="card-img owl-lazy" src="{{ asset('images/placeholder.jpg') }}"
                              data-src="{{ $image->getUrl('square') }}" alt="{{ $post->caption }}">
                     @empty
 
