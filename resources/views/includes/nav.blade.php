@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
             <div><img src="{{ asset('/svg/laragram.svg') }}" class="laragram-logo-svg"
-                    alt="{{ config('app.name') }}"></div>
+                      alt="{{ config('app.name') }}"></div>
             {{--<div class="laragram-logo pl-3">{{ config('app.name') }}</div>--}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -69,34 +69,40 @@
                     @endif
                 @else
                     <li class="nav-item @if(request()->routeIs('posts.index')) active @endif">
-                        <a href="{{ route('posts.index') }}" class="nav-link d-flex align-items-center"><i
-                                class="@if(request()->routeIs('posts.index')) fas @else fal @endif fa-home text-xl mr-md-0 mr-2"></i>
+                        <a href="{{ route('posts.index') }}" class="nav-link d-flex align-items-center"
+                           title="Home">
+                            <i class="@if(request()->routeIs('posts.index')) fas @else fal @endif fa-home text-xl mr-md-0 mr-2"></i>
                             <span class="d-md-none"> Home </span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="/messages" class="nav-link d-flex align-items-center"><i
-                                class="fal fa-comment text-xl mr-md-0 mr-2"></i> <span class="d-md-none"> Messages
-                            </span></a>
+                        <a href="/messages" class="nav-link d-flex align-items-center"
+                           title="Messages">
+                            <i class="fal fa-comment text-xl mr-md-0 mr-2"></i>
+                            <span class="d-md-none"> Messages </span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('posts.explore') }}"
-                           class="nav-link d-flex align-items-center @if(request()->routeIs('posts.explore')) active @endif"><i
-                                class="@if(request()->routeIs('posts.explore')) fas @else fal @endif fa-compass text-xl mr-md-0 mr-2"></i>
-                            <span class="d-md-none"> Explore
-                            </span></a>
+                           title="Explore"
+                           class="nav-link d-flex align-items-center @if(request()->routeIs('posts.explore')) active @endif">
+                            <i class="@if(request()->routeIs('posts.explore')) fas @else fal @endif fa-compass text-xl mr-md-0 mr-2"></i>
+                            <span class="d-md-none"> Explore </span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('notifications.index') }}"
-                           class="nav-link d-flex align-items-center @if(request()->routeIs('notifications.index')) active @endif"><i
-                                class="@if(request()->routeIs('notifications.index')) fas @else fal @endif fa-heart text-xl mr-md-0 mr-2"></i>
+                           title="Notifications"
+                           class="nav-link d-flex align-items-center @if(request()->routeIs('notifications.index')) active @endif">
+                            <i class="@if(request()->routeIs('notifications.index')) fas @else fal @endif fa-heart text-xl mr-md-0 mr-2"></i>
                             <span class="d-md-none"> Notifications</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <img src="{{ auth()->user()->avatar }}" alt="{{ auth()->user()->name }}"
-                                class="nav-avatar">
+                                 class="nav-avatar">
+                            <span class="d-md-none"> {{ auth()->user()->name }} </span>
                             <span class="caret"></span>
                         </a>
 
