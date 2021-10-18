@@ -118,7 +118,7 @@
                                             @include('likes.create')
                                         </div>
                                         <div class="d-flex justify-content-between align-items-baseline">
-                                            <p class="card-title mb-0 text-justify text-sm">{{ $post->caption }}</p>
+                                            <p class="card-title mb-0 text-sm text-break text-justify">{{ $post->caption }}</p>
                                         </div>
                                     </div>
 

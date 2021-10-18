@@ -71,7 +71,7 @@
                         @include('likes.create')
                     </div>
 
-                    <p class="text-sm text-justify">{{ $post->caption }}</p>
+                    <p class="text-sm text-break text-justify">{{ $post->caption }}</p>
                 </div>
 
                 <!-- New Comment Box -->

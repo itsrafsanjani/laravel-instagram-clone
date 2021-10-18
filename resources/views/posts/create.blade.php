@@ -20,15 +20,17 @@
                                         <label for="caption">{{ __('Post Caption') }}</label>
 
                                         <textarea id="caption"
-                                               type="text"
-                                               class="form-control @error('caption') is-invalid @enderror"
-                                               name="caption"
-                                               placeholder="{{ __('My beautiful caption...') }}"
-                                               autocomplete="caption" autofocus required
+                                                  type="text"
+                                                  class="form-control @error('caption') is-invalid @enderror"
+                                                  name="caption"
+                                                  placeholder="{{ __('My beautiful caption...') }}"
+                                                  autocomplete="caption"
+                                                  autofocus
+                                                  required
                                         >{{ old('caption') }}</textarea>
 
                                         @error('caption')
-                                            <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
@@ -68,12 +70,12 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             let preview = $("#preview");
-            $('#image').change(function(){
+            $('#image').change(function () {
                 preview.html('');
                 for (let i = 0; i < $(this)[0].files.length; i++) {
-                    console.log('file'+ this.files[i])
+                    console.log('file' + this.files[i])
                     preview.append(`<div class="col-md-6">
                             <img src="${window.URL.createObjectURL(this.files[i])}" class="img-thumbnail my-3" alt="image"/>
                         </div>`);

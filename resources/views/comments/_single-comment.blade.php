@@ -23,8 +23,8 @@
             @endif
         </div>
     </div>
-    <p class="text-sm mb-0 mt-2">
-        {{ request()->routeIs('posts.index') ? Str::limit($comment->comment, 140, ' ...') : $comment->comment }}
+    <p class="text-sm text-break mb-0 mt-2">
+        {{ request()->routeIs('posts.index') ? Str::limit($comment->comment, 140) : $comment->comment }}
     </p>
     <div class="d-flex d-md-none pt-2">
         <small data-toggle="tooltip" data-placement="top" title="{{ $post->created_at }}">
