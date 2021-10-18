@@ -1,3 +1,6 @@
+import autosize from 'autosize';
+
+autosize(document.querySelectorAll('textarea'));
 /**
  * My Custom JS
  * Run after page load
@@ -121,6 +124,8 @@ $(document).ready(function () {
 
                             $('#comment-' + postSlug).val('');
 
+                            autosize.destroy(document.querySelectorAll('textarea'));
+
                             $.niceToast.success('Comment added successfully!');
                         },
                         error: function (response) {
@@ -155,6 +160,8 @@ $(document).ready(function () {
                         }
 
                         $('#comment-' + postSlug).val('');
+
+                        autosize.destroy(document.querySelectorAll('textarea'));
 
                         $.niceToast.success('Comment added successfully!');
                     },

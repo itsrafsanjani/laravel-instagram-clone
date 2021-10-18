@@ -26,6 +26,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "autosize": "^5.0.1",
         "clipboard": "^2.0.8",
         "firebase": "^9.1.2",
         "moment": "^2.29.1",
