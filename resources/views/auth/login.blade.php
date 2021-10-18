@@ -17,7 +17,8 @@
                                 </label>
 
                                 <div class="col-md-6">
-                                    <input id="login" type="text"
+                                    <input id="login"
+                                           type="text"
                                            class="form-control {{ $errors->has('username') || $errors->has('email') ? 'is-invalid' : '' }}"
                                            name="login"
                                            value="{{ old('username') ?: old('email') }}"
@@ -26,8 +27,8 @@
 
                                     @if ($errors->has('username') || $errors->has('email'))
                                         <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
-                                    </span>
+                                            <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>
@@ -56,7 +57,7 @@
                                 <div class="col-md-6 offset-md-4">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember"
-                                               id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                               id="remember" {{ old('remember') ? 'checked' : '' }} checked>
 
                                         <label class="form-check-label" for="remember">
                                             {{ __('Remember Me') }}
