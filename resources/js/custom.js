@@ -97,7 +97,7 @@ $(document).ready(function () {
             $(document).on('keyup', '.commentTextarea', function (e) {
                 e.preventDefault();
 
-                if (e.keyCode === 13 && !e.shiftKey) {
+                if (e.keyCode === 13 && e.shiftKey) {
                     let postSlug = $(this).data('postSlug');
                     let comment = $('#comment-' + postSlug).val();
                     let _url = '/comments';
@@ -128,6 +128,40 @@ $(document).ready(function () {
                         }
                     });
                 }
+            });
+
+            $(document).on('click', '.commentButton', function (e) {
+                e.preventDefault();
+
+                let postSlug = $(this).data('postSlug');
+                let comment = $('#comment-' + postSlug).val();
+                let _url = '/comments';
+                let _token = $('meta[name="csrf-token"]').attr('content');
+                let commentAppend = window.user.commentAppend;
+
+                $.ajax({
+                    url: _url,
+                    type: "POST",
+                    data: {
+                        post_slug: postSlug,
+                        comment: comment,
+                        _token: _token
+                    },
+                    success: function (data) {
+                        if (commentAppend) {
+                            $('#commentList-' + postSlug).append(data);
+                        } else {
+                            $('#commentList-' + postSlug).prepend(data);
+                        }
+
+                        $('#comment-' + postSlug).val('');
+
+                        $.niceToast.success('Comment added successfully!');
+                    },
+                    error: function (response) {
+                        $.niceToast.error(response.responseJSON.message);
+                    }
+                });
             });
 
             // comment delete

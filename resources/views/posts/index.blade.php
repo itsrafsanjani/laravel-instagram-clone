@@ -87,7 +87,7 @@
 
                                     <div class="d-none">{{ $post->id }}</div>
 
-                                    <div class="card-body @if ($post->comments_count > 1) pb-0 @endif">
+                                    <div class="card-body p-3 p-md-4 @if ($post->comments_count > 1) pb-0 @endif">
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                             <div class="d-flex">
                                                 <a href="{{ route('users.show', $post->user) }}"
