@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
-use Sightengine\SightengineClient;
+use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
@@ -47,7 +48,7 @@ class UserController extends Controller
     {
         $this->authorize('update', $user);
 
-        if (! empty($request->password)) {
+        if (!empty($request->password)) {
             $request->merge(['password' => bcrypt($request->password)]);
         }
 
@@ -55,7 +56,7 @@ class UserController extends Controller
                 $request->password
             ]);
 
-        if (! empty($request->avatar)) {
+        if (!empty($request->avatar)) {
             $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');
         }
 
@@ -77,5 +78,25 @@ class UserController extends Controller
         $users = $user->followers()->paginate(User::PAGINATE_COUNT);
 
         return view('users.followers', compact('users'));
+    }
+
+    public function purchaseCode(Request $request)
+    {
+        $code = $request->code;
+
+        if (!preg_match("/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i", $code)) {
+            return back()->with(['message' => 'Invalid purchase code']);
+        }
+
+        $response = Http::withToken(config('services.envato.personal_token'))
+            ->get('https://api.envato.com/v3/market/author/sale', [
+                'code' => $code
+            ]);
+
+        if ($response->failed()) {
+            return back()->with(['message' => 'Invalid purchase code']);
+        }
+
+        return $response->json();
     }
 }

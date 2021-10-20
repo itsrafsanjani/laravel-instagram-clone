@@ -49,4 +49,8 @@ return [
         'secret' => env('SIGHTENGINE_SECRET'),
     ],
 
+    'envato' => [
+        'personal_token' => env('ENVATO_PERSONAL_TOKEN'),
+    ],
+
 ];
