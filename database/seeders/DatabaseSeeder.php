@@ -19,8 +19,10 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(PostSeeder::class);
 
-        User::factory()->count(10)->create();
-        Post::factory()->count(10)->create();
+        /**
+         * User::factory()->count(10)->create();
+         * Post::factory()->count(10)->create();
+         */
 
         $posts = Post::select('id')->get();
 
