@@ -18,6 +18,9 @@ class PurchaseStatusController extends Controller
 
     public function index()
     {
+        if (preg_match("/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i", config('services.envato.purchase_code'))) {
+            return redirect('/');
+        }
         return view('purchase.index');
     }
 
