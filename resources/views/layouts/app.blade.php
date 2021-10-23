@@ -12,7 +12,7 @@
     <meta name="author" content="Md Rafsan Jani Rafin">
 
     <!-- Primary Meta Tags -->
-    <title>Laragram | Social Media</title>
+    <title>{{ __('Laragram | Social Media') }}</title>
     <meta name="title" content="Laragram | Social Media">
     <meta name="description" content="Laragram is a social media platform created with Laravel and VueJS.">
 

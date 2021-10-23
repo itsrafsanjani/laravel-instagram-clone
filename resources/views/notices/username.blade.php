@@ -6,7 +6,7 @@
             <div class="col-md-8 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        Username Rules
+                        {{ __('Username Rules') }}
                     </div>
                     <div class="card-body">
                         <ol>

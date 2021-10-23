@@ -1,6 +1,6 @@
 @if(request()->routeIs('posts.index') && $post->comments_count > 2 )
     <a href="{{ route('posts.show', $post) }}" class="card-blockquote text-sm px-4 py-2">
-        See all {{ $post->comments_count }} comments..
+        {{ __('See all') }} {{ $post->comments_count }} {{ __('comments') }}..
     </a>
 @endif
 

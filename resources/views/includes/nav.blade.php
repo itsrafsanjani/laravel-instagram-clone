@@ -78,7 +78,7 @@
                         <a href="/messages" class="nav-link d-flex align-items-center"
                            title="Messages">
                             <i class="fal fa-comment text-xl mr-md-0 mr-2"></i>
-                            <span class="d-md-none"> Messages </span>
+                            <span class="d-md-none"> {{ __('Messages') }} </span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -86,7 +86,7 @@
                            title="Explore"
                            class="nav-link d-flex align-items-center @if(request()->routeIs('posts.explore')) active @endif">
                             <i class="@if(request()->routeIs('posts.explore')) fas @else fal @endif fa-compass text-xl mr-md-0 mr-2"></i>
-                            <span class="d-md-none"> Explore </span>
+                            <span class="d-md-none"> {{ __('Explore') }} </span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -94,7 +94,7 @@
                            title="Notifications"
                            class="nav-link d-flex align-items-center @if(request()->routeIs('notifications.index')) active @endif">
                             <i class="@if(request()->routeIs('notifications.index')) fas @else fal @endif fa-heart text-xl mr-md-0 mr-2"></i>
-                            <span class="d-md-none"> Notifications</span>
+                            <span class="d-md-none"> {{ __('Notifications') }}</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">

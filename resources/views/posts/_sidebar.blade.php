@@ -26,12 +26,12 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-between px-4 pt-2">
+        <div class="d-flex justify-content-between px-4 py-2">
             <div class="text-muted text-sm">
-                Suggestions For You
+                {{ __('Suggestions For You') }}
             </div>
             <div class="text-muted text-sm">
-                <a href="{{ route('users.index') }}">See All</a>
+                <a href="{{ route('users.index') }}">{{ __('See All') }}</a>
             </div>
         </div>
 

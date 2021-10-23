@@ -63,5 +63,28 @@
     "Online": "অনলাইন",
     "Offline": "অফলাইন",
     "followers": "অনুগামী",
-    "following": "অনুসরণকারী"
+    "following": "অনুসরণকারী",
+
+
+    "Suggestions For You": "আপনার জন্য পরামর্শ",
+    "See All": "সবগুলো দেখুন",
+    "See all": "সবগুলো দেখুন",
+    "Message": "বার্তা",
+    "We couldn't find anything that matches to your request. Please check if this is a valid request or go to our home.": "আমরা আপনার অনুরোধের সাথে মেলে এমন কিছু খুঁজে পাইনি। অনুগ্রহ করে চেক করুন যে আপনার অনুরোধ ঠিক আছে কিনা অথবা হোমে ফিরে যান।",
+    "Go back to home": "হোমে ফিরে যান",
+    "Messages": "বার্তা",
+    "Explore": "এক্সপ্লোর করুন",
+    "Laragram | Social Media": "লারাগ্রাম | সোশ্যাল মিডিয়া",
+    "Image Rules": "ছবির নিয়ম",
+    "Image Ratio": "ছবির অনুপাত",
+    "1:1": "১:১",
+    "Profile Picture Resolution": "প্রোফাইল পিকচার রেজোলিউশন",
+    "400x400": "৪০০x৪০০",
+    "Post Image Resolution": "ছবির রেজোলিউশন",
+    "1080x1080": "১০৮০x১০৮০",
+    "Image with different resolution and ratio will be converted and add white background if needed.": "ভিন্ন রেজোলিউশন এবং অনুপাতের ছবি রূপান্তর করা হবে এবং প্রয়োজনে সাদা ব্যাকগ্রাউন্ড যোগ করা হবে।",
+    "Username Rules": "ব্যবহারকারীর ইউজারনেম এর নিয়ম",
+    "Purchase Code Verification": "পারচেজ কোড যাচাইকরণ",
+    "Purchase Code": "পারচেজ কোড",
+    "Check": "চেক করুন"
 }

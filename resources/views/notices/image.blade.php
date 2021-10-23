@@ -6,14 +6,14 @@
             <div class="col-md-8 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        Image Rules
+                        {{ __('Image Rules') }}
                     </div>
                     <div class="card-body">
                         <ol>
-                            <li>Image Ratio <code>1:1</code></li>
-                            <li>Profile Picture Resolution <code>400x400</code></li>
-                            <li>Post Image Resolution <code>1080x1080</code></li>
-                            <li>Image with different resolution and ratio will be converted and add white background if needed.</li>
+                            <li>{{ __('Image Ratio') }} <code>{{ __('1:1') }}</code></li>
+                            <li>{{ __('Profile Picture Resolution') }} <code>{{ __('400x400') }}</code></li>
+                            <li>{{ __('Post Image Resolution') }} <code>{{ __('1080x1080') }}</code></li>
+                            <li>{{ __('Image with different resolution and ratio will be converted and add white background if needed.') }}</li>
                         </ol>
                     </div>
                 </div>

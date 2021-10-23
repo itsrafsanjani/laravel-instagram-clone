@@ -63,5 +63,27 @@
     "Online": "Online",
     "Offline": "Offline",
     "followers": "followers",
-    "following": "following"
+    "following": "following",
+
+    "Suggestions For You": "Suggestions For You",
+    "See All": "See All",
+    "See all": "See all",
+    "Message": "Message",
+    "We couldn't find anything that matches to your request. Please check if this is a valid request or go to our home.": "We couldn't find anything that matches to your request. Please check if this is a valid request or go to our home.",
+    "Go back to home": "Go back to home",
+    "Messages": "Messages",
+    "Explore": "Explore",
+    "Laragram | Social Media": "Laragram | Social Media",
+    "Image Rules": "Image Rules",
+    "Image Ratio": "Image Ratio",
+    "1:1": "1:1",
+    "Profile Picture Resolution": "Profile Picture Resolution",
+    "400x400": "400x400",
+    "Post Image Resolution": "Post Image Resolution",
+    "1080x1080": "1080x1080",
+    "Image with different resolution and ratio will be converted and add white background if needed.": "Image with different resolution and ratio will be converted and add white background if needed.",
+    "Username Rules": "Username Rules",
+    "Purchase Code Verification": "Purchase Code Verification",
+    "Purchase Code": "Purchase Code",
+    "Check": "Check"
 }
