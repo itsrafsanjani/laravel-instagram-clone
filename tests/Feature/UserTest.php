@@ -18,6 +18,10 @@ class UserTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
+        $this->withoutMiddleware([
+            \App\Http\Middleware\PurchaseStatus::class
+        ]);
+
         $user = User::factory()->create();
 
         $this->actingAs($user);
