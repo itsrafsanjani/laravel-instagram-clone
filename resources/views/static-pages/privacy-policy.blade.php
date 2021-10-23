@@ -9,7 +9,7 @@
                         Privacy Policy
                     </div>
                     <div class="card-body">
-                        <h1>Privacy Policy for NewAgeDevs</h1>
+                        <h1>Privacy Policy for {{ config('app.name') }}</h1>
                         <p>At {{ config('app.name') }}, accessible from {{ config('app.url') }}, one of our main priorities is the privacy
                             of our visitors. This Privacy Policy document contains types of information that is collected
                             and recorded by {{ config('app.name') }} and how we use it.</p>
