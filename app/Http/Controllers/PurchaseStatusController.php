@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\Http;
 
 class PurchaseStatusController extends Controller
 {
+    private function setEnv($key, $value)
+    {
+        file_put_contents(app()->environmentFilePath(), str_replace(
+            $key . '=' . env($value),
+            $key . '=' . $value,
+            file_get_contents(app()->environmentFilePath())
+        ));
+    }
+
     public function index()
     {
         return view('purchase.index');
@@ -30,6 +39,8 @@ class PurchaseStatusController extends Controller
                 'message' => 'Invalid purchase code!'
             ]);
         }
+
+        $this->setEnv('ENVATO_PURCHASE_CODE', $code);
 
         return $response->json();
     }
