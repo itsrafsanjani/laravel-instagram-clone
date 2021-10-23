@@ -13575,7 +13575,7 @@ a.text-darker:focus, a.text-darker:hover {
 
 .avatar {
     font-size: 1rem;
-    display: inline-flex;
+    display: flex;
     width: 48px;
     height: 48px;
     color: #fff;
