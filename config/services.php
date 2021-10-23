@@ -51,6 +51,7 @@ return [
 
     'envato' => [
         'personal_token' => env('ENVATO_PERSONAL_TOKEN'),
+        'purchase_code' => env('ENVATO_PURCHASE_CODE'),
     ],
 
 ];

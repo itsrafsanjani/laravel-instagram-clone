@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
@@ -78,25 +75,5 @@ class UserController extends Controller
         $users = $user->followers()->paginate(User::PAGINATE_COUNT);
 
         return view('users.followers', compact('users'));
-    }
-
-    public function purchaseCode(Request $request)
-    {
-        $code = $request->code;
-
-        if (!preg_match("/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i", $code)) {
-            return back()->with(['message' => 'Invalid purchase code']);
-        }
-
-        $response = Http::withToken(config('services.envato.personal_token'))
-            ->get('https://api.envato.com/v3/market/author/sale', [
-                'code' => $code
-            ]);
-
-        if ($response->failed()) {
-            return back()->with(['message' => 'Invalid purchase code']);
-        }
-
-        return $response->json();
     }
 }

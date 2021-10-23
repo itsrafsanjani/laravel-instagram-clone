@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PurchaseStatusController;
 use App\Http\Controllers\UserController;
 use App\Mail\NewUserWelcomeMail;
 use Illuminate\Support\Facades\Auth;
@@ -51,6 +52,9 @@ Route::get('/language', function (\Illuminate\Http\Request $request) {
 
     return back();
 })->name('change_language');
+
+Route::get('/purchase', [PurchaseStatusController::class, 'index'])->name('purchase.index');
+Route::post('/purchase', [PurchaseStatusController::class, 'purchaseCode'])->name('purchase.purchase_code');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/follows/{user}', [FollowController::class, 'toggle'])->name('follows.toggle');
