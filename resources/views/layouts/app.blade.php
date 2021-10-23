@@ -59,17 +59,8 @@
     window.user = {
         isLoggedIn: {{ json_encode(auth()->check()) }},
         commentAppend: {{ json_encode(request()->routeIs('posts.index')) }},
-        currentPageRouteName: "{{ Route::currentRouteName() }}"
+        currentPageRouteName: "{{ Route::currentRouteName() }}",
     }
-
-    @if (session('message')) {
-        $.niceToast.setup({
-            position: "top-right",
-            timeout: 5000,
-        });
-        $.niceToast.{{ session('status') }}('{{ session('message') }}');
-    }
-    @endif
 </script>
 @stack('scripts')
 </body>
