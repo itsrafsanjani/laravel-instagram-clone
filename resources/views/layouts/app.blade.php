@@ -24,7 +24,7 @@
     <meta property="og:image" content="{{ asset('images/laragram.jpg') }}">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ route('posts.index') }}">
     <meta property="twitter:title" content="Laragram | Social Media">
     <meta property="twitter:description" content="Laragram is a social media platform created with Laravel and VueJS.">
