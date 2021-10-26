@@ -50,7 +50,7 @@
                                          src="{{ $user->avatar }}">
                                 </a>
                             </div>
-                            <div class="col ml--2">
+                            <div class="col pl-2">
                                 <h4 class="mb-0 text-sm text-break">
                                     <a href="{{ route('users.show', $user) }}">
                                         {{ $user->username }}
