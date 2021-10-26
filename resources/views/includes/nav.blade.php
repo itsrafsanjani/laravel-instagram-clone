@@ -3,7 +3,7 @@
         <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
             <div><img src="{{ asset('/svg/laragram.svg') }}" class="laragram-logo-svg"
                       alt="{{ config('app.name') }}"></div>
-            {{--<div class="laragram-logo pl-3">{{ config('app.name') }}</div>--}}
+            <div class="laragram-logo pl-3 d-md-none">{{ config('app.name') }}</div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

@@ -114,3 +114,10 @@
     border: none !important;
     box-shadow: none !important;
 }
+
+@media (max-width: 575.98px) {
+    .navbar-top .nav-item {
+        position: static;
+        padding: 0.2rem 0;
+    }
+}
