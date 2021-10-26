@@ -12,6 +12,7 @@
         "ext-gd": "^7.3",
         "ext-json": "*",
         "ext-pdo": "*",
+        "artesaos/seotools": "^0.20.2",
         "beyondcode/laravel-comments": "^1.2",
         "fideloper/proxy": "^4.0",
         "haruncpi/laravel-user-activity": "^1.0",
