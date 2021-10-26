@@ -5,12 +5,12 @@
  */
 
 require('./bootstrap');
-require('./plugins/jquery.jscroll.min')
-require('owl.carousel')
-require('owl.carousel/dist/assets/owl.carousel.css')
-require('owl.carousel/dist/assets/owl.theme.default.min.css')
-require('moment')
-require('./plugins/nice-toast-js.min')
+require('./plugins/jquery.jscroll.min');
+require('owl.carousel');
+require('owl.carousel/dist/assets/owl.carousel.css');
+require('owl.carousel/dist/assets/owl.theme.default.min.css');
+require('moment');
+require('./plugins/nice-toast-js.min');
 
 import autosize from 'autosize';
 import ClipboardJS from 'clipboard';
@@ -123,8 +123,8 @@ $(document).ready(function () {
                         _token: _token
                     },
                     success: function (data) {
-                        let likes = data
-                        likeCount.text(likes.data.likers_count)
+                        let likes = data;
+                        likeCount.text(likes.data.likers_count);
                         $.niceToast.success(likes.message);
                     },
                     error: function (response) {
