@@ -41,5 +41,9 @@ class Post extends Model implements HasMedia
         $this->addMediaConversion('square')
             ->fit(Manipulations::FIT_FILL, 1080, 1080)
             ->background('ffffff');
+
+        $this->addMediaConversion('meta-image')
+            ->fit(Manipulations::FIT_CROP, 1200, 675)
+            ->sharpen(10);
     }
 }
