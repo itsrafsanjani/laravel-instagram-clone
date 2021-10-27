@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -25,6 +26,16 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        SEOTools::setTitle($user->username);
+        SEOTools::setDescription($user->name);
+        SEOTools::setCanonical(route('users.show', $user));
+        SEOTools::opengraph()->setUrl(route('users.show', $user));
+        SEOTools::opengraph()->addProperty('type', 'website');
+        SEOTools::opengraph()->addImage($user->avatar);
+        SEOTools::twitter()->setSite($user->name);
+        SEOTools::twitter()->setType('summary_large_image');
+        SEOTools::jsonLd()->addImage($user->avatar);
+
         auth()->user()->attachFollowStatus($user);
 
         $user->loadCount(['posts', 'followers', 'followings']);
