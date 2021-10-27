@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
 use App\Models\User;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Exception;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -110,6 +110,16 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        SEOTools::setTitle($post->caption);
+        SEOTools::setDescription($post->caption);
+        SEOTools::setCanonical(route('posts.show', $post));
+        SEOTools::opengraph()->setUrl(route('posts.show', $post));
+        SEOTools::opengraph()->addProperty('type', 'website');
+        SEOTools::opengraph()->addImage($post->getFirstMediaUrl('posts', 'meta-image'));
+        SEOTools::twitter()->setSite($post->user->name);
+        SEOTools::twitter()->setType('summary_large_image');
+        SEOTools::jsonLd()->addImage($post->getFirstMediaUrl('posts', 'meta-image'));
+
         $post->load([
             'comments' => function ($query) {
                 $query->with('commentator', 'commentator')->latest();
