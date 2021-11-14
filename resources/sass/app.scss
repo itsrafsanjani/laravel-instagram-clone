@@ -5,7 +5,7 @@
 @import './plugin/nice-toast-js';
 /*! purgecss end ignore */
 
-@import '../css/laragram';
+@import './argon/argon';
 
 body {
     font-family:  'Open Sans', 'Hind Siliguri', 'Poppins', sans-serif;
@@ -40,6 +40,11 @@ body {
 
 .bg-gray-100 {
     background-color: rgba(243, 244, 246, 1)
+}
+
+.bg-glass {
+    backdrop-filter: saturate(180%) blur(20px) !important;
+    background-color: rgba(255,255,255,.72) !important;
 }
 
 .navbar {
@@ -124,4 +129,11 @@ body {
         position: static;
         padding: 0.2rem 0;
     }
+}
+
+/* Global Styles */
+
+::selection {
+    color: $white;
+    background: $primary !important;
 }
