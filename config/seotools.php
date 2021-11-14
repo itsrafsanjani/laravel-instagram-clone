@@ -14,7 +14,7 @@ return [
             'description'  => 'Laragram is a social media platform created with Laravel and VueJS.', // set false to total remove
             'separator'    => ' - ',
             'keywords'     => ['laravel', 'laravel instagram clone', 'laragram', 'instagram', 'php', 'mysql', 'postgresql'],
-            'canonical'    => Request::url(), // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
+            'canonical'    => 'current', // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'robots'       => false, // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
         ],
         /*
@@ -38,10 +38,10 @@ return [
         'defaults' => [
             'title'       => 'Laragram | Social Media', // set false to total remove
             'description' => 'Laragram is a social media platform created with Laravel and VueJS.', // set false to total remove
-            'url'         => Request::url(), // Set null for using Url::current(), set false to total remove
+            'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => 'WebPage',
             'site_name'   => config('app.name'),
-            'images'      => [Storage::url('images/laragram.jpg')],
+            'images'      => [public_path('images/laragram.jpg')],
         ],
     ],
     'twitter' => [
@@ -60,9 +60,9 @@ return [
         'defaults' => [
             'title'       => 'Laragram | Social Media', // set false to total remove
             'description' => 'Laragram is a social media platform created with Laravel and VueJS.', // set false to total remove
-            'url'         => Request::url(), // Set null for using Url::current(), set false to total remove
+            'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => 'WebPage',
-            'images'      => [Storage::url('images/laragram.jpg')],
+            'images'      => [public_path('images/laragram.jpg')],
         ],
     ],
 ];
