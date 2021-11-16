@@ -932,3 +932,9 @@ div.loadingPlaceholder-date {
     width: 100%;
   }
 }
+
+@media (max-width: 576px) {
+    .user-name {
+        max-width: 150px;
+    }
+}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac7f36476fc56888a2d9e612d8b1d3e4",
+    "content-hash": "43d31b7901283c2a6c03bc64cd85f0f4",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -2534,22 +2534,15 @@
         },
         {
             "name": "munafio/chatify",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/itsrafsanjani/chatify.git",
-                "reference": "a4c068126fdcca78720f6762fcabd034ce94797f"
-            },
+            "version": "dev-dev",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/itsrafsanjani/chatify/zipball/a4c068126fdcca78720f6762fcabd034ce94797f",
-                "reference": "a4c068126fdcca78720f6762fcabd034ce94797f",
-                "shasum": ""
+                "type": "path",
+                "url": "./packages/chatify",
+                "reference": "c3b9717148275954aa2b3c0c655ae2d0fd7c00e1"
             },
             "require": {
                 "pusher/pusher-php-server": "^7.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2588,10 +2581,9 @@
                 "real-time",
                 "realtime"
             ],
-            "support": {
-                "source": "https://github.com/itsrafsanjani/chatify/tree/dev"
-            },
-            "time": "2021-10-17T08:02:04+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "myclabs/php-enum",
