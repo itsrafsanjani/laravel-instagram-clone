@@ -27,6 +27,7 @@
         "rachidlaasri/laravel-installer": "^4.1",
         "sightengine/client-php": "dev-master",
         "spatie/laravel-medialibrary": "^9.0.0",
+        "spatie/laravel-pjax": "^2.1",
         "staudenmeir/eloquent-eager-limit": "^1.6",
         "tanmuhittin/laravel-google-translate": "^2.0",
         "yoelpc4/laravel-cloudinary": "^2.1"

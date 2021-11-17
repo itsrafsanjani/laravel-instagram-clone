@@ -19,6 +19,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="//fonts.googleapis.com/css?family=Open+Sans&Hind+Siliguri" rel="stylesheet">
 
+    {{-- PJAX Laravel Mix Cache Busting --}}
+    <meta http-equiv="x-pjax-version" content="{{ mix('css/app.css') }}">
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="//cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet"/>

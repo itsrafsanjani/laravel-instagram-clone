@@ -1,6 +1,8 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-light bg-glass sticky-top bg-transparent border-bottom shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+        <a class="navbar-brand d-flex align-items-center"
+           data-pjax
+           href="{{ url('/') }}">
             <div><img src="{{ asset('/svg/laragram.svg') }}" class="laragram-logo-svg"
                       alt="{{ config('app.name') }}"></div>
             <div class="laragram-logo pl-3 d-md-none">{{ config('app.name') }}</div>
@@ -14,14 +16,15 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 @auth
-                    {{-- Search bar --}}
-                    <form class="form-inline my-2 my-md-0" action="{{ route('users.index') }}" method="get">
-                        <input class="form-control mr-sm-2"
-                               type="text"
-                               name="q"
-                               placeholder="{{ __('Search') }}"
-                               value="{{ $query ?? '' }}">
-                    </form>
+                    <span>
+                        <form class="form-inline my-2 my-md-0" action="{{ route('users.index') }}" method="get">
+                            <input class="form-control mr-sm-2"
+                                   type="text"
+                                   name="q"
+                                   placeholder="{{ __('Search') }}"
+                                   value="{{ $query ?? '' }}">
+                        </form>
+                    </span>
                 @endauth
             </ul>
 
@@ -70,9 +73,12 @@
                 @else
                     <li class="nav-item @if(request()->routeIs('posts.index')) active @endif">
                         <a href="{{ route('posts.index') }}" class="nav-link d-flex align-items-center"
-                           title="Home">
+                           data-pjax
+                           title="Home"
+                        >
                             <i class="@if(request()->routeIs('posts.index')) fas @else fal @endif fa-home text-xl mr-md-0 mr-2"></i>
-                            <span class="d-md-none"> Home </span></a>
+                            <span class="d-md-none"> Home </span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a href="/messages" class="nav-link d-flex align-items-center"
@@ -83,6 +89,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('posts.explore') }}"
+                           data-pjax
                            title="Explore"
                            class="nav-link d-flex align-items-center @if(request()->routeIs('posts.explore')) active @endif">
                             <i class="@if(request()->routeIs('posts.explore')) fas @else fal @endif fa-compass text-xl mr-md-0 mr-2"></i>
@@ -91,6 +98,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('notifications.index') }}"
+                           data-pjax
                            title="Notifications"
                            class="nav-link d-flex align-items-center @if(request()->routeIs('notifications.index')) active @endif">
                             <i class="@if(request()->routeIs('notifications.index')) fas @else fal @endif fa-heart text-xl mr-md-0 mr-2"></i>

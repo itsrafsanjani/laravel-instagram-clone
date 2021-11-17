@@ -10,6 +10,7 @@ require('owl.carousel');
 require('owl.carousel/dist/assets/owl.carousel.css');
 require('owl.carousel/dist/assets/owl.theme.default.min.css');
 require('moment');
+require('jquery-pjax');
 require('./plugins/nice-toast-js.min');
 
 import autosize from 'autosize';
@@ -84,14 +85,38 @@ function laragramInit() {
         $('[data-toggle="tooltip"]').tooltip()
     });
 
-// owlcarousel2
+    // owlcarousel2
     $('.owl-carousel').owlCarousel({
         items: 1,
         lazyLoad: true,
         nav: true,
         dots: false
     });
+
+    // infinite scroll only in posts.index page
+    if (window.user.currentPageRouteName === 'posts.index') {
+        $('ul.pagination').hide();
+        $(function () {
+            $('.infinite-scroll').jscroll({
+                autoTrigger: true,
+                loadingHtml: '<div class="d-flex justify-content-center mb-5"><img src="/images/loading.gif" alt="Loading..." /></div>',
+                padding: 0,
+                nextSelector: '.pagination li.active + li a',
+                contentSelector: 'div.infinite-scroll',
+                callback: function () {
+                    $('ul.pagination').remove();
+                    laragramInit();
+                }
+            });
+        });
+    }
 }
+$.pjax.defaults.timeout = 3000;
+$(document).pjax('[data-pjax] a, a[data-pjax]', '#app');
+
+$(document).on('pjax:end', function() {
+    laragramInit()
+});
 
 $(document).ready(function () {
     laragramInit();
@@ -308,23 +333,5 @@ $(document).ready(function () {
                 }));
             })
         })
-
-        // infinite scroll only in posts.index page
-        if (window.user.currentPageRouteName === 'posts.index') {
-            $('ul.pagination').hide();
-            $(function () {
-                $('.infinite-scroll').jscroll({
-                    autoTrigger: true,
-                    loadingHtml: '<div class="d-flex justify-content-center mb-5"><img src="/images/loading.gif" alt="Loading..." /></div>',
-                    padding: 0,
-                    nextSelector: '.pagination li.active + li a',
-                    contentSelector: 'div.infinite-scroll',
-                    callback: function () {
-                        $('ul.pagination').remove();
-                        laragramInit();
-                    }
-                });
-            });
-        }
     }
 });
