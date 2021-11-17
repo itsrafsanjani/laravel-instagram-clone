@@ -8,7 +8,7 @@
 @import './argon/argon';
 
 body {
-    font-family:  'Open Sans', 'Hind Siliguri', 'Poppins', sans-serif;
+    font-family: 'Open Sans', 'Hind Siliguri', 'Poppins', sans-serif;
 }
 
 .laragram-logo {
@@ -29,7 +29,6 @@ body {
 
 .laragram-logo-svg {
     height: 1.75rem;
-    //border-right: 1px solid #333;
 }
 
 .nav-avatar {
@@ -39,12 +38,12 @@ body {
 }
 
 .bg-gray-100 {
-    background-color: rgba(243, 244, 246, 1)
+    background-color: rgba(243, 244, 246, 1);
 }
 
 .bg-glass {
     backdrop-filter: saturate(180%) blur(20px) !important;
-    background-color: rgba(255,255,255,.72) !important;
+    background-color: rgba(255, 255, 255, .72) !important;
 }
 
 .navbar {
@@ -56,8 +55,6 @@ body {
     height: 85vh;
     z-index: 1;
 }
-
-/* purgecss start ignore */
 
 // owl carousel
 .owl-nav button {
@@ -131,9 +128,84 @@ body {
     }
 }
 
-/* Global Styles */
+// Global Styles
 
 ::selection {
     color: $white;
     background: $primary !important;
 }
+
+/* Make clicks pass-through */
+#nprogress {
+    pointer-events: none;
+}
+
+#nprogress .bar {
+    background: $laragram-gradient;
+
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px $laragram-gradient, 0 0 5px $laragram-gradient;
+    opacity: 1.0;
+
+    -webkit-transform: rotate(3deg) translate(0px, -4px);
+    -ms-transform: rotate(3deg) translate(0px, -4px);
+    transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+    display: block;
+    position: fixed;
+    z-index: 1031;
+    top: 15px;
+    right: 15px;
+}
+
+#nprogress .spinner-icon {
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+
+    border: solid 2px transparent;
+    border-top-color: $laragram-gradient;
+    border-left-color: $laragram-gradient;
+    border-radius: 50%;
+
+    -webkit-animation: nprogress-spinner 400ms linear infinite;
+    animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+    overflow: hidden;
+    position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+    position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+    0%   { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes nprogress-spinner {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+

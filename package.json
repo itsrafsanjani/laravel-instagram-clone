@@ -31,6 +31,7 @@
         "firebase": "^9.1.2",
         "jquery-pjax": "^2.0.1",
         "moment": "^2.29.1",
+        "nprogress": "^0.2.0",
         "owl.carousel": "^2.3.4"
     }
 }

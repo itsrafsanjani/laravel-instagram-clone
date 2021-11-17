@@ -17,6 +17,15 @@ import autosize from 'autosize';
 import ClipboardJS from 'clipboard';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from "firebase/analytics";
+import NProgress from 'nprogress';
+
+// NProgress
+$(document).on('pjax:start', function() {
+    NProgress.start();
+});
+$(document).on('pjax:end',   function() {
+    NProgress.done();
+});
 
 // check if the clipboard class is available in DOM
 let clipboard = document.getElementsByClassName('clipboard');
