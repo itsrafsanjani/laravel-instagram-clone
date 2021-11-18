@@ -34,16 +34,18 @@
     </main>
 
     @include('includes.footer')
+
+    <script>
+        window.user = {
+            isLoggedIn: {{ json_encode(auth()->check()) }},
+            commentAppend: {{ json_encode(request()->routeIs('posts.index')) }},
+            currentPageRouteName: "{{ Route::currentRouteName() }}",
+            currentPageUrl: "{{ Route::currentRouteName() }}",
+        }
+    </script>
 </div>
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
-<script>
-    window.user = {
-        isLoggedIn: {{ json_encode(auth()->check()) }},
-        commentAppend: {{ json_encode(request()->routeIs('posts.index')) }},
-        currentPageRouteName: "{{ Route::currentRouteName() }}",
-    }
-</script>
 @stack('scripts')
 </body>
 </html>
