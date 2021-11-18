@@ -134,7 +134,7 @@ body {
     background: $primary !important;
 }
 
-/* Make clicks pass-through */
+// Make clicks pass-through
 #nprogress {
     pointer-events: none;
 }
@@ -151,7 +151,7 @@ body {
     height: 2px;
 }
 
-/* Fancy blur effect */
+// Fancy blur effect
 #nprogress .peg {
     display: block;
     position: absolute;
@@ -166,7 +166,7 @@ body {
     transform: rotate(3deg) translate(0px, -4px);
 }
 
-/* Remove these to get rid of the spinner */
+// Remove these to get rid of the spinner
 #nprogress .spinner {
     display: block;
     position: fixed;
