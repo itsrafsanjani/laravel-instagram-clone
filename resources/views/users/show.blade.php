@@ -48,7 +48,8 @@
                     <div class="text-center"><strong>{{ $user->posts_count }}</strong> {{ __('posts') }}</div>
                     <div class="pl-5 text-center">
                         @if($user->followers_count > 0)
-                            <a href="{{ route('users.followers', $user->username) }}">
+                            <a href="{{ route('users.followers', $user->username) }}"
+                                data-pjax>
                                 <strong id="followersCount">{{ $user->followers_count }}</strong> {{ __('followers') }}
                             </a>
                         @else
@@ -57,7 +58,8 @@
                     </div>
                     <div class="pl-5 text-center">
                         @if($user->followings_count > 0)
-                            <a href="{{ route('users.followings', $user->username) }}">
+                            <a href="{{ route('users.followings', $user->username) }}"
+                               data-pjax>
                                 <strong id="followingsCount">{{ $user->followings_count }}</strong> {{ __('following') }}
                             </a>
                         @else
