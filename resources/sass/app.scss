@@ -158,7 +158,7 @@ body {
     right: 0;
     width: 100px;
     height: 100%;
-    box-shadow: 0 0 10px $laragram-gradient, 0 0 5px $laragram-gradient;
+    box-shadow: 0 0 10px $primary, 0 0 5px $primary;
     opacity: 1.0;
 
     -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -181,8 +181,8 @@ body {
     box-sizing: border-box;
 
     border: solid 2px transparent;
-    border-top-color: $laragram-gradient;
-    border-left-color: $laragram-gradient;
+    border-top-color: $primary;
+    border-left-color: $primary;
     border-radius: 50%;
 
     -webkit-animation: nprogress-spinner 400ms linear infinite;
