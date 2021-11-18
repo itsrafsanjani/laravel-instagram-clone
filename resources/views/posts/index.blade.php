@@ -143,7 +143,9 @@
                                     <div class="card-body">
                                         <h3 class="text-center text-muted">
                                             {{ __('No posts yet!') }}
-                                            <a href="{{ route('users.index') }}" class="text-primary">
+                                            <a href="{{ route('users.index') }}"
+                                               data-pjax
+                                               class="text-primary">
                                                 {{ __('Follow someone to see their photos!') }}
                                             </a>
                                         </h3>

@@ -14,7 +14,11 @@
                                     <h5 class="h3 mb-0">{{ __('Profiles') }}</h5>
                                 </div>
                                 <div class="col-4 text-right">
-                                    <a href="{{ route('users.index') }}" class="btn btn-sm btn-neutral">{{ __('Reset') }}</a>
+                                    <a href="{{ route('users.index') }}"
+                                       data-pjax
+                                       class="btn btn-sm btn-neutral">
+                                        {{ __('Reset') }}
+                                    </a>
                                 </div>
                             </div>
                         </div>

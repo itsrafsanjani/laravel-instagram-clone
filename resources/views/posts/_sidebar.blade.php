@@ -33,7 +33,10 @@
                 {{ __('Suggestions For You') }}
             </div>
             <div class="text-muted text-sm">
-                <a href="{{ route('users.index') }}">{{ __('See All') }}</a>
+                <a href="{{ route('users.index') }}"
+                   data-pjax>
+                    {{ __('See All') }}
+                </a>
             </div>
         </div>
 
