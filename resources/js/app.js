@@ -15,8 +15,8 @@ require('./plugins/nice-toast-js.min');
 
 import autosize from 'autosize';
 import ClipboardJS from 'clipboard';
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
+import {initializeApp} from 'firebase/app';
+import {getAnalytics} from "firebase/analytics";
 import NProgress from 'nprogress';
 
 // NProgress
@@ -157,10 +157,9 @@ $(document).ready(function () {
                     data: {
                         _token: _token
                     },
-                    success: function (data) {
-                        let likes = data;
-                        likeCount.text(likes.data.likers_count);
-                        $.niceToast.success(likes.message);
+                    success: function ({data}) {
+                        likeCount.text(data.likers_count);
+                        // $.niceToast.success(data.message);
                     },
                     error: function (response) {
                         $.niceToast.error(response.responseJSON.message);
@@ -168,7 +167,7 @@ $(document).ready(function () {
                 });
             });
 
-            // follow
+            // follow/unfollow
             $(document).on('click', '#followUnfollowButton', function (e) {
                 e.preventDefault();
 
@@ -191,10 +190,10 @@ $(document).ready(function () {
                     data: {
                         _token: _token
                     },
-                    success: function (response) {
-                        $('#followersCount').text(response.data.followers_count)
+                    success: function ({data}) {
+                        $('#followersCount').text(data.followers_count)
 
-                        $.niceToast.success(response.message);
+                        // $.niceToast.success(data.message);
                     },
                     error: function (response) {
                         $.niceToast.error(response.responseJSON.message);
@@ -295,10 +294,9 @@ $(document).ready(function () {
                     data: {
                         _token: _token
                     },
-                    success: function (data) {
-                        let comment = data
+                    success: function ({data}) {
                         $('#comment-' + commentId).remove();
-                        $.niceToast.success(comment.message);
+                        $.niceToast.success(data.message);
                     },
                     error: function (response) {
                         $.niceToast.error(response.responseJSON.message);
