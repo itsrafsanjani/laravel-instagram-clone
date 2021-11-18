@@ -17,7 +17,7 @@
                           data-post-slug="{{ $post->slug }}"
                 >{{ old('comment') }}</textarea>
 
-                <button class="btn btn-primary d-md-none ml-md-3 ml-1 commentButton"
+                <button class="btn btn-primary d-lg-none ml-md-3 ml-1 commentButton"
                         data-post-slug="{{ $post->slug }}"
                         data-request-is="{{ request()->routeIs('posts.index') }}">
                     <i class="fas fa-angle-right"></i>
