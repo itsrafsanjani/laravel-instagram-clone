@@ -95,18 +95,7 @@
                                             <div class="d-flex">
                                                 <a href="{{ route('users.show', $post->user) }}"
                                                    data-pjax
-                                                   class="btn btn-link px-0 py-0"
-                                                   data-toggle="tooltip"
-                                                   data-html="true"
-                                                   title='
-                                               <div class="card">
-                                                    <img class="card-img-top" src="{{ $post->user->avatar }}"
-                                                     alt="{{ $post->user->name }}">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">{{ $post->user->name }}</h5>
-                                                    </div>
-                                                </div>'
-                                                >
+                                                   class="btn btn-link px-0 py-0">
                                                     {{ $post->user->username }}
                                                 </a>
                                                 <a class="text-sm text-muted text-center ml-2 mb-0"
