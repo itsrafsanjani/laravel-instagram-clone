@@ -36,7 +36,9 @@
 
                     @can('update', $user)
                         <div>
-                            <a href="{{ route('posts.create') }}" class="btn btn-sm btn-secondary">
+                            <a href="{{ route('posts.create') }}"
+                               data-pjax
+                               class="btn btn-sm btn-secondary">
                                 {{ __('Add New Post') }}
                             </a>
                         </div>

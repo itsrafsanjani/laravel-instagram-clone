@@ -72,8 +72,9 @@
                     @endif
                 @else
                     <li class="nav-item @if(request()->routeIs('posts.index')) active @endif">
-                        <a href="{{ route('posts.index') }}" class="nav-link d-flex align-items-center"
+                        <a href="{{ route('posts.index') }}"
                            data-pjax
+                           class="nav-link d-flex align-items-center"
                            title="Home"
                         >
                             <i class="@if(request()->routeIs('posts.index')) fas @else fal @endif fa-home text-xl mr-md-0 mr-2"></i>
@@ -126,7 +127,8 @@
                                 </a>
                             @endcan
 
-                            <a class="dropdown-item" href="{{ route('posts.create') }}">
+                            <a class="dropdown-item" href="{{ route('posts.create') }}"
+                               data-pjax>
                                 {{ __('Add New Post') }}
                             </a>
 
