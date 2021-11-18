@@ -52,12 +52,21 @@
                         @endswitch
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item"
-                           href="{{ route('change_language', ['language' => 'en']) }}">English</a>
-                        <a class="dropdown-item"
-                           href="{{ route('change_language', ['language' => 'bn']) }}">Bengali</a>
-                        <a class="dropdown-item"
-                           href="{{ route('change_language', ['language' => 'hi']) }}">Hindi</a>
+                        <a href="{{ route('change_language', ['language' => 'en']) }}"
+                           data-pjax
+                           class="dropdown-item">
+                            English
+                        </a>
+                        <a href="{{ route('change_language', ['language' => 'bn']) }}"
+                           data-pjax
+                           class="dropdown-item">
+                            Bengali
+                        </a>
+                        <a href="{{ route('change_language', ['language' => 'hi']) }}"
+                            data-pjax
+                           class="dropdown-item">
+                            Hindi
+                        </a>
                     </div>
                 </li>
                 {{-- Authentication Links --}}
