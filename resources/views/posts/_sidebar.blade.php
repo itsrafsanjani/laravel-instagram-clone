@@ -4,7 +4,8 @@
             <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="mr-2">
-                        <a href="{{ route('users.show', auth()->user()) }}">
+                        <a href="{{ route('users.show', auth()->user()) }}"
+                           data-pjax>
                             <img src="{{ auth()->user()->avatar }}"
                                  class="avatar rounded-circle"
                                  alt="{{ auth()->user()->username }}">
@@ -12,7 +13,8 @@
                     </div>
                     <div>
                         <div class="font-weight-bold">
-                            <a href="{{ route('users.show', auth()->user()) }}">
+                            <a href="{{ route('users.show', auth()->user()) }}"
+                               data-pjax>
                                 <span class="text-dark">{{ auth()->user()->username }}</span>
                             </a>
                         </div>
@@ -45,6 +47,7 @@
                             <div class="col-auto d-flex align-items-center">
                                 <!-- Avatar -->
                                 <a href="{{ route('users.show', $user) }}"
+                                   data-pjax
                                    class="avatar avatar-sm rounded-circle">
                                     <img alt="{{ $user->name }}"
                                          src="{{ $user->avatar }}">
@@ -52,7 +55,8 @@
                             </div>
                             <div class="col pl-2">
                                 <h4 class="mb-0 text-sm text-break">
-                                    <a href="{{ route('users.show', $user) }}">
+                                    <a href="{{ route('users.show', $user) }}"
+                                       data-pjax>
                                         {{ $user->username }}
                                     </a>
                                 </h4>

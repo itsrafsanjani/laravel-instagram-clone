@@ -115,7 +115,8 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('users.show', auth()->user()) }}">
+                            <a class="dropdown-item" href="{{ route('users.show', auth()->user()) }}"
+                               data-pjax>
                                 {{ __('My Profile') }}
                             </a>
 

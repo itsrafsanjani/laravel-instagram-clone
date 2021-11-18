@@ -26,6 +26,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <a href="{{ route('users.show', $user) }}"
+                                                   data-pjax
                                                    class="avatar rounded-circle">
                                                     <img alt="{{ $user->name }}"
                                                          src="{{ $user->avatar }}">
@@ -33,7 +34,10 @@
                                             </div>
                                             <div class="col ml--2">
                                                 <h4 class="mb-0">
-                                                    <a href="{{ route('users.show', $user) }}">{{ $user->username }}</a>
+                                                    <a href="{{ route('users.show', $user) }}"
+                                                       data-pjax>
+                                                        {{ $user->username }}
+                                                    </a>
                                                 </h4>
 
                                                 <p class="text-sm mb-0">

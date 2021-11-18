@@ -14,10 +14,13 @@
                                         <div class="d-flex align-items-center">
                                             {{-- Avatar --}}
                                             <a href="{{ route('users.show', $post->user) }}"
+                                               data-pjax
                                                class="avatar avatar-sm rounded-circle">
                                                 <img alt="{{ $post->user->name }}" src="{{ $post->user->avatar }}">
                                             </a>
-                                            <a href="{{ route('users.show', $post->user) }}" class="mx-2">
+                                            <a href="{{ route('users.show', $post->user) }}"
+                                               data-pjax
+                                               class="mx-2">
                                                 <h4 class="mb-0">{{ $post->user->username }}</h4>
                                             </a>
                                         </div>
@@ -91,6 +94,7 @@
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                             <div class="d-flex">
                                                 <a href="{{ route('users.show', $post->user) }}"
+                                                   data-pjax
                                                    class="btn btn-link px-0 py-0"
                                                    data-toggle="tooltip"
                                                    data-html="true"

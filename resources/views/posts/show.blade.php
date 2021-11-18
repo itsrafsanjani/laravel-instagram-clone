@@ -19,14 +19,16 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="mr-2">
-                                <a href="{{ route('users.show', $post->user) }}">
+                                <a href="{{ route('users.show', $post->user) }}"
+                                   data-pjax>
                                     <img src="{{ $post->user->avatar }}" class="avatar rounded-circle"
                                          alt="{{ $post->user->username }}">
                                 </a>
                             </div>
                             <div>
                                 <div class="font-weight-bold">
-                                    <a href="{{ route('users.show', $post->user) }}">
+                                    <a href="{{ route('users.show', $post->user) }}"
+                                       data-pjax>
                                         <span class="text-dark">{{ $post->user->username }}</span>
                                     </a>
                                 </div>
@@ -40,7 +42,9 @@
 
                         @if(auth()->user() != $post->user)
                         <div>
-                            <a href="{{ route('users.show', $post->user) }}" class="btn btn-primary btn-sm ml-3">
+                            <a href="{{ route('users.show', $post->user) }}"
+                               data-pjax
+                               class="btn btn-primary btn-sm ml-3">
                                 {{ __('View Profile') }}
                             </a>
                         </div>
@@ -63,7 +67,8 @@
                     <div class="d-flex justify-content-between mb-2 px-1">
                         <div>
                             <span class="font-weight-bold">
-                                <a href="{{ route('users.show', $post->user) }}">
+                                <a href="{{ route('users.show', $post->user) }}"
+                                   data-pjax>
                                     <span class="text-dark">{{ $post->user->username }}</span>
                                 </a>
                             </span>

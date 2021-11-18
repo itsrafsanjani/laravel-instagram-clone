@@ -3,6 +3,7 @@
     <div class="d-flex w-100 justify-content-between">
         <div>
             <a href="{{ route('users.show', $comment->commentator) }}"
+               data-pjax
                class="d-flex w-100 align-items-center">
                 <img src="{{ $comment->commentator->avatar }}"
                      alt="{{ $comment->commentator->name }}" class="avatar avatar-xs mr-2">
