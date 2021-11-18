@@ -25,7 +25,9 @@
 
                         @can('update', $user)
                             <div class="ml-4">
-                                <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-secondary">
+                                <a href="{{ route('users.edit', $user) }}"
+                                   data-pjax
+                                   class="btn btn-sm btn-secondary">
                                     {{ __('Edit Profile') }}
                                 </a>
                             </div>
