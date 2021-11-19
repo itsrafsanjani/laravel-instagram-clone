@@ -136,7 +136,8 @@
                                 </a>
                             @endcan
 
-                            <a class="dropdown-item" href="{{ route('posts.create') }}">
+                            <a class="dropdown-item" href="{{ route('posts.create') }}"
+                                data-pjax>
                                 {{ __('Add New Post') }}
                             </a>
 

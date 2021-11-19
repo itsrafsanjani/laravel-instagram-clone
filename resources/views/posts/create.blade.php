@@ -67,21 +67,3 @@
         </form>
     </div>
 @endsection
-
-@push('scripts')
-    <script>
-        $(document).ready(function () {
-            let preview = $("#preview");
-            $('#image').change(function () {
-                preview.html('');
-                for (let i = 0; i < $(this)[0].files.length; i++) {
-                    preview.append(
-                        `<div class="col-md-6">
-                            <img src="${window.URL.createObjectURL(this.files[i])}" class="img-thumbnail my-3" alt="image"/>
-                        </div>`
-                    );
-                }
-            });
-        });
-    </script>
-@endpush
