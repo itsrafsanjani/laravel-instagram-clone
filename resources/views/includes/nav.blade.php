@@ -113,6 +113,7 @@
                            class="nav-link d-flex align-items-center @if(request()->routeIs('notifications.index')) active @endif">
                             <i class="@if(request()->routeIs('notifications.index')) fas @else fal @endif fa-heart text-xl mr-md-0 mr-2"></i>
                             <span class="d-md-none"> {{ __('Notifications') }}</span>
+                            <span class="badge badge-circle badge-primary">{{ auth()->user()->unreadNotifications()->count() }}</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
