@@ -27157,3 +27157,8 @@ body {
 
 /* purgecss end ignore */
 
+.unread-notification {
+  color: #525f7f;
+  background-color: #f6f9fc;
+}
+

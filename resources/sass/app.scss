@@ -223,3 +223,8 @@ body {
     &.show { opacity: $modal-backdrop-opacity; }
 }
 /* purgecss end ignore */
+
+.unread-notification {
+    color: $gray-700;
+    background-color: $gray-100;
+}

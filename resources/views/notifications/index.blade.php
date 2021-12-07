@@ -12,8 +12,9 @@
                     <div class="card-body">
                         <div class="list-group list-group-flush">
                             @forelse($notifications as $notification)
+                                {{ $notification->markAsRead() }}
                                 <a href="{{ url('/users/' . $notification->data['follower']['username']) }}"
-                                   class="list-group-item list-group-item-action">
+                                   class="list-group-item list-group-item-action rounded {{ $notification->read_at ?? 'unread-notification' }}">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
