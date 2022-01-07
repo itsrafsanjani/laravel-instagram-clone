@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\UsersDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
@@ -14,9 +15,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        return view('admin.users.index');
+        return $dataTable->render('admin.users.index');
     }
 
     /**

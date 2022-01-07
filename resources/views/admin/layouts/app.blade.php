@@ -68,9 +68,10 @@
 <script src="{{ asset('backend/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
 <script src="{{ asset('backend/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
 <script src="{{ asset('backend/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
+<script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
 <!-- Argon JS -->
 <script src="{{ asset('backend/assets/js/argon.js?v=1.2.0') }}"></script>
 <!-- Custom JS-->
-@stack('javascript')
+@stack('scripts')
 </body>
 </html>

@@ -7,13 +7,17 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12 mx-auto">
                 <div class="card">
                     <div class="card-body">
-                        Hello World
+                        {{ $dataTable->table() }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    {{ $dataTable->scripts() }}
+@endpush
