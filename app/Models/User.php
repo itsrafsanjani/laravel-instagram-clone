@@ -40,6 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail, Commentator, HasM
         'website',
         'bio',
         'gender',
+        'is_admin',
     ];
 
     /**
