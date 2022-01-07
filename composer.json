@@ -30,6 +30,7 @@
         "spatie/laravel-pjax": "^2.1",
         "staudenmeir/eloquent-eager-limit": "^1.6",
         "tanmuhittin/laravel-google-translate": "^2.0",
+        "yajra/laravel-datatables": "^1.5",
         "yoelpc4/laravel-cloudinary": "^2.1"
     },
     "require-dev": {
