@@ -13,16 +13,17 @@
                 <!-- Nav items -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{route('admin.dashboard.index')}}">
+                        <a class="nav-link @if(request()->routeIs('admin.dashboard.index')) active @endif"
+                           href="{{ route('admin.dashboard.index') }}">
                             <i class="ni ni-tv-2 text-primary"></i>
                             <span class="nav-link-text">Dashboard</span>
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    {{--<li class="nav-item">
                         <a class="nav-link" href="#navbar-categories" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-categories">
                             <i class="ni ni-ungroup text-orange"></i>
-                            <span class="nav-link-text">Categories</span>
+                            <span class="nav-link-text">Users</span>
                         </a>
                         <div class="collapse" id="navbar-categories">
                             <ul class="nav nav-sm flex-column">
@@ -34,30 +35,12 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li>--}}
 
                     <li class="nav-item">
-                        <a class="nav-link" href="tables.html">
-                            <i class="ni ni-bullet-list-67 text-default"></i>
-                            <span class="nav-link-text">Tables</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">
-                            <i class="ni ni-key-25 text-info"></i>
-                            <span class="nav-link-text">Login</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.html">
-                            <i class="ni ni-circle-08 text-pink"></i>
-                            <span class="nav-link-text">Register</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="upgrade.html">
-                            <i class="ni ni-send text-dark"></i>
-                            <span class="nav-link-text">Upgrade</span>
+                        <a class="nav-link @if(request()->routeIs('admin.users.index')) active @endif" href="{{ route('admin.users.index') }}">
+                            <i class="fas fa-users text-default"></i>
+                            <span class="nav-link-text">Users</span>
                         </a>
                     </li>
                 </ul>

@@ -32,7 +32,7 @@
     <!-- TopNav -->
     @include('admin.partials.header')
     <!-- Header -->
-    <div class="flex-fill">
+    <div class="flex-fill @if(!request()->routeIs('admin.dashboard.index')) py-4 @endif">
         @yield('content')
     </div>
     <!-- Footer -->

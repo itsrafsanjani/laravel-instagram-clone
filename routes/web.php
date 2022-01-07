@@ -82,6 +82,7 @@ Route::group(['middleware' => 'purchase.status'], function () {
                 return redirect()->route('admin.dashboard.index');
             });
             Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
+            Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
         });
     });
 });
