@@ -77,7 +77,7 @@ Route::group(['middleware' => 'purchase.status'], function () {
 
         Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
 
-        Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+        Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function () {
             Route::get('/', function () {
                 return redirect()->route('admin.dashboard.index');
             });

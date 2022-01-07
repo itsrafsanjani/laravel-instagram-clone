@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('website')->nullable();
             $table->string('bio', 150)->nullable();
             $table->enum('gender', ['male', 'female', 'others'])->nullable();
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
