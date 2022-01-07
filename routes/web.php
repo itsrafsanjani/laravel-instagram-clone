@@ -76,5 +76,12 @@ Route::group(['middleware' => 'purchase.status'], function () {
         Route::get('/explore', [PostController::class, 'explore'])->name('posts.explore');
 
         Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+
+        Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+            Route::get('/', function () {
+                return redirect()->route('admin.dashboard.index');
+            });
+            Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
+        });
     });
 });
