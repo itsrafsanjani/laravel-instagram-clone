@@ -21,7 +21,19 @@ class UsersDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'users.action');
+            ->addColumn('action', function($row){
+                $btn = '<a href="javascript:void(0)" class="edit btn btn-info btn-sm">View</a>';
+                $btn .= '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Edit</a>';
+                $btn .= '<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Delete</a>';
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->editColumn('created_at', function(User $user) {
+                return $user->created_at->format('g:i A, d M Y');
+            })
+            ->editColumn('updated_at', function(User $user) {
+                return $user->updated_at->format('g:i A, d M Y');
+            });
     }
 
     /**
@@ -55,7 +67,7 @@ class UsersDataTable extends DataTable
                 Button::make('reset'),
                 Button::make('reload')
             )
-            ;
+            ->scrollX(true);
     }
 
     /**
@@ -66,16 +78,16 @@ class UsersDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                ->width(60)
-                ->addClass('text-center'),
             Column::make('id'),
             Column::make('name'),
             Column::make('email'),
             Column::make('created_at'),
             Column::make('updated_at'),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
         ];
     }
 
