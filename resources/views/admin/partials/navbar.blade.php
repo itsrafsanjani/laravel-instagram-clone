@@ -44,7 +44,7 @@
                         </a>
                     </li>
                 </ul>
-                <!-- Divider -->
+                {{--<!-- Divider -->
                 <hr class="my-3">
                 <!-- Heading -->
                 <h6 class="navbar-heading p-0 text-muted">
@@ -82,7 +82,7 @@
                             <span class="nav-link-text">Upgrade to PRO</span>
                         </a>
                     </li>
-                </ul>
+                </ul>--}}
             </div>
         </div>
     </div>
