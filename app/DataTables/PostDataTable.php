@@ -25,13 +25,16 @@ class PostDataTable extends DataTable
             ->addColumn('user', function(Post $post) {
                 return '<a href="' . route('users.show', $post->user) .'">'. $post->user->name .'</a>';
             })
-            ->addColumn('action', function($row){
+            ->addColumn('action', function($row) {
                 $btn = '<a href="javascript:void(0)" class="edit btn btn-info btn-sm">View</a>';
                 $btn .= '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Edit</a>';
                 $btn .= '<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Delete</a>';
                 return $btn;
             })
-            ->rawColumns(['user', 'action'])
+            ->addColumn('thumb', function(Post $post) {
+                return '<img src="' . $post->getFirstMediaUrl('posts', 'thumb') .'" height="50px" />';
+            })
+            ->rawColumns(['user', 'action', 'thumb'])
             ->editColumn('caption', function(Post $post) {
                 return Str::limit($post->caption, 15);
             })
@@ -51,7 +54,7 @@ class PostDataTable extends DataTable
      */
     public function query(Post $model)
     {
-        return $model->newQuery()->with('user');
+        return $model->newQuery()->with(['user', 'media']);
     }
 
     /**
@@ -90,6 +93,7 @@ class PostDataTable extends DataTable
                 ->exportable(true)
                 ->printable(true),
             Column::make('caption'),
+            Column::computed('thumb'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')

@@ -27,7 +27,10 @@ class UserDataTable extends DataTable
                 $btn .= '<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Delete</a>';
                 return $btn;
             })
-            ->rawColumns(['action'])
+            ->addColumn('avatar', function(User $user){
+                return '<img src="' . $user->avatar .'" height="50px" />';
+            })
+            ->rawColumns(['avatar', 'action'])
             ->editColumn('created_at', function(User $user) {
                 return $user->created_at->format('g:i A, d M Y');
             })
@@ -83,6 +86,7 @@ class UserDataTable extends DataTable
             Column::make('email'),
             Column::make('created_at'),
             Column::make('updated_at'),
+            Column::computed('avatar'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
