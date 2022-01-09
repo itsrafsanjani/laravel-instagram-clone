@@ -135,8 +135,8 @@
                                 {{ __('My Profile') }}
                             </a>
 
-                            @can('browse_admin')
-                                <a class="dropdown-item" href="{{ url('/admin') }}">
+                            @if(auth()->user()->is_admin)
+                                <a class="dropdown-item" href="{{ route('admin.dashboard.index') }}">
                                     {{ __('Admin Panel') }}
                                 </a>
                             @endcan
