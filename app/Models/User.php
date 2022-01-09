@@ -96,7 +96,7 @@ class User extends Authenticatable implements MustVerifyEmail, Commentator, HasM
             $imageSize = 400;
         }
 
-        return optional($this->getMedia('avatars')->last())->getUrl('thumb') ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->user->email ?? ''))) . '?s=' . $imageSize;
+        return optional($this->getMedia('avatars')->last())->getUrl('thumb') ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?s=' . $imageSize;
     }
 
     public function registerMediaConversions(Media $media = null): void
