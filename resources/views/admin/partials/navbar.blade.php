@@ -39,8 +39,14 @@
 
                     <li class="nav-item">
                         <a class="nav-link @if(request()->routeIs('admin.users.index')) active @endif" href="{{ route('admin.users.index') }}">
-                            <i class="fas fa-users text-default"></i>
-                            <span class="nav-link-text">Users</span>
+                            <i class="fas fa-users text-blue"></i>
+                            <span class="nav-link-text">{{ __('Users') }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if(request()->routeIs('admin.posts.index')) active @endif" href="{{ route('admin.posts.index') }}">
+                            <i class="fas fa-sticky-note text-green"></i>
+                            <span class="nav-link-text">{{ __('Posts') }}</span>
                         </a>
                     </li>
                 </ul>

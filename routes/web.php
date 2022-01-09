@@ -83,6 +83,7 @@ Route::group(['middleware' => 'purchase.status'], function () {
             });
             Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
             Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
+            Route::resource('/posts', \App\Http\Controllers\Admin\PostController::class);
         });
     });
 });
