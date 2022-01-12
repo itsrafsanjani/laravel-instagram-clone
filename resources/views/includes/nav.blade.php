@@ -139,7 +139,7 @@
                                 <a class="dropdown-item" href="{{ route('admin.dashboard.index') }}">
                                     {{ __('Admin Panel') }}
                                 </a>
-                            @endcan
+                            @endif
 
                             <a class="dropdown-item" href="{{ route('posts.create') }}"
                                 data-pjax>

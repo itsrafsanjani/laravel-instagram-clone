@@ -64,6 +64,15 @@ class UserController extends Controller
                 $request->password
             ]);
 
+        $usernameChanged = $user->wasChanged('username');
+
+        if ($usernameChanged) {
+            $user->username_last_updated_at = now();
+            $user->save();
+
+            $user->increment('username_update_attempts');
+        }
+
         if (!empty($request->avatar)) {
             $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');
         }
