@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class UserController extends Controller
 {
@@ -60,18 +61,15 @@ class UserController extends Controller
             $request->merge(['password' => bcrypt($request->password)]);
         }
 
-        $user->update($request->validated() + [
-                $request->password
-            ]);
-
-        $usernameChanged = $user->wasChanged('username');
-
-        if ($usernameChanged) {
-            $user->username_last_updated_at = now();
-            $user->save();
-
-            $user->increment('username_update_attempts');
+        // todo: update and write clear logic
+        if ($user->username_last_updated_at <= now()->addDays(14)) {
+            if ($user->username_update_attempts <= 2) {
+                $user->update($request->validated() + [
+                        $request->password
+                    ]);
+            }
         }
+
 
         if (!empty($request->avatar)) {
             $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');

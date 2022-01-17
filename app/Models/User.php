@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Observers\UserObserver;
 use BeyondCode\Comments\Contracts\Commentator;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
