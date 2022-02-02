@@ -46,5 +46,15 @@
 </script>
 <script src="{{ mix('js/app.js') }}"></script>
 @stack('scripts')
+<script>
+    $.niceToast.setup({
+        position: "top-right",
+        timeout: 5000,
+    });
+
+    @if (session('message'))
+        $.niceToast.{{ session('status') }}('{{ session('message') }}');
+    @endif
+</script>
 </body>
 </html>

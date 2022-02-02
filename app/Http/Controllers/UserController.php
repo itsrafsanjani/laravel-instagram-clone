@@ -53,6 +53,47 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
+    public function usernameUpdateConditions($user, $request)
+    {
+        $info = [];
+        if ($user->username_update_attempts < 2) {
+            $user->update($request->validated() + [
+                    $request->password
+                ]);
+            if ($user->wasChanged('username')) {
+                $user->increment('username_update_attempts');
+                $user->username_last_updated_at = now();
+                $user->save();
+
+                $info = [
+                    'status' => 'success',
+                ];
+            }
+        } else if ($user->username_update_attempts >= 2 && Carbon::parse($user->username_last_updated_at)->addDays(14) < now()) {
+            $user->update($request->validated() + [
+                    $request->password
+                ]);
+            if ($user->wasChanged('username')) {
+                $user->username_update_attempts = 0;
+                $user->username_last_updated_at = now();
+                $user->save();
+
+                $info = [
+                    'status' => 'success',
+                ];
+            }
+        } else if ($user->username_update_attempts >= 2 && Carbon::parse($user->username_last_updated_at)->addDays(14) > now()) {
+            $user->update($request->safe()->except('username') + [
+                    $request->password
+                ]);
+            $info = [
+                'status' => 'error',
+            ];
+        }
+
+        return $info;
+    }
+
     public function update(User $user, UpdateUserRequest $request)
     {
         $this->authorize('update', $user);
@@ -61,42 +102,12 @@ class UserController extends Controller
             $request->merge(['password' => bcrypt($request->password)]);
         }
 
-        if (!is_null($user->username_last_updated_at)) {
-            if ($user->username_update_attempts < 2) {
-                if (Carbon::parse($user->username_last_updated_at)->addDays(14) <= now()) {
-                    $user->update($request->validated() + [
-                            $request->password
-                        ]);
-                    if ($user->wasChanged('username')) {
-                        $user->increment('username_update_attempts');
-                        $user->username_last_updated_at = now();
-                        $user->save();
-                    }
-                }
+        // TODO: Clear Logic
+        $info = $this->usernameUpdateConditions($user, $request);
 
-                $user->update($request->validated() + [
-                        $request->password
-                    ]);
-                if ($user->wasChanged('username')) {
-                    $user->increment('username_update_attempts');
-                    $user->username_last_updated_at = now();
-                    $user->save();
-                }
-            } else {
-                return back()->with([
-                    'status' => 'error',
-                    'message' => __('Username update attempts exceeded!'),
-                ]);
-            }
-        } else {
-            $user->update($request->validated() + [
-                    $request->password
-                ]);
-            if ($user->wasChanged('username')) {
-                $user->increment('username_update_attempts');
-                $user->username_last_updated_at = now();
-                $user->save();
-            }
+        $message = 'Profile updated successfully!';
+        if ($info['status'] == 'error') {
+            $message = 'Profile updated but username update limit exceeded in last 14 days!';
         }
 
         if (!empty($request->avatar)) {
@@ -105,7 +116,7 @@ class UserController extends Controller
 
         return redirect()->route('users.show', $user)->with([
             'status' => 'success',
-            'message' => 'Profile updated successfully!'
+            'message' => $message
         ]);
     }
 
