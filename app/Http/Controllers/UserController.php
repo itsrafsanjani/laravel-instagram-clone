@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Artesaos\SEOTools\Facades\SEOTools;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 
 class UserController extends Controller
 {
@@ -61,15 +61,43 @@ class UserController extends Controller
             $request->merge(['password' => bcrypt($request->password)]);
         }
 
-        // todo: update and write clear logic
-        if ($user->username_last_updated_at <= now()->addDays(14)) {
-            if ($user->username_update_attempts <= 2) {
+        if (!is_null($user->username_last_updated_at)) {
+            if ($user->username_update_attempts < 2) {
+                if (Carbon::parse($user->username_last_updated_at)->addDays(14) <= now()) {
+                    $user->update($request->validated() + [
+                            $request->password
+                        ]);
+                    if ($user->wasChanged('username')) {
+                        $user->increment('username_update_attempts');
+                        $user->username_last_updated_at = now();
+                        $user->save();
+                    }
+                }
+
                 $user->update($request->validated() + [
                         $request->password
                     ]);
+                if ($user->wasChanged('username')) {
+                    $user->increment('username_update_attempts');
+                    $user->username_last_updated_at = now();
+                    $user->save();
+                }
+            } else {
+                return back()->with([
+                    'status' => 'error',
+                    'message' => __('Username update attempts exceeded!'),
+                ]);
+            }
+        } else {
+            $user->update($request->validated() + [
+                    $request->password
+                ]);
+            if ($user->wasChanged('username')) {
+                $user->increment('username_update_attempts');
+                $user->username_last_updated_at = now();
+                $user->save();
             }
         }
-
 
         if (!empty($request->avatar)) {
             $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');

@@ -25,11 +25,7 @@ class UserObserver
      */
     public function updated(User $user)
     {
-        if ($user->wasChanged('username')) {
-            $user->increment('username_update_attempts');
-            $user->username_last_updated_at = now();
-            $user->save();
-        } else if ($user->wasChanged('email')) {
+        if ($user->wasChanged('email')) {
             $user->sendEmailVerificationNotification();
             $user->email_verified_at = null;
             $user->save();
