@@ -69,7 +69,7 @@ class UserController extends Controller
                     'status' => 'success',
                 ];
             }
-        } else if ($user->username_update_attempts >= 2 && Carbon::parse($user->username_last_updated_at)->addDays(14) < now()) {
+        } else if (Carbon::parse($user->username_last_updated_at)->addDays(14) < now()) {
             $user->update($request->validated() + [
                     $request->password
                 ]);
@@ -82,7 +82,7 @@ class UserController extends Controller
                     'status' => 'success',
                 ];
             }
-        } else if ($user->username_update_attempts >= 2 && Carbon::parse($user->username_last_updated_at)->addDays(14) > now()) {
+        } else if (Carbon::parse($user->username_last_updated_at)->addDays(14) > now()) {
             $user->update($request->safe()->except('username') + [
                     $request->password
                 ]);
