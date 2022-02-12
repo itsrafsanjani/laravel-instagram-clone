@@ -41,7 +41,7 @@ return [
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => 'WebPage',
             'site_name'   => config('app.name'),
-            'images'      => [public_path('images/laragram.jpg')],
+            'images'      => ['images/laragram.jpg'],
         ],
     ],
     'twitter' => [
@@ -62,7 +62,7 @@ return [
             'description' => 'Laragram is a social media platform created with Laravel and VueJS.', // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => 'WebPage',
-            'images'      => [public_path('images/laragram.jpg')],
+            'images'      => ['images/laragram.jpg'],
         ],
     ],
 ];
