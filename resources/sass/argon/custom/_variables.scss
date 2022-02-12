@@ -569,8 +569,8 @@ $form-group-margin-bottom:              1.5rem !default;
 
 $form-feedback-valid-bg:         lighten($success, 15%) !default;
 $form-feedback-valid-color:      theme-color("success") !default;
-$form-feedback-invalid-bg:       lighten($warning, 15%) !default;
-$form-feedback-invalid-color:    theme-color("warning") !default;
+$form-feedback-invalid-bg:       lighten($danger, 15%) !default;
+$form-feedback-invalid-color:    theme-color("danger") !default;
 
 
 
@@ -615,7 +615,7 @@ $custom-control-indicator-checked-box-shadow:   $custom-control-indicator-box-sh
 $custom-control-indicator-checked-disabled-bg:  rgba(theme-color("primary"), .5) !default;
 
 $custom-control-indicator-disabled-bg:          $gray-200 !default;
-$custom-control-label-disabled-color:           $gray-600 !default; 
+$custom-control-label-disabled-color:           $gray-600 !default;
 
 $custom-checkbox-indicator-border-radius:       $border-radius-sm !default;
 //$custom-checkbox-indicator-icon-checked:      str-replace(url("data:image/svg+xml !default;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"), "#", "%23") !default;
@@ -1050,7 +1050,7 @@ $noui-origin-border-radius:       2px !default;
 //
 // PRO components and plugins
 // Need more for your project? Check out the PRO version
-// URL: 
+// URL:
 //
 
 
@@ -1069,7 +1069,7 @@ $breadcrumb-divider:                quote("-") !default;
 $breadcrumb-border-radius:          $border-radius !default;
 
 $breadcrumb-dark-bg:                $default !default;
-$breadcrumb-dark-color:             $gray-100 !default; 
+$breadcrumb-dark-color:             $gray-100 !default;
 $breadcrumb-dark-hover-color:       $white !default;
 $breadcrumb-dark-active-color:      $gray-300 !default;
 $breadcrumb-dark-divider-color:     $gray-500 !default;
@@ -1123,11 +1123,3 @@ $tag-bg:                            theme-color("default");
 $tag-color:                         color-yiq(theme-color("default"));
 $tag-close-color:                   color-yiq(theme-color("default"));
 $tag-box-shadow:                    0 1px 2px rgba(68,68,68,0.25);
-
-
-
-
-// Import Bootstrap variable defaults
-
-@import "../bootstrap/variables";
-

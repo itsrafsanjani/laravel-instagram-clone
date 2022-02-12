@@ -3025,7 +3025,7 @@ textarea.form-control {
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
-  color: #FFC700;
+  color: #f5365c;
 }
 
 .invalid-tooltip {
@@ -3039,7 +3039,7 @@ textarea.form-control {
   font-size: 0.875rem;
   line-height: 1;
   color: #fff;
-  background-color: rgba(255, 199, 0, 0.8);
+  background-color: rgba(245, 54, 92, 0.8);
   border-radius: 0.2rem;
 }
 
@@ -3047,14 +3047,14 @@ textarea.form-control {
 .form-control.is-invalid,
 .was-validated .custom-select:invalid,
 .custom-select.is-invalid {
-  border-color: #FFC700;
+  border-color: #f5365c;
 }
 
 .was-validated .form-control:invalid:focus,
 .form-control.is-invalid:focus,
 .was-validated .custom-select:invalid:focus,
 .custom-select.is-invalid:focus {
-  border-color: #FFC700;
+  border-color: #f5365c;
 }
 
 .was-validated .form-control:invalid ~ .invalid-feedback,
@@ -3070,7 +3070,7 @@ textarea.form-control {
 
 .was-validated .form-check-input:invalid ~ .form-check-label,
 .form-check-input.is-invalid ~ .form-check-label {
-  color: #FFC700;
+  color: #f5365c;
 }
 
 .was-validated .form-check-input:invalid ~ .invalid-feedback,
@@ -3082,13 +3082,13 @@ textarea.form-control {
 
 .was-validated .custom-control-input:invalid ~ .custom-control-label,
 .custom-control-input.is-invalid ~ .custom-control-label {
-  color: #FFC700;
+  color: #f5365c;
 }
 
 .was-validated .custom-control-input:invalid ~ .custom-control-label::before,
 .custom-control-input.is-invalid ~ .custom-control-label::before {
-  background-color: #ffe380;
-  border-color: #ffe380;
+  background-color: #fbafbe;
+  border-color: #fbafbe;
 }
 
 .was-validated .custom-control-input:invalid ~ .invalid-feedback,
@@ -3100,18 +3100,18 @@ textarea.form-control {
 
 .was-validated .custom-control-input:invalid:checked ~ .custom-control-label::before,
 .custom-control-input.is-invalid:checked ~ .custom-control-label::before {
-  background-color: #ffd233;
-  border-color: #ffe380;
+  background-color: #f76783;
+  border-color: #fbafbe;
 }
 
 .was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before,
 .custom-control-input.is-invalid:focus ~ .custom-control-label::before {
-  box-shadow: 0 0 0 1px #f8f9fe, 0 0 0 0 rgba(255, 199, 0, 0.25);
+  box-shadow: 0 0 0 1px #f8f9fe, 0 0 0 0 rgba(245, 54, 92, 0.25);
 }
 
 .was-validated .custom-file-input:invalid ~ .custom-file-label,
 .custom-file-input.is-invalid ~ .custom-file-label {
-  border-color: #FFC700;
+  border-color: #f5365c;
 }
 
 .was-validated .custom-file-input:invalid ~ .custom-file-label::before,
@@ -3128,7 +3128,7 @@ textarea.form-control {
 
 .was-validated .custom-file-input:invalid:focus ~ .custom-file-label,
 .custom-file-input.is-invalid:focus ~ .custom-file-label {
-  box-shadow: 0 0 0 0 rgba(255, 199, 0, 0.25);
+  box-shadow: 0 0 0 0 rgba(245, 54, 92, 0.25);
 }
 
 .form-inline {
@@ -8447,22 +8447,6 @@ button.bg-darker:focus {
   width: 100%;
   height: 100%;
   border: 0;
-}
-
-.embed-responsive-21by9::before {
-  padding-top: 42.8571428571%;
-}
-
-.embed-responsive-16by9::before {
-  padding-top: 56.25%;
-}
-
-.embed-responsive-4by3::before {
-  padding-top: 75%;
-}
-
-.embed-responsive-1by1::before {
-  padding-top: 100%;
 }
 
 .embed-responsive-21by9::before {
@@ -18866,8 +18850,8 @@ textarea[resize=horizontal] {
 
 .has-danger:after {
   content: "\EA53";
-  color: #a37f00;
-  background-color: #ffd84d;
+  color: #c50a2f;
+  background-color: #f97f97;
 }
 
 .has-danger .form-control {
@@ -18875,15 +18859,15 @@ textarea[resize=horizontal] {
 }
 
 .has-danger .form-control::-moz-placeholder {
-  color: #FFC700;
+  color: #f5365c;
 }
 
 .has-danger .form-control:-ms-input-placeholder {
-  color: #FFC700;
+  color: #f5365c;
 }
 
 .has-danger .form-control::placeholder {
-  color: #FFC700;
+  color: #f5365c;
 }
 
 .row-example > .col span,
