@@ -15,15 +15,15 @@ require('./plugins/nice-toast-js.min');
 
 import autosize from 'autosize';
 import ClipboardJS from 'clipboard';
-import {initializeApp} from 'firebase/app';
-import {getAnalytics} from "firebase/analytics";
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from "firebase/analytics";
 import NProgress from 'nprogress';
 
 // NProgress
-$(document).on('pjax:start', function() {
+$(document).on('pjax:start', function () {
     NProgress.start();
 });
-$(document).on('pjax:end',   function() {
+$(document).on('pjax:end', function () {
     NProgress.done();
 });
 
@@ -103,7 +103,7 @@ function laragramInit() {
     });
 
     // infinite scroll only in posts.index page
-    if (window.user.currentPageRouteName === 'posts.index') {
+    if (window.user !== undefined && window.user.currentPageRouteName === 'posts.index') {
         $('ul.pagination').hide();
         $(function () {
             $('.infinite-scroll').jscroll({
@@ -118,6 +118,7 @@ function laragramInit() {
                 }
             });
         });
+
     }
 
     // posts.create image preview
@@ -137,7 +138,7 @@ function laragramInit() {
 $.pjax.defaults.timeout = 3000;
 $(document).pjax('[data-pjax] a, a[data-pjax]', '#app');
 
-$(document).on('pjax:end', function() {
+$(document).on('pjax:end', function () {
     laragramInit()
 });
 
@@ -170,7 +171,7 @@ $(document).ready(function () {
                     data: {
                         _token: _token
                     },
-                    success: function ({data}) {
+                    success: function ({ data }) {
                         likeCount.text(data.likers_count);
                         // $.niceToast.success(data.message);
                     },
@@ -203,7 +204,7 @@ $(document).ready(function () {
                     data: {
                         _token: _token
                     },
-                    success: function ({data}) {
+                    success: function ({ data }) {
                         $('#followersCount').text(data.followers_count)
 
                         // $.niceToast.success(data.message);
@@ -307,7 +308,7 @@ $(document).ready(function () {
                     data: {
                         _token: _token
                     },
-                    success: function ({data}) {
+                    success: function ({ data }) {
                         $('#comment-' + commentId).remove();
                         $.niceToast.success(data.message);
                     },
