@@ -14,11 +14,11 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto flex-grow-1">
                 @auth
-                    <span>
-                        <form class="form-inline my-2 my-md-0" action="{{ route('users.index') }}" method="get">
-                            <input class="form-control mr-sm-2"
+                    <span class="flex-grow-1">
+                        <form class="form-inline my-2 my-md-0 w-lg-50 w-100" action="{{ route('users.index') }}" method="get">
+                            <input class="form-control mr-sm-2 w-lg-50 w-100"
                                    type="text"
                                    name="q"
                                    placeholder="{{ __('Search') }}"

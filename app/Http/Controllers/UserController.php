@@ -64,11 +64,10 @@ class UserController extends Controller
                 $user->increment('username_update_attempts');
                 $user->username_last_updated_at = now();
                 $user->save();
-
-                $info = [
-                    'status' => 'success',
-                ];
             }
+            $info = [
+                'status' => 'success',
+            ];
         } else if (Carbon::parse($user->username_last_updated_at)->addDays(14) < now()) {
             $user->update($request->validated() + [
                     $request->password
