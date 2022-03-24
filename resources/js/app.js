@@ -219,7 +219,7 @@ $(document).ready(function () {
             $(document).on('keyup', '.commentTextarea', function (e) {
                 e.preventDefault();
 
-                if (e.keyCode === 13 && e.shiftKey) {
+                if (e.keyCode === 13 && !e.shiftKey) {
                     let postSlug = $(this).data('postSlug');
                     let comment = $('#comment-' + postSlug).val();
                     let _url = '/comments';
@@ -322,11 +322,14 @@ $(document).ready(function () {
         // footer copyright
         $(window).on('load', function () {
             let footerHtml = `<footer class="footer fixed-bottom bg-glass mt-auto py-2" id="footer">
-                <div class="container-fluid d-flex justify-content-between">
+                <div class="container-fluid d-flex justify-content-between align-items-center">
                 <div class="container">
-                    <div class="d-flex justify-content-between">
-                        <span class="text-muted">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a>
-                            by <a href="//github.com/itsrafsanjani" target="_blank">Md Rafsan Jani Rafin</a>.</span>
+                    <div class="d-md-flex text-center justify-content-between">
+                        <span class="text-muted d-md-block d-none">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a> by <a href="//github.com/itsrafsanjani" target="_blank">Md Rafsan Jani Rafin</a>.</span>
+                        <span class="d-md-none d-block">
+                            <span class="text-muted">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a></span><br>
+                            <span>by <a href="//github.com/itsrafsanjani" target="_blank">Md Rafsan Jani Rafin</a>.</span>
+                        </span>
                         <span class="text-muted">Source code <a href="//github.com/itsrafsanjani/laravel-instagram-clone" target="_blank">
                                 <i class="fab fa-github"></i> Github</a>.</span>
                     </div>
@@ -337,7 +340,7 @@ $(document).ready(function () {
             let footerCloseButton = localStorage.getItem('footerCloseButton');
             if (footerCloseButton != null) {
                 let data = JSON.parse(footerCloseButton)
-                let expectedDate = data.timestamp + (30 * 24 * 60 * 60 * 1000)
+                let expectedDate = data.timestamp + (30 * 24 * 60 * 60 * 1000) // 30 days
                 let currentDate = Date.now()
                 if (currentDate >= expectedDate) {
                     $('#app').append(footerHtml)
@@ -353,6 +356,8 @@ $(document).ready(function () {
                     closed: true,
                     timestamp: Date.now()
                 }));
+
+                $.niceToast.success('Footnote hidden for 30 days!');
             })
         })
     }

@@ -8,6 +8,7 @@ use App\Models\User;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Exception;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -32,7 +33,12 @@ class PostController extends Controller
             ->take(10)
             ->get();
 
-        return view('posts.index', compact('posts', 'suggestedUsers'));
+        $suggestedPosts = Post::with('media', 'user', 'comments', 'comments.commentator')->popularLast(Post::POPULAR_BY_DAY)->paginate(Post::PAGINATE_COUNT);
+        if ($posts->count() > 0) {
+            $suggestedPosts = [];
+        }
+
+        return view('posts.index', compact('posts', 'suggestedUsers', 'suggestedPosts'));
     }
 
     public function create()
@@ -42,21 +48,29 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        $post = Post::create([
-            'caption' => $request->caption,
-            'user_id' => auth()->id(),
-            'slug' => Str::random(12),
-        ]);
+        try {
+            DB::beginTransaction();
+            $post = Post::create([
+                'caption' => $request->caption,
+                'user_id' => auth()->id(),
+                'slug' => Str::random(12),
+            ]);
 
-        foreach ($request->file('image') as $image) {
-            $post->addMedia($image)
-                ->toMediaCollection('posts');
+            foreach ($request->file('image') as $image) {
+                $post->addMedia($image)
+                    ->toMediaCollection('posts');
+            }
+
+            DB::commit();
+
+            return redirect()->route('users.show', auth()->user())->with([
+                'status' => 'success',
+                'message' => 'Post uploaded successfully!'
+            ]);
+        } catch (\Throwable $exception) {
+            DB::rollBack();
+            return $exception;
         }
-
-        return redirect()->route('users.show', auth()->user())->with([
-            'status' => 'success',
-            'message' => 'Post uploaded successfully!'
-        ]);
 
 //        $data = request()->validate([
 //            'caption' => 'required|max:255',

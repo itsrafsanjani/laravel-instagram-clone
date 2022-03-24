@@ -16,15 +16,13 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto flex-grow-1">
                 @auth
-                    <span class="flex-grow-1">
-                        <form class="form-inline my-2 my-md-0 w-lg-50 w-100" action="{{ route('users.index') }}" method="get">
-                            <input class="form-control mr-sm-2 w-lg-50 w-100"
-                                   type="text"
-                                   name="q"
-                                   placeholder="{{ __('Search') }}"
-                                   value="{{ $query ?? '' }}">
-                        </form>
-                    </span>
+                    <form class="form-inline my-2 my-md-0 w-33" action="{{ route('users.index') }}" method="get">
+                        <input class="form-control mr-sm-2 w-100"
+                               type="text"
+                               name="q"
+                               placeholder="{{ __('Search') }}"
+                               value="{{ $query ?? '' }}">
+                    </form>
                 @endauth
             </ul>
 

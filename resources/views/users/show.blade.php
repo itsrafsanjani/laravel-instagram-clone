@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-3 p-md-5 px-5 py-2">
+            <div class="col-12 col-md-3 col-sm-8 mx-auto p-md-5 px-5 py-2">
                 <img
                     src="{{ $user->avatar }}"
                     class="rounded-circle w-100" alt="{{ $user->username }}">

@@ -11,7 +11,7 @@
                 <textarea class="form-control commentTextarea"
                           id="comment-{{ $post->slug }}"
                           name="comment"
-                          placeholder="{{ __('Shift + enter to submit') }}"
+                          placeholder="{{ __('Press enter to submit') }}"
                           rows="1"
                           spellcheck="false"
                           data-post-slug="{{ $post->slug }}"
