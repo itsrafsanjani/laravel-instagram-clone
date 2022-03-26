@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8fdfddafd67cda98548f0b278c4fb66f",
+    "content-hash": "6f0c44acfc3857802d3ffea6856adcfd",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -3044,21 +3044,22 @@
         },
         {
             "name": "munafio/chatify",
-            "version": "v1.3.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/munafio/chatify.git",
-                "reference": "9ed61364a87bedc018f006c3b9f01fac419a5c52"
+                "url": "https://github.com/itsrafsanjani/chatify.git",
+                "reference": "7b12f5797a7c9263bc8b75ab04485626d512bdbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/munafio/chatify/zipball/9ed61364a87bedc018f006c3b9f01fac419a5c52",
-                "reference": "9ed61364a87bedc018f006c3b9f01fac419a5c52",
+                "url": "https://api.github.com/repos/itsrafsanjani/chatify/zipball/7b12f5797a7c9263bc8b75ab04485626d512bdbc",
+                "reference": "7b12f5797a7c9263bc8b75ab04485626d512bdbc",
                 "shasum": ""
             },
             "require": {
                 "pusher/pusher-php-server": "^7.0"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -3075,7 +3076,6 @@
                     "Chatify\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3088,21 +3088,20 @@
             "description": "A package for Laravel PHP Framework to add a complete real-time chat system.",
             "homepage": "https://github.com/munafio/chatify",
             "keywords": [
-                "Messenger",
                 "chat",
                 "chatify",
                 "conversations",
                 "laravel",
+                "messenger",
                 "php",
                 "pusher",
                 "real-time",
                 "realtime"
             ],
             "support": {
-                "issues": "https://github.com/munafio/chatify/issues",
-                "source": "https://github.com/munafio/chatify/tree/v1.3.4"
+                "source": "https://github.com/itsrafsanjani/chatify/tree/master"
             },
-            "time": "2022-02-04T13:21:24+00:00"
+            "time": "2022-03-26T14:08:24+00:00"
         },
         {
             "name": "myclabs/php-enum",
@@ -12053,6 +12052,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "munafio/chatify": 20,
         "sightengine/client-php": 20
     },
     "prefer-stable": true,
