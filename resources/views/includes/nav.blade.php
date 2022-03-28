@@ -14,17 +14,15 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto flex-grow-1">
-                @auth
-                    <form class="form-inline my-2 my-md-0 w-33" action="{{ route('users.index') }}" method="get">
-                        <input class="form-control mr-sm-2 w-100"
-                               type="text"
-                               name="q"
-                               placeholder="{{ __('Search') }}"
-                               value="{{ $query ?? '' }}">
-                    </form>
-                @endauth
-            </ul>
+            @auth
+                <form class="form-inline my-2 my-md-0 w-33 navbar-nav mr-auto" action="{{ route('users.index') }}" method="get">
+                    <input class="form-control mr-sm-2 w-100"
+                            type="text"
+                            name="q"
+                            placeholder="{{ __('Search') }}"
+                            value="{{ $query ?? '' }}">
+                </form>
+            @endauth
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto align-items-md-center">
