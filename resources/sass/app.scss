@@ -232,13 +232,6 @@ body {
 // Extra small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-    .w-33 {
-        width: 100%;
-    }
-}
-
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
     .w-33 {
@@ -249,13 +242,13 @@ body {
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
     .w-33 {
-        width: 50%;
+        width: 35%;
     }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
     .w-33 {
-        width: 33%;
+        width: 25%;
     }
 }
