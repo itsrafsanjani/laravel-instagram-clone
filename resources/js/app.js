@@ -123,7 +123,7 @@ function laragramInit() {
 
     // posts.create image preview
     let preview = $("#preview");
-    $('#image').change(function () {
+    $('#image').on('change', function () {
         preview.html('');
         for (let i = 0; i < $(this)[0].files.length; i++) {
             preview.append(
@@ -142,7 +142,8 @@ $(document).on('pjax:end', function () {
     laragramInit()
 });
 
-$(document).ready(function () {
+// document ready
+$(function () {
     laragramInit();
 
     /**
