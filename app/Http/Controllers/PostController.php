@@ -56,9 +56,10 @@ class PostController extends Controller
                 'slug' => Str::random(12),
             ]);
 
-            foreach ($request->file('image') as $image) {
-                $post->addMedia($image)
-                    ->toMediaCollection('posts');
+            if ($request->hasFile('image')) {
+                $fileAdders = $post->addMultipleMediaFromRequest(['image'])->each(function ($fileAdder) {
+                    $fileAdder->toMediaCollection('posts');
+                });
             }
 
             DB::commit();
