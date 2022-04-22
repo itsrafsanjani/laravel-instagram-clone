@@ -17,13 +17,9 @@
                                 </label>
 
                                 <div class="col-md-6">
-                                    <input id="login"
-                                           type="text"
-                                           class="form-control {{ $errors->has('username') || $errors->has('email') ? 'is-invalid' : '' }}"
-                                           name="login"
-                                           value="{{ old('username') ?: old('email') }}"
-                                           autofocus
-                                           required>
+                                    <input id="login" type="text"
+                                        class="form-control {{ $errors->has('username') || $errors->has('email') ? 'is-invalid' : '' }}"
+                                        name="login" value="{{ old('username') ?: old('email') }}" autofocus required>
 
                                     @if ($errors->has('username') || $errors->has('email'))
                                         <span class="invalid-feedback">
@@ -40,15 +36,14 @@
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                           class="form-control  @error('password') is-invalid @enderror"
-                                           name="password"
-                                           autocomplete="current-password"
-                                           required>
+                                        class="form-control  @error('password') is-invalid @enderror" name="password"
+                                        autocomplete="current-password" required>
 
-                                    @error('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    @error('password')
+                                        )
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
                                 </div>
                             </div>
@@ -56,8 +51,8 @@
                             <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember"
-                                               id="remember" {{ old('remember') ? 'checked' : '' }} checked>
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
+                                            {{ old('remember') ? 'checked' : '' }} checked>
 
                                         <label class="form-check-label" for="remember">
                                             {{ __('Remember Me') }}
@@ -80,9 +75,46 @@
                                 </div>
                             </div>
                         </form>
+
+                        @if (config('app.debug'))
+                            <div class="mx-auto mt-5 text-center">
+                                <table class="table table-bordered mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Admin Account</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm" onclick="autoFillAdmin()">Copy
+                                                    credentials</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>User Account</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm" onclick="autoFillUser()">Copy
+                                                    credentials</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        function autoFillAdmin() {
+            $('#login').val('admin');
+            $('#password').val('password');
+        }
+
+        function autoFillUser() {
+            $('#login').val('user');
+            $('#password').val('password');
+        }
+    </script>
+@endpush
