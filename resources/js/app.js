@@ -326,12 +326,12 @@ $(function () {
                 <div class="container-fluid d-flex justify-content-between align-items-center">
                 <div class="container">
                     <div class="d-md-flex text-center justify-content-between">
-                        <span class="text-muted d-md-block d-none">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a> by <a href="//github.com/itsrafsanjani" target="_blank">Md Rafsan Jani Rafin</a>.</span>
+                        <span class="text-muted d-md-block d-none">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a> by <a href="${ process.env.MIX_GITHUB_PROFILE_LINK }" target="_blank">Md Rafsan Jani Rafin</a>.</span>
                         <span class="d-md-none d-block">
                             <span class="text-muted">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a></span><br>
-                            <span>by <a href="//github.com/itsrafsanjani" target="_blank">Md Rafsan Jani Rafin</a>.</span>
+                            <span>by <a href="${ process.env.MIX_GITHUB_PROFILE_LINK }" target="_blank">Md Rafsan Jani Rafin</a>.</span>
                         </span>
-                        <span class="text-muted">Source code <a href="//github.com/itsrafsanjani/laravel-instagram-clone" target="_blank">
+                        <span class="text-muted">Source code <a href="${ process.env.MIX_GITHUB_REPO_LINK }" target="_blank">
                                 <i class="fab fa-github"></i> Github</a>.</span>
                     </div>
                 </div>
