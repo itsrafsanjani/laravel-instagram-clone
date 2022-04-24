@@ -38,7 +38,7 @@
 
                                     <div class="form-group">
                                         <label for="image">{{ __('Images') }}</label>
-                                        <input class="form-control @error('image') is-invalid @enderror"
+                                        <input class="form-control @error('image') is-invalid @enderror @error('image.*') is-invalid @enderror"
                                                id="image"
                                                name="image[]"
                                                accept="image/*"
@@ -48,6 +48,12 @@
 
                                         @error('image')
                                         <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
+                                        @error('image.*')
+                                        <span class="invalid-feedback d-block" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
