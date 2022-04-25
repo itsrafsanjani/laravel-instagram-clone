@@ -20,15 +20,15 @@ class UnfollowedListener
     /**
      * Handle the event.
      *
-     * @param Followed $event
+     * @param Unfollowed $event
      * @return \Illuminate\Http\JsonResponse
      */
     public function handle(Unfollowed $event)
     {
-        $user = User::findOrFail($event->followingId);
-
-        $user->notifications()
-            ->where('type', 'App\Notifications\FollowedNotification')
-            ->where('data->follower->id', $event->followerId)->delete();
+        // $user = User::findOrFail($event->followingId);
+        //
+        // $user->notifications()
+        //     ->where('type', 'App\Notifications\FollowedNotification')
+        //     ->where('data->follower->id', $event->followerId)->delete();
     }
 }

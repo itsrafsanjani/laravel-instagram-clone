@@ -7,10 +7,12 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Jamesmills\LaravelNotificationRateLimit\RateLimitedNotification;
+use Jamesmills\LaravelNotificationRateLimit\ShouldRateLimit;
 
-class FollowedNotification extends Notification implements ShouldQueue
+class FollowedNotification extends Notification implements ShouldQueue, ShouldRateLimit
 {
-    use Queueable;
+    use Queueable, RateLimitedNotification;
 
     /**
      * @var User|User[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model

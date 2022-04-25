@@ -17,6 +17,7 @@
         "fideloper/proxy": "^4.0",
         "haruncpi/laravel-user-activity": "^1.0",
         "intervention/image": "^2.4",
+        "jamesmills/laravel-notification-rate-limit": "^1.1",
         "jordanmiguel/laravel-popular": "1.0.10",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",

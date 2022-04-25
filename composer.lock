@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f0c44acfc3857802d3ffea6856adcfd",
+    "content-hash": "0a73b48fa6a7068ae2434b775088717c",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -1723,6 +1723,65 @@
                 }
             ],
             "time": "2021-12-16T16:49:26+00:00"
+        },
+        {
+            "name": "jamesmills/laravel-notification-rate-limit",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jamesmills/laravel-notification-rate-limit.git",
+                "reference": "0b1941ef2fcd2eb1396efe80f39fbecd7c9b6b9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jamesmills/laravel-notification-rate-limit/zipball/0b1941ef2fcd2eb1396efe80f39fbecd7c9b6b9b",
+                "reference": "0b1941ef2fcd2eb1396efe80f39fbecd7c9b6b9b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.17",
+                "phpunit/phpunit": "^9.5",
+                "timacdonald/log-fake": "^1.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jamesmills\\LaravelNotificationRateLimit\\LaravelNotificationRateLimitServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jamesmills\\LaravelNotificationRateLimit\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Mills",
+                    "email": "james@jamesmills.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Rate limiter to avoid flooding users with duplicate notifications.",
+            "homepage": "https://github.com/jamesmills/laravel-notification-rate-limit",
+            "keywords": [
+                "jamesmills",
+                "laravel-notification-rate-limit"
+            ],
+            "support": {
+                "issues": "https://github.com/jamesmills/laravel-notification-rate-limit/issues",
+                "source": "https://github.com/jamesmills/laravel-notification-rate-limit/tree/1.1.0"
+            },
+            "time": "2021-05-20T09:52:45+00:00"
         },
         {
             "name": "jordanmiguel/laravel-popular",
