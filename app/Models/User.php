@@ -8,7 +8,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Overtrue\LaravelFollow\Followable;
+use Overtrue\LaravelFollow\Traits\Followable;
+use Overtrue\LaravelFollow\Traits\Follower;
 use Overtrue\LaravelLike\Traits\Liker;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
@@ -18,7 +19,7 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class User extends Authenticatable implements MustVerifyEmail, Commentator, HasMedia
 {
-    use HasFactory, Notifiable, HasEagerLimit, Followable, Liker, InteractsWithMedia;
+    use HasFactory, Notifiable, HasEagerLimit, Followable, Follower, Liker, InteractsWithMedia;
 
     const PAGINATE_COUNT = 20;
 

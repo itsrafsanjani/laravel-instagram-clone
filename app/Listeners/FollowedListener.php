@@ -28,8 +28,8 @@ class FollowedListener
      */
     public function handle(Followed $event)
     {
-        $user = User::findOrFail($event->followingId);
+        $user = User::findOrFail($event->followable_id);
 
-        $user->notify(new FollowedNotification($event->followingId, $event->followerId));
+        $user->notify(new FollowedNotification($event->followable_id, $event->follower_id));
     }
 }
