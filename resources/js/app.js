@@ -322,7 +322,7 @@ $(function () {
                     data: {
                         _token: _token
                     },
-                    success: function ({ data }) {
+                    success: function (data) {
                         $('#comment-' + commentId).remove();
                         $.niceToast.success(data.message);
                     },
