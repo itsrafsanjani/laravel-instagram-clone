@@ -102,14 +102,4 @@ class PostDataTable extends DataTable
                 ->addClass('text-center'),
         ];
     }
-
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
-    protected function filename()
-    {
-        return 'Post_' . date('YmdHis');
-    }
 }

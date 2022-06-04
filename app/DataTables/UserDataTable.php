@@ -94,14 +94,4 @@ class UserDataTable extends DataTable
                 ->addClass('text-center'),
         ];
     }
-
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
-    protected function filename()
-    {
-        return 'Users_' . date('YmdHis');
-    }
 }
