@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import {isEmpty} from "lodash";
+
 require('./bootstrap');
 require('./plugins/jquery.jscroll.min');
 require('owl.carousel');
@@ -220,38 +222,47 @@ $(function () {
             $(document).on('keyup', '.commentTextarea', function (e) {
                 e.preventDefault();
 
-                if (e.keyCode === 13 && !e.shiftKey) {
-                    let postSlug = $(this).data('postSlug');
-                    let comment = $('#comment-' + postSlug).val();
-                    let _url = '/comments';
-                    let _token = $('meta[name="csrf-token"]').attr('content');
-                    let commentAppend = window.user.commentAppend;
+                let postSlug = $(this).data('postSlug');
+                let comment = $('#comment-' + postSlug).val();
 
-                    $.ajax({
-                        url: _url,
-                        type: "POST",
-                        data: {
-                            post_slug: postSlug,
-                            comment: comment,
-                            _token: _token
-                        },
-                        success: function (data) {
-                            if (commentAppend) {
-                                $('#commentList-' + postSlug).append(data);
-                            } else {
-                                $('#commentList-' + postSlug).prepend(data);
+                comment = comment.trim();
+                if (comment.length > 0) {
+                    $('.commentButton').removeAttr('disabled');
+                    if (e.keyCode === 13 && !e.shiftKey) {
+                        let _url = '/comments';
+                        let _token = $('meta[name="csrf-token"]').attr('content');
+                        let commentAppend = window.user.commentAppend;
+
+                        $.ajax({
+                            url: _url,
+                            type: "POST",
+                            data: {
+                                post_slug: postSlug,
+                                comment: comment,
+                                _token: _token
+                            },
+                            success: function (data) {
+                                if (commentAppend) {
+                                    $('#commentList-' + postSlug).append(data);
+                                } else {
+                                    $('#commentList-' + postSlug).prepend(data);
+                                }
+
+                                $('#comment-' + postSlug).val('');
+
+                                autosize.destroy(document.querySelectorAll('textarea'));
+
+                                $('.commentButton').attr('disabled', 'disabled');
+
+                                $.niceToast.success('Comment added successfully!');
+                            },
+                            error: function (response) {
+                                $.niceToast.error(response.responseJSON.message);
                             }
-
-                            $('#comment-' + postSlug).val('');
-
-                            autosize.destroy(document.querySelectorAll('textarea'));
-
-                            $.niceToast.success('Comment added successfully!');
-                        },
-                        error: function (response) {
-                            $.niceToast.error(response.responseJSON.message);
-                        }
-                    });
+                        });
+                    }
+                } else {
+                    $('.commentButton').attr('disabled', 'disabled');
                 }
             });
 
@@ -282,6 +293,8 @@ $(function () {
                         $('#comment-' + postSlug).val('');
 
                         autosize.destroy(document.querySelectorAll('textarea'));
+
+                        $('.commentButton').attr('disabled', 'disabled');
 
                         $.niceToast.success('Comment added successfully!');
                     },

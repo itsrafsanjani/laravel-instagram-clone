@@ -19,7 +19,7 @@
 
                 <button class="btn btn-primary d-lg-none ml-md-3 ml-1 commentButton"
                         data-post-slug="{{ $post->slug }}"
-                        data-request-is="{{ request()->routeIs('posts.index') }}">
+                        data-request-is="{{ request()->routeIs('posts.index') }}" disabled>
                     <i class="fas fa-angle-right"></i>
                 </button>
             </div>
