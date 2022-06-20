@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Login') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login') }}" id="loginForm">
                             @csrf
 
                             <div class="form-group row">
@@ -76,28 +76,30 @@
                             </div>
                         </form>
 
-                        @if (config('app.debug'))
-                            <div class="mx-auto mt-5 text-center">
-                                <table class="table table-bordered mb-0">
-                                    <tbody>
-                                        <tr>
-                                            <td>Admin Account</td>
-                                            <td>
-                                                <button class="btn btn-primary btn-sm" onclick="autoFillAdmin()">Copy
-                                                    credentials</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>User Account</td>
-                                            <td>
-                                                <button class="btn btn-primary btn-sm" onclick="autoFillUser()">Copy
-                                                    credentials</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        @endif
+                        @env('local')
+                        <div class="mx-auto mt-5 text-center">
+                            <table class="table table-bordered mb-0">
+                                <tbody>
+                                    <tr>
+                                        <td>Admin Account</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm" onclick="autoFillAdmin()">
+                                                {{ __('Login as Admin') }}
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Account</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm" onclick="autoFillUser()">
+                                                {{ __('Login as User') }}
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        @endenv
                     </div>
                 </div>
             </div>
@@ -105,16 +107,20 @@
     </div>
 @endsection
 
+@env('local')
 @push('scripts')
     <script>
         function autoFillAdmin() {
             $('#login').val('admin');
             $('#password').val('password');
+            $('#loginForm').submit();
         }
 
         function autoFillUser() {
             $('#login').val('user');
             $('#password').val('password');
+            $('#loginForm').submit();
         }
     </script>
 @endpush
+@endenv
