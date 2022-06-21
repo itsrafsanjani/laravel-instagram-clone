@@ -49,18 +49,20 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         try {
-            DB::beginTransaction();
-            $post = Post::create([
-                'caption' => $request->caption,
-                'user_id' => auth()->id(),
-                'slug' => Str::random(12),
-            ]);
+            DB::transaction(function () use ($request) {
+                $post = Post::create([
+                    'caption' => $request->caption,
+                    'user_id' => auth()->id(),
+                    'slug' => Str::random(12),
+                ]);
 
-            if ($request->hasFile('image')) {
-                $fileAdders = $post->addMultipleMediaFromRequest(['image'])->each(function ($fileAdder) {
-                    $fileAdder->toMediaCollection('posts');
-                });
-            }
+                if ($request->hasFile('image')) {
+                    $post->addMultipleMediaFromRequest(['image'])->each(function ($fileAdder) {
+                        $fileAdder->toMediaCollection('posts');
+                    });
+                }
+            });
+
 
             DB::commit();
 
@@ -73,54 +75,54 @@ class PostController extends Controller
             return $exception;
         }
 
-//        $data = request()->validate([
-//            'caption' => 'required|max:255',
-//            'image' => 'required|image',
-//        ]);
+        //        $data = request()->validate([
+        //            'caption' => 'required|max:255',
+        //            'image' => 'required|image',
+        //        ]);
         /**
          * Intervention Image
          */
-//        $imagePath = request('image')->store('uploads', 'public');
-//
-//        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1080, 1080, function ($constraint) {
-//            $constraint->upsize();
-//        });
-//        $image->save();
+        //        $imagePath = request('image')->store('uploads', 'public');
+        //
+        //        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1080, 1080, function ($constraint) {
+        //            $constraint->upsize();
+        //        });
+        //        $image->save();
 
-//        /**
-//         * Cloudinary
-//         */
-//        $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
-//            'folder' => 'laragram/images',
-//            'transformation' => [
-//                'background' => 'white',
-//                'height' => 1080,
-//                'width' => 1080,
-//                'crop' => 'pad'
-//            ]
-//        ])->getSecurePath();
-//
-//        $client = new SightengineClient(config('services.sightengine.user'), config('services.sightengine.secret'));
-//        $output = $client->check(['nudity'])->set_url($imagePath);
-//
-//        $user = auth()->user();
-//        if ($output->nudity->safe > 0.5 && $output->nudity->raw < 0.1) {
-//            $user->posts()->create([
-//                'slug' => Str::random(12),
-//                'caption' => $data['caption'],
-//                'image' => $imagePath,
-//            ]);
-//
-//            return redirect()->route('users.show', $user)->with([
-//                'status' => 'success',
-//                'message' => 'Post uploaded successfully!'
-//            ]);
-//        }
-//
-//        return redirect()->route('users.show', $user)->with([
-//            'status' => 'error',
-//            'message' => 'Your image contains inappropriate content!'
-//        ]);
+        //        /**
+        //         * Cloudinary
+        //         */
+        //        $imagePath = Cloudinary::upload($request->file('image')->getRealPath(), [
+        //            'folder' => 'laragram/images',
+        //            'transformation' => [
+        //                'background' => 'white',
+        //                'height' => 1080,
+        //                'width' => 1080,
+        //                'crop' => 'pad'
+        //            ]
+        //        ])->getSecurePath();
+        //
+        //        $client = new SightengineClient(config('services.sightengine.user'), config('services.sightengine.secret'));
+        //        $output = $client->check(['nudity'])->set_url($imagePath);
+        //
+        //        $user = auth()->user();
+        //        if ($output->nudity->safe > 0.5 && $output->nudity->raw < 0.1) {
+        //            $user->posts()->create([
+        //                'slug' => Str::random(12),
+        //                'caption' => $data['caption'],
+        //                'image' => $imagePath,
+        //            ]);
+        //
+        //            return redirect()->route('users.show', $user)->with([
+        //                'status' => 'success',
+        //                'message' => 'Post uploaded successfully!'
+        //            ]);
+        //        }
+        //
+        //        return redirect()->route('users.show', $user)->with([
+        //            'status' => 'error',
+        //            'message' => 'Your image contains inappropriate content!'
+        //        ]);
     }
 
     public function show(Post $post)
