@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Observers\UserObserver;
 use BeyondCode\Comments\Contracts\Commentator;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,9 +18,15 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class User extends Authenticatable implements MustVerifyEmail, Commentator, HasMedia
 {
-    use HasFactory, Notifiable, HasEagerLimit, Followable, Follower, Liker, InteractsWithMedia;
+    use HasFactory;
+    use Notifiable;
+    use HasEagerLimit;
+    use Followable;
+    use Follower;
+    use Liker;
+    use InteractsWithMedia;
 
-    const PAGINATE_COUNT = 20;
+    public const PAGINATE_COUNT = 20;
 
     protected $with = ['media'];
 

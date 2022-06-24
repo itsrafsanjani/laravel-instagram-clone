@@ -12,7 +12,8 @@ use Jamesmills\LaravelNotificationRateLimit\ShouldRateLimit;
 
 class FollowedNotification extends Notification implements ShouldQueue, ShouldRateLimit
 {
-    use Queueable, RateLimitedNotification;
+    use Queueable;
+    use RateLimitedNotification;
 
     /**
      * @var User|User[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
@@ -53,7 +54,7 @@ class FollowedNotification extends Notification implements ShouldQueue, ShouldRa
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        return (new MailMessage())
                     ->greeting('Dear, ' . $this->followingUser->name)
                     ->line($this->followerUser->name . ' just followed you!')
                     ->action('Notification Action', url('/'))

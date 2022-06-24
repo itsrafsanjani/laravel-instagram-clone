@@ -6,8 +6,6 @@ use App\Models\Post;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class PostDataTable extends DataTable
@@ -22,26 +20,26 @@ class PostDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('user', function(Post $post) {
+            ->addColumn('user', function (Post $post) {
                 return '<a href="' . route('users.show', $post->user) .'">'. $post->user->name .'</a>';
             })
-            ->addColumn('action', function($row) {
+            ->addColumn('action', function ($row) {
                 $btn = '<a href="javascript:void(0)" class="edit btn btn-info btn-sm">View</a>';
                 $btn .= '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Edit</a>';
                 $btn .= '<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Delete</a>';
                 return $btn;
             })
-            ->addColumn('thumb', function(Post $post) {
+            ->addColumn('thumb', function (Post $post) {
                 return '<img src="' . $post->getFirstMediaUrl('posts', 'thumb') .'" height="50px" />';
             })
             ->rawColumns(['user', 'action', 'thumb'])
-            ->editColumn('caption', function(Post $post) {
+            ->editColumn('caption', function (Post $post) {
                 return Str::limit($post->caption, 15);
             })
-            ->editColumn('created_at', function(Post $post) {
+            ->editColumn('created_at', function (Post $post) {
                 return $post->created_at->format('g:i A, d M Y');
             })
-            ->editColumn('updated_at', function(Post $post) {
+            ->editColumn('updated_at', function (Post $post) {
                 return $post->updated_at->format('g:i A, d M Y');
             });
     }

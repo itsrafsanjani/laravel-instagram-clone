@@ -68,7 +68,7 @@ class UserController extends Controller
             $info = [
                 'status' => 'success',
             ];
-        } else if (Carbon::parse($user->username_last_updated_at)->addDays(14) < now()) {
+        } elseif (Carbon::parse($user->username_last_updated_at)->addDays(14) < now()) {
             $user->update($request->validated() + [
                     $request->password
                 ]);
@@ -81,7 +81,7 @@ class UserController extends Controller
                     'status' => 'success',
                 ];
             }
-        } else if (Carbon::parse($user->username_last_updated_at)->addDays(14) > now()) {
+        } elseif (Carbon::parse($user->username_last_updated_at)->addDays(14) > now()) {
             $user->update($request->safe()->except('username') + [
                     $request->password
                 ]);

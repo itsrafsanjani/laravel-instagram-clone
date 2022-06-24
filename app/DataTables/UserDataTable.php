@@ -5,8 +5,6 @@ namespace App\DataTables;
 use App\Models\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class UserDataTable extends DataTable
@@ -21,20 +19,20 @@ class UserDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', function($row){
+            ->addColumn('action', function ($row) {
                 $btn = '<a href="javascript:void(0)" class="edit btn btn-info btn-sm">View</a>';
                 $btn .= '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Edit</a>';
                 $btn .= '<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Delete</a>';
                 return $btn;
             })
-            ->addColumn('avatar', function(User $user){
+            ->addColumn('avatar', function (User $user) {
                 return '<img src="' . $user->avatar .'" height="50px" />';
             })
             ->rawColumns(['avatar', 'action'])
-            ->editColumn('created_at', function(User $user) {
+            ->editColumn('created_at', function (User $user) {
                 return $user->created_at->format('g:i A, d M Y');
             })
-            ->editColumn('updated_at', function(User $user) {
+            ->editColumn('updated_at', function (User $user) {
                 return $user->updated_at->format('g:i A, d M Y');
             });
     }

@@ -8,7 +8,8 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Comment extends Model
 {
-    use HasFactory, HasEagerLimit;
+    use HasFactory;
+    use HasEagerLimit;
 
     protected $fillable = [
         'comment',

@@ -4,8 +4,6 @@ namespace App\Listeners;
 
 use App\Models\User;
 use App\Notifications\FollowedNotification;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Overtrue\LaravelFollow\Events\Followed;
 
 class FollowedListener
