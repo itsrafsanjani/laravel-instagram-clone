@@ -5,6 +5,7 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PurchaseStatusController;
+use App\Http\Controllers\ScreenshotController;
 use App\Http\Controllers\UserController;
 use App\Mail\NewUserWelcomeMail;
 use Illuminate\Support\Facades\Auth;
@@ -76,6 +77,8 @@ Route::group([], function () {
         Route::get('/explore', [PostController::class, 'explore'])->name('posts.explore');
 
         Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+
+        Route::resource('/screenshots', ScreenshotController::class);
 
         Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function () {
             Route::get('/', function () {

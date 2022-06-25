@@ -26,6 +26,7 @@
         "overtrue/laravel-like": "^5.0",
         "rachidlaasri/laravel-installer": "^4.1",
         "sightengine/client-php": "dev-master",
+        "spatie/browsershot": "^3.56",
         "spatie/laravel-medialibrary": "^10.3",
         "spatie/laravel-pjax": "^2.2",
         "staudenmeir/eloquent-eager-limit": "^1.7",
