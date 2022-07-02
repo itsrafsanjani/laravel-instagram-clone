@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\PurchaseStatus;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -20,6 +21,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
         \Spatie\Pjax\Middleware\FilterIfPjax::class,
+        // PurchaseStatus::class,
     ];
 
     /**
