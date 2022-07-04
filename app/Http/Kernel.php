@@ -21,7 +21,6 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
         \Spatie\Pjax\Middleware\FilterIfPjax::class,
-        // PurchaseStatus::class,
     ];
 
     /**
@@ -66,6 +65,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'purchase.status' => \App\Http\Middleware\PurchaseStatus::class,
         'admin' => \App\Http\Middleware\Admin::class,
+        'purchase' => PurchaseStatus::class,
     ];
 
     /**

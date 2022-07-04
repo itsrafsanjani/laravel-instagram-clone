@@ -22,10 +22,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/purchase', [PurchaseStatusController::class, 'index'])->name('purchase.index');
-// Route::post('/purchase', [PurchaseStatusController::class, 'purchaseCode'])->name('purchase.purchase_code');
+Route::get('/purchase', [PurchaseStatusController::class, 'index'])->name('purchase.index');
+Route::post('/purchase', [PurchaseStatusController::class, 'purchaseCode'])->name('purchase.purchase_code');
 
-Route::group([], function () {
+Route::group(['middleware' => 'purchase'], function () {
     Auth::routes(['verify' => true]);
 
     Route::get('/notices/username', function () {
