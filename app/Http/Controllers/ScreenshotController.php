@@ -12,11 +12,11 @@ class ScreenshotController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        return view('screenshots.create');
     }
 
     /**
@@ -40,6 +40,8 @@ class ScreenshotController extends Controller
     {
         $request->validate([
             'url' => ['required', 'url'],
+            'width' => ['required', 'integer', 'max:1920'],
+            'height' => ['required', 'integer', 'max:1080'],
         ]);
 
         $imageNameAndPath = 'screenshots/' . Str::uuid() . '.jpg';
@@ -47,9 +49,13 @@ class ScreenshotController extends Controller
         $imageContents = Browsershot::url($request->url)
             ->setNodeBinary('C:\Progra~1\nodejs\node.exe')
             ->setScreenshotType('jpeg', 100)
+            ->windowSize($request->width, $request->height)
             ->screenshot();
 
-        if (! Storage::put($imageNameAndPath, $imageContents)) {
+        Storage::put($imageNameAndPath, $imageContents);
+        $path = Storage::url($imageNameAndPath);
+
+        if (! $path) {
             return back()->with([
                 'status' => 'error',
                 'message' => 'Screenshot failed!'
@@ -58,7 +64,8 @@ class ScreenshotController extends Controller
 
         return back()->with([
             'status' => 'success',
-            'message' => 'Screenshot successfully!'
+            'message' => 'Screenshot successfully!',
+            'link' => $path,
         ]);
     }
 
