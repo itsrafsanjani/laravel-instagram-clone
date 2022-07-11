@@ -18,7 +18,7 @@
         "itsgoingd/clockwork": "^5.1",
         "jamesmills/laravel-notification-rate-limit": "dev-master",
         "jordanmiguel/laravel-popular": "1.0.10",
-        "laravel/framework": "^9.0",
+        "laravel/framework": "^9.19",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "munafio/chatify": "dev-master",
