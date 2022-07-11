@@ -1,0 +1,13 @@
+{
+  "resources/js/app.js": {
+    "file": "assets/app.818a3c9a.js",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app.e12f33c9.css"
+    ],
+    "assets": [
+      "assets/owl.video.play.04360456.png"
+    ]
+  }
+}
