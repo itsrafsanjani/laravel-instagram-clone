@@ -19,9 +19,6 @@
     <link rel="preconnect" href="//fonts.googleapis.com">
     <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
     <link href="//fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    {{-- PJAX Laravel Mix Cache Busting --}}
-    <meta http-equiv="x-pjax-version" content="{{ mix('css/app.css') }}">
     <!-- Styles -->
     <link href="//cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet"/>
 </head>
