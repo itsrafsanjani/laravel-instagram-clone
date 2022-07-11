@@ -42,14 +42,18 @@
         commentAppend: {{ json_encode(request()->routeIs('posts.index')) }},
         currentPageRouteName: "{{ Route::currentRouteName() }}",
         currentPageUrl: "{{ Route::currentRouteName() }}",
+        notification:
+        @if (session('message'))
+            @json([
+                "type" => session('status'),
+                "message" => session('message')
+            ])
+        @else
+            null
+        @endif
     }
 </script>
 @vite('resources/js/app.js')
 @stack('scripts')
-<script>
-    @if (session('message'))
-        $.niceToast.{{ session('status') }}('{{ session('message') }}');
-    @endif
-</script>
 </body>
 </html>

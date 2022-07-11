@@ -11,7 +11,6 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.min.css';
 import 'moment';
 import 'jquery-pjax';
-import './plugins/nice-toast-js.min';
 
 import autosize from 'autosize';
 import ClipboardJS from 'clipboard';
@@ -19,12 +18,19 @@ import { initializeApp } from 'firebase/app';
 import { getAnalytics } from "firebase/analytics";
 import NProgress from 'nprogress';
 
-import '../sass/app.scss';
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
 
-$.niceToast.setup({
-    position: "top-right",
-    timeout: 5000,
+// Create an instance of Notyf
+const notyf = new Notyf({
+    position: {
+        x: 'right',
+        y: 'top',
+    },
+    dismissible: true,
 });
+
+import '../sass/app.scss';
 
 // NProgress
 $(document).on('pjax:start', function () {
@@ -55,12 +61,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 getAnalytics(app);
-
-// nice-toast-js setup
-$.niceToast.setup({
-    position: "top-right",
-    timeout: 5000,
-});
 
 // window.Vue = require('vue');
 
@@ -181,10 +181,10 @@ $(function () {
                     },
                     success: function ({ data }) {
                         likeCount.text(data.likers_count);
-                        // $.niceToast.success(data.message);
+                        // notyf.success(data.message);
                     },
                     error: function (response) {
-                        $.niceToast.error(response.responseJSON.message);
+                        notyf.error(response.responseJSON.message);
                     }
                 });
             });
@@ -215,10 +215,10 @@ $(function () {
                     success: function ({ data }) {
                         $('#followersCount').text(data.followers_count)
 
-                        // $.niceToast.success(data.message);
+                        // notyf.success(data.message);
                     },
                     error: function (response) {
-                        $.niceToast.error(response.responseJSON.message);
+                        notyf.error(response.responseJSON.message);
                     }
                 });
             });
@@ -259,10 +259,10 @@ $(function () {
 
                                 $('.commentButton').attr('disabled', 'disabled');
 
-                                $.niceToast.success('Comment added successfully!');
+                                notyf.success('Comment added successfully!');
                             },
                             error: function (response) {
-                                $.niceToast.error(response.responseJSON.message);
+                                notyf.error(response.responseJSON.message);
                             }
                         });
                     }
@@ -301,10 +301,10 @@ $(function () {
 
                         $('.commentButton').attr('disabled', 'disabled');
 
-                        $.niceToast.success('Comment added successfully!');
+                        notyf.success('Comment added successfully!');
                     },
                     error: function (response) {
-                        $.niceToast.error(response.responseJSON.message);
+                        notyf.error(response.responseJSON.message);
                     }
                 });
             });
@@ -329,10 +329,10 @@ $(function () {
                     },
                     success: function (data) {
                         $('#comment-' + commentId).remove();
-                        $.niceToast.success(data.message);
+                        notyf.success(data.message);
                     },
                     error: function (response) {
-                        $.niceToast.error(response.responseJSON.message);
+                        notyf.error(response.responseJSON.message);
                     }
                 });
             });
@@ -376,8 +376,16 @@ $(function () {
                     timestamp: Date.now()
                 }));
 
-                $.niceToast.success('Footnote hidden for 30 days!');
+                notyf.success('Footnote hidden for 30 days!');
             })
         })
+
+        if (window.user.notification !== null) {
+            if (window.user.notification.type === 'success') {
+                notyf.success(window.user.notification.message)
+            } else {
+                notyf.error(window.user.notification.message)
+            }
+        }
     }
 });
