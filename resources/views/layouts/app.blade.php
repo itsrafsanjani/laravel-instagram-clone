@@ -23,7 +23,7 @@
     {{-- PJAX Laravel Mix Cache Busting --}}
     <meta http-equiv="x-pjax-version" content="{{ mix('css/app.css') }}">
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    @vite('resources/css/app.css')
     <link href="//cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet"/>
 </head>
 <body>
@@ -45,7 +45,7 @@
         currentPageUrl: "{{ Route::currentRouteName() }}",
     }
 </script>
-<script src="{{ mix('js/app.js') }}"></script>
+@vite('resources/js/app.js')
 @stack('scripts')
 <script>
     $.niceToast.setup({
