@@ -23,7 +23,6 @@
     {{-- PJAX Laravel Mix Cache Busting --}}
     <meta http-equiv="x-pjax-version" content="{{ mix('css/app.css') }}">
     <!-- Styles -->
-    @vite('resources/css/app.css')
     <link href="//cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet"/>
 </head>
 <body>
@@ -48,11 +47,6 @@
 @vite('resources/js/app.js')
 @stack('scripts')
 <script>
-    $.niceToast.setup({
-        position: "top-right",
-        timeout: 5000,
-    });
-
     @if (session('message'))
         $.niceToast.{{ session('status') }}('{{ session('message') }}');
     @endif

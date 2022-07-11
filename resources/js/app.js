@@ -4,8 +4,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import {isEmpty} from "lodash";
-
 import './bootstrap';
 import './plugins/jquery.jscroll.min';
 import 'owl.carousel';
@@ -20,6 +18,13 @@ import ClipboardJS from 'clipboard';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from "firebase/analytics";
 import NProgress from 'nprogress';
+
+import '../sass/app.scss';
+
+$.niceToast.setup({
+    position: "top-right",
+    timeout: 5000,
+});
 
 // NProgress
 $(document).on('pjax:start', function () {
