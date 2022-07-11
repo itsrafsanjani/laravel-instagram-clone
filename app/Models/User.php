@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use AshAllenDesign\ShortURL\Models\ShortURL;
 use BeyondCode\Comments\Contracts\Commentator;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -111,5 +112,10 @@ class User extends Authenticatable implements MustVerifyEmail, Commentator, HasM
         $this->addMediaConversion('thumb')
             ->fit(Manipulations::FIT_CROP, 400, 400)
             ->sharpen(10);
+    }
+
+    public function shortUrls()
+    {
+        return $this->belongsToMany(ShortURL::class, 'short_url_user', 'user_id', 'short_url_id');
     }
 }

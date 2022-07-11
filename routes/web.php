@@ -6,6 +6,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PurchaseStatusController;
 use App\Http\Controllers\ScreenshotController;
+use App\Http\Controllers\ShortUrlController;
 use App\Http\Controllers\UserController;
 use App\Mail\NewUserWelcomeMail;
 use Illuminate\Support\Facades\Auth;
@@ -79,6 +80,8 @@ Route::group(['middleware' => 'purchase'], function () {
         Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
 
         Route::resource('/screenshots', ScreenshotController::class);
+
+        Route::resource('/short-urls', ShortUrlController::class)->except(['edit', 'update']);
 
         Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function () {
             Route::get('/', function () {
