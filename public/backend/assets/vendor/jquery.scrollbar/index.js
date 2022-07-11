@@ -1,3 +1,3 @@
-require('./jquery.scrollbar');
+import './jquery.scrollbar';
 module.exports = 'jQueryScrollbar';
 

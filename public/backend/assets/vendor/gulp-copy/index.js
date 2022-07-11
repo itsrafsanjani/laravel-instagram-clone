@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('./lib/gulp-copy');
+import exports from './lib/gulp-copy';

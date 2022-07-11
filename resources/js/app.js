@@ -6,14 +6,14 @@
 
 import {isEmpty} from "lodash";
 
-require('./bootstrap');
-require('./plugins/jquery.jscroll.min');
-require('owl.carousel');
-require('owl.carousel/dist/assets/owl.carousel.css');
-require('owl.carousel/dist/assets/owl.theme.default.min.css');
-require('moment');
-require('jquery-pjax');
-require('./plugins/nice-toast-js.min');
+import './bootstrap';
+import './plugins/jquery.jscroll.min';
+import 'owl.carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.min.css';
+import 'moment';
+import 'jquery-pjax';
+import './plugins/nice-toast-js.min';
 
 import autosize from 'autosize';
 import ClipboardJS from 'clipboard';
