@@ -13,6 +13,7 @@
         "ext-json": "*",
         "ext-pdo": "*",
         "artesaos/seotools": "^0.22",
+        "ashallendesign/short-url": "^7.0",
         "beyondcode/laravel-comments": "^1.3",
         "haruncpi/laravel-user-activity": "^1.0",
         "itsgoingd/clockwork": "^5.1",
