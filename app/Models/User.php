@@ -4,6 +4,7 @@ namespace App\Models;
 
 use AshAllenDesign\ShortURL\Models\ShortURL;
 use BeyondCode\Comments\Contracts\Commentator;
+use GetCandy\Base\Traits\GetCandyUser;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -26,6 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail, Commentator, HasM
     use Follower;
     use Liker;
     use InteractsWithMedia;
+    use GetCandyUser;
 
     public const PAGINATE_COUNT = 20;
 
