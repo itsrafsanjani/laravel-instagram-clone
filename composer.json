@@ -9,7 +9,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "ext-bcmath": "*",
         "ext-gd": "*",
+        "ext-gmp": "*",
         "ext-json": "*",
         "ext-pdo": "*",
         "artesaos/seotools": "^0.22",
