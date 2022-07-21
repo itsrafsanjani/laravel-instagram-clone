@@ -33,7 +33,11 @@ class PostController extends Controller
             ->take(10)
             ->get();
 
-        $suggestedPosts = Post::with('media', 'user', 'comments', 'comments.commentator')->popularLast(Post::POPULAR_BY_DAY)->paginate(Post::PAGINATE_COUNT);
+        $suggestedPosts = Post::with([
+            'media', 'user.media', 'likers.media', 'comments' => function ($query) {
+                $query->with('commentator')->latest()->limit(2);
+            }
+        ])->popularLast(Post::POPULAR_BY_DAY)->paginate(Post::PAGINATE_COUNT);
         if ($posts->count() > 0) {
             $suggestedPosts = [];
         }
