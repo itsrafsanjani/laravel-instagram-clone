@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\PostDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -83,6 +83,15 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        if (!request()->expectsJson()) {
+            return redirect(route('users.show', auth()->user()));
+        }
+
+        return response()->json([
+            'data' => [],
+            'message' => 'Post deleted'
+        ]);
     }
 }

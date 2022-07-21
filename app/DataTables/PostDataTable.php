@@ -23,11 +23,11 @@ class PostDataTable extends DataTable
             ->addColumn('user', function (Post $post) {
                 return '<a href="' . route('users.show', $post->user) .'">'. $post->user->name .'</a>';
             })
-            ->addColumn('action', function ($row) {
-                $btn = '<a href="javascript:void(0)" class="edit btn btn-info btn-sm">View</a>';
-                $btn .= '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Edit</a>';
-                $btn .= '<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Delete</a>';
-                return $btn;
+            ->addColumn('action', function (Post $post) {
+                $btn = '<a href="javascript:void(0)" class="viewBtn btn btn-info btn-sm">View</a>';
+                $btn .= '<a href="javascript:void(0)" class="editBtn btn btn-primary btn-sm">Edit</a>';
+                $btn .= '<a href="javascript:void(0)" class="deleteBtn btn btn-danger btn-sm">Delete</a>';
+                return '<span data-slug = "' . $post->slug . '">' . $btn .'</span>';
             })
             ->addColumn('thumb', function (Post $post) {
                 return '<img src="' . $post->getFirstMediaUrl('posts', 'thumb') .'" height="50px" />';
