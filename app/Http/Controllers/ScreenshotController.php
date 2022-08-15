@@ -32,8 +32,9 @@ class ScreenshotController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return string
+     *
      * @throws \Spatie\Browsershot\Exceptions\CouldNotTakeBrowsershot
      */
     public function store(Request $request)
@@ -44,7 +45,7 @@ class ScreenshotController extends Controller
             'height' => ['required', 'integer', 'max:1080'],
         ]);
 
-        $imageNameAndPath = 'screenshots/' . Str::uuid() . '.jpg';
+        $imageNameAndPath = 'screenshots/'.Str::uuid().'.jpg';
 
         $imageContents = Browsershot::url($request->url)
             ->setNodeBinary('C:\Progra~1\nodejs\node.exe')
@@ -58,7 +59,7 @@ class ScreenshotController extends Controller
         if (! $path) {
             return back()->with([
                 'status' => 'error',
-                'message' => 'Screenshot failed!'
+                'message' => 'Screenshot failed!',
             ]);
         }
 

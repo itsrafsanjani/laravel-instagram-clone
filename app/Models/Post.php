@@ -15,14 +15,10 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Post extends Model implements HasMedia
 {
-    use HasFactory;
-    use HasComments;
-    use HasEagerLimit;
-    use Visitable;
-    use Likeable;
-    use InteractsWithMedia;
+    use HasFactory, HasComments, HasEagerLimit, Visitable, Likeable, InteractsWithMedia;
 
     public const PAGINATE_COUNT = 18;
+
     public const POPULAR_BY_DAY = 3;
 
     protected $guarded = [];

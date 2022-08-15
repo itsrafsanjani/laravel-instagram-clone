@@ -15,7 +15,7 @@ class FollowController extends Controller
             'message' => 'Success!',
             'data' => [
                 'followers_count' => $user->followers()->count(),
-            ]
+            ],
         ]);
     }
 }

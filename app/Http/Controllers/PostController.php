@@ -20,7 +20,7 @@ class PostController extends Controller
         $posts = Post::with([
             'media', 'user.media', 'likers.media', 'comments' => function ($query) {
                 $query->with('commentator')->latest()->limit(2);
-            }
+            },
         ])
             ->withCount(['comments', 'likers'])
             ->whereIn('user_id', $users)
@@ -36,7 +36,7 @@ class PostController extends Controller
         $suggestedPosts = Post::with([
             'media', 'user.media', 'likers.media', 'comments' => function ($query) {
                 $query->with('commentator')->latest()->limit(2);
-            }
+            },
         ])->popularLast(Post::POPULAR_BY_DAY)->paginate(Post::PAGINATE_COUNT);
         if ($posts->count() > 0) {
             $suggestedPosts = [];
@@ -67,15 +67,15 @@ class PostController extends Controller
                 }
             });
 
-
             DB::commit();
 
             return redirect()->route('users.show', auth()->user())->with([
                 'status' => 'success',
-                'message' => 'Post uploaded successfully!'
+                'message' => 'Post uploaded successfully!',
             ]);
         } catch (\Throwable $exception) {
             DB::rollBack();
+
             return $exception;
         }
 
@@ -144,7 +144,7 @@ class PostController extends Controller
         $post->load([
             'comments' => function ($query) {
                 $query->with('commentator', 'commentator')->latest();
-            }
+            },
         ])->loadCount('comments', 'likers');
 
         $post->visit();
@@ -157,7 +157,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $postImage = public_path('/storage/' . $post->image);
+        $postImage = public_path('/storage/'.$post->image);
 
         if (file_exists($postImage)) {
             @unlink($postImage);
@@ -174,9 +174,9 @@ class PostController extends Controller
 
         return response()->json([
             'data' => [
-                'likers_count' => $post->likers()->count()
+                'likers_count' => $post->likers()->count(),
             ],
-            'message' => 'Success!'
+            'message' => 'Success!',
         ]);
     }
 

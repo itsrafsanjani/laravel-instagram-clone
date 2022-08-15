@@ -12,7 +12,7 @@ class UserDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed  $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -23,10 +23,11 @@ class UserDataTable extends DataTable
                 $btn = '<a href="javascript:void(0)" class="edit btn btn-info btn-sm">View</a>';
                 $btn .= '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Edit</a>';
                 $btn .= '<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Delete</a>';
+
                 return $btn;
             })
             ->addColumn('avatar', function (User $user) {
-                return '<img src="' . $user->avatar .'" height="50px" />';
+                return '<img src="'.$user->avatar.'" height="50px" />';
             })
             ->rawColumns(['avatar', 'action'])
             ->editColumn('created_at', function (User $user) {
@@ -40,7 +41,7 @@ class UserDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\User $model
+     * @param  \App\User  $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(User $model)

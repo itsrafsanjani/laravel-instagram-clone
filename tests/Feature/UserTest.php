@@ -3,12 +3,13 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class UserTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * A basic test example.
      *
@@ -19,7 +20,7 @@ class UserTest extends TestCase
         $this->withoutExceptionHandling();
 
         $this->withoutMiddleware([
-            \App\Http\Middleware\PurchaseStatus::class
+            \App\Http\Middleware\PurchaseStatus::class,
         ]);
 
         $user = User::factory()->create();

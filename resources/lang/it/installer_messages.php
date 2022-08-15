@@ -15,7 +15,7 @@ return [
      *
      */
     'welcome' => [
-        'title'   => 'Benvenuto al programma di installazione',
+        'title' => 'Benvenuto al programma di installazione',
         'message' => 'Benvenuto alla configurazione guidata.',
     ],
     /*

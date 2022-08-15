@@ -61,11 +61,11 @@ return [
         ],
 
         'cloudinary' => [
-            'driver'         => 'cloudinary',
-            'api_key'        => env('CLOUDINARY_API_KEY'),
-            'api_secret'     => env('CLOUDINARY_API_SECRET'),
-            'cloud_name'     => env('CLOUDINARY_CLOUD_NAME'),
-            'secure'         => env('CLOUDINARY_SECURE', true),
+            'driver' => 'cloudinary',
+            'api_key' => env('CLOUDINARY_API_KEY'),
+            'api_secret' => env('CLOUDINARY_API_SECRET'),
+            'cloud_name' => env('CLOUDINARY_CLOUD_NAME'),
+            'secure' => env('CLOUDINARY_SECURE', true),
             'resource_types' => [
                 'image' => [
                     'png',
@@ -78,7 +78,7 @@ return [
                     'mp3',
                     'flac',
                 ],
-                'raw'   => [
+                'raw' => [
                     'pdf',
                     'xlsx',
                     'csv',

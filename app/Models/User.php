@@ -20,14 +20,7 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class User extends Authenticatable implements MustVerifyEmail, Commentator, HasMedia
 {
-    use HasFactory;
-    use Notifiable;
-    use HasEagerLimit;
-    use Followable;
-    use Follower;
-    use Liker;
-    use InteractsWithMedia;
-    use GetCandyUser;
+    use HasFactory, Notifiable, HasEagerLimit, Followable, Follower, Liker, InteractsWithMedia, GetCandyUser;
 
     public const PAGINATE_COUNT = 20;
 
@@ -70,12 +63,13 @@ class User extends Authenticatable implements MustVerifyEmail, Commentator, HasM
     protected $casts = [
         'email_verified_at' => 'datetime',
         'phone_number_verified_at' => 'datetime',
-        'otp_created_at' => 'datetime'
+        'otp_created_at' => 'datetime',
     ];
 
     /**
      * Check if a comment for a specific model needs to be approved.
-     * @param mixed $model
+     *
+     * @param  mixed  $model
      * @return bool
      */
     public function needsCommentApproval($model): bool
@@ -106,7 +100,7 @@ class User extends Authenticatable implements MustVerifyEmail, Commentator, HasM
             $imageSize = 400;
         }
 
-        return optional($this->getMedia('avatars')->last())->getUrl('thumb') ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?s=' . $imageSize;
+        return optional($this->getMedia('avatars')->last())->getUrl('thumb') ?? 'https://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?s='.$imageSize;
     }
 
     public function registerMediaConversions(Media $media = null): void

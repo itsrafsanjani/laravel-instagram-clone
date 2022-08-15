@@ -53,7 +53,7 @@ Route::group(['middleware' => 'purchase'], function () {
         return new NewUserWelcomeMail();
     });
 
-    Route::get('/language', function (\Illuminate\Http\Request $request) {
+    Route::get('/language', function (Illuminate\Http\Request $request) {
         $request->session()->put('language', $request->language);
 
         return back();

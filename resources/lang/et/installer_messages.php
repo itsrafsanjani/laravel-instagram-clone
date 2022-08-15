@@ -16,7 +16,7 @@ return [
      *
      */
     'welcome' => [
-        'title'   => 'Tere tulemast Laraveli installerisse',
+        'title' => 'Tere tulemast Laraveli installerisse',
         'message' => 'Tere tulemast installatsiooniviisardisse.',
     ],
 

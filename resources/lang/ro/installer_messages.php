@@ -16,7 +16,7 @@ return [
      *
      */
     'welcome' => [
-        'title'   => 'Bun venit în procesul de instalare...',
+        'title' => 'Bun venit în procesul de instalare...',
         'message' => 'Bun venit în configurarea asistată.',
     ],
 

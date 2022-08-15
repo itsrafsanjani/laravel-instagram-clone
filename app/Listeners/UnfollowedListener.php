@@ -20,7 +20,7 @@ class UnfollowedListener
     /**
      * Handle the event.
      *
-     * @param Unfollowed $event
+     * @param  Unfollowed  $event
      * @return \Illuminate\Http\JsonResponse
      */
     public function handle(Unfollowed $event)

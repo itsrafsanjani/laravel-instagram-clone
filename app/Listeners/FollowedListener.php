@@ -21,7 +21,7 @@ class FollowedListener
     /**
      * Handle the event.
      *
-     * @param Followed $event
+     * @param  Followed  $event
      * @return int
      */
     public function handle(Followed $event)

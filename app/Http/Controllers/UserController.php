@@ -15,13 +15,13 @@ class UserController extends Controller
         $query = User::with('media');
 
         if ($request->has('q')) {
-            $query->where('username', 'like', '%' . $request->q . '%')
-                ->orWhere('name', 'like', '%' . $request->q . '%');
+            $query->where('username', 'like', '%'.$request->q.'%')
+                ->orWhere('name', 'like', '%'.$request->q.'%');
         }
 
         return view('users.index', [
             'users' => $query->paginate(User::PAGINATE_COUNT),
-            'query' => $request->q
+            'query' => $request->q,
         ]);
     }
 
@@ -58,8 +58,8 @@ class UserController extends Controller
         $info = [];
         if ($user->username_update_attempts < 2) {
             $user->update($request->validated() + [
-                    $request->password
-                ]);
+                $request->password,
+            ]);
             if ($user->wasChanged('username')) {
                 $user->increment('username_update_attempts');
                 $user->username_last_updated_at = now();
@@ -70,8 +70,8 @@ class UserController extends Controller
             ];
         } elseif (Carbon::parse($user->username_last_updated_at)->addDays(14) < now()) {
             $user->update($request->validated() + [
-                    $request->password
-                ]);
+                $request->password,
+            ]);
             if ($user->wasChanged('username')) {
                 $user->username_update_attempts = 0;
                 $user->username_last_updated_at = now();
@@ -83,8 +83,8 @@ class UserController extends Controller
             }
         } elseif (Carbon::parse($user->username_last_updated_at)->addDays(14) > now()) {
             $user->update($request->safe()->except('username') + [
-                    $request->password
-                ]);
+                $request->password,
+            ]);
             $info = [
                 'status' => 'error',
             ];
@@ -97,7 +97,7 @@ class UserController extends Controller
     {
         $this->authorize('update', $user);
 
-        if (!empty($request->password)) {
+        if (! empty($request->password)) {
             $request->merge(['password' => bcrypt($request->password)]);
         }
 
@@ -109,13 +109,13 @@ class UserController extends Controller
             $message = 'Profile updated but username update limit exceeded in last 14 days!';
         }
 
-        if (!empty($request->avatar)) {
+        if (! empty($request->avatar)) {
             $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');
         }
 
         return redirect()->route('users.show', $user)->with([
             'status' => 'success',
-            'message' => $message
+            'message' => $message,
         ]);
     }
 

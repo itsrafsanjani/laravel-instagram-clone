@@ -85,13 +85,13 @@ class PostController extends Controller
     {
         $post->delete();
 
-        if (!request()->expectsJson()) {
+        if (! request()->expectsJson()) {
             return redirect(route('users.show', auth()->user()));
         }
 
         return response()->json([
             'data' => [],
-            'message' => 'Post deleted'
+            'message' => 'Post deleted',
         ]);
     }
 }

@@ -22,9 +22,9 @@ return [
      */
     'welcome' => [
         'templateTitle' => 'Kurulum\'a Hoşgeldiniz',
-        'title'   => 'Kurulum',
+        'title' => 'Kurulum',
         'message' => 'Kolay Kurulum Sihirbazı.',
-        'next'    => 'Gereksinimleri Denetle',
+        'next' => 'Gereksinimleri Denetle',
     ],
 
     /*
@@ -35,7 +35,7 @@ return [
     'requirements' => [
         'templateTitle' => 'Adım 1 | Sunucu Gereksinimleri',
         'title' => 'Sunucu Gereksinimleri',
-        'next'    => 'İzinleri Kontrol Et',
+        'next' => 'İzinleri Kontrol Et',
     ],
 
     /*
@@ -222,7 +222,7 @@ return [
          *
          */
         'overview' => [
-            'title'   => 'Genel bakış',
+            'title' => 'Genel bakış',
             'message' => '1 güncelleme var.| :number güncellemeleri var.',
             'install_updates' => 'Güncellemeyi yükle',
         ],

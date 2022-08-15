@@ -41,7 +41,7 @@ class ShortUrlController extends Controller
     {
         $request->validate([
             'url' => ['required', 'url'],
-            'custom_key' => ['nullable', 'regex:/(^[A-Za-z0-9]+$)+/']
+            'custom_key' => ['nullable', 'regex:/(^[A-Za-z0-9]+$)+/'],
         ]);
 
         $shortURLObject = $request->custom_key ?
@@ -82,7 +82,7 @@ class ShortUrlController extends Controller
                 'status' => 'success',
                 'message' => 'Short url deleted successfully!',
             ]);
-        };
+        }
 
         return to_route('short-urls.index')->with([
             'status' => 'error',

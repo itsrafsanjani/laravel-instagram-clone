@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
          * User::factory()->count(10)->create();
          * Post::factory()->count(10)->create();
          */
-
         $posts = Post::select('id')->get();
 
         foreach ($posts as $post) {

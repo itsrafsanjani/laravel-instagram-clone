@@ -7,18 +7,18 @@ return [
      * Shared translations.
      *
      */
-    'title'        => 'Установка Laravel',
-    'next'         => 'Следующий шаг',
+    'title' => 'Установка Laravel',
+    'next' => 'Следующий шаг',
 
     /*
      *
      * Home page translations.
      *
      */
-    'welcome'      => [
-        'title'   => 'Установка Laravel',
+    'welcome' => [
+        'title' => 'Установка Laravel',
         'message' => 'Добро пожаловать в первоначальную настройку фреймворка Laravel.',
-        'next'    => 'Следующий шаг',
+        'next' => 'Следующий шаг',
     ],
 
     /*
@@ -28,7 +28,7 @@ return [
      */
     'requirements' => [
         'title' => 'Необходимые модули',
-        'next'  => 'Следующий шаг',
+        'next' => 'Следующий шаг',
     ],
 
     /*
@@ -36,9 +36,9 @@ return [
      * Permissions page translations.
      *
      */
-    'permissions'  => [
+    'permissions' => [
         'title' => 'Проверка прав на папках',
-        'next'  => 'Следующий шаг',
+        'next' => 'Следующий шаг',
     ],
 
     /*
@@ -46,7 +46,7 @@ return [
      * Environment page translations.
      *
      */
-    'environment'  => [
+    'environment' => [
         'menu' => [
             'templateTitle' => 'Шаг 3 | Настройки среды',
             'title' => 'Настройки среды',
@@ -155,10 +155,10 @@ return [
             'back' => 'Использовать мастер форм',
             'install' => 'Сохранить и установить',
         ],
-        'title'   => 'Настройки окружения',
-        'save'    => 'Сохранить .env',
+        'title' => 'Настройки окружения',
+        'save' => 'Сохранить .env',
         'success' => 'Настройки успешно сохранены в файле .env',
-        'errors'  => 'Произошла ошибка при сохранении файла .env, пожалуйста, сохраните его вручную',
+        'errors' => 'Произошла ошибка при сохранении файла .env, пожалуйста, сохраните его вручную',
     ],
 
     /*
@@ -166,9 +166,9 @@ return [
      * Final page translations.
      *
      */
-    'final'        => [
-        'title'    => 'Готово',
+    'final' => [
+        'title' => 'Готово',
         'finished' => 'Приложение успешно настроено.',
-        'exit'     => 'Нажмите для выхода',
+        'exit' => 'Нажмите для выхода',
     ],
 ];

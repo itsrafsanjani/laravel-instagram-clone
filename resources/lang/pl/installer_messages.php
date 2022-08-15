@@ -16,7 +16,7 @@ return [
      *
      */
     'welcome' => [
-        'title'   => 'Instalacja Laravel',
+        'title' => 'Instalacja Laravel',
         'message' => 'Witaj w kreatorze instalacji.',
     ],
 

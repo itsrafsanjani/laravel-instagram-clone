@@ -13,7 +13,7 @@ class PostDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed  $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -21,16 +21,17 @@ class PostDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('user', function (Post $post) {
-                return '<a href="' . route('users.show', $post->user) .'">'. $post->user->name .'</a>';
+                return '<a href="'.route('users.show', $post->user).'">'.$post->user->name.'</a>';
             })
             ->addColumn('action', function (Post $post) {
                 $btn = '<a href="javascript:void(0)" class="viewBtn btn btn-info btn-sm">View</a>';
                 $btn .= '<a href="javascript:void(0)" class="editBtn btn btn-primary btn-sm">Edit</a>';
                 $btn .= '<a href="javascript:void(0)" class="deleteBtn btn btn-danger btn-sm">Delete</a>';
-                return '<span data-slug = "' . $post->slug . '">' . $btn .'</span>';
+
+                return '<span data-slug = "'.$post->slug.'">'.$btn.'</span>';
             })
             ->addColumn('thumb', function (Post $post) {
-                return '<img src="' . $post->getFirstMediaUrl('posts', 'thumb') .'" height="50px" />';
+                return '<img src="'.$post->getFirstMediaUrl('posts', 'thumb').'" height="50px" />';
             })
             ->rawColumns(['user', 'action', 'thumb'])
             ->editColumn('caption', function (Post $post) {
@@ -47,7 +48,7 @@ class PostDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Post $model
+     * @param  \App\Models\Post  $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Post $model)

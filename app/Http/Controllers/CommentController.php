@@ -12,13 +12,13 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|JsonResponse
      */
     public function store(Request $request)
     {
         $request->validate([
-            'comment' => ['required', 'max:2200']
+            'comment' => ['required', 'max:2200'],
         ]);
 
         $post = Post::where('slug', $request->post_slug)->firstOrFail();
@@ -31,7 +31,7 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Comment $comment
+     * @param  Comment  $comment
      * @return JsonResponse
      */
     public function destroy(Comment $comment): JsonResponse
@@ -40,7 +40,7 @@ class CommentController extends Controller
 
         return response()->json([
             'message' => 'Comment deleted successfully!',
-            'type' => 'success'
+            'type' => 'success',
         ]);
     }
 }

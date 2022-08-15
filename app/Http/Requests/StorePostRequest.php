@@ -26,7 +26,7 @@ class StorePostRequest extends FormRequest
         return [
             'caption' => ['required', 'max:2200'],
             'image' => ['required', 'array'],
-            'image.*' => ['image', 'mimes:jpeg,png,jpg,gif,jfif,webp', 'max:10240']
+            'image.*' => ['image', 'mimes:jpeg,png,jpg,gif,jfif,webp', 'max:10240'],
         ];
     }
 }

@@ -10,17 +10,18 @@ class PurchaseStatusController extends Controller
     private function setEnv($key, $value)
     {
         file_put_contents(app()->environmentFilePath(), str_replace(
-            $key . '=' . env($value),
-            $key . '=' . $value,
+            $key.'='.env($value),
+            $key.'='.$value,
             file_get_contents(app()->environmentFilePath())
         ));
     }
 
     public function index()
     {
-        if (preg_match("/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i", config('services.envato.purchase_code'))) {
+        if (preg_match('/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i', config('services.envato.purchase_code'))) {
             return redirect('/');
         }
+
         return view('purchase.index');
     }
 
@@ -29,17 +30,17 @@ class PurchaseStatusController extends Controller
         $code = $request->purchase_code;
 
         $request->validate([
-            'purchase_code' => ['required', 'regex:/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i']
+            'purchase_code' => ['required', 'regex:/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i'],
         ]);
 
         $response = Http::withToken(config('services.envato.personal_token'))
             ->get('https://api.envato.com/v3/market/author/sale', [
-                'code' => $code
+                'code' => $code,
             ]);
 
         if ($response->failed()) {
             return back()->with([
-                'message' => 'Invalid purchase code!'
+                'message' => 'Invalid purchase code!',
             ]);
         }
 

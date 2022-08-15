@@ -8,17 +8,16 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Comment extends Model
 {
-    use HasFactory;
-    use HasEagerLimit;
+    use HasFactory, HasEagerLimit;
 
     protected $fillable = [
         'comment',
         'user_id',
-        'is_approved'
+        'is_approved',
     ];
 
     protected $casts = [
-        'is_approved' => 'boolean'
+        'is_approved' => 'boolean',
     ];
 
     public function scopeApproved($query)
@@ -60,7 +59,7 @@ class Comment extends Model
             return config('comments.user_model');
         }
 
-        if (!is_null(config('auth.providers.users.model'))) {
+        if (! is_null(config('auth.providers.users.model'))) {
             return config('auth.providers.users.model');
         }
 

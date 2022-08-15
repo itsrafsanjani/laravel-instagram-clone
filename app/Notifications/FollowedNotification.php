@@ -19,6 +19,7 @@ class FollowedNotification extends Notification implements ShouldQueue, ShouldRa
      * @var User|User[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
      */
     public $followingUser;
+
     /**
      * @var User|User[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
      */
@@ -55,8 +56,8 @@ class FollowedNotification extends Notification implements ShouldQueue, ShouldRa
     public function toMail($notifiable)
     {
         return (new MailMessage())
-                    ->greeting('Dear, ' . $this->followingUser->name)
-                    ->line($this->followerUser->name . ' just followed you!')
+                    ->greeting('Dear, '.$this->followingUser->name)
+                    ->line($this->followerUser->name.' just followed you!')
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
     }
