@@ -4,6 +4,10 @@ namespace App\Models;
 
 use AshAllenDesign\ShortURL\Models\ShortURL;
 use BeyondCode\Comments\Contracts\Commentator;
+use Famdirksen\LaravelReferral\Contracts\CanReferralContract;
+use Famdirksen\LaravelReferral\Contracts\HandleReferralContract;
+use Famdirksen\LaravelReferral\Traits\CanReferralTrait;
+use Famdirksen\LaravelReferral\Traits\HandleReferralTrait;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,9 +22,9 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
-class User extends Authenticatable implements MustVerifyEmail, Commentator, HasMedia
+class User extends Authenticatable implements MustVerifyEmail, Commentator, HasMedia, CanReferralContract, HandleReferralContract
 {
-    use HasFactory, Notifiable, HasEagerLimit, Followable, Follower, Liker, InteractsWithMedia, Loggable;
+    use HasFactory, Notifiable, HasEagerLimit, Followable, Follower, Liker, InteractsWithMedia, Loggable, CanReferralTrait, HandleReferralTrait;
 
     public const PAGINATE_COUNT = 20;
 
