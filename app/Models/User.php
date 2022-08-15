@@ -4,6 +4,7 @@ namespace App\Models;
 
 use AshAllenDesign\ShortURL\Models\ShortURL;
 use BeyondCode\Comments\Contracts\Commentator;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,7 +20,7 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class User extends Authenticatable implements MustVerifyEmail, Commentator, HasMedia
 {
-    use HasFactory, Notifiable, HasEagerLimit, Followable, Follower, Liker, InteractsWithMedia;
+    use HasFactory, Notifiable, HasEagerLimit, Followable, Follower, Liker, InteractsWithMedia, Loggable;
 
     public const PAGINATE_COUNT = 20;
 

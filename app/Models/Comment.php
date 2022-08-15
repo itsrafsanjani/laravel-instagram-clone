@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Comment extends Model
 {
-    use HasFactory, HasEagerLimit;
+    use HasFactory, HasEagerLimit, Loggable;
 
     protected $fillable = [
         'comment',

@@ -38,15 +38,23 @@
                     </li>--}}
 
                     <li class="nav-item">
-                        <a class="nav-link @if(request()->routeIs('admin.users.index')) active @endif" href="{{ route('admin.users.index') }}">
+                        <a class="nav-link @if(request()->routeIs('admin.users.index')) active @endif"
+                           href="{{ route('admin.users.index') }}">
                             <i class="fas fa-users text-blue"></i>
                             <span class="nav-link-text">{{ __('Users') }}</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if(request()->routeIs('admin.posts.index')) active @endif" href="{{ route('admin.posts.index') }}">
+                        <a class="nav-link @if(request()->routeIs('admin.posts.index')) active @endif"
+                           href="{{ route('admin.posts.index') }}">
                             <i class="fas fa-sticky-note text-green"></i>
                             <span class="nav-link-text">{{ __('Posts') }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('admin/user-activity') }}">
+                            <i class="fas fa-history text-indigo"></i>
+                            <span class="nav-link-text">{{ __('User Activity') }}</span>
                         </a>
                     </li>
                 </ul>

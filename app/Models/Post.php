@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use BeyondCode\Comments\Traits\HasComments;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use JordanMiguel\LaravelPopular\Traits\Visitable;
@@ -15,7 +16,7 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Post extends Model implements HasMedia
 {
-    use HasFactory, HasComments, HasEagerLimit, Visitable, Likeable, InteractsWithMedia;
+    use HasFactory, HasComments, HasEagerLimit, Visitable, Likeable, InteractsWithMedia, Loggable;
 
     public const PAGINATE_COUNT = 18;
 
