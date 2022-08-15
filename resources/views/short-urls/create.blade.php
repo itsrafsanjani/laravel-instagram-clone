@@ -14,6 +14,7 @@
                             <div class="form-group">
                                 <label for="url">
                                     {{ __('Url') }}
+                                    <span class="required">*</span>
                                 </label>
                                 <input id="url" type="url"
                                           class="form-control  @error('url') is-invalid @enderror"
