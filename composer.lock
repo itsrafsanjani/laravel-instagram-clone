@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e059a609bec229f17f64e2b1ab9bc698",
+    "content-hash": "b68bdc4628b1ef700028f421247c874f",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -767,10 +767,16 @@
         {
             "name": "famdirksen/laravel-referral",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itsrafsanjani/laravel-referral.git",
+                "reference": "0f56f625852f3fdc1854dadf69236c377c8dfee9"
+            },
             "dist": {
-                "type": "path",
-                "url": "./packages/laravel-referral",
-                "reference": "4230bbb27f8e45552a84a79b3b50f00b6bd2c942"
+                "type": "zip",
+                "url": "https://api.github.com/repos/itsrafsanjani/laravel-referral/zipball/0f56f625852f3fdc1854dadf69236c377c8dfee9",
+                "reference": "0f56f625852f3fdc1854dadf69236c377c8dfee9",
+                "shasum": ""
             },
             "require": {
                 "illuminate/database": "^5.8|^6.0|^7.0|^8.0|^9.0",
@@ -783,6 +789,7 @@
                 "psalm/plugin-laravel": "^1.4",
                 "vimeo/psalm": "^4.3"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -832,9 +839,16 @@
                 "famdirksen",
                 "laravel-referral"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/itsrafsanjani/laravel-referral/tree/master"
+            },
+            "funding": [
+                {
+                    "type": "custom",
+                    "url": "https://robindirksen.com"
+                }
+            ],
+            "time": "2022-08-15T15:13:34+00:00"
         },
         {
             "name": "firebase/php-jwt",

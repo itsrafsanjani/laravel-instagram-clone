@@ -91,34 +91,5 @@ Route::group(['middleware' => 'purchase'], function () {
             Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
             Route::resource('/posts', \App\Http\Controllers\Admin\PostController::class);
         });
-
-        Route::get('/test', function () {
-            // $data = 'haha';
-            $user = auth()->user();
-
-            // // create a referral account for the user
-            // $appName = \Illuminate\Support\Str::snake(config('app.name').'_system_referral');
-            // $data = $user->makeReferralAccount($appName); // YwMPs
-
-            $data = $user->referralAccounts()->get();
-
-            // $firstReferralAccount = $data->first();
-            //
-            // $referralLink = $firstReferralAccount->getReferralLink();
-            //
-            // $referrals = $firstReferralAccount->referrals()->get();
-
-            return response()->json([
-               $data
-            ]);
-        });
-    });
-
-    Route::get('/test2', function () {
-        // Cookie::queue(Cookie::forget('referral'));
-        $data = Cookie::get('referral');
-        return response()->json([
-            $data
-        ]);
     });
 });

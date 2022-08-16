@@ -91,9 +91,8 @@
             "url": "git@github.com:itsrafsanjani/laravel-notification-rate-limit.git"
         },
         {
-            "type": "path",
-            "url": "./packages/laravel-referral",
-            "symlink": true
+            "type": "vcs",
+            "url": "git@github.com:itsrafsanjani/laravel-referral.git"
         }
     ],
     "minimum-stability": "dev",
