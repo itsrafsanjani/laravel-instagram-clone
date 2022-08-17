@@ -5,6 +5,7 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PurchaseStatusController;
+use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\ScreenshotController;
 use App\Http\Controllers\ShortUrlController;
 use App\Http\Controllers\UserController;
@@ -83,6 +84,9 @@ Route::group(['middleware' => 'purchase'], function () {
 
         Route::resource('/short-urls', ShortUrlController::class)->except(['edit', 'update']);
 
+        Route::resource('/referrals', ReferralController::class)->only(['index', 'update']);
+
+        // admin routes
         Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function () {
             Route::get('/', function () {
                 return redirect()->route('admin.dashboard.index');

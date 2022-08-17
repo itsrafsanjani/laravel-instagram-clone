@@ -8,16 +8,6 @@ use Overtrue\LaravelFollow\Events\Unfollowed;
 class UnfollowedListener
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Handle the event.
      *
      * @param  Unfollowed  $event

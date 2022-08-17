@@ -147,6 +147,11 @@
                                 {{ __('Short Urls') }}
                             </a>
 
+                            <a class="dropdown-item" href="{{ route('referrals.index') }}"
+                                data-pjax>
+                                {{ __('Referrals') }}
+                            </a>
+
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
