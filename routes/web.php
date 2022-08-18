@@ -84,7 +84,7 @@ Route::group(['middleware' => 'purchase'], function () {
 
         Route::resource('/short-urls', ShortUrlController::class)->except(['edit', 'update']);
 
-        Route::resource('/referrals', ReferralController::class)->only(['index', 'update']);
+        Route::get('/referrals', [ReferralController::class, 'index'])->name('referrals.index');
 
         // admin routes
         Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function () {

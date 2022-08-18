@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\ShortUrlConstants;
 use App\Models\User;
 use AshAllenDesign\ShortURL\Facades\ShortURL;
 use AshAllenDesign\ShortURL\Models\ShortURL as ModelsShortURL;
@@ -16,7 +17,7 @@ class ShortUrlController extends Controller
      */
     public function index()
     {
-        $urls = auth()->user()->shortUrls()->paginate(User::PAGINATE_COUNT);
+        $urls = auth()->user()->shortUrls()->paginate(ShortUrlConstants::PAGINATE_COUNT);
 
         return view('short-urls.index', compact('urls'));
     }
