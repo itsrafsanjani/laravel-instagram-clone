@@ -10,7 +10,7 @@ class ReferralController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
      */
     public function index()
     {
@@ -18,6 +18,13 @@ class ReferralController extends Controller
 
         // get all referralAccounts for the current authenticated user
         $defaultReferralAccount = $user->referralAccounts()->where('name', ReferralConstants::ACCOUNT_NAME)->first();
+
+        // if no default referral account found, create one
+        if (!$defaultReferralAccount) {
+            $user->makeReferralAccount('default');
+
+            return redirect()->route('referrals.index');
+        }
 
         // get the referral link for the default referral account
         $referralLink = $defaultReferralAccount->getReferralLink();
