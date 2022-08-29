@@ -18,7 +18,10 @@ class PurchaseStatus
     {
         if (
             ! in_array(request()->server('REMOTE_ADDR'), ['127.0.0.1', '::1']) &&
-            ! preg_match('/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i', config('services.envato.purchase_code'))) {
+            ! preg_match(
+                '/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i',
+                config('services.envato.purchase_code')
+            )) {
             return redirect()->route('purchase.index');
         }
 
