@@ -24,76 +24,79 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/purchase', [PurchaseStatusController::class, 'index'])->name('purchase.index');
-Route::post('/purchase', [PurchaseStatusController::class, 'purchaseCode'])->name('purchase.purchase_code');
+Route::get('/purchase', [PurchaseStatusController::class, 'index'])
+    ->name('purchase.index');
+Route::post('/purchase', [PurchaseStatusController::class, 'purchaseCode'])
+    ->name('purchase.purchase_code');
 
-Route::group(['middleware' => 'purchase'], function () {
-    Auth::routes(['verify' => true]);
+Route::group(['middleware' => 'purchase'], function () {});
 
-    Route::get('/notices/username', function () {
-        return view('notices.username');
-    })->name('notices.username');
 
-    Route::get('/notices/image', function () {
-        return view('notices.image');
-    })->name('notices.image');
+Auth::routes(['verify' => true]);
 
-    Route::get('/privacy-policy', function () {
-        return view('static-pages.privacy-policy');
-    })->name('static-pages.privacy-policy');
+Route::get('/notices/username', function () {
+    return view('notices.username');
+})->name('notices.username');
 
-    Route::get('/terms-of-service', function () {
-        return view('static-pages.terms-of-service');
-    })->name('static-pages.terms-of-service');
+Route::get('/notices/image', function () {
+    return view('notices.image');
+})->name('notices.image');
 
-    Route::get('/cookies', function () {
-        return view('static-pages.cookies');
-    })->name('static-pages.cookies');
+Route::get('/privacy-policy', function () {
+    return view('static-pages.privacy-policy');
+})->name('static-pages.privacy-policy');
 
-    Route::get('/welcome-email', function () {
-        return new NewUserWelcomeMail();
-    });
+Route::get('/terms-of-service', function () {
+    return view('static-pages.terms-of-service');
+})->name('static-pages.terms-of-service');
 
-    Route::get('/language', function (Illuminate\Http\Request $request) {
-        $request->session()->put('language', $request->language);
+Route::get('/cookies', function () {
+    return view('static-pages.cookies');
+})->name('static-pages.cookies');
 
-        return back();
-    })->name('change_language');
+Route::get('/welcome-email', function () {
+    return new NewUserWelcomeMail();
+});
 
-    Route::group(['middleware' => ['auth', 'verified']], function () {
-        Route::post('/follows/{user}', [FollowController::class, 'toggle'])->name('follows.toggle');
-        Route::post('/likes/{post}', [PostController::class, 'like'])->name('likes.store');
+Route::get('/language', function (Illuminate\Http\Request $request) {
+    $request->session()->put('language', $request->language);
 
-        Route::get('/', [PostController::class, 'index'])->name('posts.index');
-        Route::resource('/posts', PostController::class)->except(['index']);
+    return back();
+})->name('change_language');
 
-        Route::get('/users', [UserController::class, 'index'])->name('users.index');
-        Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
-        Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-        Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
-        Route::get('/users/{user}/followings', [UserController::class, 'followings'])->name('users.followings');
-        Route::get('/users/{user}/followers', [UserController::class, 'followers'])->name('users.followers');
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::post('/follows/{user}', [FollowController::class, 'toggle'])->name('follows.toggle');
+    Route::post('/likes/{post}', [PostController::class, 'like'])->name('likes.store');
 
-        Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
+    Route::get('/', [PostController::class, 'index'])->name('posts.index');
+    Route::resource('/posts', PostController::class)->except(['index']);
 
-        Route::get('/explore', [PostController::class, 'explore'])->name('posts.explore');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::get('/users/{user}/followings', [UserController::class, 'followings'])->name('users.followings');
+    Route::get('/users/{user}/followers', [UserController::class, 'followers'])->name('users.followers');
 
-        Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
 
-        Route::resource('/screenshots', ScreenshotController::class);
+    Route::get('/explore', [PostController::class, 'explore'])->name('posts.explore');
 
-        Route::resource('/short-urls', ShortUrlController::class)->except(['edit', 'update']);
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
 
-        Route::get('/referrals', [ReferralController::class, 'index'])->name('referrals.index');
+    Route::resource('/screenshots', ScreenshotController::class);
 
-        // admin routes
-        Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function () {
-            Route::get('/', function () {
-                return redirect()->route('admin.dashboard.index');
-            });
-            Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
-            Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
-            Route::resource('/posts', \App\Http\Controllers\Admin\PostController::class);
+    Route::resource('/short-urls', ShortUrlController::class)->except(['edit', 'update']);
+
+    Route::get('/referrals', [ReferralController::class, 'index'])->name('referrals.index');
+
+    // admin routes
+    Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function () {
+        Route::get('/', function () {
+            return redirect()->route('admin.dashboard.index');
         });
+        Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
+        Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
+        Route::resource('/posts', \App\Http\Controllers\Admin\PostController::class);
     });
 });
