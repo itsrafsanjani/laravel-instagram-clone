@@ -168,18 +168,6 @@ class PostController extends Controller
         return redirect(route('users.show', auth()->user()));
     }
 
-    public function like(Post $post): JsonResponse
-    {
-        auth()->user()->toggleLike($post);
-
-        return response()->json([
-            'data' => [
-                'likers_count' => $post->likers()->count(),
-            ],
-            'message' => 'Success!',
-        ]);
-    }
-
     public function explore()
     {
         $posts = Post::with('media')->popularLast(Post::POPULAR_BY_DAY)->paginate(Post::PAGINATE_COUNT);

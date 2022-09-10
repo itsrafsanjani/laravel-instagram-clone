@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PurchaseStatusController;
@@ -73,7 +74,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('/users', UserController::class)->only(['index', 'show', 'edit', 'update']);
 
     Route::post('/follows/{user}', [FollowController::class, 'toggle'])->name('follows.toggle');
-    Route::post('/likes/{post}', [PostController::class, 'like'])->name('likes.store');
+    Route::post('/likes/{post}', [LikeController::class, 'toggle'])->name('likes.toggle');
 
     Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
 
