@@ -153,7 +153,7 @@
                                         <div class="text-muted">
                                             <small>
                                                 {{ __('Choose a square image for best experience!') }} <strong><a
-                                                        href="{{ route('notices.image') }}">{{ __('Rules!') }}</a></strong>
+                                                        href="{{ route('notices', 'image') }}">{{ __('Rules!') }}</a></strong>
                                             </small>
                                         </div>
 

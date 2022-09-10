@@ -51,6 +51,21 @@
     }
 </script>
 @vite('resources/js/app.js')
+@env('local')
+    <script>
+        function autoFillAdmin() {
+            document.getElementById('login').value = 'admin';
+            document.getElementById('password').value = 'password';
+            document.getElementById('loginForm').submit();
+        }
+
+        function autoFillUser() {
+            document.getElementById('login').value = 'user';
+            document.getElementById('password').value = 'password';
+            document.getElementById('loginForm').submit();
+        }
+    </script>
+@endenv
 @stack('scripts')
 </body>
 </html>

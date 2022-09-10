@@ -73,7 +73,7 @@
                                         <small>
                                             {{ __('Choose a nice username!') }}
                                             <strong>
-                                                <a href="{{ route('notices.username') }}">
+                                                <a href="{{ route('notices', 'username') }}">
                                                     {{ __('Rules!') }}
                                                 </a>
                                             </strong>

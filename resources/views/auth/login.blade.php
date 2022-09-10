@@ -106,21 +106,3 @@
         </div>
     </div>
 @endsection
-
-@env('local')
-@push('scripts')
-    <script>
-        function autoFillAdmin() {
-            $('#login').val('admin');
-            $('#password').val('password');
-            $('#loginForm').submit();
-        }
-
-        function autoFillUser() {
-            $('#login').val('user');
-            $('#password').val('password');
-            $('#loginForm').submit();
-        }
-    </script>
-@endpush
-@endenv
