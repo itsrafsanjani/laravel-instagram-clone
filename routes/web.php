@@ -65,18 +65,15 @@ Route::get('/language', function (Illuminate\Http\Request $request) {
 })->name('change_language');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::post('/follows/{user}', [FollowController::class, 'toggle'])->name('follows.toggle');
-    Route::post('/likes/{post}', [PostController::class, 'like'])->name('likes.store');
-
     Route::get('/', [PostController::class, 'index'])->name('posts.index');
     Route::resource('/posts', PostController::class)->except(['index']);
 
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
-    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-    Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
     Route::get('/users/{user}/followings', [UserController::class, 'followings'])->name('users.followings');
     Route::get('/users/{user}/followers', [UserController::class, 'followers'])->name('users.followers');
+    Route::resource('/users', UserController::class)->only(['index', 'show', 'edit', 'update']);
+
+    Route::post('/follows/{user}', [FollowController::class, 'toggle'])->name('follows.toggle');
+    Route::post('/likes/{post}', [PostController::class, 'like'])->name('likes.store');
 
     Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
 
@@ -89,14 +86,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('/short-urls', ShortUrlController::class)->except(['edit', 'update']);
 
     Route::get('/referrals', [ReferralController::class, 'index'])->name('referrals.index');
-
-    // admin routes
-    Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function () {
-        Route::get('/', function () {
-            return redirect()->route('admin.dashboard.index');
-        });
-        Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
-        Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
-        Route::resource('/posts', \App\Http\Controllers\Admin\PostController::class);
-    });
 });
+
+// admin routes
+require __DIR__.'/admin.php';
