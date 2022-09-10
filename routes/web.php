@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
@@ -59,11 +60,7 @@ Route::get('/welcome-email', function () {
     return new NewUserWelcomeMail();
 });
 
-Route::get('/language', function (Illuminate\Http\Request $request) {
-    $request->session()->put('language', $request->language);
-
-    return back();
-})->name('change_language');
+Route::get('/language', LanguageController::class)->name('change_language');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/', [PostController::class, 'index'])->name('posts.index');
