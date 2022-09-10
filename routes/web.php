@@ -10,6 +10,7 @@ use App\Http\Controllers\PurchaseStatusController;
 use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\ScreenshotController;
 use App\Http\Controllers\ShortUrlController;
+use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\UserController;
 use App\Mail\NewUserWelcomeMail;
 use Illuminate\Support\Facades\Auth;
@@ -35,26 +36,6 @@ Route::group(['middleware' => 'purchase'], function () {});
 
 
 Auth::routes(['verify' => true]);
-
-Route::get('/notices/username', function () {
-    return view('notices.username');
-})->name('notices.username');
-
-Route::get('/notices/image', function () {
-    return view('notices.image');
-})->name('notices.image');
-
-Route::get('/privacy-policy', function () {
-    return view('static-pages.privacy-policy');
-})->name('static-pages.privacy-policy');
-
-Route::get('/terms-of-service', function () {
-    return view('static-pages.terms-of-service');
-})->name('static-pages.terms-of-service');
-
-Route::get('/cookies', function () {
-    return view('static-pages.cookies');
-})->name('static-pages.cookies');
 
 Route::get('/welcome-email', function () {
     return new NewUserWelcomeMail();
@@ -88,3 +69,15 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 // admin routes
 require __DIR__.'/admin.php';
+
+Route::get('/notices/username', function () {
+    return view('notices.username');
+})->name('notices.username');
+
+Route::get('/notices/image', function () {
+    return view('notices.image');
+})->name('notices.image');
+
+Route::get('/{page}', StaticPageController::class)
+    ->name('static-pages')
+    ->whereIn('page', ['privacy-policy', 'terms-of-service', 'cookies']);

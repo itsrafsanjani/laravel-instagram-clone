@@ -57,7 +57,7 @@
                             visited. The information is used to optimize the users' experience by customizing our web page
                             content based on visitors' browser type and/or other information.</p>
                         <p>For more general information on cookies, please read <a
-                                href="{{ route('static-pages.cookies') }}">"Cookies" article from the Privacy
+                                href="{{ route('static-pages', 'cookies') }}">"Cookies" article from the Privacy
                                 Policy Generator</a>.</p>
                         <h2>Google DoubleClick DART Cookie</h2>
                         <p>Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies,
