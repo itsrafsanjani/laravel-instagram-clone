@@ -56,7 +56,8 @@ class User extends Authenticatable implements MustVerifyEmail, Commentator, HasM
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**

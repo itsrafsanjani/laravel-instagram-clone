@@ -22,7 +22,11 @@ class Post extends Model implements HasMedia
 
     public const POPULAR_BY_DAY = 3;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'slug',
+        'caption',
+    ];
 
     public function getRouteKeyName()
     {
