@@ -20,6 +20,9 @@ import NProgress from 'nprogress';
 
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
+import '../sass/app.scss';
+import autoComplete from "@tarekraafat/autocomplete.js/dist/autoComplete";
+import "@tarekraafat/autocomplete.js/dist/css/autoComplete.01.css";
 
 // Create an instance of Notyf
 const notyf = new Notyf({
@@ -29,8 +32,6 @@ const notyf = new Notyf({
     },
     dismissible: true,
 });
-
-import '../sass/app.scss';
 
 // NProgress
 $(document).on('pjax:start', function () {
@@ -336,6 +337,66 @@ $(function () {
                     }
                 });
             });
+
+            const autoCompleteJS = new autoComplete({
+                selector: "#search",
+                placeHolder: "Search here...",
+                data: {
+                    src: async (query) => {
+                        try {
+                            // Fetch Data from external Source
+                            const source = await fetch(`/users-search?q=${query}`);
+                            const { data } = await source.json();
+                            // Data should be an array of `Objects` or `Strings`
+                            return data;
+                        } catch (error) {
+                            return error;
+                        }
+                    },
+                    // Data source 'Object' key to be searched
+                    keys: ["username"]
+                },
+                resultsList: {
+                    element: (list, data) => {
+                        if (!data.results.length) {
+                            // Create "No Results" message element
+                            const message = document.createElement("div");
+                            message.classList.add("p-2");
+                            // Add message text content
+                            message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
+                            // Append message element to the results list
+                            list.prepend(message);
+                        }
+                    },
+                    noResults: true,
+                },
+                resultItem: {
+                    tag: "li",
+                    class: "autoComplete_result",
+                    element: (item, data) => {
+                        item.innerHTML = `
+                        <a href="/users/${data.value.username}" data-pjax>
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <img src="${data.value.avatar}" class="avatar rounded-circle" height="30" width="30">
+                                </div>
+                                <div class="col ml--2">
+                                    <h4 class="mb-0">${data.value.username}</h4>
+                                    <small>${data.value.name}</small>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    },
+                },
+                events: {
+                    input: {
+                        selection: (event) => {
+                            autoCompleteJS.input.value = event.detail.selection.value.username;
+                        }
+                    }
+                }
+            });
         }
 
         // footer copyright
@@ -344,12 +405,12 @@ $(function () {
                 <div class="container-fluid d-flex justify-content-between align-items-center">
                 <div class="container">
                     <div class="d-md-flex text-center justify-content-between">
-                        <span class="text-muted d-md-block d-none">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a> by <a href="${ import.meta.env.VITE_GITHUB_PROFILE_LINK }" target="_blank">Md Rafsan Jani Rafin</a>.</span>
+                        <span class="text-muted d-md-block d-none">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a> by <a href="${import.meta.env.VITE_GITHUB_PROFILE_LINK}" target="_blank">Md Rafsan Jani Rafin</a>.</span>
                         <span class="d-md-none d-block">
                             <span class="text-muted">Made with <i class="fa fa-heart text-danger"></i> and <a href="//laravel.com" target="_blank">Laravel</a></span><br>
-                            <span>by <a href="${ import.meta.env.VITE_GITHUB_PROFILE_LINK }" target="_blank">Md Rafsan Jani Rafin</a>.</span>
+                            <span>by <a href="${import.meta.env.VITE_GITHUB_PROFILE_LINK}" target="_blank">Md Rafsan Jani Rafin</a>.</span>
                         </span>
-                        <span class="text-muted">Source code <a href="${ import.meta.env.VITE_GITHUB_REPO_LINK }" target="_blank">
+                        <span class="text-muted">Source code <a href="${import.meta.env.VITE_GITHUB_REPO_LINK}" target="_blank">
                                 <i class="fab fa-github"></i> Github</a>.</span>
                     </div>
                 </div>

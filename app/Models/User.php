@@ -30,6 +30,8 @@ class User extends Authenticatable implements MustVerifyEmail, Commentator, HasM
 
     protected $with = ['media'];
 
+    protected $appends = ['avatar'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -58,6 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail, Commentator, HasM
     protected $hidden = [
         'password',
         'remember_token',
+        'email',
     ];
 
     /**

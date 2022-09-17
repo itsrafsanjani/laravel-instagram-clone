@@ -132,4 +132,17 @@ class UserController extends Controller
 
         return view('users.followers', compact('users'));
     }
+
+    public function search(Request $request)
+    {
+        $query = User::select(['username', 'name', 'email', 'avatar'])
+            ->with('media');
+
+        if ($request->has('q')) {
+            $query->where('username', 'like', '%'.$request->q.'%')
+                ->orWhere('name', 'like', '%'.$request->q.'%');
+        }
+
+        return response()->json($query->paginate(User::PAGINATE_COUNT));
+    }
 }

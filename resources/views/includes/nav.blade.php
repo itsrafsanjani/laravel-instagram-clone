@@ -15,12 +15,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             @auth
-                <form class="form-inline my-2 my-md-0 w-33 navbar-nav mr-auto" action="{{ route('users.index') }}" method="get">
+                <form class="form-inline my-2 my-md-0 w-33 navbar-nav mr-auto" action="{{ route('users.index') }}"
+                      method="get">
                     <input class="form-control mr-sm-2 w-100"
-                            type="text"
-                            name="q"
-                            placeholder="{{ __('Search') }}"
-                            value="{{ $query ?? '' }}">
+                           id="search"
+                           type="search"
+                           dir="ltr"
+                           spellcheck=false
+                           autocorrect="off"
+                           autocomplete="off"
+                           autocapitalize="off"
+                           name="q"
+                           placeholder="{{ __('Search') }}"
+                           value="{{ $query ?? '' }}">
                 </form>
             @endauth
 
@@ -36,15 +43,15 @@
                             aria-expanded="false">
                         @switch(session('language') ?? 'en')
                             @case('bn')
-                            Bengali
-                            @break
+                                Bengali
+                                @break
 
                             @case('hi')
-                            Hindi
-                            @break
+                                Hindi
+                                @break
 
                             @default
-                            English
+                                English
                         @endswitch
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -59,7 +66,7 @@
                             Bengali
                         </a>
                         <a href="{{ route('change_language', ['language' => 'hi']) }}"
-                            data-pjax
+                           data-pjax
                            class="dropdown-item">
                             Hindi
                         </a>
@@ -138,17 +145,17 @@
                             @endif
 
                             <a class="dropdown-item" href="{{ route('posts.create') }}"
-                                data-pjax>
+                               data-pjax>
                                 {{ __('Add New Post') }}
                             </a>
 
                             <a class="dropdown-item" href="{{ route('short-urls.index') }}"
-                                data-pjax>
+                               data-pjax>
                                 {{ __('Short Urls') }}
                             </a>
 
                             <a class="dropdown-item" href="{{ route('referrals.index') }}"
-                                data-pjax>
+                               data-pjax>
                                 {{ __('Referrals') }}
                             </a>
 
