@@ -36,7 +36,7 @@ class User extends Authenticatable implements
         Notifiable,
         HasEagerLimit,
         Followable,
-        Follower, 
+        Follower,
         Liker,
         InteractsWithMedia,
         Loggable,
@@ -46,7 +46,7 @@ class User extends Authenticatable implements
 
     public const PAGINATE_COUNT = 20;
 
-    protected $with = ['media'];
+    protected $with = ['media', 'wallet'];
 
     protected $appends = ['avatar'];
 

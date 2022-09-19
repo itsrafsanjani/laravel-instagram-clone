@@ -133,9 +133,21 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('users.show', auth()->user()) }}"
+                            <a class="dropdown-item align-items-center d-flex" href="{{ route('users.show', auth()->user()) }}"
                                data-pjax>
                                 {{ __('My Profile') }}
+                            </a>
+
+                            <a class="dropdown-item align-items-center d-flex" href="{{ route('users.show', auth()->user()) }}"
+                               data-pjax>
+                                {{ __(\Illuminate\Support\Str::words(auth()->user()->name, 2, '') . '\'s Wallet') }}
+                                <span
+                                    class="align-items-center btn d-flex flex-column justify-content-center ml-3 rounded-pill shadow px-3 py-2">
+                                    <span class="btn-inner--icon">
+                                        <i class="far fa-coins"></i>
+                                        <span>{{ auth()->user()->balance }}</span>
+                                    </span>
+                                </span>
                             </a>
 
                             @if(auth()->user()->is_admin)
