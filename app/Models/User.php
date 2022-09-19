@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use AshAllenDesign\ShortURL\Models\ShortURL;
+use Bavix\Wallet\Interfaces\Wallet;
+use Bavix\Wallet\Traits\HasWallet;
 use BeyondCode\Comments\Contracts\Commentator;
 use Famdirksen\LaravelReferral\Contracts\CanReferralContract;
 use Famdirksen\LaravelReferral\Contracts\HandleReferralContract;
@@ -22,9 +24,25 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
-class User extends Authenticatable implements MustVerifyEmail, Commentator, HasMedia, CanReferralContract, HandleReferralContract
+class User extends Authenticatable implements
+    MustVerifyEmail,
+    Commentator,
+    HasMedia,
+    CanReferralContract,
+    HandleReferralContract,
+    Wallet
 {
-    use HasFactory, Notifiable, HasEagerLimit, Followable, Follower, Liker, InteractsWithMedia, Loggable, CanReferralTrait, HandleReferralTrait;
+    use HasFactory,
+        Notifiable,
+        HasEagerLimit,
+        Followable,
+        Follower, 
+        Liker,
+        InteractsWithMedia,
+        Loggable,
+        CanReferralTrait,
+        HandleReferralTrait,
+        HasWallet;
 
     public const PAGINATE_COUNT = 20;
 
