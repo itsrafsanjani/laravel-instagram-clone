@@ -13,6 +13,7 @@ use App\Http\Controllers\ScreenshotController;
 use App\Http\Controllers\ShortUrlController;
 use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('/short-urls', ShortUrlController::class)->except(['edit', 'update']);
 
     Route::get('/referrals', [ReferralController::class, 'index'])->name('referrals.index');
+
+    Route::resource('/wallets', WalletController::class)->only(['index', 'create', 'store']);
 });
 
 /*

@@ -138,7 +138,7 @@
                                 {{ __('My Profile') }}
                             </a>
 
-                            <a class="dropdown-item align-items-center d-flex" href="{{ route('users.show', auth()->user()) }}"
+                            <a class="dropdown-item align-items-center d-flex" href="{{ route('wallets.index') }}"
                                data-pjax>
                                 {{ __(\Illuminate\Support\Str::words(auth()->user()->name, 2, '') . '\'s Wallet') }}
                                 <span
