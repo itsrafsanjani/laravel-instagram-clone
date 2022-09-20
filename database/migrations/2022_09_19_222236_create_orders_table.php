@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('transaction_id')->unique()->index();
             $table->decimal('amount', 16, 2);
             $table->unsignedInteger('status')->default(0)->comment('0: pending, 1: success, 2: failed');

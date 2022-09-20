@@ -33,15 +33,13 @@ class WalletController extends Controller
         ]);
 
         $order = Order::create([
+            'user_id' => auth()->id(),
             'transaction_id' => Order::generateTransactionId(),
             'amount' => $request->amount,
             'status' => Order::STATUS_PENDING,
         ]);
 
         $payment = new PaymentController();
-        $payment->pay($order->amount, $order->transaction_id);
-
-        return $order;
-        return $request->all();
+        return $payment->pay($order->amount, $order->transaction_id);
     }
 }

@@ -16,6 +16,7 @@ class Order extends Model
     const STATUS_FAILED = 2;
 
     protected $fillable = [
+        'user_id',
         'transaction_id',
         'amount',
         'status',

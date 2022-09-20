@@ -6,6 +6,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PurchaseStatusController;
 use App\Http\Controllers\ReferralController;
@@ -51,6 +52,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::resource('/wallets', WalletController::class)->only(['index', 'create', 'store']);
 });
+
+// SSlCommerz Routes
+Route::post('sslcommerz/success',[PaymentController::class, 'success'])->name('payment.success');
+Route::post('sslcommerz/failure',[PaymentController::class, 'failure'])->name('payment.failure');
+Route::post('sslcommerz/cancel',[PaymentController::class, 'cancel'])->name('payment.cancel');
+Route::post('sslcommerz/ipn',[PaymentController::class, 'ipn'])->name('payment.ipn');
 
 /*
  * static pages for

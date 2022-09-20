@@ -1,14 +1,6 @@
 <?php
 
 /**
- * Overriding Laravel's default helper functions.
- */
-function route($name, $parameters = [], $absolute = false)
-{
-    return app('url')->route($name, $parameters, $absolute);
-}
-
-/**
  * Laravel - A PHP Framework For Web Artisans
  *
  * @author   Taylor Otwell <taylor@laravel.com>
