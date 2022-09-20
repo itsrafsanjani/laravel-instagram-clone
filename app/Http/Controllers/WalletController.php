@@ -15,7 +15,9 @@ class WalletController extends Controller
      */
     public function index()
     {
-        return view('wallets.index');
+        $orders = auth()->user()->orders()->latest()->paginate(Order::PAGINATE_COUNT);
+
+        return view('wallets.index', compact('orders'));
     }
 
     /**

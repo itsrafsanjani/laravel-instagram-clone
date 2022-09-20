@@ -118,6 +118,11 @@ class User extends Authenticatable implements
         return $this->hasMany(config('comments.comment_class'));
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function getAvatarAttribute($value)
     {
         $imageSize = 200;
