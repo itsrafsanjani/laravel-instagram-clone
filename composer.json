@@ -23,7 +23,7 @@
         "haruncpi/laravel-user-activity": "^1.0",
         "jamesmills/laravel-notification-rate-limit": "dev-master",
         "jordanmiguel/laravel-popular": "1.0.10",
-        "laravel/framework": "^9.29",
+        "laravel/framework": "^9.31",
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
