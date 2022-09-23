@@ -21,6 +21,8 @@
                                     data-username="{{ $user->username }}">
                                 {{ $user->has_followed ? __('Unfollow') : __('Follow') }}
                             </button>
+
+                            @include('partials.send-coins-modal')
                         @endif
 
                         @can('update', $user)

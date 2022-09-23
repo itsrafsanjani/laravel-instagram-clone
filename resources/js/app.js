@@ -397,6 +397,19 @@ $(function () {
                     }
                 }
             });
+
+            // send coins modal form
+            $('#amount').on('input', function () {
+                let amount = $(this).val();
+                let balance = $('#balance').val();
+                let new_balance = balance - amount;
+                if(amount > balance || amount < 1) {
+                    $('#sendCoinsButton').attr('disabled', true);
+                } else {
+                    $('#sendCoinsButton').removeAttr('disabled');
+                }
+                $('#new_balance').val(new_balance);
+            });
         }
 
         // footer copyright

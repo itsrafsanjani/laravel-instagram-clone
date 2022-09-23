@@ -11,6 +11,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PurchaseStatusController;
 use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\ScreenshotController;
+use App\Http\Controllers\SendCoinController;
 use App\Http\Controllers\ShortUrlController;
 use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\UserController;
@@ -51,6 +52,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/referrals', [ReferralController::class, 'index'])->name('referrals.index');
 
     Route::resource('/wallets', WalletController::class)->only(['index', 'create', 'store']);
+
+    Route::post('/send-coins', SendCoinController::class)->name('send-coins');
 });
 
 // SSlCommerz Routes
