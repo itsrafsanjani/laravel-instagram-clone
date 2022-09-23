@@ -38,13 +38,14 @@
 
                                     <div class="form-group">
                                         <label for="image">{{ __('Images') }}</label>
-                                        <input class="form-control @error('image') is-invalid @enderror @error('image.*') is-invalid @enderror"
-                                               id="image"
-                                               name="image[]"
-                                               accept="image/*"
-                                               type="file"
-                                               required
-                                               multiple>
+                                        <input
+                                            class="form-control @error('image') is-invalid @enderror @error('image.*') is-invalid @enderror"
+                                            id="image"
+                                            name="image[]"
+                                            accept="image/*"
+                                            type="file"
+                                            required
+                                            multiple>
 
                                         @error('image')
                                         <span class="invalid-feedback" role="alert">

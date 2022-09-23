@@ -10,6 +10,8 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
 class PostController extends Controller
 {
@@ -50,14 +52,19 @@ class PostController extends Controller
         return view('posts.create');
     }
 
+    /**
+     * @throws \Throwable
+     * @throws FileIsTooBig
+     * @throws FileDoesNotExist
+     */
     public function store(StorePostRequest $request)
     {
         try {
             DB::transaction(function () use ($request) {
                 $post = Post::create([
-                    'caption' => $request->caption,
                     'user_id' => auth()->id(),
                     'slug' => Str::random(12),
+                    'caption' => $request->caption,
                 ]);
 
                 if ($request->hasFile('image')) {
@@ -76,7 +83,7 @@ class PostController extends Controller
         } catch (\Throwable $exception) {
             DB::rollBack();
 
-            return $exception;
+            throw $exception;
         }
 
         //        $data = request()->validate([
