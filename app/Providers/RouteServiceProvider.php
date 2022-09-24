@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Route;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * This namespace is applied to your controller routes.
+     * The path to the "home" route for your application.
      *
-     * In addition, it is set as the URL generator's root namespace.
+     * Typically, users are redirected here after authentication.
      *
      * @var string
      */
-    //protected $namespace = 'App\Http\Controllers';
+    public const HOME = '/';
 
     /**
      * Define your route model bindings, pattern filters, etc.

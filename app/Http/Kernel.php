@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
         'purchase.status' => \App\Http\Middleware\PurchaseStatus::class,
         'admin' => \App\Http\Middleware\Admin::class,
         'purchase' => PurchaseStatus::class,
+        'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
     ];
 
     /**

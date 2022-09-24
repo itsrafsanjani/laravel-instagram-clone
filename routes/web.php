@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 // admin routes
 require __DIR__.'/admin.php';
 
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true, 'confirm' => true]);
 
 Route::get('/language', LanguageController::class)->name('change_language');
 
@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::resource('/wallets', WalletController::class)->only(['index', 'create', 'store']);
 
-    Route::post('/send-coins', SendCoinController::class)->name('send-coins');
+    Route::resource('/send-coins', SendCoinController::class)->only(['create', 'store'])->middleware('password.confirm');
 });
 
 // SSlCommerz Routes

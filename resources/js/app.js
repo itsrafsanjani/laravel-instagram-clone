@@ -209,8 +209,8 @@ function laragramInit() {
 
     // send coins modal form
     $('#amount').on('input', function () {
-        let amount = $(this).val();
-        let balance = $('#balance').val();
+        let amount = parseInt($(this).val());
+        let balance = parseInt($('#balance').val());
         let new_balance = balance - amount;
         if(amount > balance || amount < 1) {
             $('#sendCoinsButton').attr('disabled', true);

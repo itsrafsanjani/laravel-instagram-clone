@@ -22,7 +22,11 @@
                                 {{ $user->has_followed ? __('Unfollow') : __('Follow') }}
                             </button>
 
-                            @include('partials.send-coins-modal')
+                            <a href="{{ URL::signedRoute('send-coins.create', ['receiver' => $user->id]) }}"
+                               data-pjax
+                               class="btn btn-success btn-sm">
+                                <i class="far fa-coins"></i> {{ __('Send coins') }}
+                            </a>
                         @endif
 
                         @can('update', $user)
@@ -53,7 +57,7 @@
                     <div class="pl-5 text-center">
                         @if($user->followers_count > 0)
                             <a href="{{ route('users.followers', $user->username) }}"
-                                data-pjax>
+                               data-pjax>
                                 <strong id="followersCount">{{ $user->followers_count }}</strong> {{ __('followers') }}
                             </a>
                         @else
@@ -64,7 +68,8 @@
                         @if($user->followings_count > 0)
                             <a href="{{ route('users.followings', $user->username) }}"
                                data-pjax>
-                                <strong id="followingsCount">{{ $user->followings_count }}</strong> {{ __('following') }}
+                                <strong
+                                    id="followingsCount">{{ $user->followings_count }}</strong> {{ __('following') }}
                             </a>
                         @else
                             <strong id="followingsCount">{{ $user->followings_count }}</strong> {{ __('following') }}

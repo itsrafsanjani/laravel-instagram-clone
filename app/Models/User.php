@@ -44,6 +44,8 @@ class User extends Authenticatable implements
         HandleReferralTrait,
         HasWallet;
 
+
+
     public const PAGINATE_COUNT = 20;
 
     protected $with = ['media'];
