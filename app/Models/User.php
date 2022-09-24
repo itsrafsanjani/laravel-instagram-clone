@@ -46,7 +46,7 @@ class User extends Authenticatable implements
 
     public const PAGINATE_COUNT = 20;
 
-    protected $with = ['media', 'wallet'];
+    protected $with = ['media'];
 
     protected $appends = ['avatar'];
 
