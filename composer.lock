@@ -154,16 +154,16 @@
         },
         {
             "name": "bavix/laravel-wallet",
-            "version": "9.3.0",
+            "version": "9.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bavix/laravel-wallet.git",
-                "reference": "f5b68ab7b923a09c4219ad4b89f97ed506085834"
+                "reference": "79474b99192bb92c9d93a3251edbcf05d6d63ee1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bavix/laravel-wallet/zipball/f5b68ab7b923a09c4219ad4b89f97ed506085834",
-                "reference": "f5b68ab7b923a09c4219ad4b89f97ed506085834",
+                "url": "https://api.github.com/repos/bavix/laravel-wallet/zipball/79474b99192bb92c9d93a3251edbcf05d6d63ee1",
+                "reference": "79474b99192bb92c9d93a3251edbcf05d6d63ee1",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
                 "phpunit/phpunit": "^9.5",
                 "rector/rector": "^0.14",
                 "symplify/easy-coding-standard": "^11.1",
-                "vimeo/psalm": "^4.26"
+                "vimeo/psalm": "^4.27"
             },
             "suggest": {
                 "bavix/laravel-wallet-swap": "Addition to the laravel-wallet library for quick setting of exchange rates",
@@ -232,9 +232,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bavix/laravel-wallet/issues",
-                "source": "https://github.com/bavix/laravel-wallet/tree/9.3.0"
+                "source": "https://github.com/bavix/laravel-wallet/tree/9.4.0"
             },
-            "time": "2022-09-06T18:30:39+00:00"
+            "time": "2022-09-29T15:36:50+00:00"
         },
         {
             "name": "beyondcode/laravel-comments",
