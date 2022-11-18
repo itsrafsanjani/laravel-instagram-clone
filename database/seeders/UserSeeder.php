@@ -26,9 +26,36 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Alia Bhatt',
-            'email' => 'alia@test.com',
-            'username' => 'alia',
+            'name' => 'Anya Forger',
+            'email' => 'anya@test.com',
+            'username' => 'anya',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Saitama',
+            'email' => 'saitama@test.com',
+            'username' => 'saitama',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Naruto Uzumaki',
+            'email' => 'naruto@test.com',
+            'username' => 'naruto',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Kuroko Tetsuya',
+            'email' => 'kuroko@test.com',
+            'username' => 'kuroko',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),

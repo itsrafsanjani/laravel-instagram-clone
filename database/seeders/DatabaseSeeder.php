@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $posts = Post::select('id')->get();
 
         foreach ($posts as $post) {
-            $post->addMediaFromUrl('http://picsum.photos/1080/1080')
+            $post->addMediaFromUrl('https://api.lorem.space/image?w=1080&h=1080')
                 ->toMediaCollection('posts');
         }
     }
