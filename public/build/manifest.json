@@ -1,10 +1,10 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app.cc182cdc.js",
+    "file": "assets/app.b5b12b03.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app.a13c6d06.css"
+      "assets/app.72f49e37.css"
     ],
     "assets": [
       "assets/owl.video.play.04360456.png"
