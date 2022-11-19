@@ -6,10 +6,22 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Carbon\Carbon;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
 class UserController extends Controller
 {
+    /**
+     * @param  Request  $request
+     * @return Application|Factory|View
+     */
     public function index(Request $request)
     {
         $query = User::with('media');
@@ -25,6 +37,10 @@ class UserController extends Controller
         ]);
     }
 
+    /**
+     * @param  User  $user
+     * @return Application|Factory|View
+     */
     public function show(User $user)
     {
         SEOTools::setTitle($user->username);
@@ -46,6 +62,11 @@ class UserController extends Controller
         return view('users.show', compact('user'));
     }
 
+    /**
+     * @param  User  $user
+     * @return Application|Factory|View
+     * @throws AuthorizationException
+     */
     public function edit(User $user)
     {
         $this->authorize('update', $user);
@@ -53,6 +74,11 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
+    /**
+     * @param $user
+     * @param $request
+     * @return array|string[]
+     */
     public function usernameUpdateConditions($user, $request)
     {
         $info = [];
@@ -93,6 +119,14 @@ class UserController extends Controller
         return $info;
     }
 
+    /**
+     * @param  User  $user
+     * @param  UpdateUserRequest  $request
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     * @throws FileDoesNotExist
+     * @throws FileIsTooBig
+     */
     public function update(User $user, UpdateUserRequest $request)
     {
         $this->authorize('update', $user);
@@ -117,32 +151,5 @@ class UserController extends Controller
             'status' => 'success',
             'message' => $message,
         ]);
-    }
-
-    public function followings(User $user)
-    {
-        $users = $user->followings()->paginate(User::PAGINATE_COUNT);
-
-        return view('users.followings', compact('users'));
-    }
-
-    public function followers(User $user)
-    {
-        $users = $user->followers()->paginate(User::PAGINATE_COUNT);
-
-        return view('users.followers', compact('users'));
-    }
-
-    public function search(Request $request)
-    {
-        $query = User::select(['username', 'name', 'email', 'avatar'])
-            ->with('media');
-
-        if ($request->has('q')) {
-            $query->where('username', 'like', '%'.$request->q.'%')
-                ->orWhere('name', 'like', '%'.$request->q.'%');
-        }
-
-        return response()->json($query->paginate(User::PAGINATE_COUNT));
     }
 }

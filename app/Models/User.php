@@ -70,6 +70,9 @@ class User extends Authenticatable implements
         'bio',
         'gender',
         'is_admin',
+        'avatar',
+        'username_last_updated_at',
+        'username_update_attempts',
     ];
 
     /**
@@ -80,7 +83,6 @@ class User extends Authenticatable implements
     protected $hidden = [
         'password',
         'remember_token',
-        'email',
     ];
 
     /**
@@ -134,6 +136,17 @@ class User extends Authenticatable implements
         }
 
         return optional($this->getMedia('avatars')->last())->getUrl('thumb') ?? 'https://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?s='.$imageSize;
+    }
+
+    public function generateAvatar($email)
+    {
+        $imageSize = 200;
+
+        if (request()->is('users/*')) {
+            $imageSize = 400;
+        }
+
+        return optional($this->getMedia('avatars')->last())->getUrl('thumb') ?? 'https://www.gravatar.com/avatar/'.md5(strtolower(trim($email))).'?s='.$imageSize;
     }
 
     public function registerMediaConversions(Media $media = null): void

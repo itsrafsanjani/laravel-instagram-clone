@@ -30,10 +30,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/', [PostController::class, 'index'])->name('posts.index');
     Route::resource('/posts', PostController::class)->except(['index']);
 
-    Route::get('/users/{user}/followings', [UserController::class, 'followings'])->name('users.followings');
-    Route::get('/users/{user}/followers', [UserController::class, 'followers'])->name('users.followers');
+    Route::get('/users/{user}/followings', [FollowController::class, 'followings'])->name('users.followings');
+    Route::get('/users/{user}/followers', [FollowController::class, 'followers'])->name('users.followers');
     Route::resource('/users', UserController::class)->only(['index', 'show', 'edit', 'update']);
-    Route::get('/users-search', [UserController::class, 'search'])->name('users.search');
 
     Route::post('/follows/{user}', [FollowController::class, 'toggle'])->name('follows.toggle');
 
