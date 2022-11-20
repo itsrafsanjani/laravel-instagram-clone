@@ -1,22 +1,22 @@
 <?php
 
     return [
-        
+
         /**
          * SANDBOX MODE
          * --------------------------------
-         * By default it is binded with APP_DEBUG 
+         * By default it is binded with APP_DEBUG
          * If app.debug is true, sandbox is also true
-         * 
+         *
          */
 
-        'sandbox' => env('APP_DEBUG', true),
+        'sandbox' => env('SSLC_SANDBOX', false),
 
         /**
          * CREDENTIALS
          * --------------------------------
          * The API credentials given from SSLCommerz
-         * 
+         *
          */
 
         'store' => [
@@ -45,7 +45,7 @@
          * --------------------------------
          * Strict your payment gateway. Leave is NULL if
          * you want to enable all available gateways
-         * 
+         *
          * List of gateways
          *  brac_visa= BRAC VISA
          *  dbbl_visa= Dutch Bangla VISA
@@ -69,7 +69,7 @@
          *  city = City Touch IB
          *  upay = Upay
          *  tapnpay  = Tap N Pay Gateway
-         * 
+         *
          * GROUP GATEWAY
          *  internetbank = For all internet banking
          *  mobileban= For all mobile banking
@@ -86,7 +86,7 @@
          * --------------------------------
          * Product profile required from SSLC
          * By default it is "general"
-         * 
+         *
          * AVAILABLE PROFILES
          *  general
          *  physical-goods
@@ -94,7 +94,7 @@
          *  airline-tickets
          *  travel-vertical
          *  telecom-vertical
-         * 
+         *
          */
 
         'product_profile' => 'general',
@@ -114,7 +114,7 @@
          * --------------------------------
          * Default paths of the sslcommerz system
          * Do not change if necessary
-         * 
+         *
          */
 
         'path' => [
