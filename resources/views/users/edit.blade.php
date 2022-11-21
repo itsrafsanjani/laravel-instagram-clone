@@ -114,7 +114,6 @@
                                                   type="text"
                                                   class="form-control @error('bio') is-invalid @enderror"
                                                   name="bio"
-                                                  maxlength="150"
                                                   placeholder="{{ __('My awesome bio') }}..."
                                                   autocomplete="bio">{{ old('bio') ?? $user->bio }}</textarea>
 
@@ -123,6 +122,12 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
+
+                                        <div class="text-muted">
+                                            <small id="bioCharacterCountBadge">
+                                                <span id="currentCount">0</span> / 150
+                                            </small>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
@@ -154,15 +159,19 @@
                                                accept="image/*"
                                                oninput="document.getElementById('avatar-img').src=window.URL.createObjectURL(this.files[0])">
 
-                                        <img src="{{ $user->avatar }}" id="avatar-img" class="img-thumbnail my-3"
-                                             alt="{{ $user->name }}"/>
-
                                         <div class="text-muted">
                                             <small>
-                                                {{ __('Choose a square image for best experience!') }} <strong><a
-                                                        href="{{ route('notices', 'image') }}">{{ __('Rules!') }}</a></strong>
+                                                {{ __('Choose a square image for best experience!') }}
+                                                <strong>
+                                                    <a href="{{ route('notices', 'image') }}" data-pjax>
+                                                        {{ __('Rules!') }}
+                                                    </a>
+                                                </strong>
                                             </small>
                                         </div>
+
+                                        <img src="{{ $user->avatar }}" id="avatar-img" class="img-thumbnail my-3"
+                                             alt="{{ $user->name }}"/>
 
                                         @error('avatar')
                                         <span class="invalid-feedback" role="alert">

@@ -348,6 +348,23 @@ $(function () {
                     }
                 });
             });
+
+            // bioCharacterCountBadge
+            $(document).on('input', '#bio', function (e) {
+                e.preventDefault();
+
+                let bio = $('#bio').val();
+                let currentCount = $('#currentCount');
+                let bioCharacterCountBadge = $('#bioCharacterCountBadge');
+
+                currentCount.text(bio.length);
+
+                if (bio.length > 150) {
+                    bioCharacterCountBadge.addClass('text-danger');
+                } else {
+                    bioCharacterCountBadge.removeClass('text-danger');
+                }
+            });
         }
 
         // footer copyright
