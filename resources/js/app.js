@@ -154,7 +154,7 @@ function laragramInit() {
     });
 }
 // PJAX
-$.pjax.defaults.timeout = 3000;
+$.pjax.defaults.timeout = 5000;
 $(document).pjax('[data-pjax] a, a[data-pjax]', '#app');
 
 $(document).on('pjax:end', function () {
