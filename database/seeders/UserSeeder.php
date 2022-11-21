@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
             'is_admin' => true,
+            'gender' => 'male',
         ]);
 
         User::create([
@@ -32,6 +33,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'gender' => 'female',
         ]);
 
         User::create([
@@ -41,6 +43,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'gender' => 'male',
         ]);
 
         User::create([
@@ -50,6 +53,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'gender' => 'male',
         ]);
 
         User::create([
@@ -59,6 +63,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'gender' => 'male',
         ]);
 
         User::create([
@@ -68,6 +73,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'gender' => 'male',
             'is_admin' => true,
         ]);
 
@@ -78,6 +84,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'gender' => 'male',
         ]);
     }
 }
