@@ -24,6 +24,17 @@ require __DIR__.'/admin.php';
 
 Auth::routes(['verify' => true, 'confirm' => true]);
 
+// debug route only for local
+if (app()->isLocal()) {
+    Route::group(['prefix' => '/debug'], function () {
+        Route::get('/logs', function () {
+            return response()->json([
+                'data' => collect([1, 2, 3]),
+            ]);
+        });
+    });
+}
+
 Route::get('/language', LanguageController::class)->name('change_language');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {

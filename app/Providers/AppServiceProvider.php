@@ -32,6 +32,10 @@ class AppServiceProvider extends ServiceProvider
             ! app()->isProduction()
         );
 
+        Model::preventSilentlyDiscardingAttributes(
+            ! app()->isProduction()
+        );
+
         LogViewer::auth(function ($request) {
             return $request->user()
                 && $request->user()->is_admin;

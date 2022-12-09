@@ -81,25 +81,17 @@ class UserController extends Controller
      */
     public function usernameUpdateConditions($user, $request)
     {
-        $info = [];
+        $info = [
+            'status' => 'error',
+        ];
+
+        // Check if username update attempts is less than 2
         if ($user->username_update_attempts < 2) {
-            $user->update($request->validated() + [
-                $request->password,
-            ]);
+            $user->update($request->validated());
+
+            // Check if username was changed
             if ($user->wasChanged('username')) {
                 $user->increment('username_update_attempts');
-                $user->username_last_updated_at = now();
-                $user->save();
-            }
-            $info = [
-                'status' => 'success',
-            ];
-        } elseif (Carbon::parse($user->username_last_updated_at)->addDays(14) < now()) {
-            $user->update($request->validated() + [
-                $request->password,
-            ]);
-            if ($user->wasChanged('username')) {
-                $user->username_update_attempts = 0;
                 $user->username_last_updated_at = now();
                 $user->save();
 
@@ -107,13 +99,25 @@ class UserController extends Controller
                     'status' => 'success',
                 ];
             }
-        } elseif (Carbon::parse($user->username_last_updated_at)->addDays(14) > now()) {
-            $user->update($request->safe()->except('username') + [
-                $request->password,
-            ]);
-            $info = [
-                'status' => 'error',
-            ];
+        } else {
+            // Check if it has been more than 14 days since the last username update
+            if (Carbon::parse($user->username_last_updated_at)->addDays(14) < now()) {
+                $user->update($request->validated());
+
+                // Check if username was changed
+                if ($user->wasChanged('username')) {
+                    $user->username_update_attempts = 0;
+                    $user->username_last_updated_at = now();
+                    $user->save();
+
+                    $info = [
+                        'status' => 'success',
+                    ];
+                }
+            } else {
+                // Update user's other fields, but not the username
+                $user->update($request->safe()->except('username'));
+            }
         }
 
         return $info;
@@ -131,11 +135,6 @@ class UserController extends Controller
     {
         $this->authorize('update', $user);
 
-        if (! empty($request->password)) {
-            $request->merge(['password' => bcrypt($request->password)]);
-        }
-
-        // TODO: Clear Logic
         $info = $this->usernameUpdateConditions($user, $request);
 
         $message = 'Profile updated successfully!';
