@@ -26,12 +26,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => ['sometimes', 'max:50'],
             'username' => ['sometimes'],
-            'password' => ['sometimes'],
-            'email' => ['sometimes', 'email'],
             'phone_number' => ['sometimes'],
-            'phone_number_verified_at' => ['sometimes'],
-            'otp' => ['sometimes'],
-            'otp_created_at' => ['sometimes'],
             'website' => ['sometimes', 'url', 'nullable'],
             'bio' => ['sometimes', 'max:150'],
             'gender' => ['sometimes'],

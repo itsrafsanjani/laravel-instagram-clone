@@ -46,23 +46,6 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="email">{{ __('Email') }}</label>
-
-                                        <input id="email"
-                                               type="email"
-                                               class="form-control @error('email') is-invalid @enderror"
-                                               name="email"
-                                               value="{{ old('email') ?? $user->email }}"
-                                               autocomplete="email">
-
-                                        @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
 
                                         <div class="text-muted">
                                             <small>
@@ -150,14 +133,17 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="avatar">{{ __('Avatar') }}</label>
+                                        <div class="custom-file">
 
-                                        <input type="file"
-                                               class="form-control-file"
-                                               id="avatar"
-                                               name="avatar"
-                                               accept="image/*"
-                                               oninput="document.getElementById('avatar-img').src=window.URL.createObjectURL(this.files[0])">
+                                            <label for="avatar" class="custom-file-label">{{ __('Avatar') }}</label>
+
+                                            <input type="file"
+                                                   class="custom-file-input"
+                                                   id="avatar"
+                                                   name="avatar"
+                                                   accept="image/*"
+                                                   oninput="document.getElementById('avatar-img').src=window.URL.createObjectURL(this.files[0])">
+                                        </div>
 
                                         <div class="text-muted">
                                             <small>
@@ -180,7 +166,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="form-group pt-4">
+                                    <div class="form-group">
                                         <button class="btn btn-primary">{{ __('Save Profile') }}</button>
                                     </div>
                                 </div>
