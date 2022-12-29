@@ -50,4 +50,15 @@ class UserTest extends TestCase
 
         $response->assertStatus(302);
     }
+
+    public function test_an_user_cannot_see_other_users_edit_profile_page()
+    {
+        $newUser = User::factory()->create();
+
+        $this->actingAs($newUser);
+
+        $response = $this->get(route('users.edit', $this->user));
+
+        $response->assertStatus(403);
+    }
 }

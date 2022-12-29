@@ -11,7 +11,7 @@ class TrueIsTrueTest extends TestCase
      *
      * @return void
      */
-    public function test_true_is_true()
+    public function test_true_is_true(): void
     {
         $this->assertTrue(true);
     }
