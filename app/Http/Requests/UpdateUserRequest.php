@@ -13,7 +13,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return auth()->user() == $this->user;
+        return auth()->check();
     }
 
     /**
