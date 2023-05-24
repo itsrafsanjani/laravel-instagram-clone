@@ -16,6 +16,35 @@ cp .env.example .env
 
 > Configure `.env` file with your own credentials
 
+### With Docker
+```sh
+# start the docker containers
+docker compose up
+
+# to access the php container, use this command
+docker exec -it php /bin/sh
+
+# install composer from the php container
+composer install
+
+# give permission to the storage folder of the application
+chmod -R 777 storage
+chmod -R 777 bootstrap/cache
+
+# generate the application key using the following command
+php artisan key:generate
+
+# migrate the tables to the database
+php artisan migrate
+
+# check running docker containers status
+docker compose ps
+
+# shut down all running docker containers.
+docker compose down
+```
+
+### Without Docker
 ```sh
 composer install
 
