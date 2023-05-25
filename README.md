@@ -34,8 +34,11 @@ chmod -R 777 bootstrap/cache
 # generate the application key using the following command
 php artisan key:generate
 
-# migrate the tables to the database
-php artisan migrate
+# storage symlink
+docker exec -it php /bin/sh -c "cd public && ln -s ../storage/app/public storage"
+
+# migrate the tables to the database and seed fake data for testing
+php artisan migrate --seed
 
 # check running docker containers status
 docker compose ps

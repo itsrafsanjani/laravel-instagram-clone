@@ -8,10 +8,16 @@ RUN apk update && apk add \
     libxml2-dev \
     zip \
     unzip \
-    gmp-dev
+    gmp-dev \
+    freetype-dev \
+    libjpeg-turbo-dev \
+    libwebp-dev \
+    libxpm-dev
 
-RUN docker-php-ext-install pdo pdo_mysql bcmath gmp \
-    && apk --no-cache add nodejs npm
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-xpm
+RUN docker-php-ext-install pdo pdo_mysql bcmath gmp gd exif
+
+RUN apk --no-cache add nodejs npm
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
