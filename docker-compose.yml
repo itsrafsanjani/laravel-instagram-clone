@@ -14,7 +14,7 @@ services:
             - "8000:8000"
         volumes:
             - ./:/var/www/app
-            - ./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
         depends_on:
             - php
             - mysql
@@ -29,10 +29,10 @@ services:
         ports:
             - "3306:3306"
         volumes:
-            - ./.docker/mysql:/var/lib/mysql
+            - ./docker/mysql:/var/lib/mysql
         environment:
-            MYSQL_DATABASE: dummy_mail
-            MYSQL_USER: root
+            MYSQL_DATABASE: laravel_instagram_clone
+            MYSQL_USER: user
             MYSQL_PASSWORD: password
             MYSQL_ROOT_PASSWORD: password
             SERVICE_TAGS: dev
