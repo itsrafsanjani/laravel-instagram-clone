@@ -30,8 +30,8 @@ jobs:
           touch database/database.sqlite
       - name: install npm packages and build
         run: |
-            yarn install
-            yarn build
+            npm install
+            npm run build
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
           DB_CONNECTION: sqlite
