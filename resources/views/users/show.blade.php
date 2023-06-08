@@ -16,10 +16,9 @@
                         </div>
 
                         @if(auth()->user()->username != $user->username)
-                            {{-- <follow-button username="{{ $user->username }}" follows="{{ $user->has_followed }}"></follow-button> --}}
                             <button class="btn btn-sm btn-primary ml-4" id="followUnfollowButton"
                                     data-username="{{ $user->username }}">
-                                {{ $user->has_followed ? __('Unfollow') : __('Follow') }}
+                                {{ $user->followed_at ? __('Unfollow') : __('Follow') }}
                             </button>
 
                             <a href="{{ URL::signedRoute('send-coins.create', ['receiver' => $user->id]) }}"

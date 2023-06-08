@@ -4656,26 +4656,28 @@
         },
         {
             "name": "overtrue/laravel-follow",
-            "version": "5.0.1",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/laravel-follow.git",
-                "reference": "c91aa488b1282c184fdec620e7e9740565d34e09"
+                "reference": "47482cb257f0ebe6842d1f7f4ef0770294e8c74a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/laravel-follow/zipball/c91aa488b1282c184fdec620e7e9740565d34e09",
-                "reference": "c91aa488b1282c184fdec620e7e9740565d34e09",
+                "url": "https://api.github.com/repos/overtrue/laravel-follow/zipball/47482cb257f0ebe6842d1f7f4ef0770294e8c74a",
+                "reference": "47482cb257f0ebe6842d1f7f4ef0770294e8c74a",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^9.0"
+                "laravel/framework": "^9.0|^10.0"
             },
             "require-dev": {
+                "brainmaestro/composer-git-hooks": "dev-master",
                 "friendsofphp/php-cs-fixer": "^3.8",
+                "laravel/pint": "^1.5",
                 "mockery/mockery": "^1.5",
-                "orchestra/testbench": "^7.4",
-                "phpunit/phpunit": "^9.5"
+                "orchestra/testbench": "^8.0",
+                "phpunit/phpunit": "^10.0"
             },
             "type": "library",
             "extra": {
@@ -4713,7 +4715,7 @@
             "description": "User follow unfollow system for Laravel.",
             "support": {
                 "issues": "https://github.com/overtrue/laravel-follow/issues",
-                "source": "https://github.com/overtrue/laravel-follow/tree/5.0.1"
+                "source": "https://github.com/overtrue/laravel-follow/tree/5.1.0"
             },
             "funding": [
                 {
@@ -4721,7 +4723,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-25T11:20:09+00:00"
+            "time": "2023-02-15T06:15:49+00:00"
         },
         {
             "name": "overtrue/laravel-like",
