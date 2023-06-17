@@ -28,8 +28,8 @@ docker exec -it php /bin/sh
 composer install
 
 # give permission to the storage folder of the application
-chmod -R 777 storage
-chmod -R 777 bootstrap/cache
+sudo chmod -R 777 storage
+sudo chmod -R 777 bootstrap/cache
 
 # generate the application key using the following command
 php artisan key:generate
