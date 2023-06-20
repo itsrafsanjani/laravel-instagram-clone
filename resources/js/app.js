@@ -16,6 +16,11 @@ import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 import '../sass/app.scss';
 
+// If you are using JavaScript/ECMAScript modules:
+import Dropzone from "dropzone";
+import "dropzone/dist/dropzone.css";
+window.Dropzone = Dropzone;
+
 // Create an instance of Notyf
 const notyf = new Notyf({
     position: {

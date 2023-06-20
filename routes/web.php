@@ -14,6 +14,7 @@ use App\Http\Controllers\ScreenshotController;
 use App\Http\Controllers\SendCoinController;
 use App\Http\Controllers\ShortUrlController;
 use App\Http\Controllers\StaticPageController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Auth;
@@ -64,6 +65,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('/wallets', WalletController::class)->only(['index', 'create', 'store']);
 
     Route::resource('/send-coins', SendCoinController::class)->only(['create', 'store'])->middleware('password.confirm');
+
+    Route::resource('/uploader', UploadController::class);
 });
 
 // SSlCommerz Routes

@@ -22,6 +22,7 @@
         "add": "^2.0.6",
         "autosize": "^5.0.1",
         "clipboard": "^2.0.8",
+        "dropzone": "^6.0.0-beta.2",
         "firebase": "^9.1.2",
         "jquery-pjax": "^2.0.1",
         "moment": "^2.29.1",

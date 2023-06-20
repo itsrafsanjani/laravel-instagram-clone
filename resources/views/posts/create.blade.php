@@ -36,29 +36,12 @@
                                         @enderror
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="image">{{ __('Images') }}</label>
-                                        <input
-                                            class="form-control @error('image') is-invalid @enderror @error('image.*') is-invalid @enderror"
-                                            id="image"
-                                            name="image[]"
-                                            accept="image/*"
-                                            type="file"
-                                            required
-                                            multiple>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#uploaderModal">
+                                        Launch demo modal
+                                    </button>
 
-                                        @error('image')
-                                        <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-
-                                        @error('image.*')
-                                        <span class="invalid-feedback d-block" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                                    @include('partials.uploader-modal')
 
                                     <div class="row" id="preview"></div>
 

@@ -254,3 +254,27 @@ label {
         width: 25%;
     }
 }
+
+#file-input-container {
+    display: inline-block;
+    position: relative;
+}
+
+#file-input-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: #fff;
+    cursor: pointer;
+}
+
+#file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+

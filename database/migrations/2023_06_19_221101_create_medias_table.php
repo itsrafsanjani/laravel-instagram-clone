@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('mime_type')->nullable();
             $table->string('disk');
             $table->unsignedBigInteger('size')->comment('in bytes');
+            $table->string('path');
             $table->timestamps();
         });
     }
