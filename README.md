@@ -18,27 +18,33 @@ cp .env.example .env
 
 ### With Docker
 ```sh
+# give permission to the storage folder of the application
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+
+# storage symlink
+docker exec -it php /bin/sh -c "cd public && ln -s ../storage/app/public storage"
+
 # start the docker containers
 docker compose up
 
 # to access the php container, use this command
 docker exec -it php /bin/sh
 
-# install composer from the php container
-composer install
+    # install composer from the php container
+    composer install
+    
+    # install npm packages
+    npm install
+    
+    # build for production
+    npm run build
 
-# give permission to the storage folder of the application
-sudo chmod -R 777 storage
-sudo chmod -R 777 bootstrap/cache
-
-# generate the application key using the following command
-php artisan key:generate
-
-# storage symlink
-docker exec -it php /bin/sh -c "cd public && ln -s ../storage/app/public storage"
-
-# migrate the tables to the database and seed fake data for testing
-php artisan migrate --seed
+    # generate the application key using the following command
+    php artisan key:generate
+    
+    # migrate the tables to the database and seed fake data for testing
+    php artisan migrate --seed
 
 # check running docker containers status
 docker compose ps
