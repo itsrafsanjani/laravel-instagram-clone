@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Media;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UploadController extends Controller
 {
@@ -12,7 +13,9 @@ class UploadController extends Controller
     {
         $medias = Media::paginate();
 
-        return view('partials.uploads', compact('medias'));
+        $selected = explode(',', request('ids', ''));
+
+        return view('partials.uploads', compact('medias', 'selected'));
     }
     public function store(Request $request)
     {

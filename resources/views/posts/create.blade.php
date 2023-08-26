@@ -37,8 +37,8 @@
                                     </div>
 
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#uploaderModal">
-                                        Launch demo modal
+                                            data-target="#uploaderModal" data-ids="1,2,3">
+                                        Select media
                                     </button>
 
                                     @include('partials.uploader-modal')

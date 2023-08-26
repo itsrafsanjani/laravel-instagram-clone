@@ -1,8 +1,8 @@
 <div class="modal fade" id="uploaderModal" data-backdrop="static" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
         <div class="modal-content h-100">
-            <div class="modal-header pb-0 bg-light">
-                <div class="uppy-modal-nav">
+            <div class="modal-header pb-0">
+                <div>
                     <ul class="nav nav-tabs border-0">
                         <li class="nav-item">
                             <a class="nav-link active font-weight-medium text-dark" data-toggle="tab"
@@ -15,7 +15,7 @@
                     </ul>
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer justify-content-between bg-light">
+            <div class="modal-footer justify-content-between">
                 <div class="flex-grow-1 overflow-hidden d-flex">
                     <div class="">
                         <div class="uploader-selected">{{ __('0 File selected') }}</div>
@@ -101,8 +101,9 @@
 
         // get all files when this modal is opened
         $('#uploaderModal').on('shown.bs.modal', function (e) {
+            let ids = $(e.relatedTarget).data('ids')
             $.ajax({
-                url: '/uploader',
+                url: '/uploader?ids=' + ids,
                 type: 'GET',
                 success: function (data) {
                     $('#medias').html(data);
