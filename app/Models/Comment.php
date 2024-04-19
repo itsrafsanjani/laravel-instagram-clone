@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Exception;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,8 +13,10 @@ class Comment extends Model
     use HasFactory, HasEagerLimit, Loggable;
 
     protected $fillable = [
-        'comment',
+        'commentable_id',
+        'commentable_type',
         'user_id',
+        'comment',
         'is_approved',
     ];
 
@@ -54,6 +57,9 @@ class Comment extends Model
         return $this;
     }
 
+    /**
+     * @throws Exception
+     */
     protected function getAuthModelName()
     {
         if (config('comments.user_model')) {
