@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a30471071dd2a7334669b43545fc43cf",
+    "content-hash": "c93de9341646e3a53e3bc067e09acedc",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -1312,10 +1312,16 @@
         {
             "name": "famdirksen/laravel-referral",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itsrafsanjani/laravel-referral.git",
+                "reference": "0e6e9b8b94c1fff87e1f0a59861a1cf58c7e7358"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/laravel-referral",
-                "reference": "b98e3534a171c59eca7d561e70c7471a064cc310"
+                "type": "zip",
+                "url": "https://api.github.com/repos/itsrafsanjani/laravel-referral/zipball/0e6e9b8b94c1fff87e1f0a59861a1cf58c7e7358",
+                "reference": "0e6e9b8b94c1fff87e1f0a59861a1cf58c7e7358",
+                "shasum": ""
             },
             "require": {
                 "illuminate/database": "^8.12|^9.0|^10.0|^11.0",
@@ -1328,6 +1334,7 @@
                 "psalm/plugin-laravel": "^1.4",
                 "vimeo/psalm": "^4.3"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1377,9 +1384,16 @@
                 "famdirksen",
                 "laravel-referral"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/itsrafsanjani/laravel-referral/tree/master"
+            },
+            "funding": [
+                {
+                    "type": "custom",
+                    "url": "https://robindirksen.com"
+                }
+            ],
+            "time": "2024-04-19T17:14:06+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -2855,10 +2869,16 @@
         {
             "name": "jordanmiguel/laravel-popular",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itsrafsanjani/laravel-popular.git",
+                "reference": "0796f001d37e17af683bd0c1a3a8796a6cd17b7d"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/laravel-popular",
-                "reference": "2c17423f9842c856e91ceb2fad9f3ac8d2ea112d"
+                "type": "zip",
+                "url": "https://api.github.com/repos/itsrafsanjani/laravel-popular/zipball/0796f001d37e17af683bd0c1a3a8796a6cd17b7d",
+                "reference": "0796f001d37e17af683bd0c1a3a8796a6cd17b7d",
+                "shasum": ""
             },
             "require": {
                 "illuminate/support": "^8.12|^9.0|^10.0|^11.0",
@@ -2868,6 +2888,7 @@
                 "phpunit/phpunit": ">=5.4.3",
                 "squizlabs/php_codesniffer": "^2.3"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2916,9 +2937,10 @@
                 "Popular",
                 "laravel-popular"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/itsrafsanjani/laravel-popular/tree/master"
+            },
+            "time": "2024-04-19T17:13:07+00:00"
         },
         {
             "name": "laravel/framework",
@@ -5912,71 +5934,6 @@
                 "source": "https://github.com/pusher/pusher-http-php/tree/7.2.4"
             },
             "time": "2023-12-15T10:58:53+00:00"
-        },
-        {
-            "name": "rachidlaasri/laravel-installer",
-            "version": "4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rashidlaasri/LaravelInstaller.git",
-                "reference": "b751b4c23dba893e9a4a12f881a6fd8fa921d228"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rashidlaasri/LaravelInstaller/zipball/b751b4c23dba893e9a4a12f881a6fd8fa921d228",
-                "reference": "b751b4c23dba893e9a4a12f881a6fd8fa921d228",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "RachidLaasri\\LaravelInstaller\\Providers\\LaravelInstallerServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/Helpers/functions.php"
-                ],
-                "psr-4": {
-                    "RachidLaasri\\LaravelInstaller\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rachid Laasri",
-                    "email": "rashidlaasri@gmail.com"
-                },
-                {
-                    "name": "Jeremy Kenedy",
-                    "email": "jeremykenedy@gmail.com"
-                }
-            ],
-            "description": "Laravel web installer",
-            "support": {
-                "issues": "https://github.com/rashidlaasri/LaravelInstaller/issues",
-                "source": "https://github.com/rashidlaasri/LaravelInstaller/tree/4.1.0"
-            },
-            "funding": [
-                {
-                    "url": "https://rachidlaasri.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://twitter.com/rashidlaasri",
-                    "type": "custom"
-                }
-            ],
-            "abandoned": true,
-            "time": "2020-05-19T13:19:45+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -12922,7 +12879,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.1.0",
+        "php": "^8.1",
         "ext-bcmath": "*",
         "ext-gd": "*",
         "ext-gmp": "*",
