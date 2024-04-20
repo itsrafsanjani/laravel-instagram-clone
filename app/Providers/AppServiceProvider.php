@@ -5,7 +5,6 @@ namespace App\Providers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
-use Opcodes\LogViewer\Facades\LogViewer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,10 +34,5 @@ class AppServiceProvider extends ServiceProvider
         Model::preventSilentlyDiscardingAttributes(
             ! app()->isProduction()
         );
-
-        LogViewer::auth(function ($request) {
-            return $request->user()
-                && $request->user()->is_admin;
-        });
     }
 }

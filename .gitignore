@@ -22,3 +22,6 @@ yarn-error.log
 /storage/installed
 /packages
 *.bak
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php

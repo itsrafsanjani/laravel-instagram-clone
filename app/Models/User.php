@@ -18,11 +18,10 @@ use Illuminate\Notifications\Notifiable;
 use Overtrue\LaravelFollow\Traits\Followable;
 use Overtrue\LaravelFollow\Traits\Follower;
 use Overtrue\LaravelLike\Traits\Liker;
-use Spatie\Image\Manipulations;
+use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class User extends Authenticatable implements
     MustVerifyEmail,
@@ -34,7 +33,6 @@ class User extends Authenticatable implements
 {
     use HasFactory,
         Notifiable,
-        HasEagerLimit,
         Followable,
         Follower,
         Liker,
@@ -152,7 +150,7 @@ class User extends Authenticatable implements
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')
-            ->fit(Manipulations::FIT_CROP, 400, 400)
+            ->fit(Fit::Crop, 400, 400)
             ->sharpen(10);
     }
 
